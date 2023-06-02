@@ -1,0 +1,174 @@
+.dc-dashboard{
+    position: relative;
+    padding:0;
+    height: 100vh;
+    background: $light;
+    display: flex;
+    &__layout{
+        width: calc(100% - 260px);
+        padding: rem(85) rem(25);
+    }
+    &__header{
+        padding: 0 rem(25);
+        position: fixed;
+        right: 0;
+        top: 0;
+        background: $blue;
+        z-index: 1;
+        left: rem(260);
+        height: rem(60);
+        width: calc(100% - 260px);
+        display: flex;
+        justify-content: space-between;
+        align-items:center;
+        h5{
+            margin: 0;
+            color: $white;
+        }
+    }
+    &__header-right{
+        position: relative;
+    }
+    &__dropdown-button{
+        border: none;
+        padding: rem(3) rem(10);
+        background: none;
+        color: $white;
+        border: 1px solid $white;
+        display: flex;
+        align-items: center;
+        .fa-solid{
+            margin-left: 10px;
+            font-size: rem(12);
+        }
+    }
+    &__header-dropdown{
+        position: absolute;
+        background: $white;
+        padding: rem(15) rem(15) rem(5) rem(15);
+        right: 0;
+        top: rem(46);
+        width: rem(220);
+        box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 5%);
+        animation: dropdown .2s ease forwards;
+        border-radius: 0 0 rem(5) rem(5);
+        ul{
+            li{
+                border-bottom: 1px solid tint-color($secondary, 85%);
+                a{
+                    padding: rem(10) 0;
+                    color: $secondary;
+                    display: block;
+                    .fa-solid{
+                        font-size: 14px;
+                        margin-right: 8px;
+                    }
+                }
+                &:last-child{
+                    border: none;
+                }
+            }
+        }
+    }
+    &__footer{
+        padding: 0 rem(25);
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        left: rem(260);
+        display: flex;
+        justify-content: space-between;
+        width: calc(100% - 260px);
+        p{
+            font-size: 12px;
+            span{
+                color: $primary;
+            }
+            .fa-heart{
+                color: $primary;
+                margin-left: 5px;
+            }
+        }
+    }
+    &__sidebar{
+        width: rem(260);
+        height: 100%;
+        background: $white;
+        border-right: rem(1) solid #e4e9f0;
+        z-index: 2;
+    }
+    &__logo{
+        padding: rem(6) rem(15);
+        border-bottom: rem(1) solid #e4e9f0;
+        .dc-h3{
+            margin: 0;
+            color: $primary;
+        }
+    }
+    &__sidebar-nav{
+        margin-top: rem(50);
+        ul{
+            li{
+                margin-bottom: rem(10);
+                padding: rem(10) rem(25);
+                
+                &.isActive{
+                    background: #1a55e3;
+                    color: #fff;
+                }
+                ul{
+                    li{
+                        margin: rem(3) 0;
+                        padding:0;
+                        font-size: rem(14);
+                        a{
+                            color: #fff;
+                            display: block;
+                            padding:rem(5) 0 rem(5) 18px;
+                        }
+                        &.selected{
+                            a{
+                                font-weight: 600;
+                                &.active{
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &--title{
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            column-gap: rem(10);
+            align-items: center;
+            h5{
+                margin: 0;
+                font-size: rem(16);
+                font-weight: 400;
+                display: flex;
+                align-items: center;
+                column-gap: rem(10);
+            }
+            span{
+                font-size: rem(12);
+            }
+        }
+        &--subitem{
+            border-left: 1px solid #fff;
+            margin: rem(10) 0 0 rem(8);
+            animation: dropdown .2s ease forwards;
+            li{
+                margin: 0;
+                padding: 0;
+            }
+        }
+    }
+}
+@keyframes dropdown{
+    0%{ opacity: 0; transform: translateY(-1rem); }
+    100%{ opacity: 1; transform: translateY(0); }
+}

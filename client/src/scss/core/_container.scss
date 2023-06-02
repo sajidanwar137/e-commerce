@@ -1,0 +1,67 @@
+//ui setup code start
+.cmp-link-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-height: 100%;
+  width: rem(300px);
+  padding: 0;
+  border-right: rem(1px) solid shade-color($light, 10%);
+  background: shade-color($light, 5%);
+  h4 {
+      padding: rem(15px);
+      border-bottom: rem(1px) solid $white;
+      font-size: rem(18);
+      font-weight: 700;
+  }
+  h3 {
+      padding: rem(15px);
+      border-bottom: rem(1px) solid $white;
+      font-size: rem(20);
+      margin-bottom: rem(30);
+      font-weight: 700;
+  }
+  ul {
+      margin: 0 0 rem(30) 0;
+      li {
+          padding: rem(10) rem(15);
+          border-bottom: rem(1px) solid $white;
+      }
+  }
+}
+.cmp-content-container {
+  padding: rem(50px) rem(15px) rem(50px) rem(315px);
+  ul {
+      li {
+          display: inline-block;
+          margin: rem(15) rem(15) 0 0;
+          padding: rem(10);
+          border: rem(1px) solid $white;
+      }
+  }
+}
+//***************************************************************
+.dc-container{
+  padding-left: rem(15);
+  padding-right: rem(15);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  width: 100%;
+  @media (min-width: $screen-md) {
+    max-width: rem($container-md);
+  }
+  @media (min-width: $screen-lg) {
+    max-width: rem($container-lg);
+  }
+  @media (min-width: $screen-xl) {
+    max-width: rem($container-xl);
+  }
+}
+// Spacing class
+.dc-p-tb{
+  @include container-padding($bottom: true, $xl: 65, $lg: 50, $md: 40, $sm: 30);
+}
+.dc-p-t{
+  @include container-padding($bottom: false, $xl: 65, $lg: 50, $md: 40, $sm: 30);
+}

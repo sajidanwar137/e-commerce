@@ -1,0 +1,123 @@
+// REM mixin for width, height and size etc
+@use "sass:math";
+@function rem($pixels, $context: $font-size) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return math.div($pixels, $context) * 1rem;
+}
+// tint-color($secondary, 60%);
+@function tint-color($color, $weight) {
+  @return mix(white, $color, $weight);
+}
+//shade-color($secondary, 20%); 
+@function shade-color($color, $weight) {
+  @return mix(black, $color, $weight);
+}
+// this mixin will work for single value property
+//@include cssStyle('margin', rem(50), rem(30), rem(50), rem(65));
+//@include cssStyle('margin-left', rem(50), rem(30), rem(50), rem(65));
+@mixin cssStyle($property, $sm, $md, $lg, $xl) {
+  @if $sm {
+    #{$property}: rem($sm);
+  }
+  @if $md {
+    @media (min-width: $screen-md) {
+      #{$property}: rem($md);
+    }
+  }
+  @if $lg {
+    @media (min-width: $screen-lg) {
+      #{$property}: rem($lg);
+    }
+  }
+  @if $xl {
+    @media (min-width: $screen-xl) {
+      #{$property}: rem($xl);
+    }
+  }
+}
+// Use this mixin if you want to add multiple spacing values
+//@include multi-spacing('margin', rem(50) 0, rem(30) 0, rem(50) 0, rem(65) 0);
+@mixin multi-spacing($spacing, $sm, $md, $lg, $xl) {
+  @if $sm {
+    #{$spacing}: $sm;
+  }
+  @if $md {
+    @media (min-width: $screen-md) {
+      #{$spacing}: $md;
+    }
+  }
+  @if $lg {
+    @media (min-width: $screen-lg) {
+      #{$spacing}: $lg;
+    }
+  }
+  @if $xl {
+    @media (min-width: $screen-xl) {
+      #{$spacing}: $xl;
+    }
+  }
+}
+// this mixin will work for ellepsis, For ex: @include text-flow(2);
+@mixin text-flow($n){
+  display: -webkit-box;
+  -webkit-line-clamp: $n;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+//--------------------------------------------------
+//if top and bottom padding @include container-padding();
+//if only top padding @include container-padding(false);
+@mixin container-padding($bottom: true, $xl: 65, $lg: 50, $md: 40, $sm: 30){
+  padding-top: rem($sm);
+  @media (min-width: $screen-md) {
+    padding-top: rem($md);
+  }
+  @media (min-width: $screen-lg) {
+    padding-top: rem($lg);
+  }
+  @media (min-width: $screen-xl) {
+    padding-top: rem($xl);
+  }
+  @if $bottom {
+    padding-bottom: rem($sm);
+    @media (min-width: $screen-md) {
+      padding-bottom: rem($md);
+    }
+    @media (min-width: $screen-lg) {
+      padding-bottom: rem($lg);
+    }
+    @media (min-width: $screen-xl) {
+      padding-bottom: rem($xl);
+    }
+  }
+}
+//For screen reader
+@mixin sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: rem(1);
+  margin: rem(-1);
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: rem(1);
+}
+@mixin sr-only-focusable {
+  &:active,
+  &:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
+}

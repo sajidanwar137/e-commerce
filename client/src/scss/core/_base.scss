@@ -1,0 +1,25 @@
+html {
+  font-family: $font-family;
+  font-size:   $font-size;
+  line-height: $font-height;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  font-weight: 400;
+}
+body {
+  color:       $dark;
+  background:  $white;
+  font-weight: 300;
+}
+strong {
+   font-weight: 700;
+}
+a{
+    color: $primary;
+    text-decoration: none;
+    transition: all .3s ease-in;
+}
+
+
