@@ -2,7 +2,7 @@ import React from 'react'
 import Sidebar from '../../components/admin/sidebar/Sidebar'
 import Header from '../../components/admin/header/Header'
 import Footer from '../../components/admin/footer/Footer'
-
+import './index.scss';
 function AdminDashboard() {
   return (
     <div className='dc-dashboard d-flex flex-row'>

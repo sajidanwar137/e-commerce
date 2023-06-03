@@ -1,0 +1,18 @@
+@import "../../scss/abstracts/_abstracts-dir";
+
+.dc-dashboard{
+    flex: 1 0 auto;
+    background: $bg-color-gray-100;
+    &__layout{
+        flex: 1 auto;
+        min-width: 0;
+        padding-left: rem(265);
+        &--card-body{
+            background: $bg-color-white;
+        }
+    }
+    &__layout-content{
+        flex: 1 0 auto;
+        min-height: 100vh;
+    }
+}

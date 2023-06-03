@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { login } from "../../store/auth/actions";
 import { useNavigate } from 'react-router-dom';
 import {adminLogin } from '../../api/api';
-
+import './adminlogin.scss';
 function AdminLogin() {
   const dispatch = useDispatch()
   const navigate = useNavigate();

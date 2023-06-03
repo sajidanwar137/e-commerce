@@ -1,3 +1,4 @@
+@import "../../scss/abstracts/_abstracts-dir";
 .dc-admin-layout{
     position: fixed;
     width: 100%;
@@ -25,6 +26,13 @@
         box-shadow: 0px 10px 34px -15px rgb(0 0 0 / 24%);
         position: relative;
         z-index: 2;
+        &-row{
+            &.forgot-password-row{
+                display: flex;
+                justify-content: flex-end;
+                margin-bottom: 0;
+            }
+        }
     }
     &__admin-icon{
         &--icon{
@@ -38,12 +46,5 @@
     }
     &__title{
         column-gap: rem(10);
-    }
-    &__layout-row{
-        &.forgot-password-row{
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 0;
-        }
     }
 }
