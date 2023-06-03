@@ -121,3 +121,17 @@
     width: auto;
   }
 }
+//For iconmoon font
+@mixin dciconmoonStyle {
+  font-family: $iconmoon-family !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

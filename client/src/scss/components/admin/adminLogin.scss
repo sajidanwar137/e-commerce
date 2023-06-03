@@ -27,27 +27,19 @@
         z-index: 2;
     }
     &__admin-icon{
-        display: flex;
-        justify-content:center;
-        margin-top: -80px;
-        margin-bottom: rem(16);
         &--icon{
-            width: rem(80);
-            height: rem(80);
+            width: rem(32);
+            height: rem(32);
             border-radius: 50%;
-            background: $primary;
-            display: flex;
-            justify-content:center;
-            align-items:center;
-            color: $white;
-            font-size: rem(30);
+            background: $bg-color-primary;
+            color: $text-color-white;
+            font-size: rem(16);
         }
     }
     &__title{
-        text-align: center;
+        column-gap: rem(10);
     }
     &__layout-row{
-        margin-bottom: rem(16);
         &.forgot-password-row{
             display: flex;
             justify-content: flex-end;
