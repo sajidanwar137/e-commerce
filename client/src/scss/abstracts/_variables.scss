@@ -14,11 +14,19 @@ $bg-color-success           : $success;
 $text-color-white           : $white;
 $text-color-gray-700        : $gray-700;
 $text-color-gray-900        : $gray-900;
+$text-color-muted           : $gray-500;
 // ===============Admin border color===========
 $border-color-gray-300      : $gray-300;
 $border-color-gray-400      : $gray-400;
 // ===============Admin Link color=============
 $link-text-color-primary    : $primary;
+$link-text-gray-800         : $gray-800;
+$link-text-color-danger     : $danger;
+// ===============Admin button bg color========
+$button-bg-color-primary    : $primary;
+$button-bg-color-secondary  : $success;
+// ===============Admin button text color======
+$button-text-color-white    : $white;
 // ==============Media Breakpoint==============
 $screen-md:      768px;
 $screen-lg:      1280px;
@@ -29,5 +37,5 @@ $container-lg :  1220px;
 $container-md :  740px;
 //===============Font path=====================
 $font-path: "../../resources/fonts";
-$image-path: "./images";
+$image-path: "../../resources/images";
 

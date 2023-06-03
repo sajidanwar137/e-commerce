@@ -20,6 +20,9 @@ a{
     color: $link-text-color-primary;
     text-decoration: none;
     transition: all .3s ease-in;
+    &:hover{
+      color: shade-color($link-text-color-primary, 10%);
+    }
 }
 
 

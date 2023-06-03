@@ -1,46 +1,33 @@
 import React from 'react'
-import AdminSideNavigation from './AdminSideNavigation'
-import { accordionData } from "./sideNavigationData";
 import {Accordion, AccordionBody, AccordionHeader, AccordionItem} from "react-headless-accordion";
 
 function AdminSidebar() {
   return (
     <div className='dc-dashboard__sidebar'>
-      <div className='dc-dashboard__logo'>
+      <div className='dc-dashboard__logo py-9 px-8'>
         <h1 className='dc-h3'>dizcoder</h1>
       </div>
-      <div className='dc-dashboard__sidebar-nav'>
-      <Accordion>
+      <div className='dc-dashboard__sidebar--menu-text pb-10 px-8 pt-25'>GETTING STARTED</div>
+      <Accordion className='dc-dashboard__sidebar-nav'>
             <AccordionItem>
-                <AccordionHeader>
-                    <h4 className={`accordion-title`}>Title 1</h4>
+                <AccordionHeader className='px-8 py-6 d-flex justify-content-between align-items-center dc-dashboard__sidebar-nav--heading' as={'div'}>
+                  <div className='d-flex dc-dashboard__sidebar-nav--text'>
+                    <span className='dc-icon-user'></span>
+                    <span className={`accordion-title`}>Admin setting</span>
+                  </div>
+                  <span className="dc-icon-arrow-right"></span>
+                  <span className="dc-icon-arrow-down"></span>
                 </AccordionHeader>
-
                 <AccordionBody>
-                    <div className="accordion-body">
-                        Lorem ipsum dolor sit amet.
-                    </div>
-                </AccordionBody>
-            </AccordionItem>
-
-            <AccordionItem>
-                <AccordionHeader>
-                    <h4 className={`accordion-title`}>Title 2</h4>
-                </AccordionHeader>
-
-                <AccordionBody>
-                    <div className="accordion-body">
-                        Lorem ipsum dolor sit amet.
+                    <div className="dc-dashboard__sidebar-nav--content px-8">
+                      <ul>
+                        <li><a href="#" className='px-12 py-4'>Update profile</a></li>
+                        <li><a href="#" className='px-12 py-4'>Change password</a></li>
+                      </ul>
                     </div>
                 </AccordionBody>
             </AccordionItem>
         </Accordion>
-        {/* <ul>
-            {accordionData.map(({ title, content}, index) => (
-              <AdminSideNavigation title={title} content={content} key={index}/>
-            ))}
-        </ul> */}
-      </div>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React, {useState } from 'react';
 import { useDispatch } from "react-redux";
-import { login } from "../../redux/auth/actions";
+import { login } from "../../store/auth/actions";
 import { useNavigate } from 'react-router-dom';
 import {adminLogin } from '../../api/api';
 
@@ -40,7 +40,7 @@ function AdminLogin() {
       <div className='dc-admin-layout__layout p-10'>
         <div className='dc-admin-layout__title mb-15 d-flex align-items-center justify-content-center'>
             <div className='dc-admin-layout__admin-icon--icon d-flex justify-content-center align-items-center'>
-              <span class="dc-icon-user"></span>
+              <span className="dc-icon-user"></span>
             </div>
             <h4 className='dc-h4'>Admin login</h4>
         </div>
@@ -55,7 +55,7 @@ function AdminLogin() {
                 <a href="#">Forgot Password?</a>
             </div>
             <div className='dc-admin-layout__layout-row'>
-                <button type="submit" className='dc-btn dc-btn-secondary dc-btn-fluid'>Login</button>
+                <button type="submit" className='dc-btn dc-btn-secondary dc-btn-fluid px-20 py-5'>Login</button>
             </div>
         </form>
       </div>
