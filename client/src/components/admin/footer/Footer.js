@@ -1,6 +1,6 @@
 import React from 'react'
-
-function AdminFooter() {
+import './index.scss';
+function Footer() {
   return (
     <div className='dc-dashboard__footer py-4 d-flex flex-lg-column py-6'>
       <div className='container d-flex flex-column flex-md-row align-items-center justify-content-between'>
@@ -11,4 +11,4 @@ function AdminFooter() {
   )
 }
 
-export default AdminFooter
+export default Footer

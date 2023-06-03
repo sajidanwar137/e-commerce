@@ -5,6 +5,9 @@
         flex: 1 auto;
         min-width: 0;
         padding-left: rem(265);
+        &--card-body{
+            background: $bg-color-white;
+        }
     }
     &__layout-content{
         flex: 1 0 auto;
@@ -13,50 +16,6 @@
     &__header{
         h5{
             margin: 0;
-        }
-    }
-    &__header-right{
-        position: relative;
-    }
-    &__dropdown-button{
-        border: none;
-        padding: rem(3) rem(10);
-        background: none;
-        color: #000;
-        border: 1px solid $white;
-        display: flex;
-        align-items: center;
-        .fa-solid{
-            margin-left: 10px;
-            font-size: rem(12);
-        }
-    }
-    &__header-dropdown{
-        position: absolute;
-        background: $white;
-        padding: rem(15) rem(15) rem(5) rem(15);
-        right: 0;
-        top: rem(46);
-        width: rem(220);
-        box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 5%);
-        animation: dropdown .2s ease forwards;
-        border-radius: 0 0 rem(5) rem(5);
-        ul{
-            li{
-                border-bottom: 1px solid tint-color($secondary, 85%);
-                a{
-                    padding: rem(10) 0;
-                    color: $secondary;
-                    display: block;
-                    .fa-solid{
-                        font-size: 14px;
-                        margin-right: 8px;
-                    }
-                }
-                &:last-child{
-                    border: none;
-                }
-            }
         }
     }
     &__footer{
@@ -143,16 +102,4 @@
             }
         }
     }
-}
-@keyframes dropdown{
-    0%{ opacity: 0; transform: translateY(-1rem); }
-    100%{ opacity: 1; transform: translateY(0); }
-}
-
-//admin logout scss
-.dc-logout{
-    column-gap: rem(7);
-    cursor: pointer;
-    color: $link-text-color-danger;
-    font-weight: 600;
 }

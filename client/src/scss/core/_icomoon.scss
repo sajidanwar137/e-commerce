@@ -1,68 +1,72 @@
 [class^="dc-icon-"], [class*=" dc-icon-"] {
     @include dciconmoonStyle();
 }
-.dc-icon-idea {
-    &::before{
-        content: $dc-icon-idea 
+.dc-icon {
+    &-idea{
+        &::before{
+            content:$dc-icon-idea 
+        }
     }
-}
-.dc-icon-home {
-    &::before{
-        content: $dc-icon-home
+    &-home{
+        &::before{
+            content:$dc-icon-home
+        }
     }
-}
-.dc-icon-pencil {
-    &::before{
-        content: $dc-icon-pencil
+    &-pencil{
+        &::before{
+            content:$dc-icon-pencil
+        }
     }
-}
-.dc-icon-envelop {
-    &::before{
-        content: $dc-icon-envelop 
+    &-envelop{
+        &::before{
+            content:$dc-icon-envelop
+        }
     }
-}
-.dc-icon-user {
-    &::before{
-        content: $dc-icon-user 
+    &-user{
+        &::before{
+            content:$dc-icon-user
+        }
     }
-}
-.dc-icon-search {
-    &::before{
-        content: $dc-icon-search 
+    &-search{
+        &::before{
+            content:$dc-icon-search
+        }
     }
-}
-.dc-icon-key {
-    &::before{
-        content: $dc-icon-key
+    &-key{
+        &::before{
+            content:$dc-icon-key
+        }
     }
-}
-.dc-icon-bin {
-    &::before{
-        content: $dc-icon-bin
+    &-bin{
+        &::before{
+            content:$dc-icon-bin
+        }
     }
-}
-.dc-icon-switch {
-    &::before{
-        content: $dc-icon-switch
+    &-switch{
+        &::before{
+            content:$dc-icon-switch
+        }
     }
-}
-.dc-icon-arrow-left {
-    &::before{
-        content: $dc-icon-arrow-left
-    }
-}
-.dc-icon-arrow-right {
-    &::before{
-        content: $dc-icon-arrow-right
-    }
-}
-.dc-icon-arrow-up {
-    &::before{
-        content: $dc-icon-arrow-up
-    }
-}
-.dc-icon-arrow-down {
-    &::before{
-        content: $dc-icon-arrow-down
+    &-arrow{
+        &-left{
+            &::before{
+                content:$dc-icon-arrow-left
+            }
+        }
+        &-right{
+            &::before{
+                content:$dc-icon-arrow-right
+            }
+        }
+        &-up{
+            &::before{
+                content:$dc-icon-arrow-up
+            }
+        }
+        &-down{
+            &::before{
+                content:$dc-icon-arrow-down
+            }
+        }
     }
 }

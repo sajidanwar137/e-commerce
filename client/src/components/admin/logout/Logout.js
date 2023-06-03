@@ -1,8 +1,9 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { logout } from '../../store/auth/actions';
+import { logout } from '../../../store/auth/actions';
 import { useNavigate } from 'react-router-dom';
-import {postData } from '../../api/api';
+import {postData } from '../../../api/api';
+import './index.scss';
 
 function Logout() {
   const dispatch = useDispatch()

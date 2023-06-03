@@ -8,26 +8,28 @@
     border: none;
     border-radius: rem(3);
     justify-content: center;
-    &.dc-btn-primary{
-        background: $button-bg-color-primary;
-        color: $button-text-color-white;
-        &:hover{
+    &.dc-btn{
+        &-primary{
+            background: $button-bg-color-primary;
             color: $button-text-color-white;
-            background-color: shade-color($button-bg-color-primary, 10%);
-            transition: background-color 0.5s ease;
+            &:hover{
+                color: $button-text-color-white;
+                background-color: shade-color($button-bg-color-primary, 10%);
+                transition: background-color 0.5s ease;
+            }
         }
-    }
-    &.dc-btn-secondary{
-        background: $button-bg-color-secondary;
-        color: $button-text-color-white;
-        &:hover{
+        &-secondary{
+            background: $button-bg-color-secondary;
             color: $button-text-color-white;
-            background-color: shade-color($button-bg-color-secondary, 10%);
-            transition: background-color 0.5s ease;
+            &:hover{
+                color: $button-text-color-white;
+                background-color: shade-color($button-bg-color-secondary, 10%);
+                transition: background-color 0.5s ease;
+            }
         }
-    }
-    &.dc-btn-fluid{
-        width: 100%;
+        &-fluid{
+            width: 100%;
+        }
     }
 }
 

@@ -1,16 +1,16 @@
 import React from 'react'
-import AdminSidebar from '../../components/admin/AdminSidebar'
-import AdminHeader from '../../components/admin/AdminHeader'
-import AdminFooter from '../../components/admin/AdminFooter'
+import Sidebar from '../../components/admin/sidebar/Sidebar'
+import Header from '../../components/admin/header/Header'
+import Footer from '../../components/admin/footer/Footer'
 
 function PageOne() {
   return (
     <div className='dc-dashboard'>
-        <AdminSidebar/>
+        <Sidebar/>
         <div className='dc-dashboard__layout d-flex justify-content-center align-items-center'>
             <div className=''>HHHHHH</div>
-            <AdminHeader/>
-            <AdminFooter/>
+            <Header/>
+            <Footer/>
         </div>
     </div>
   )

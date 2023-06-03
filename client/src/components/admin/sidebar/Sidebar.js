@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link} from "react-router-dom";
 import {Accordion, AccordionBody, AccordionHeader, AccordionItem} from "react-headless-accordion";
-
-function AdminSidebar() {
+import './index.scss';
+function Sidebar() {
   return (
     <div className='dc-dashboard__sidebar'>
       <div className='dc-dashboard__logo py-9 px-8'>
@@ -22,7 +23,7 @@ function AdminSidebar() {
                     <div className="dc-dashboard__sidebar-nav--content px-8">
                       <ul>
                         <li><a href="#" className='px-12 py-4'>Update profile</a></li>
-                        <li><a href="#" className='px-12 py-4'>Change password</a></li>
+                        <li><Link to="/dashboard/changepassword" className='px-12 py-4'>Change password</Link></li>
                       </ul>
                     </div>
                 </AccordionBody>
@@ -32,4 +33,4 @@ function AdminSidebar() {
   )
 }
 
-export default AdminSidebar
+export default Sidebar
