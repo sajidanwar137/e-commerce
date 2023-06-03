@@ -9,12 +9,12 @@ html {
   font-weight: 400;
 }
 body {
-  color:       $dark;
-  background:  $white;
-  font-weight: 300;
+  color           : $text-color-gray-700;
+  background      : $bg-color-white;
+  font-weight     : 400;
 }
 strong {
-   font-weight: 700;
+   font-weight: 600;
 }
 a{
     color: $primary;

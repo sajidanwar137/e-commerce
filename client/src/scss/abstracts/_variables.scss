@@ -1,21 +1,19 @@
+@import "_color";
+
 $font-size: 16px;
 $font-height: 1.5;
-//$font-family: 'Noto Sans Display', sans-serif;
-// $font-family: 'Roboto', sans-serif;
 $font-family: 'Inter', sans-serif;
-// ===============Color variable===============
-$white:         #fff    !default;
-$black:         #000    !default;
-$primary:       #f12639 !default;
-$secondary:     #1f2749 !default;
-$warning:       #fbcc5d !default;
-$success:       #2ecd75 !default;
-$info:          #41c6f2 !default;
-$danger:        #f55454 !default;
-$gray:          #6c757d !default;
-$light:         #f5f5f5 !default;
-$dark:          #343a40 !default;
-$blue:          #0033c4 !default;
+
+// ===============Admin bg color===============
+$bg-color-white             : $white;
+$bg-color-gray-100          : $gray-100;
+$bg-color-primary           : $primary;
+$bg-color-success           : $success;
+// ===============Admin text color=============
+$text-color-gray-700        : $gray-700;
+$text-color-gray-900        : $gray-900;
+// ===============Admin border color===========
+$border-color-gray-300      : $gray-300;
 // ==============Media Breakpoint==============
 $screen-md:      768px;
 $screen-lg:      1280px;

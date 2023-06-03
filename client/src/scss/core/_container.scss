@@ -6,8 +6,8 @@
   min-height: 100%;
   width: rem(300px);
   padding: 0;
-  border-right: rem(1px) solid shade-color($light, 10%);
-  background: shade-color($light, 5%);
+  border-right: rem(1px) solid shade-color($bg-color-gray-100, 10%);
+  background: shade-color($bg-color-gray-100, 5%);
   h4 {
       padding: rem(15px);
       border-bottom: rem(1px) solid $white;

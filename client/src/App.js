@@ -16,9 +16,10 @@ function App() {
         <Route path='/' element={<PageOne/>}/>
         <Route exact path='/' element={<PrivateRoutes />}>
           <Route path='/dashboard' element={<AdminDashboard/>}/>
+          <Route path='/dashboard/pagetwo' element={<PageTwo/>}/>
         </Route>
         <Route path='/dashboard/login' element={<AdminLogin/>}/>
-        <Route path='/dashboard/pagetwo' element={<PageTwo/>}/>
+        
       </Routes>
     </Router>
     </Provider>

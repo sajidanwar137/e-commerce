@@ -131,7 +131,6 @@ exports.adminLogin = async(req, res) => {
 
 exports.updateAdminPassword = async(req, res) =>{
     try {
-        console.log(":::::", req.body.admin_id)
         const admin_id = req.body.admin_id;
         const password = req.body.password;
         const data = await Admin.findOne({_id: admin_id});

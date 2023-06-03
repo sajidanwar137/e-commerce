@@ -36,15 +36,15 @@ function AdminLogin() {
   };
 
   return (
-    <div className='dc-admin-layout'>
-      <div className='dc-admin-layout__layout'>
+    <div className='dc-admin-layout p-7 d-flex justify-content-center align-items-center'>
+      <div className='dc-admin-layout__layout p-10'>
         <div className='dc-admin-layout__admin-icon'>
             <div className='dc-admin-layout__admin-icon--icon'>
                 <i className="fa-regular fa-user"></i>
             </div>
         </div>
         <div className='dc-admin-layout__title'>
-            <h3 className='dc-h3'>Sign In</h3>
+            <h4 className='dc-h4'>Sign In</h4>
         </div>
         <form className='dc-admin-layout__layout-body' onSubmit={handleSubmit}>
             <div className='dc-admin-layout__layout-row'>

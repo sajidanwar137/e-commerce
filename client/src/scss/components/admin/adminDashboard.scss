@@ -1,29 +1,18 @@
 .dc-dashboard{
-    position: relative;
-    padding:0;
-    height: 100vh;
-    background: $light;
-    display: flex;
+    flex: 1 0 auto;
+    background: $bg-color-gray-100;
     &__layout{
-        width: calc(100% - 260px);
-        padding: rem(85) rem(25);
+        flex: 1 auto;
+        min-width: 0;
+        padding-left: rem(265);
+    }
+    &__layout-content{
+        flex: 1 0 auto;
+        min-height: 100vh;
     }
     &__header{
-        padding: 0 rem(25);
-        position: fixed;
-        right: 0;
-        top: 0;
-        background: $blue;
-        z-index: 1;
-        left: rem(260);
-        height: rem(60);
-        width: calc(100% - 260px);
-        display: flex;
-        justify-content: space-between;
-        align-items:center;
         h5{
             margin: 0;
-            color: $white;
         }
     }
     &__header-right{
@@ -33,7 +22,7 @@
         border: none;
         padding: rem(3) rem(10);
         background: none;
-        color: $white;
+        color: #000;
         border: 1px solid $white;
         display: flex;
         align-items: center;
@@ -71,15 +60,7 @@
         }
     }
     &__footer{
-        padding: 0 rem(25);
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        z-index: 1;
-        left: rem(260);
-        display: flex;
-        justify-content: space-between;
-        width: calc(100% - 260px);
+        
         p{
             font-size: 12px;
             span{
@@ -92,11 +73,17 @@
         }
     }
     &__sidebar{
-        width: rem(260);
-        height: 100%;
-        background: $white;
-        border-right: rem(1) solid #e4e9f0;
-        z-index: 2;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 101;
+        overflow: hidden;
+        width: rem(265);
+        display: flex;
+        flex-direction: column;
+        background: $bg-color-white;
+        box-shadow: 0 0 rem(28) 0 rgba(82, 63, 105, 0.025);
     }
     &__logo{
         padding: rem(6) rem(15);
@@ -123,7 +110,7 @@
                         padding:0;
                         font-size: rem(14);
                         a{
-                            color: #fff;
+                            color: #000;
                             display: block;
                             padding:rem(5) 0 rem(5) 18px;
                         }

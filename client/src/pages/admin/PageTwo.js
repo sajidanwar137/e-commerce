@@ -7,8 +7,8 @@ function PageOne() {
   return (
     <div className='dc-dashboard'>
         <AdminSidebar/>
-        <div className='dc-dashboard__layout'>
-            <h2>Page two</h2>
+        <div className='dc-dashboard__layout d-flex justify-content-center align-items-center'>
+            <div className=''>HHHHHH</div>
             <AdminHeader/>
             <AdminFooter/>
         </div>

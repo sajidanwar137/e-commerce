@@ -2,7 +2,7 @@
     *:focus {
         text-decoration: none;
         outline-offset: rem(4);
-        outline:rem(2) solid $gray;
+        outline:rem(2) solid $border-color-gray-300;
     }
     *.active,*:hover{
         outline:0;
