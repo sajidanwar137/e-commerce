@@ -13,7 +13,7 @@ function Sidebar() {
             <AccordionItem>
                 <AccordionHeader className='px-8 py-6 d-flex justify-content-between align-items-center dc-dashboard__sidebar-nav--heading' as={'div'}>
                   <div className='d-flex dc-dashboard__sidebar-nav--text'>
-                    <span className='dc-icon-user'></span>
+                    <span className='dc-icon-administrator'></span>
                     <span className={`accordion-title`}>Admin setting</span>
                   </div>
                   <span className="dc-icon-arrow-right"></span>

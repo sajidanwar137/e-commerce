@@ -40,7 +40,7 @@ function Login() {
       <div className='dc-admin-layout__layout p-10'>
         <div className='dc-admin-layout__title mb-15 d-flex align-items-center justify-content-center'>
             <div className='dc-admin-layout__admin-icon--icon d-flex justify-content-center align-items-center'>
-              <span className="dc-icon-user"></span>
+              <span className="dc-icon-administrator"></span>
             </div>
             <h4 className='dc-h4'>Admin login</h4>
         </div>
