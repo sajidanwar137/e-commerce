@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import PasswordChangeImg from '../../../resources/images/password-change.jpeg';
 import {adminChangePasswordAPI } from '../../../api/api';
 import './index.scss';
+
 const PasswordChange = () => {
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');

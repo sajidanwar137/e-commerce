@@ -108,4 +108,31 @@
             content:$dc-icon-administrator
         }
     }
+    &-error{
+        &::before{
+            content:$dc-icon-error
+        }
+    }
+    &-info{
+        &::before{
+            content:$dc-icon-info
+        }
+    }
+    &-success{
+        &::before{
+            content:$dc-icon-success
+        }
+    }
+    &-warning{
+        &::before{
+            content:$dc-icon-warning
+        }
+    }
+    &-forgot{
+        &-password{
+            &::before{
+                content:$dc-icon-forgot-password
+            }
+        }
+    }
 }

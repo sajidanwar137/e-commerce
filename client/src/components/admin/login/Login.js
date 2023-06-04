@@ -5,12 +5,17 @@ import { login } from "../../../store/auth/actions";
 import { useNavigate } from 'react-router-dom';
 import {adminLogin } from '../../../api/api';
 import AdminLoginImg from '../../../resources/images/admin-login.png';
+import InfoMessage from '../../common/info-message/InfoMessage'
 import './index.scss';
-function Login() {
+
+const Login = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [showError, setShowError] = useState(false);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -20,19 +25,47 @@ function Login() {
     setPassword(e.target.value);
   };
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.match(emailRegex)) {
+      setError("Please enter a valid email address");
+      setShowError(true);
+      setTimeout(() => {
+        setShowError(false);
+      }, 5000);
+      return;
+    }
+    // Check if password is empty
+    if (password.trim() === "") {
+      setError("Please enter your password");
+      setShowError(true);
+      setTimeout(() => {
+        setShowError(false);
+      }, 5000);
+      return;
+    }
+
     const payload = {
       email: email,
       password: password,
     };
     try {
       const result = await adminLogin(payload);
-      if (result && result.success === true) {
-        dispatch(login({ admin: result }));
-        navigate('/dashboard');
+      if (result && result.success !== true) {
+        setError(result.message);
+        setShowError(true);
+        setTimeout(() => {
+          setShowError(false);
+        }, 5000);
+        return;
       }
-    } catch (error) {
+      dispatch(login({ admin: result }));
+      navigate('/dashboard');
+    }
+    catch (error) {
       console.error('Error fetching data:', error.message);
     }
   };
@@ -47,9 +80,11 @@ function Login() {
               </div>
               <h4 className='dc-h4'>Admin login</h4>
           </div>
+          {showError && <InfoMessage type="error" message={error} />}
+          
           <form className='dc-admin-layout__layout-body' onSubmit={handleSubmit}>
               <div className='dc-admin-layout__layout-row mb-8'>
-                  <input className='dc-form-control py-5 px-6' type="email" value={email} onChange={handleEmailChange} placeholder='Username'/>
+                  <input className='dc-form-control py-5 px-6' type="email" value={email} onChange={handleEmailChange} placeholder='Email'/>
               </div>
               <div className='dc-admin-layout__layout-row mb-8'>
                   <input className='dc-form-control py-5 px-6' type="password" value={password} onChange={handlePasswordChange} placeholder='Password'/>
