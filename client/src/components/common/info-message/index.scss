@@ -1,3 +1,17 @@
 @import "../../../scss/abstracts/_abstracts-dir";
 
-.dc-info-message{}
+.ds-info-message{
+    column-gap: rem(7);
+    &.error{
+        color: $text-color-error;
+    }
+    &.success{
+        color: $text-color-success;
+    }
+    &.info{
+        color: $text-color-info;
+    }
+    &.warning{
+        color: $text-color-warning;
+    }
+}

@@ -65,7 +65,6 @@ exports.logoutAdmin = async(req, res) => {
             return res.json({ success: true, message: 'Logout successful' });
         }
         else{
-            console.error('Error during logout:', error);
             return res.status(500).json({ success: true, message: 'Internal Server Error' });
         }
     } catch (error) {

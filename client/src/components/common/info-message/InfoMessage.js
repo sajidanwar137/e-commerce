@@ -19,13 +19,13 @@ const InfoMessage = ({ type, message }) => {
   const getInfoIcon = () => {
     switch (type) {
       case 'success':
-        return <span className='dc-icon-success'></span>;
+        return <span className='dc-icon-success mt-2'></span>;
       case 'error':
-        return <span className='dc-icon-error'></span>;
+        return <span className='dc-icon-error mt-2'></span>;
       case 'info':
-        return <span className='dc-icon-info'></span>;
+        return <span className='dc-icon-info mt-2'></span>;
       case 'warning':
-        return <span className='dc-icon-warning'></span>;
+        return <span className='dc-icon-warning mt-2'></span>;
       default:
         return '';
     }
@@ -35,7 +35,7 @@ const InfoMessage = ({ type, message }) => {
   const infoIcon = getInfoIcon();
 
   return (
-    <div className={`ds-info-message ${messageClass}`}>
+    <div className={`ds-info-message d-flex justify-content-start align-items-start mb-4 ${messageClass}`}>
       {infoIcon}
       <div>{message}</div>
     </div>
