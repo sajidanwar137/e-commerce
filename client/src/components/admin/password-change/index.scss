@@ -1,1 +1,13 @@
 @import "../../../scss/abstracts/_abstracts-dir";
+
+.dc-admin-change-password{
+    &__label{
+        display: block;
+    }
+    &__img{
+        img{
+            max-width: 100%;
+            width: 100%;
+        }
+    }
+}

@@ -139,7 +139,9 @@ exports.updateAdminPassword = async(req, res) =>{
             const adminData = await Admin.findByIdAndUpdate({_id: admin_id}, {$set : {
                 password: newPassword
             }})
-            res.status(200).send({success: true, message: "Your password has been updated!"})
+            if(adminData){
+                res.status(200).send({success: true, message: "Your password has been updated!"})
+            }
         }
         else{
             res.status(200).send({success: false, message: "Admin id not found!"});
