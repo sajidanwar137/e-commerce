@@ -33,7 +33,7 @@ const sendResetPasswordMail = async (name, email, token) => {
             }
         });
     } catch (error) {
-        res.status(400).send({success: false, message: error.message})
+        return res.status(400).send({success: false, message: error.message})
     }
 };
 
@@ -42,7 +42,7 @@ const createToken = async(id) =>{
         const token = await jwt.sign({_id: id}, process.env.SECRET_JWT);
         return token;
     } catch (error) {
-        res.status(400).send(error.message)
+        return res.status(400).send(error.message)
     }
 };
 
@@ -51,7 +51,7 @@ const securePassword = async (password) => {
         const passwordHash = await bcryptjs.hash(password, 10);
         return passwordHash;
     } catch (error) {
-        res.status(400).json({success: false, error: error.message})
+        return res.status(400).json({success: false, error: error.message})
     }
 };
 exports.logoutAdmin = async(req, res) => {
@@ -82,11 +82,11 @@ exports.createAdmin = async(req, res) => {
         });
         const checkEmail = await Admin.findOne({email: req.body.email});
         if(checkEmail) {
-            res.status(200).json({ success: false, message: "This email is already exists!" });
+            return res.status(200).json({ success: false, message: "This email is already exists!" });
         }
         else{
             const adminData = await admin.save();
-            res.status(200).json({ success: true, data: adminData });
+            return res.status(200).json({ success: true, data: adminData });
         }
         
     } catch (error) {
@@ -115,17 +115,17 @@ exports.adminLogin = async(req, res) => {
                     success : true,
                     data : adminResult
                 }
-                res.status(200).send(adminResponse);
+                return res.status(200).send(adminResponse);
             }
             else{
-                res.status(200).json({ success: false, message: "Login details are incorrect!"});
+                return res.status(200).json({ success: false, message: "Login details are incorrect!"});
             }
         }
         else{
-            res.status(200).json({ success: false, message: "Login details are incorrect!"});
+            return res.status(200).json({ success: false, message: "Login details are incorrect!"});
         }
     } catch (error) {
-        res.status(400).json({success: false, error: error.message})
+        return res.status(400).json({success: false, error: error.message})
     }
 };
 
@@ -140,15 +140,15 @@ exports.updateAdminPassword = async(req, res) =>{
                 password: newPassword
             }})
             if(adminData){
-                res.status(200).send({success: true, message: "Your password has been updated!"})
+                return res.status(200).send({success: true, message: "Your password has been updated!"})
             }
         }
         else{
-            res.status(200).send({success: false, message: "Admin id not found!"});
+            return res.status(200).send({success: false, message: "Admin id not found!"});
         }
         
     } catch (error) {
-        res.status(400).json({success: false, error: error.message})
+        return res.status(400).json({success: false, error: error.message})
     }
 };
 exports.forgetAdminPassword = async(req, res) =>{
@@ -160,15 +160,17 @@ exports.forgetAdminPassword = async(req, res) =>{
             const data = await Admin.updateOne({email: email}, {$set : {
                 token: randomString
             }})
-            sendResetPasswordMail(adminData.name, adminData.email, randomString);
-            res.status(200).send({success: true, message: 'Please check your inbox of mail and reset your password!', token: randomString})
+            if(data){
+                sendResetPasswordMail(adminData.name, adminData.email, randomString);
+                return res.status(200).send({success: true, message: 'Please check your inbox of mail and reset your password!', token: randomString})
+            }
         }
         else{
-            res.status(200).send({success: true, message: 'This email does not exists!'})
+            return res.status(200).send({success: true, message: 'This email does not exists!'})
         }
         
     } catch (error) {
-        res.status(400).send({success: false, error: error.message})
+        return res.status(400).send({success: false, error: error.message})
     }
 };
 
@@ -177,7 +179,7 @@ exports.resetAdminPassword = async (req, res) =>{
         const token = req.query.token;
         const tokenData = await Admin.findOne({token: token}); 
         if(tokenData){
-            const password = req.body.password;
+            const password = req.query.password;
             const newPassword = await securePassword(password);
             const resetData = await Admin.findByIdAndUpdate({_id: tokenData._id}, {
                 $set : {
@@ -185,13 +187,15 @@ exports.resetAdminPassword = async (req, res) =>{
                     token: ''
                 }
             }, {new: true})
-            res.status(200).send({success: true, message: 'Password has been reset successfully!', data: resetData})
+            if(resetData) {
+                return res.status(200).send({success: true, message: 'Password has been reset successfully!', data: resetData})
+            }
         }
         else{
-            res.status(200).send({success: true, message: 'Invalid Token!'})
+            return res.status(200).send({success: true, message: 'Invalid Token!'})
         }
         
     } catch (error) {
-        res.status(400).send({success: false, error: "error.message"})
+        return res.status(400).send({success: false, error: "error.message"})
     }
 };

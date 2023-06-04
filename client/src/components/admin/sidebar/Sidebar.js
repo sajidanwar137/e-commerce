@@ -23,7 +23,7 @@ function Sidebar() {
                     <div className="dc-dashboard__sidebar-nav--content px-8">
                       <ul>
                         <li><a href="#" className='px-12 py-4'>Update profile</a></li>
-                        <li><Link to="/dashboard/admin-changepass-word" className='px-12 py-4'>Change password</Link></li>
+                        <li><Link to="/dashboard/admin-change-password" className='px-12 py-4'>Change password</Link></li>
                       </ul>
                     </div>
                 </AccordionBody>
