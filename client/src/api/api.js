@@ -14,7 +14,7 @@ export const adminLogin = async (data) => {
     } catch (error) {
       throw new Error(error.response.data.error);
     }
-  };
+};
 // Example API service function to fetch data with a token in headers
 export const fetchData = async (token) => {
   try {
@@ -43,6 +43,36 @@ export const postData = async (data, token) => {
   }
 };
 
+export const adminChangePasswordAPI = async (data, token) => {
+  try {
+    const response = await api.post('/update-admin-password', data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.error);
+  }
+};
+//
+export const adminForgotPassword = async (data) => {
+  try {
+    const response = await api.post('/admin-password-forget', data);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.error);
+  }
+};
+//
+export const adminResetPassword = async (data) => {
+  try {
+    const response = await api.get(`/admin-password-reset?token=${data.token}&password=${data.password}`);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.error);
+  }
+};
 // ... Define other API service functions as needed
 
 export default api;

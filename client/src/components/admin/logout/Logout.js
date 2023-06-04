@@ -24,7 +24,7 @@ function Logout() {
   }
   return (
     <div className='dc-logout d-flex align-items-center' onClick={handleLogout}>
-        <span className='dc-icon-switch'></span>
+        <span className='dc-icon-logout'></span>
         <span className='dc-logout__text'>Logout</span>
     </div>
   )

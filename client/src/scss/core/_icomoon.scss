@@ -2,9 +2,24 @@
     @include dciconmoonStyle();
 }
 .dc-icon {
-    &-idea{
+    &-admin{
         &::before{
-            content:$dc-icon-idea 
+            content:$dc-icon-admin 
+        }
+    }
+    &-delete{
+        &::before{
+            content:$dc-icon-delete
+        }
+    }
+    &-edit{
+        &::before{
+            content:$dc-icon-edit
+        }
+    }
+    &-email{
+        &::before{
+            content:$dc-icon-email
         }
     }
     &-home{
@@ -12,24 +27,9 @@
             content:$dc-icon-home
         }
     }
-    &-pencil{
+    &-idea{
         &::before{
-            content:$dc-icon-pencil
-        }
-    }
-    &-envelop{
-        &::before{
-            content:$dc-icon-envelop
-        }
-    }
-    &-user{
-        &::before{
-            content:$dc-icon-user
-        }
-    }
-    &-search{
-        &::before{
-            content:$dc-icon-search
+            content:$dc-icon-idea
         }
     }
     &-key{
@@ -37,20 +37,10 @@
             content:$dc-icon-key
         }
     }
-    &-bin{
-        &::before{
-            content:$dc-icon-bin
-        }
-    }
-    &-switch{
-        &::before{
-            content:$dc-icon-switch
-        }
-    }
     &-arrow{
-        &-left{
+        &-up{
             &::before{
-                content:$dc-icon-arrow-left
+                content:$dc-icon-arrow-up
             }
         }
         &-right{
@@ -58,15 +48,64 @@
                 content:$dc-icon-arrow-right
             }
         }
-        &-up{
-            &::before{
-                content:$dc-icon-arrow-up
-            }
-        }
         &-down{
             &::before{
                 content:$dc-icon-arrow-down
             }
+        }
+        &-left{
+            &::before{
+                content:$dc-icon-arrow-left
+            }
+        }
+    }
+    &-logout{
+        &::before{
+            content:$dc-icon-logout
+        }
+    }
+    &-password{
+        &::before{
+            content:$dc-icon-password
+        }
+    }
+    &-pencil{
+        &::before{
+            content:$dc-icon-pencil
+        }
+    }
+    &-reset{
+        &-password{
+            &::before{
+                content:$dc-icon-reset-password
+            }
+        }
+    }
+    &-role{
+        &-setting{
+            &::before{
+                content:$dc-icon-role-setting
+            }
+        }
+    }
+    &-search{
+        &::before{
+            content:$dc-icon-search
+        }
+    }
+    &-setting{
+        &::before{
+            content:$dc-icon-setting
+        }
+    }
+    &-user{
+        &::before{
+            content:$dc-icon-user
+        }
+    }
+    &-administrator{
+        &::before{
+            content:$dc-icon-administrator
         }
     }
 }
