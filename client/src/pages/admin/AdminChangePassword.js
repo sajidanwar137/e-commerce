@@ -4,7 +4,7 @@ import Header from '../../components/admin/header/Header'
 import Footer from '../../components/admin/footer/Footer'
 import PasswordChange from '../../components/admin/password-change/PasswordChange'
 
-function AdminDashboard() {
+function AdminChangePassword() {
   return (
     <div className='dc-dashboard d-flex flex-row'>
         <Sidebar/>
@@ -25,4 +25,4 @@ function AdminDashboard() {
   )
 }
 
-export default AdminDashboard
+export default AdminChangePassword
