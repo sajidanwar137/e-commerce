@@ -5,7 +5,7 @@ import { login } from "../../../store/auth/actions";
 import { useNavigate } from 'react-router-dom';
 import {adminLogin } from '../../../api/api';
 import AdminLoginImg from '../../../resources/images/admin-login.png';
-import InfoMessage from '../../common/info-message/InfoMessage'
+import ErrorMessage from '../../common/error-message/ErrorMessage';
 import './index.scss';
 
 const Login = () => {
@@ -80,7 +80,7 @@ const Login = () => {
               </div>
               <h4 className='dc-h4'>Admin login</h4>
           </div>
-          {showError && <InfoMessage type="error" message={error} />}
+          {showError && <ErrorMessage type="error" message={error} />}
           
           <form className='dc-admin-layout__layout-body' onSubmit={handleSubmit}>
               <div className='dc-admin-layout__layout-row mb-8'>

@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import PasswordChangeImg from '../../../resources/images/password-change.jpeg';
 import {adminResetPassword } from '../../../api/api';
+import ErrorMessage from '../../common/error-message/ErrorMessage';
 import './index.scss';
 
 const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [message, setMessage] = useState('');
-  const [errors, setErrors] = useState([]);
+  const [showError, setShowError] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const [variableValue, setVariableValue] = useState(null);
+  
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
     const variable = queryParams.get('token');
@@ -25,51 +28,70 @@ const ResetPassword = () => {
     setConfirmPassword(event.target.value);
   };
 
-  const validatePassword = () => {
-    const errors = [];
-
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    // Check if password is empty
+    if (newPassword.trim() === "") {
+      setError("Please enter your password");
+      setShowError(true);
+      setTimeout(() => {
+        setShowError(false);
+      }, 5000);
+      return;
+    }
     // Password length validation
     if (newPassword.length < 8) {
-      errors.push('Password must be at least 8 characters long');
+      setError("Password must be at least 8 characters long");
+      setShowError(true);
+      setTimeout(() => {
+        setShowError(false);
+      }, 5000);
+      return;
     }
-
     // Password complexity validation
     const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]+$/;
     if (!passwordRegex.test(newPassword)) {
-      errors.push(
-        'Password must contain at least one capital letter, one special character, and one number'
-      );
+      setError("Password must contain at least one capital letter, one special character, and one number");
+      setShowError(true);
+      setTimeout(() => {
+        setShowError(false);
+      }, 5000);
+      return;
     }
     // Confirm password validation
     if (newPassword !== confirmPassword) {
-      errors.push('New password and confirm password do not match');
+      setError("New password and confirm password do not match");
+      setShowError(true);
+      setTimeout(() => {
+        setShowError(false);
+      }, 5000);
+      return;
     }
-    setErrors(errors);
-    return errors.length === 0;
-  };
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const isValid = validatePassword();
-
-    if (isValid) {
-      const payload = {
-        token: variableValue,
-        password: newPassword
-      };
-      try {
-        const result = await adminResetPassword(payload);
-        if (result && result.success === true) {
-          navigate('/dashboard/login');
-        }
-      } catch (error) {
-        console.error('Error fetching data:', error.message);
+    const payload = {
+      token: variableValue,
+      password: newPassword
+    };
+    try {
+      const result = await adminResetPassword(payload);
+      if (result && result.success !== true) {
+        setError(result.message);
+        setShowError(true);
+        setTimeout(() => {
+          setShowError(false);
+        }, 5000);
+        return;
       }
-      setNewPassword('');
-      setConfirmPassword('');
-      setMessage('Password changed successfully');
+      Swal.fire({
+        icon: 'success',
+        text: result.message,
+      }).then(() => {
+        navigate('/dashboard/login');
+      });
+    } catch (error) {
+        console.error('Error fetching data:', error.message);
     }
+    setNewPassword('');
+    setConfirmPassword('');
   };
 
   return (
@@ -83,38 +105,29 @@ const ResetPassword = () => {
               <h4 className='dc-h4'>Reset password</h4>
           </div>
           <form className='dc-admin-layout__layout-body' onSubmit={handleSubmit}>
-              <div className='dc-admin-layout__layout-row mb-8'>
+            {showError && <ErrorMessage type="error" message={error} />}
+            <div className='dc-admin-layout__layout-row mb-8'>
               <label className='dc-admin-change-password__label mb-2'>New Password:</label>
               <input
                 className='dc-form-control py-5 px-6'
                 type="password"
                 value={newPassword}
                 onChange={handleNewPasswordChange}
-                required
               />
-              </div>
-              <div className='dc-admin-layout__layout-row mb-8'>
+            </div>
+            <div className='dc-admin-layout__layout-row mb-8'>
               <label className='dc-admin-change-password__label mb-2'>Confirm Password:</label>
               <input
                 className='dc-form-control py-5 px-6'
                 type="password"
                 value={confirmPassword}
                 onChange={handleConfirmPasswordChange}
-                required
               />
-              </div>
-              <div className='dc-admin-layout__layout-row'>
-                  <button type="submit" className='dc-btn dc-btn-secondary dc-btn-fluid px-20 py-5'>Reset password</button>
-              </div>
+            </div>
+            <div className='dc-admin-layout__layout-row'>
+              <button type="submit" className='dc-btn dc-btn-secondary dc-btn-fluid px-20 py-5'>Reset password</button>
+            </div>
           </form>
-          {errors.length > 0 && (
-        <ul>
-          {errors.map((error, index) => (
-            <li key={index}>{error}</li>
-          ))}
-        </ul>
-      )}
-      {message && <p>{message}</p>}
         </div>
         <div className='dc-admin-layout__layout--col ps-12'>
           <img src={PasswordChangeImg} alt="" />

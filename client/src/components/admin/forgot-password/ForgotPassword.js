@@ -1,31 +1,53 @@
 import React, {useState } from 'react';
 import { Link} from "react-router-dom";
-import { useDispatch } from "react-redux";
+import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import {adminForgotPassword } from '../../../api/api';
+import ErrorMessage from '../../common/error-message/ErrorMessage';
 import ForgotPasswordImg from '../../../resources/images/forgot-password.png';
 import './index.scss';
 
 function ForgotPassword() {
-  //const dispatch = useDispatch()
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
+  const [showError, setShowError] = useState(false);
+  const [error, setError] = useState("");
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.match(emailRegex)) {
+      setError("Please enter a valid email address");
+      setShowError(true);
+      setTimeout(() => {
+        setShowError(false);
+      }, 5000);
+      return;
+    }
     const payload = {
       email: email
     };
     try {
       const result = await adminForgotPassword(payload);
-      if (result && result.success === true) {
-        console.log("object::::", result)
-        //dispatch(login({ admin: result }));
-        //navigate('/dashboard');
+      if (result && result.success !== true) {
+        setError(result.message);
+        setShowError(true);
+        setTimeout(() => {
+          setShowError(false);
+        }, 5000);
+        return;
       }
+      Swal.fire({
+        icon: 'success',
+        title: 'Email sent successfully',
+        text: result.message,
+      }).then(() => {
+        navigate('/dashboard/login');
+      });
     } catch (error) {
       console.error('Error fetching data:', error.message);
     }
@@ -46,6 +68,7 @@ function ForgotPassword() {
             <p>To reset your password, enter the registered e-mail adddress and we will send you password reset instructions on your e-mail!</p>
           </div>
           <form className='dc-admin-layout__layout-body' onSubmit={handleSubmit}>
+              {showError && <ErrorMessage type="error" message={error} />}
               <div className='dc-admin-layout__layout-row mb-8'>
                   <input className='dc-form-control py-5 px-6' type="email" value={email} onChange={handleEmailChange} placeholder='Enter your registered E-mail'/>
               </div>

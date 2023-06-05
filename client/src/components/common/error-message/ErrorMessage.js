@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
 
-const InfoMessage = ({ type, message }) => {
+const ErrorMessage = ({ type, message }) => {
   const getMessageClass = () => {
     switch (type) {
       case 'success':
@@ -35,11 +35,11 @@ const InfoMessage = ({ type, message }) => {
   const infoIcon = getInfoIcon();
 
   return (
-    <div className={`ds-info-message d-flex justify-content-start align-items-start mb-4 ${messageClass}`}>
+    <div className={`ds-error-message d-flex justify-content-start align-items-start mb-4 ${messageClass}`}>
       {infoIcon}
-      <div className='ds-info-message__text'>{message}</div>
+      <div className='ds-error-message__text'>{message}</div>
     </div>
   );
 };
 
-export default InfoMessage;
+export default ErrorMessage;

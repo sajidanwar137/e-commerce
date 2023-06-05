@@ -1,6 +1,6 @@
 @import "../../../scss/abstracts/_abstracts-dir";
 
-.ds-info-message{
+.ds-error-message{
     column-gap: rem(7);
     &.error{
         color: $text-color-error;
