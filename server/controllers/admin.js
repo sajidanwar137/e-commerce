@@ -1,59 +1,7 @@
 const Admin = require('../models/admin');
-const bcryptjs = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const nodemailer = require('nodemailer');
 const randomstring = require('randomstring');
+const { createToken, securePassword, comparePassword, sendResetPasswordMail } = require("../middleware/utilities");
 
-const sendResetPasswordMail = async (name, email, token) => {
-    try {
-        const transporter = nodemailer.createTransport({
-            service: 'gmail',
-            host: process.env.SMTP_HOST,
-            port: process.env.SMTP_PORT,
-            secure: true,
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASSWORD
-            }
-        })
-        const mailOptions = {
-            from: process.env.EMAIL_USER,
-            to: email,
-            subject: 'For reset password',
-            html: `<p>Hi ${name}, Please copy the link and <a href="http://localhost:5000/api/v1/admin-password-reset?token=${token}">reset your password</a></p>`
-        }
-        transporter.sendMail(mailOptions, (error, info) =>{
-            if(error){
-                console.log('Error in sending email  ' + error);
-                return true;
-            }
-            else{
-                console.log('Email sent: ' + info.response);
-                return false;
-            }
-        });
-    } catch (error) {
-        return res.status(400).send({success: false, message: error.message})
-    }
-};
-
-const createToken = async(id) =>{
-    try {
-        const token = await jwt.sign({_id: id}, process.env.SECRET_JWT);
-        return token;
-    } catch (error) {
-        return res.status(400).send(error.message)
-    }
-};
-
-const securePassword = async (password) => {
-    try {
-        const passwordHash = await bcryptjs.hash(password, 10);
-        return passwordHash;
-    } catch (error) {
-        return res.status(400).json({success: false, error: error.message})
-    }
-};
 exports.logoutAdmin = async(req, res) => {
     try {
         const admin_id = req.body.admin_id;
@@ -62,7 +10,7 @@ exports.logoutAdmin = async(req, res) => {
             await Admin.findByIdAndUpdate({_id: admin_id}, {$set : {
                 token: ''
             }})
-            return res.json({ success: true, message: 'Logout successful' });
+            return res.json({ success: true, message: 'Logout successful!' });
         }
         else{
             return res.status(500).json({ success: true, message: 'Internal Server Error' });
@@ -95,30 +43,27 @@ exports.createAdmin = async(req, res) => {
 
 exports.adminLogin = async(req, res) => {
     try {
-        
         const email = req.body.email;
         const password = req.body.password;
-        const adminData = await Admin.findOne({email: email}); 
+        let passwordMatch = null;
+        const adminData = await Admin.findOne({email: email});
         if(adminData){
-            const passwordMatch = await bcryptjs.compare(password, adminData.password);
-            if(passwordMatch){
-                const tokenData = await createToken(adminData._id);
-                const adminResult = {
-                    _id : adminData._id,
-                    name : adminData.name,
-                    email : adminData.email,
-                    password : adminData.password,
-                    token : tokenData
-                }
-                const adminResponse = {
-                    success : true,
-                    data : adminResult
-                }
-                return res.status(200).send(adminResponse);
+            passwordMatch = await comparePassword(password,adminData.password);
+        }
+        if(adminData && passwordMatch){
+            const tokenData = await createToken(adminData._id);
+            const adminResult = {
+                _id : adminData._id,
+                name : adminData.name,
+                email : adminData.email,
+                password : adminData.password,
+                token : tokenData
             }
-            else{
-                return res.status(200).json({ success: false, message: "Login details are incorrect!"});
+            const adminResponse = {
+                success : true,
+                data : adminResult
             }
+            return res.status(200).json(adminResponse);
         }
         else{
             return res.status(200).json({ success: false, message: "Login details are incorrect!"});
@@ -133,19 +78,19 @@ exports.updateAdminPassword = async(req, res) =>{
         const admin_id = req.body.admin_id;
         const password = req.body.password;
         const data = await Admin.findOne({_id: admin_id});
+        let adminData = null;
         if(data){
             const newPassword = await securePassword(password);
-            const adminData = await Admin.findByIdAndUpdate({_id: admin_id}, {$set : {
+            adminData = await Admin.findByIdAndUpdate({_id: admin_id}, {$set : {
                 password: newPassword
             }})
-            if(adminData){
-                return res.status(200).send({success: true, message: "Your password has been updated!"})
-            }
         }
         else{
             return res.status(200).send({success: false, message: "Admin id not found!"});
         }
-        
+        if(adminData){
+            return res.status(200).send({success: true, message: "Your password has been updated!"})
+        }
     } catch (error) {
         return res.status(400).json({success: false, error: error.message})
     }
@@ -154,20 +99,20 @@ exports.forgetAdminPassword = async(req, res) =>{
     try {
         const email = req.body.email;
         const adminData = await Admin.findOne({email: email}); 
+        let data = null;
+        const randomString = await randomstring.generate();
         if(adminData){
-            const randomString = randomstring.generate();
-            const data = await Admin.updateOne({email: email}, {$set : {
+            data = await Admin.updateOne({email: email}, {$set : {
                 token: randomString
             }})
-            if(data){
-                sendResetPasswordMail(adminData.name, adminData.email, randomString);
-                return res.status(200).send({success: true, message: 'Please check your inbox of mail and reset your password!', token: randomString})
-            }
         }
         else{
-            return res.status(200).send({success: true, message: 'This email does not exists!'})
+            return res.status(200).send({success: false, message: 'This email does not exists!'})
         }
-        
+        if(data){
+            sendResetPasswordMail(adminData.name, adminData.email, randomString);
+            return res.status(200).send({success: true, message: 'Please check your inbox of mail and reset your password!', token: randomString})
+        }
     } catch (error) {
         return res.status(400).send({success: false, error: error.message})
     }
@@ -176,24 +121,24 @@ exports.forgetAdminPassword = async(req, res) =>{
 exports.resetAdminPassword = async (req, res) =>{
     try {
         const token = req.query.token;
-        const tokenData = await Admin.findOne({token: token}); 
+        const tokenData = await Admin.findOne({token: token});
+        let resetData = null;
         if(tokenData){
             const password = req.query.password;
             const newPassword = await securePassword(password);
-            const resetData = await Admin.findByIdAndUpdate({_id: tokenData._id}, {
+            resetData = await Admin.findByIdAndUpdate({_id: tokenData._id}, {
                 $set : {
                     password : newPassword,
                     token: ''
                 }
             }, {new: true})
-            if(resetData) {
-                return res.status(200).send({success: true, message: 'Password has been reset successfully!', data: resetData})
-            }
         }
         else{
             return res.status(200).send({success: true, message: 'Invalid Token!'})
         }
-        
+        if(resetData) {
+            return res.status(200).send({success: true, message: 'Password has been reset successfully!', data: resetData})
+        }
     } catch (error) {
         return res.status(400).send({success: false, error: "error.message"})
     }
