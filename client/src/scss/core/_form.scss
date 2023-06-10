@@ -71,6 +71,7 @@ fieldset {
 }
 
 input[type="text"],
+input[type="file"],
 input[type="password"],
 input[type="email"]{
   width: 100%;
@@ -78,10 +79,20 @@ input[type="email"]{
   border-radius: rem(6);
 }
 input[type="text"]:focus,
+input[type="file"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus{
   color:$text-color-gray-700;
   border-color: $border-color-gray-400;
   outline: 0;
   background-color: $bg-color-white;
+}
+input[type=file]::file-selector-button {
+  margin-right: rem(20);
+  border: none;
+  background:$bg-color-gray-300;
+  padding:rem(12);
+  border-radius:rem(6) 0 0 rem(6);
+  color:$text-color-gray-700;
+  cursor: pointer;
 }

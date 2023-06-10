@@ -8,6 +8,8 @@ import PageOne from './pages/admin/PageOne'
 import AdminChangePassword from './pages/admin/AdminChangePassword'
 import AdminForgotPassword from './pages/admin/AdminForgotPassword'
 import AdminResetPassword from './pages/admin/AdminResetPassword'
+import ChangeAdminLogo from './pages/admin/ChangeAdminLogo'
+import UpdateAdminName from './pages/admin/UpdateAdminName'
 import PrivateRoutes from './PrivateRoutes';
 import LoggedIn from './utilities/utilities';
 
@@ -20,6 +22,8 @@ function App() {
         <Route exact path='/' element={<PrivateRoutes />}>
           <Route path='/dashboard' element={<AdminDashboard/>}/>
           <Route path='/dashboard/admin-change-password' element={<AdminChangePassword/>}/>
+          <Route path='/dashboard/update-admin-name' element={<UpdateAdminName/>}/>
+          <Route path='/dashboard/update-admin-logo' element={<ChangeAdminLogo/>}/>
         </Route>
         <Route exact path='/' element={<LoggedIn />}>
           <Route path='/dashboard/login' element={<AdminLogin/>}/>

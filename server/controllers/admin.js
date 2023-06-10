@@ -143,3 +143,37 @@ exports.resetAdminPassword = async (req, res) =>{
         return res.status(400).send({success: false, error: "error.message"})
     }
 };
+
+exports.updateAdminName = async(req, res) =>{
+    try {
+        const admin_id = req.body.admin_id;
+        const name = req.body.name;
+        const data = await Admin.findOne({_id: admin_id});
+        let adminData = null;
+        if(data){
+            adminData = await Admin.findByIdAndUpdate({_id: admin_id}, {
+                $set : {
+                    name: name
+                }
+            }, {new: true})
+        }
+        if(adminData){
+            const tokenData = await createToken(adminData._id);
+            const adminResult = {
+                _id : adminData._id,
+                name : adminData.name,
+                email : adminData.email,
+                password : adminData.password,
+                token : tokenData
+            }
+            const adminResponse = {
+                success : true,
+                message: "Your name has been updated!",
+                data : adminResult
+            }
+            return res.status(200).send(adminResponse)
+        }
+    } catch (error) {
+        return res.status(400).json({success: false, error: error.message})
+    }
+};

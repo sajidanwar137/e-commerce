@@ -1,12 +1,22 @@
-import React from 'react'
-import { Link} from "react-router-dom";
+import React, {useEffect,useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import {NavLink} from "react-router-dom";
 import {Accordion, AccordionBody, AccordionHeader, AccordionItem} from "react-headless-accordion";
+import { getAdminLogo } from "store/adminLogo/actions";
 import './index.scss';
-function Sidebar() {
+
+
+export default function Sidebar() {
+  const data = useSelector((state) => state?.adminlogo?.adminlogo?.data[0]);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAdminLogo());
+  }, [dispatch]);
+
   return (
     <div className='dc-dashboard__sidebar'>
       <div className='dc-dashboard__logo py-9 px-8'>
-        <h1 className='dc-h3'>dizcoder</h1>
+        {data && <img src={`${data.originalurl}?${data.updatedAt}`} alt='' />}
       </div>
       <div className='dc-dashboard__sidebar--menu-text pb-10 px-8 pt-25'>GETTING STARTED</div>
       <Accordion className='dc-dashboard__sidebar-nav'>
@@ -22,8 +32,9 @@ function Sidebar() {
                 <AccordionBody>
                     <div className="dc-dashboard__sidebar-nav--content px-8">
                       <ul>
-                        <li><a href="#" className='px-12 py-4'>Update profile</a></li>
-                        <li><Link to="/dashboard/admin-change-password" className='px-12 py-4'>Change password</Link></li>
+                        <li><NavLink to="/dashboard/update-admin-name" className='px-12 py-4'>Update Admin Name</NavLink></li>
+                        <li><NavLink to="/dashboard/update-admin-logo" className='px-12 py-4'>Change Admin Logo</NavLink></li>
+                        <li><NavLink to="/dashboard/admin-change-password" className='px-12 py-4'>Change Password</NavLink></li>
                       </ul>
                     </div>
                 </AccordionBody>
@@ -33,4 +44,4 @@ function Sidebar() {
   )
 }
 
-export default Sidebar
+//export default Sidebar

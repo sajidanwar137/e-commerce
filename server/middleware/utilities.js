@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 const bcryptjs = require('bcryptjs');
 const nodemailer = require('nodemailer');
-//const randomstring = require('randomstring');
 
 exports.createToken = async(id) =>{
     try {
@@ -21,11 +20,6 @@ exports.securePassword = async (password) => {
 exports.comparePassword = async (password, comparePassword) => {
     return bcryptjs.compare(password, comparePassword)
 };
-
-// exports.randomString = () => {
-//     const generateRandomstring = randomstring.generate();
-//     return generateRandomstring;
-// };
 
 exports.sendResetPasswordMail = async (name, email, token) => {
     try {

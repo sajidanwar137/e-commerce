@@ -1,11 +1,11 @@
 import React, {useState } from 'react';
 import { Link} from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { login } from "../../../store/auth/actions";
+import { login } from "store/auth/actions";
 import { useNavigate } from 'react-router-dom';
-import {adminLogin } from '../../../api/api';
-import AdminLoginImg from '../../../resources/images/admin-login.png';
-import ErrorMessage from '../../common/error-message/ErrorMessage';
+import {adminLogin } from 'api/api';
+import AdminLoginImg from 'resources/images/admin-login.png';
+import ErrorMessage from 'components/common/error-message/ErrorMessage';
 import './index.scss';
 
 const Login = () => {

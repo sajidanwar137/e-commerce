@@ -2,9 +2,9 @@ import React, {useState } from 'react';
 import { Link} from "react-router-dom";
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import {adminForgotPassword } from '../../../api/api';
-import ErrorMessage from '../../common/error-message/ErrorMessage';
-import ForgotPasswordImg from '../../../resources/images/forgot-password.png';
+import {adminForgotPassword } from 'api/api';
+import ErrorMessage from 'components/common/error-message/ErrorMessage';
+import ForgotPasswordImg from 'resources/images/forgot-password.png';
 import './index.scss';
 
 function ForgotPassword() {

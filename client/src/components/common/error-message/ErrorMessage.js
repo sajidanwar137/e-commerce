@@ -35,7 +35,7 @@ const ErrorMessage = ({ type, message }) => {
   const infoIcon = getInfoIcon();
 
   return (
-    <div className={`ds-error-message d-flex justify-content-start align-items-start mb-4 ${messageClass}`}>
+    <div className={`ds-error-message d-flex justify-content-start align-items-start mb-4 py-3 px-5 ${messageClass}`}>
       {infoIcon}
       <div className='ds-error-message__text'>{message}</div>
     </div>

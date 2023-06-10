@@ -73,6 +73,19 @@ export const adminResetPassword = async (data) => {
     throw new Error(error.response.data.error);
   }
 };
+//
+export const adminChangeNameAPI = async (data, token) => {
+  try {
+    const response = await api.post('/update-admin-name', data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response.data.error);
+  }
+};
 // ... Define other API service functions as needed
 
 export default api;
