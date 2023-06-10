@@ -21,9 +21,13 @@ function App() {
         <Route path='/' element={<PageOne/>}/>
         <Route exact path='/' element={<PrivateRoutes />}>
           <Route path='/dashboard' element={<AdminDashboard/>}/>
-          <Route path='/dashboard/admin-change-password' element={<AdminChangePassword/>}/>
-          <Route path='/dashboard/update-admin-name' element={<UpdateAdminName/>}/>
-          <Route path='/dashboard/update-admin-logo' element={<ChangeAdminLogo/>}/>
+          <Route path='/dashboard/admin/admin-change-password' element={<AdminChangePassword/>}/>
+          <Route path='/dashboard/admin/update-admin-name' element={<UpdateAdminName/>}/>
+          <Route path='/dashboard/admin/update-admin-logo' element={<ChangeAdminLogo/>}/>
+
+          <Route path='/dashboard/logo/admin-change-password' element={<AdminChangePassword/>}/>
+          <Route path='/dashboard/logo/update-admin-name' element={<UpdateAdminName/>}/>
+          <Route path='/dashboard/logo/update-admin-logo' element={<ChangeAdminLogo/>}/>
         </Route>
         <Route exact path='/' element={<LoggedIn />}>
           <Route path='/dashboard/login' element={<AdminLogin/>}/>
