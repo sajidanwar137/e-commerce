@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, NavLink } from 'react-router-dom';
 import './index.scss';
@@ -56,7 +55,7 @@ const CustomAccordion = () => {
         <Link to="/dashboard/logo/update-admin-name" className={isItemActive('/dashboard/logo') ? 'px-8 py-6 d-flex justify-content-between align-items-center dc-dashboard__sidebar-nav--heading active' : 'px-8 py-6 d-flex justify-content-between align-items-center dc-dashboard__sidebar-nav--heading'} onClick={() => handleItemClick('/dashboard/logo/update-admin-name')}>
             <div className='d-flex dc-dashboard__sidebar-nav--text'>
                 <span className='dc-icon-administrator'></span>
-                <span className={`accordion-title`}>Admin setting</span>
+                <span className={`accordion-title`}>User setting</span>
             </div>
             <span className="dc-icon-arrow-right"></span>
             <span className="dc-icon-arrow-down"></span>

@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { login } from "store/auth/actions";
 import ErrorMessage from '../../common/error-message/ErrorMessage';
-import PasswordChangeImg from '../../../resources/images/password-change.jpeg';
 import {adminChangeNameAPI } from '../../../api/api';
 import Swal from 'sweetalert2';
 import './index.scss';
@@ -59,7 +58,7 @@ const UpdateName = () => {
 
   return (
     <div className='row dc-admin-change-password d-flex align-items-center'>
-      <div className='col-lg-6'>
+      <div className='col-lg-12'>
         <h4 className='mb-25'>Change Admin Name</h4>
         <form onSubmit={handleSubmit}>
           {showError && <ErrorMessage type="error" message={error} />}
@@ -77,11 +76,6 @@ const UpdateName = () => {
             <button type="submit" className='dc-btn dc-btn-secondary px-20 py-5'>Update</button>
           </div>
         </form>
-      </div>
-      <div className='col-lg-6'>
-        <div className='dc-admin-change-password__img'>
-          <img src={PasswordChangeImg} alt="" />
-        </div>
       </div>
     </div>
   );

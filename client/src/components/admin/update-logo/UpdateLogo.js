@@ -36,7 +36,7 @@ const UpdateLogo = () => {
 
   return (
     <div className='row dc-admin-change-password d-flex align-items-center'>
-      <div className='col-lg-6'>
+      <div className='col-lg-9'>
         <h4 className='mb-25'>Change Admin Logo</h4>
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           <div className='mb-8'>
@@ -48,7 +48,7 @@ const UpdateLogo = () => {
           </div>
         </form>
       </div>
-      <div className='col-lg-6'>
+      <div className='col-lg-3'>
         <div className='dc-admin-change-password__img'>
           <img src={uploadFile} alt="" />
         </div>
