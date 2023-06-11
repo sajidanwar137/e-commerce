@@ -5,7 +5,7 @@ import {
 } from './types';
 
 const INITIAL_STATE = {
-    adminlogo: [],
+    data: [],
     loading: false,
     error: null,
 };
@@ -22,7 +22,7 @@ export default function (state = INITIAL_STATE, { type, payload }) {
             return {
                 ...state,
                 loading: false,
-                adminlogo: payload,
+                ...payload,
             }
         case GET_ADMINLOGO_FAIL:
             return {

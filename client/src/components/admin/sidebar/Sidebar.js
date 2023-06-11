@@ -7,7 +7,7 @@ import './index.scss';
 
 
 export default function Sidebar() {
-  const data = useSelector((state) => state?.adminlogo?.adminlogo?.data[0]);
+  const data = useSelector((state) => state?.adminlogo?.data[0]);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAdminLogo());

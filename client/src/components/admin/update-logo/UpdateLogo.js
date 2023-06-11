@@ -5,7 +5,7 @@ import './index.scss';
 
 const UpdateLogo = () => {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state?.adminlogo?.adminlogo?.data[0]);
+  const data = useSelector((state) => state?.adminlogo?.data[0]);
   const token = useSelector((state) => state?.auth?.token);
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadFile, setUploadFile] = useState(data.originalurl);
@@ -28,7 +28,6 @@ const UpdateLogo = () => {
     try {
       if (selectedFile) {
         dispatch(updateAdminLogo(formData, token));
-        console.log("LATEST:::", data)
       }
     } catch (error) {
       console.log(error)
