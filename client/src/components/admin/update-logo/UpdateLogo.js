@@ -28,6 +28,7 @@ const UpdateLogo = () => {
     try {
       if (selectedFile) {
         dispatch(updateAdminLogo(formData, token));
+        console.log("LATEST:::", data)
       }
     } catch (error) {
       console.log(error)

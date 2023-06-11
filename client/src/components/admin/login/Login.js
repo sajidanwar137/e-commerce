@@ -3,9 +3,9 @@ import { Link} from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "store/auth/actions";
 import { useNavigate } from 'react-router-dom';
-import {adminLogin } from 'api/api';
 import AdminLoginImg from 'resources/images/admin-login.png';
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
+import api from 'api/api';
 import './index.scss';
 
 const Login = () => {
@@ -53,7 +53,7 @@ const Login = () => {
       password: password,
     };
     try {
-      const result = await adminLogin(payload);
+      const result = await api.post('/adminlogin', payload);
       if (result && result.success !== true) {
         setError(result.message);
         setShowError(true);

@@ -1,91 +1,36 @@
-import axios from 'axios';
-const API_BASE_URL = 'http://localhost:5000/api/v1/'; // Replace with your API base URL
-const api = axios.create({
-  baseURL: API_BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
-//
-export const adminLogin = async (data) => {
-    try {
-      const response = await api.post('/adminlogin', data);
-      return response.data;
-    } catch (error) {
-      throw new Error(error.response.data.error);
-    }
-};
-// Example API service function to fetch data with a token in headers
-export const fetchData = async (token) => {
-  try {
-    const response = await api.get('/data', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return response.data;
-  } catch (error) {
-    throw new Error(error.response.data.error);
-  }
+import Axios from "axios";
+import { stringify } from "qs";
+
+function createAxios() {
+    const axios = Axios.create();
+
+    axios.defaults.baseURL = `${process.env.REACT_APP_API_URL}/`;
+    axios.defaults.headers.common["Content-Type"] = "application/json";
+    axios.defaults.timeout = 2*60*1000;
+
+    axios.interceptors.response.use(
+        (response) => response?.data,
+        (error) => {
+            if (error?.response?.data) return Promise.reject(error.response.data);
+            return Promise.reject(error);
+        }
+    );
+    return axios;
+}
+
+// Initialise Axios
+const api = createAxios();
+
+const service = {
+    get(route, query = {}, options = {}) {
+        return api.get(`${route}?${stringify(query)}`, options);
+    },
+    post(route, payload = {}, options = {}) {
+        return api.post(route, payload, options);
+    },
+    delete(route, payload = {}, options = {}) {
+        return api.delete(route, options, payload);
+    },
 };
 
-// Example API service function to post data with a token in headers
-export const postData = async (data, token) => {
-  try {
-    const response = await api.post('/logout', data, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return response.data;
-  } catch (error) {
-    throw new Error(error.response.data.error);
-  }
-};
-
-export const adminChangePasswordAPI = async (data, token) => {
-  try {
-    const response = await api.post('/update-admin-password', data, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return response.data;
-  } catch (error) {
-    throw new Error(error.response.data.error);
-  }
-};
-//
-export const adminForgotPassword = async (data) => {
-  try {
-    const response = await api.post('/admin-password-forget', data);
-    return response.data;
-  } catch (error) {
-    throw new Error(error.response.data.error);
-  }
-};
-//
-export const adminResetPassword = async (data) => {
-  try {
-    const response = await api.get(`/admin-password-reset?token=${data.token}&password=${data.password}`);
-    return response.data;
-  } catch (error) {
-    throw new Error(error.response.data.error);
-  }
-};
-//
-export const adminChangeNameAPI = async (data, token) => {
-  try {
-    const response = await api.post('/update-admin-name', data, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    return response.data;
-  } catch (error) {
-    throw new Error(error.response.data.error);
-  }
-};
-// ... Define other API service functions as needed
-
-export default api;
+export default service;

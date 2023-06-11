@@ -2,9 +2,9 @@ import React, {useState } from 'react';
 import { Link} from "react-router-dom";
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import {adminForgotPassword } from 'api/api';
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
 import ForgotPasswordImg from 'resources/images/forgot-password.png';
+import api from 'api/api';
 import './index.scss';
 
 function ForgotPassword() {
@@ -32,7 +32,7 @@ function ForgotPassword() {
       email: email
     };
     try {
-      const result = await adminForgotPassword(payload);
+      const result = await api.post('/admin-password-forget', payload);
       if (result && result.success !== true) {
         setError(result.message);
         setShowError(true);

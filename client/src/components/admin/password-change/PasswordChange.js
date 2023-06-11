@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { logout } from '../../../store/auth/actions';
-import {adminChangePasswordAPI } from '../../../api/api';
 import ErrorMessage from '../../common/error-message/ErrorMessage';
+import api from 'api/api';
 import './index.scss';
 
 const PasswordChange = () => {
@@ -85,7 +85,9 @@ const PasswordChange = () => {
     };
     const token = adminData.data.token;
     try {
-      const result = await adminChangePasswordAPI(payload, token);
+      const result = await api.post('/update-admin-password', payload, {headers: {
+        Authorization: `Bearer ${token}`,
+      }});
       if (result && result.success !== true) {
         setError(result.message);
         setShowError(true);

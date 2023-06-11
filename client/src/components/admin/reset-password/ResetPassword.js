@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import PasswordChangeImg from '../../../resources/images/password-change.jpeg';
-import {adminResetPassword } from '../../../api/api';
 import ErrorMessage from '../../common/error-message/ErrorMessage';
+import api from 'api/api';
 import './index.scss';
 
 const ResetPassword = () => {
@@ -67,12 +67,14 @@ const ResetPassword = () => {
       }, 5000);
       return;
     }
-    const payload = {
-      token: variableValue,
-      password: newPassword
-    };
+    // const payload = {
+    //   token: variableValue,
+    //   password: newPassword
+    // };
+    const query = `token=${variableValue}&password=${newPassword}`
     try {
-      const result = await adminResetPassword(payload);
+      //const result = await adminResetPassword(payload);
+      const result = await api.get('/admin-password-reset', query);
       if (result && result.success !== true) {
         setError(result.message);
         setShowError(true);

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { login } from "store/auth/actions";
 import ErrorMessage from '../../common/error-message/ErrorMessage';
-import {adminChangeNameAPI } from '../../../api/api';
+import api from 'api/api';
 import Swal from 'sweetalert2';
 import './index.scss';
 
@@ -35,7 +35,9 @@ const UpdateName = () => {
     };
     const token = adminData.data.token;
     try {
-      const result = await adminChangeNameAPI(payload, token);
+      const result = await api.post('/update-admin-name', payload, {headers: {
+        Authorization: `Bearer ${token}`,
+      }});
       if (result && result.success !== true) {
         setError(result.message);
         setShowError(true);
@@ -49,7 +51,7 @@ const UpdateName = () => {
         text: result.message,
       }).then(() => {
         dispatch(login({ admin: result }));
-        navigate('/dashboard/update-admin-name');
+        navigate('/dashboard/admin/update-admin-name');
       });
     } catch (error) {
       console.error('Error fetching data:', error.message);

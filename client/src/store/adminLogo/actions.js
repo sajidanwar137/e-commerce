@@ -1,4 +1,4 @@
-import api from 'api/apinew';
+import api from 'api/api';
 import {
     GET_ADMINLOGO_BEGIN,
     GET_ADMINLOGO_SUCCESS,
@@ -7,16 +7,14 @@ import {
 
 export const getAdminLogo = () => async (dispatch) => {
     try {
-        
         dispatch({ type: GET_ADMINLOGO_BEGIN });
-
         const adminlogo = await api.get('adminlogo');
-
         dispatch({ type: GET_ADMINLOGO_SUCCESS, payload: adminlogo })
     } catch (err) {
         dispatch({ type: GET_ADMINLOGO_FAIL, payload: err.message });
     }
 }
+
 export const updateAdminLogo = (payload, option) => async (dispatch) => {
     try {
         dispatch({ type: GET_ADMINLOGO_BEGIN });
