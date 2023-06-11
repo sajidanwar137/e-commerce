@@ -36,13 +36,15 @@ $button-bg-color-secondary  : $success;
 // ===============Admin button text color======
 $button-text-color-white    : $white;
 // ==============Media Breakpoint==============
-$screen-md:      768px;
-$screen-lg:      1280px;
-$screen-xl:      1600px;
+$screen-sm    : 576px;
+$screen-md    : 768px;
+$screen-lg    : 992px;
+$screen-xl    : 1200px;
+$screen-xxl   : 1400px;
 // ==============Container width===============
-$container-xl :  1580px;
-$container-lg :  1220px;
-$container-md :  740px;
+$container-xxl  :  1320px;
+$container-xl   :  1170px;
+$container-lg   :  1024px;
 //===============Font path=====================
 $font-path: "../../resources/fonts";
 $image-path: "../../resources/images";
