@@ -10,6 +10,7 @@ export const getAdminLogo = () => async (dispatch) => {
         dispatch({ type: GET_ADMINLOGO_BEGIN });
         const adminlogo = await api.get('adminlogo');
         dispatch({ type: GET_ADMINLOGO_SUCCESS, payload: adminlogo })
+        return adminlogo;
     } catch (err) {
         dispatch({ type: GET_ADMINLOGO_FAIL, payload: err.message });
     }
@@ -25,6 +26,7 @@ export const updateAdminLogo = (payload, option) => async (dispatch) => {
             }});
         }
         dispatch({ type: GET_ADMINLOGO_SUCCESS, payload: adminlogo })
+        return adminlogo;
     } catch (err) {
         dispatch({ type: GET_ADMINLOGO_FAIL, payload: err.message });
     }

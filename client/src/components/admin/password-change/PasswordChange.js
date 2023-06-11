@@ -114,7 +114,7 @@ const PasswordChange = () => {
   return (
     <div className='row dc-admin-change-password d-flex align-items-center'>
       <div className='col-lg-12'>
-        <h4 className='mb-25'>Reset your password</h4>
+        <h4 className='mb-25'>Change your password</h4>
         <form onSubmit={handleSubmit}>
           {showError && <ErrorMessage type="error" message={error} />}
           <div className='mb-8'>
@@ -145,7 +145,7 @@ const PasswordChange = () => {
             />
           </div>
           <div className='d-flex justify-content-center'>
-            <button type="submit" className='dc-btn dc-btn-secondary px-20 py-5'>Change Password</button>
+            <button type="submit" className='dc-btn dc-btn-secondary px-20 py-5'>Update</button>
           </div>
         </form>
       </div>

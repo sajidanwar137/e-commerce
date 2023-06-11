@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import store from './store/index'
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard'
-import PageOne from './pages/admin/PageOne'
+import HomeFE from './pages/frontend/Home'
 import AdminChangePassword from './pages/admin/AdminChangePassword'
 import AdminForgotPassword from './pages/admin/AdminForgotPassword'
 import AdminResetPassword from './pages/admin/AdminResetPassword'
@@ -18,7 +18,7 @@ function App() {
     <Provider store={store}>
     <Router>
       <Routes>
-        <Route path='/' element={<PageOne/>}/>
+        <Route path='/' element={<HomeFE/>}/>
         <Route exact path='/' element={<PrivateRoutes />}>
           <Route path='/dashboard' element={<AdminDashboard/>}/>
           <Route path='/dashboard/admin/admin-change-password' element={<AdminChangePassword/>}/>

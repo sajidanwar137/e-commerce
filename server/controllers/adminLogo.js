@@ -52,7 +52,7 @@ exports.updateAdminLogo = async(req, res) =>{
             }]
             return res.status(200).json({ 
                 success: true,
-                message: "Logo image has been updated!",
+                message: "Admin logo updated successfully!",
                 data: imageResult 
             });
         }
