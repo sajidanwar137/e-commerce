@@ -60,40 +60,44 @@ const HeaderTopbarFE = () => {
       </div>
       <Modal isOpen={email} onClose={handleSubmitClose} modalStyle={'dc-login-modal'}>
         <div className='dc-user-login'>
-          <div className='row'>
+          <div className='row mb-10'>
             <div className='col-lg-12'>
-              <h3>Login</h3>
-              <p>Get access to your Orders, Wishlist and Recommendations</p>
+              <h4>Login</h4>
             </div>
           </div>
-          <div className='row'>
+          <div className='row mb-10'>
+            <div className='col-lg-12'>
+              <p className='body-lg'>Get access to your Orders, Wishlist and Recommendations</p>
+            </div>
+          </div>
+          <div className='row mb-5'>
             <div className='col-lg-12'>
               <InputDC type={'text'} labelid={'test'} label={'Enter email'} update={inputHandler}/>
             </div>
           </div>
-          <div className='row'>
+          <div className='row mb-5'>
             <div className='col-lg-12'>
-              <InputDC type={'password'} labelid={'test'} label={'Enter password'} update={inputHandler}/>
+              <InputDC type={'password'} labelid={'test2'} label={'Enter password'} update={inputHandler}/>
             </div>
           </div>
           <div className='row'>
-            <div className='col-lg-12'>
-              <p>Forgot Password?</p>
+            <div className='col-lg-12 d-flex justify-content-end'>
+              <p className='my-10'><Link>Forgot Password?</Link></p>
             </div>
           </div>
-          <div className='row'>
+          <div className='row mb-7'>
             <div className='col-lg-12'>
-              <p>By continuing, you agree to dizcoder's Terms of Use and Privacy Policy.</p>
+              <p className='body-sm'>By continuing, you agree to dizcoder's <Link>Terms of Use</Link> and <Link>Privacy Policy.</Link></p>
             </div>
           </div>
-          <div className='row'>
+          <div className='row mb-7'>
             <div className='col-lg-12'>
               <button type="submit" className='dc-btn dc-btn-secondary dc-btn-fluid px-20 py-5'>Login</button>
             </div>
           </div>
           <div className='row'>
-            <div className='col-lg-12'>
-              <p>New to dizcoder? Create an account</p>
+            <div className='col-lg-12 d-flex justify-content-end'>
+              <p>New to dizcoder? <Link>Create an account</Link></p>
             </div>
           </div>
         </div>

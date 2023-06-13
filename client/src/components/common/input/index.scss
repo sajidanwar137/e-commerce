@@ -44,10 +44,10 @@
             width: 50%;
             -webkit-transform: scale(0);
             transform: scale(0);
-            bottom: rem(1);
+            bottom: rem(0);
             position: absolute;
             will-change: transform;
-            background: $bg-color-primary;
+            background: $bg-color-success;
             transition: transform .2s ease;
         }
         &::after{

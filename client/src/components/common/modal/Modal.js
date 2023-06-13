@@ -24,9 +24,9 @@ const Modal = ({ isOpen, onClose, children, modalStyle }) => {
   },[isOpen]);
 
     return isOpen ? ReactDOM.createPortal(
-      <div className="dc-modal d-flex justify-content-center align-items-center">
+      <div className="dc-modal d-flex justify-content-center align-items-start">
         <div className="dc-modal__overlay" onClick={(e) => handleOverlayClick(e)}></div>
-        <div className={`${modalStyle} dc-modal__content pt-20 pb-15 ps-15 pe-15 position-relative`}>
+        <div className={`${modalStyle} dc-modal__content pt-20 pb-15 ps-15 pe-15 position-relative mt-25`}>
           <div className="dc-modal__modal-close d-flex justify-content-center align-items-center" onClick={() => onClose(false)}><span className='dc-icon-close'></span></div>
           <div className="dc-modal__content-body">{children}</div>
         </div>

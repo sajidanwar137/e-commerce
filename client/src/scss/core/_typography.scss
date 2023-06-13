@@ -24,3 +24,20 @@ h1,h2,h3,h4,h5,
   font-weight: 600;
   color: $text-color-gray-900;
 }
+.fw{
+  &-100{font-weight: 100;}
+  &-200{font-weight: 200;}
+  &-300{font-weight: 300;}
+  &-400{font-weight: 400;}
+  &-500{font-weight: 500;}
+  &-600{font-weight: 600;}
+  &-700{font-weight: 700;}
+  &-800{font-weight: 800;}
+  &-900{font-weight: 900;}
+}
+.body-sm{
+  @include cssStyle('font-size', 10,10,11,11);
+}
+.body-lg{
+  @include cssStyle('font-size', 14,14,16,16);
+}
