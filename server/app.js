@@ -28,7 +28,7 @@ next();
 });
 //app.use(cors());
 
-app.use('/api/v1/users', users);
+app.use('/api/v1', users);
 app.use('/api/v1', admin);
 app.use('/api/v1', adminLogo);
 

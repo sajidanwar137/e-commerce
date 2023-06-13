@@ -1,99 +1,32 @@
 const User = require('../models/user');
-
-exports.getUsers = async (req, res) => {
-    try {
-        const users = await User.find();
-        res.status(200).json({
-            success: true,
-            data: users
-        })
-    }
-    catch (error ) {
-        res.status(400).json({
-            success: false,
-            error: error.message
-        })
-    }
-}
+const { securePassword} = require("../middleware/utilities");
 
 exports.createUser = async(req, res) => {
     try {
-        const user = await User.create(req.body);
-        res.status(201).json({
-            success: true,
-            data: user
-        })
+        const password = await securePassword(req.body.password);
+        const user = new User({
+            name: req.body.name,
+            email: req.body.email,
+            password: password
+        });
+        const checkEmail = await User.findOne({email: req.body.email});
+        if(checkEmail) {
+            return res.status(200).json({ 
+                success: false, 
+                message: "This email is already exists!" 
+            });
+        }
+        else{
+            const userData = await user.save();
+            return res.status(200).json({ 
+                success: true, 
+                data: userData 
+            });
+        }
+        
     } catch (error) {
         res.status(400).json({
-            success: false,
-            error: error.message
-        })
-    }
-}
-
-exports.getSingleUser = async (req, res) => {
-    try {
-        const user = await User.find({_id : req.params.id});
-        if(!user) {
-            return res.status(400).json({
-                success: false,
-                data: `User not found for id ${req.params.id}`
-            })
-        }
-        res.status(200).json({
-            success: true,
-            data: user
-        })
-    }
-    catch (error ) {
-        res.status(400).json({
-            success: false,
-            error: error.message
-        })
-    }
-}
-
-exports.updateUser = async (req, res) => {
-    try {
-        let updatedUser = await User.find({_id : req.params.id});
-        if(!updatedUser) {
-            return res.status(400).json({
-                success: false,
-                data: `User not found for id ${req.params.id}`
-            })
-        }
-        updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {new : true, runValidators: true});
-        res.status(200).json({
-            success: true,
-            data: updatedUser
-        })
-    }
-    catch (error ) {
-        res.status(400).json({
-            success: false,
-            error: error.message
-        })
-    }
-}
-
-exports.deleteUser = async (req, res) => {
-    try {
-        let user = await User.find({_id : req.params.id});
-        if(!user) {
-            return res.status(400).json({
-                success: false,
-                data: `User not found for id ${req.params.id}`
-            })
-        }
-        user = await User.findByIdAndDelete(req.params.id);
-        res.status(200).json({
-            success: true,
-            data: user
-        })
-    }
-    catch (error ) {
-        res.status(400).json({
-            success: false,
+            success: false, 
             error: error.message
         })
     }
