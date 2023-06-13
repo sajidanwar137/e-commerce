@@ -1,0 +1,10 @@
+@import "../../../scss/abstracts/_abstracts-dir";
+.dc-header{
+    &__logo{
+        img{
+            max-width: rem(200);
+            width: 100%;
+            display: block;
+        }
+    }
+}

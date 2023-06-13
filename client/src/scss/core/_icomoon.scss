@@ -135,4 +135,46 @@
             }
         }
     }
+    &-heart{
+        &::before{
+            content:$dc-icon-heart
+        }
+    }
+    &-cart{
+        &::before{
+            content:$dc-icon-cart
+        }
+    }
+    &-share{
+        &::before{
+            content:$dc-icon-share
+        }
+    }
+    &-truck{
+        &::before{
+            content:$dc-icon-truck
+        }
+    }
+    &-cloud{
+        &-upload{
+            &::before{
+                content:$dc-icon-cloud-upload
+            }
+        }
+    }
+    &-compare{
+        &::before{
+            content:$dc-icon-compare
+        }
+    }
+    &-eye{
+        &::before{
+            content:$dc-icon-eye
+        }
+    }
+    &-close{
+        &::before{
+            content:$dc-icon-close
+        }
+    }
 }

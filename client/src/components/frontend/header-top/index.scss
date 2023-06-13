@@ -1,0 +1,14 @@
+@import "../../../scss/abstracts/_abstracts-dir";
+.dc-header-top{
+    background: $bg-color-gray-100;
+    border-bottom: rem(1) solid $border-color-gray-300;
+    ul{
+        column-gap: rem(15);
+        li{
+            a{
+                column-gap: rem(5); 
+                color: $link-text-gray-800;
+            }
+        }
+    }
+}
