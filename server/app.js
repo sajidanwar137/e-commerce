@@ -4,7 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const linkDataBase = require('./db/config');
 
-const users = require('./routes/user');
+const users = require('./routes/guestUser');
 const admin = require('./routes/admin');
 const adminLogo = require('./routes/adminLogo');
 
@@ -28,7 +28,7 @@ next();
 });
 //app.use(cors());
 
-app.use('/api/v1', users);
+app.use('/api/v1/guest', users);
 app.use('/api/v1', admin);
 app.use('/api/v1', adminLogo);
 

@@ -21,7 +21,7 @@ const userAddressSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  default: {
+  defaultAddress: {
     type: Boolean,
     required: true,
   },
@@ -44,21 +44,33 @@ const userSchema = new mongoose.Schema(
     },
     phone: {
       type: String,
-      required: false,
+      default: ''
     },
     image: {
         type: String,
-        required: false,
+        default: ''
     },
     path: {
         type: String,
-        required: false,
+        default: ''
     },
     originalurl: {
         type: String,
-        required: false,
+        default: ''
+    },
+    token : {
+      type: String,
+      default: ''
     },
     addresses: [userAddressSchema],
+    wishlists: [],
+    orders: [],
+    returns: [],
+    rewardpoints: [],
+    transactions: [],
+    downloads: [],
+    subscriptions: [],
+    newsletters: [],
   },
   {
     timestamps: true,
