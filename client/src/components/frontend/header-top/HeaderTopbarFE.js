@@ -1,20 +1,10 @@
-import React,{useState} from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
-import Modal from '../../common/modal/Modal'
-import InputDC from '../../common/input/InputDC'
+import UserLogin from '../userforgotpassword/UserForgotPassword'
 import './index.scss';
 
 const HeaderTopbarFE = () => {
-  const [email, setEmail] = useState(false);
-  const handleSubmit = () => {
-    setEmail(true)
-  }
-  const handleSubmitClose = ()=> {
-    setEmail(false)
-  }
-  const inputHandler = (e) => {
-    console.log("VVV:::", e.target.value)
-  }
+  
   return (
     <>
       <div className='dc-header-top py-5'>
@@ -48,60 +38,13 @@ const HeaderTopbarFE = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link onClick={handleSubmit && handleSubmit} className='d-flex align-items-center'>
-                      <span className='dc-icon-key'></span>
-                      <span>Login</span>
-                    </Link>
+                    <UserLogin/>
                   </li>
                 </ul>
               </div>
           </div>
         </div>
       </div>
-      <Modal isOpen={email} onClose={handleSubmitClose} modalStyle={'dc-login-modal'}>
-        <div className='dc-user-login'>
-          <div className='row mb-10'>
-            <div className='col-lg-12'>
-              <h4>Login</h4>
-            </div>
-          </div>
-          <div className='row mb-10'>
-            <div className='col-lg-12'>
-              <p className='body-lg'>Get access to your Orders, Wishlist and Recommendations</p>
-            </div>
-          </div>
-          <div className='row mb-5'>
-            <div className='col-lg-12'>
-              <InputDC type={'text'} labelid={'test'} label={'Enter email'} update={inputHandler}/>
-            </div>
-          </div>
-          <div className='row mb-5'>
-            <div className='col-lg-12'>
-              <InputDC type={'password'} labelid={'test2'} label={'Enter password'} update={inputHandler}/>
-            </div>
-          </div>
-          <div className='row'>
-            <div className='col-lg-12 d-flex justify-content-end'>
-              <p className='my-10'><Link>Forgot Password?</Link></p>
-            </div>
-          </div>
-          <div className='row mb-7'>
-            <div className='col-lg-12'>
-              <p className='body-sm'>By continuing, you agree to dizcoder's <Link>Terms of Use</Link> and <Link>Privacy Policy.</Link></p>
-            </div>
-          </div>
-          <div className='row mb-7'>
-            <div className='col-lg-12'>
-              <button type="submit" className='dc-btn dc-btn-secondary dc-btn-fluid px-20 py-5'>Login</button>
-            </div>
-          </div>
-          <div className='row'>
-            <div className='col-lg-12 d-flex justify-content-end'>
-              <p>New to dizcoder? <Link>Create an account</Link></p>
-            </div>
-          </div>
-        </div>
-      </Modal>
     </>
   )
 }

@@ -11,7 +11,7 @@ const InputDC = ({ type, labelid, label, update }) => {
 
   return (
     <div className='dc-input'>
-      <input className='dc-input__input pt-7 pb-3 pe-6 ps-0' type={type} id={labelid} onChange={handleInputChange} />
+      <input autoComplete='off' className='dc-input__input pt-7 pb-3 pe-6 ps-0' type={type} id={labelid} onChange={handleInputChange} />
       <span className='dc-input__bottom-line'></span>
       <label className='dc-input__label' htmlFor={labelid}>{label}</label>
     </div>
