@@ -34,12 +34,11 @@ const UserLogin = ({isOpen, onClose, userforgot, usersignup}) => {
       const result = await api.post('/guest/userlogin', payload);
       console.log("result::::", result)
       dispatch(userLogin({ user: result }));
+      handleLoginModal();
     } catch (error) {
       console.log(error)
     }
   }
-
-
   return (
     <Modal isOpen={isOpen} onClose={handleLoginModal} modalStyle={'dc-guest-user-login-modal'}>
       <div className='dc-guest-user-login-modal__layout d-flex align-items-center'>

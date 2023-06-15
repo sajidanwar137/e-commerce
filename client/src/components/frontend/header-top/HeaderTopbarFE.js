@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import UserLogin from '../login/UserLogin'
 import UserSignup from '../signup/UserSignup'
@@ -9,6 +10,8 @@ const HeaderTopbarFE = () => {
   const [loginModal, setLoginModal] = useState(false);
   const [signupModal, setSignupModal] = useState(false);
   const [forgotPasswordModal, setForgotPasswordModal] = useState(false);
+
+  const userauth = useSelector((state) => state?.userauth?.isAuthenticated);
 
   const loginModalTrigger = () => {
     setLoginModal(true)
@@ -67,13 +70,14 @@ const HeaderTopbarFE = () => {
                       <span>Wish List</span>
                     </Link>
                   </li>
-                  <li>
+                  {userauth && <li>
                     <Link className='d-flex align-items-center'>
                       <span className='dc-icon-administrator'></span>
                       <span>My account</span>
                     </Link>
                   </li>
-                  <li>
+                  }
+                  {!userauth && <li>
                     <Link onClick={loginModalTrigger} className='d-flex align-items-center'>
                       <span className='dc-icon-key'></span>
                       <span>Login</span>
@@ -81,7 +85,7 @@ const HeaderTopbarFE = () => {
                     <UserLogin isOpen={loginModal} onClose={handleLoginModal} usersignup={handleLiftingSignupScreen} userforgot={handleLiftingForgotScreen}/>
                     <UserSignup isOpen={signupModal} onClose={handleSignupModal} userlogin={handleLiftingLoginScreen}/>
                     <UserForgotPassword isOpen={forgotPasswordModal} userlogin={handleLiftingUserLoginScreen} onClose={handleForgotPasswordModal}/>
-                  </li>
+                  </li>}
                 </ul>
               </div>
           </div>
