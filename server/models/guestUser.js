@@ -46,15 +46,15 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: ''
     },
-    image: {
+    profileImageName: {
         type: String,
         default: ''
     },
-    path: {
+    profileImagePath: {
         type: String,
         default: ''
     },
-    originalurl: {
+    profileImageOriginalurl: {
         type: String,
         default: ''
     },

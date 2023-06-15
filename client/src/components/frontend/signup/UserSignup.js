@@ -1,66 +1,72 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import InputDC from '../../common/input/InputDC'
 import Modal from '../../common/modal/Modal'
 import UserSignupImage from 'resources/images/signup.jpeg';
 import './index.scss';
 
-const UserSignup = () => {
-  const [email, setEmail] = useState(false);
-  const handleSubmit = () => {
-    setEmail(true)
-  }
-  const handleSubmitClose = ()=> {
-    setEmail(false)
-  }
-  const inputHandler = (e) => {
+const UserSignup = ({isOpen, onClose, userlogin}) => {
+
+  const nameHandler = (e) => {
     console.log("VVV:::", e.target.value)
   }
+  const emailHandler = (e) => {
+    console.log("VVV:::", e.target.value)
+  }
+  const passwordHandler = (e) => {
+    console.log("VVV:::", e.target.value)
+  }
+  const confirmPasswordHandler = (e) => {
+    console.log("VVV:::", e.target.value)
+  }
+
+  const handleSignupModal = () =>{
+    onClose()
+  }
+
+  const guestUserSignupSubmit = () => {}
+
   return (
-    <>
-      <Link onClick={handleSubmit} className='d-flex align-items-center'>
-        <span className='dc-icon-key'></span>
-        <span>Login</span>
-      </Link>
-      <Modal isOpen={email} onClose={handleSubmitClose} modalStyle={'dc-guest-user-signup-modal'}>
-        <div className='dc-guest-user-signup-modal__layout d-flex align-items-center'>
-          <div className='dc-guest-user-signup-modal__layout-col pe-10'>
-            <div className='dc-guest-user-signup-modal__layout-title mb-15 d-flex align-items-center justify-content-start'>
-                <div className='dc-guest-user-signup-modal__layout-title-icon d-flex justify-content-center align-items-center'>
-                  <span className="dc-icon-administrator"></span>
-                </div>
-                <h4 className='dc-h4'>Looks like you're new here!</h4>
-            </div>
-            <div className='mb-10'>
-              <p className='body-lg'>Sign up with your information to get started</p>
-            </div>
-            <div className='dc-guest-user-signup-modal__left-img'>
-              <img src={UserSignupImage} alt="" />
-            </div>
+    <Modal isOpen={isOpen} onClose={handleSignupModal} modalStyle={'dc-guest-user-signup-modal'}>
+      <div className='dc-guest-user-signup-modal__layout d-flex align-items-center'>
+        <div className='dc-guest-user-signup-modal__layout-col pe-10'>
+          <div className='dc-guest-user-signup-modal__layout-title mb-15 d-flex align-items-center justify-content-start'>
+              <div className='dc-guest-user-signup-modal__layout-title-icon d-flex justify-content-center align-items-center'>
+                <span className="dc-icon-administrator"></span>
+              </div>
+              <h4 className='dc-h4'>Looks like you're new here!</h4>
           </div>
-          <div className='dc-guest-user-signup-modal__layout-col ps-10'>
+          <div className='mb-10'>
+            <p className='body-lg'>Sign up with your information to get started</p>
+          </div>
+          <div className='dc-guest-user-signup-modal__left-img'>
+            <img src={UserSignupImage} alt="" />
+          </div>
+        </div>
+        <div className='dc-guest-user-signup-modal__layout-col ps-10'>
+          <form className='m-0' onSubmit={guestUserSignupSubmit}>
             <div className='mb-6'>
-              <InputDC type={'text'} labelid={'test'} label={'Name'} update={inputHandler}/>
+              <InputDC type={'text'} labelid={'guest-user-name'} label={'Name'} update={nameHandler}/>
             </div>
             <div className='mb-10'>
-              <InputDC type={'email'} labelid={'test2'} label={'Email'} update={inputHandler}/>
+              <InputDC type={'email'} labelid={'guest-user-email'} label={'Email'} update={emailHandler}/>
             </div>
             <div className='mb-10'>
-              <InputDC type={'password'} labelid={'test2'} label={'Password'} update={inputHandler}/>
+              <InputDC type={'password'} labelid={'guest-user-password'} label={'Password'} update={passwordHandler}/>
             </div>
             <div className='mb-10'>
-              <InputDC type={'password'} labelid={'test2'} label={'Confirm password'} update={inputHandler}/>
+              <InputDC type={'password'} labelid={'guest-user-confirm-password'} label={'Confirm password'} update={confirmPasswordHandler}/>
             </div>
             <div className='col-lg-12 mb-10'>
               <button type="submit" className='dc-btn dc-btn-secondary dc-btn-fluid px-20 py-5'>Sign up</button>
             </div>
             <div className='d-flex justify-content-end'>
-              <p>Existing User? <Link>Log in</Link></p>
+              <p>Existing User? <Link onClick={userlogin}>Log in</Link></p>
             </div>
-          </div>
+          </form>
         </div>
-      </Modal>
-    </>
+      </div>
+    </Modal>
   )
 }
 
