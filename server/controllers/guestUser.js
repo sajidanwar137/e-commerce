@@ -48,9 +48,9 @@ exports.loginUser = async(req, res) => {
                 name : userData.name,
                 email : userData.email,
                 password : userData.password,
-                image : userData.image,
-                path : userData.path,
-                originalurl: userData.originalurl,
+                profileImageName : userData.profileImageName,
+                profileImagePath : userData.profileImagePath,
+                profileImageOriginalurl: userData.profileImageOriginalurl,
                 token : tokenData
             }
             const userResponse = {

@@ -1,23 +1,42 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { useDispatch } from "react-redux";
 import { Link } from 'react-router-dom';
 import InputDC from '../../common/input/InputDC'
 import Modal from '../../common/modal/Modal'
 import UserLoginImg from 'resources/images/admin-login.png';
+import { userLogin } from "store/userauth/actions";
+import api from 'api/api';
 import './index.scss';
 
 const UserLogin = ({isOpen, onClose, userforgot, usersignup}) => {
+  const dispatch = useDispatch();
+
+  const [email, setEmail] = useState(false);
+  const [password, setPassword] = useState(false);
+
   const emailHandler = (e) => {
-    console.log("VVV:::", e.target.value)
+    setEmail(e.target.value)
   }
   const passwordHandler = (e) => {
-    console.log("VVV:::", e.target.value)
+    setPassword(e.target.value)
   }
   
   const handleLoginModal = () => {
     onClose()
   }
-  const guestUserLoginSubmit = () => {
-    
+  const guestUserLoginSubmit = async (e) => {
+    e.preventDefault();
+    const payload = {
+      email: email,
+      password: password,
+    };
+    try {
+      const result = await api.post('/guest/userlogin', payload);
+      console.log("result::::", result)
+      dispatch(userLogin({ user: result }));
+    } catch (error) {
+      console.log(error)
+    }
   }
 
 
