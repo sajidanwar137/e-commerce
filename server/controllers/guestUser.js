@@ -72,3 +72,30 @@ exports.loginUser = async(req, res) => {
         })
     }
 };
+
+exports.logoutUser = async(req, res) => {
+    try {
+        const user_id = req.body.user_id;
+        const userData = await User.findOne({ _id: user_id });
+        if(userData){
+            await User.findByIdAndUpdate({_id: user_id}, {$set : {
+                token: ''
+            }})
+            return res.json({ 
+                success: true, 
+                message: 'Logout successful!' 
+            });
+        }
+        else{
+            return res.status(500).json({ 
+                success: true, 
+                message: 'Internal Server Error' 
+            });
+        }
+    } catch (error) {
+        return res.status(400).json({
+            success: false, 
+            error: error.message
+        })
+    }
+};
