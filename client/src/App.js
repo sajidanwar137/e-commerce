@@ -5,6 +5,7 @@ import store from './store/index'
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard'
 import HomeFE from './pages/frontend/Home'
+import UserProfileFE from './pages/frontend/UserProfileFE'
 import AdminChangePassword from './pages/admin/AdminChangePassword'
 import AdminForgotPassword from './pages/admin/AdminForgotPassword'
 import AdminResetPassword from './pages/admin/AdminResetPassword'
@@ -19,6 +20,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<HomeFE/>}/>
+        <Route path='/profile' element={<UserProfileFE/>}/>
         <Route exact path='/' element={<PrivateRoutes />}>
           <Route path='/dashboard' element={<AdminDashboard/>}/>
           <Route path='/dashboard/admin/admin-change-password' element={<AdminChangePassword/>}/>

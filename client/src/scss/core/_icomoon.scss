@@ -177,4 +177,53 @@
             content:$dc-icon-close
         }
     }
+    &-newsletter{
+        &::before{
+            content:$dc-icon-newsletter
+        }
+    }
+    &-address{
+        &-book{
+            &::before{
+                content:$dc-icon-address-book
+            }
+        }
+    }
+    &-account{
+        &-edit{
+            &::before{
+                content:$dc-icon-account-edit
+            }
+        }
+    }
+    &-returns{
+        &::before{
+            content:$dc-icon-returns
+        }
+    }
+    &-rewards{
+        &::before{
+            content:$dc-icon-rewards
+        }
+    }
+    &-transactions{
+        &::before{
+            content:$dc-icon-transactions
+        }
+    }
+    &-download{
+        &::before{
+            content:$dc-icon-download
+        }
+    }
+    &-orders{
+        &::before{
+            content:$dc-icon-orders
+        }
+    }
+    &-camera{
+        &::before{
+            content:$dc-icon-camera
+        }
+    }
 }
