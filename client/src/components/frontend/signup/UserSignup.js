@@ -1,30 +1,46 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
 import InputDC from '../../common/input/InputDC'
 import Modal from '../../common/modal/Modal'
 import UserSignupImage from 'resources/images/signup.jpeg';
+import api from 'api/api';
 import './index.scss';
 
 const UserSignup = ({isOpen, onClose, userlogin}) => {
+  const [username, setUsername] = useState();
+  const [useremail, setUseremail] = useState();
+  const [userpassword, setUserpassword] = useState();
 
   const nameHandler = (e) => {
-    console.log("VVV:::", e.target.value)
+    setUsername(e.target.value)
   }
   const emailHandler = (e) => {
-    console.log("VVV:::", e.target.value)
+    setUseremail(e.target.value)
   }
   const passwordHandler = (e) => {
-    console.log("VVV:::", e.target.value)
+    setUserpassword(e.target.value)
   }
-  const confirmPasswordHandler = (e) => {
-    console.log("VVV:::", e.target.value)
-  }
+  const confirmPasswordHandler = (e) => {}
 
   const handleSignupModal = () =>{
     onClose()
   }
 
-  const guestUserSignupSubmit = () => {}
+  const guestUserSignupSubmit = async (e) => {
+    e.preventDefault();
+    const payload = {
+      name: username,
+      email: useremail,
+      password: userpassword,
+    };
+    try {
+      const result = await api.post('/guest/createuser', payload);
+      console.log("result::::", result)
+      handleSignupModal();
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <Modal isOpen={isOpen} onClose={handleSignupModal} modalStyle={'dc-guest-user-signup-modal'}>
