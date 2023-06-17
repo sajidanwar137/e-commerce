@@ -6,6 +6,7 @@ import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard'
 import HomeFE from './pages/frontend/Home'
 import UserProfileFE from './pages/frontend/UserProfileFE'
+import UserAvtar from './pages/frontend/UserAvtar'
 import AdminChangePassword from './pages/admin/AdminChangePassword'
 import AdminForgotPassword from './pages/admin/AdminForgotPassword'
 import AdminResetPassword from './pages/admin/AdminResetPassword'
@@ -21,6 +22,7 @@ function App() {
         <Route path='/' element={<HomeFE/>}/>
         <Route exact path='/' element={<UserPrivateRoutes />}>
           <Route path='/account/:id' element={<UserProfileFE/>}/>
+          <Route path='/account/update/avtar/:id' element={<UserAvtar/>}/>
         </Route>
         <Route exact path='/' element={<PrivateRoutes />}>
           <Route path='/dashboard' element={<AdminDashboard/>}/>

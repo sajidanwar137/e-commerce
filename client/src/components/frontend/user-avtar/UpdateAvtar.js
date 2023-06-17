@@ -1,0 +1,86 @@
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
+import ErrorMessage from 'components/common/error-message/ErrorMessage';
+import Swal from 'sweetalert2';
+import Avtar from 'resources/images/avtar.jpeg';
+import './index.scss';
+
+const UpdateAvtar = () => {
+  const dispatch = useDispatch();
+  const [uploadFile, setUploadFile] = useState(Avtar);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [showError, setShowError] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setUploadFile(URL.createObjectURL(event.target.files[0]));
+    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/gif', 'image/png', 'image/svg+xml'];
+    if (file && allowedTypes.includes(file.type)) {
+      setSelectedFile(file);
+    } else {
+      setSelectedFile(null);
+    }
+  }
+
+  const handleAvtarSubmit = async event => {
+    event.preventDefault();
+    const formData = new FormData();
+    // formData.append('adminlogo', selectedFile);
+    // formData.append('image_id', data._id);
+    if (!selectedFile) {
+      setError("Invalid file format. Please select a JPEG, JPG, GIF, PNG, or SVG file!");
+      setShowError(true);
+      setTimeout(() => {
+        setShowError(false);
+      }, 5000);
+      return;
+    }
+    // try {
+    //   const result = await dispatch(updateAdminLogo(formData, token));
+    //   if (result && result.success !== true) {
+    //     setError(result.message);
+    //     setShowError(true);
+    //     setTimeout(() => {
+    //       setShowError(false);
+    //     }, 5000);
+    //     return;
+    //   }
+    //   Swal.fire({
+    //     icon: 'success',
+    //     text: result.message,
+    //   })
+    // } catch (error) {
+    //   console.log(error)
+    // }
+  }
+
+  return (
+    <div className='dc-useravtar'>
+      <div className='row mb-15'>
+        <div className="col-12">
+          <h4>Change your picture below</h4>
+        </div>
+      </div>
+      <form onSubmit={handleAvtarSubmit} encType="multipart/form-data">
+        {showError && <ErrorMessage type="error" message={error} />}
+        <div className='dc-useravtar__row d-flex justify-content-start align-items-center'>
+          <div className='dc-useravtar__file-col flex-grow-1'>
+            <label className='dc-useravtar__file-label mb-2'>Select Avtar</label>
+            <div className='dc-useravtar__input-row d-flex justify-content-start align-items-center'>
+              <div className='flex-grow-1'>
+                <input className='dc-form-control pe-6' onChange={handleFileChange} type="file" name="adminlogo" accept=".jpeg,.jpg,.gif,.png,.svg"/>
+              </div>
+              <div><button type="submit" className='dc-btn dc-btn-secondary px-20 py-5'>Upload</button></div>
+            </div>
+          </div>
+          <div className='dc-useravtar__preview-col'>
+            <img src={uploadFile} alt="" />
+          </div>
+        </div>
+      </form>
+    </div>
+  );
+};
+
+export default UpdateAvtar;

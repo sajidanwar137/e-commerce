@@ -8,6 +8,10 @@
             a{
                 column-gap: rem(10);
                 color: $link-text-gray-800;
+                &.active,
+                &:hover{
+                    color: $link-text-hover-color-primary; 
+                }
             }
             &:last-child{
                 border: none;
@@ -38,4 +42,8 @@
             object-position: 50% 50%;
         }
     }
+}
+//later will update this
+.dc-body-container{
+    background: $bg-color-gray-100;
 }

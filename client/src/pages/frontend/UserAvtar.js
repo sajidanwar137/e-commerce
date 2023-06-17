@@ -4,8 +4,9 @@ import NavbarFE from '../../components/frontend/navbar/NavbarFE'
 import BreadcrumbFE from '../../components/frontend/breadcrumb/BreadcrumbFE'
 import UserSidebarFE from '../../components/frontend/user-sidebar/UserSidebarFE'
 import FooterFE from '../../components/frontend/footer/FooterFE'
+import UpdateAvtar from 'components/frontend/user-avtar/UpdateAvtar'
 
-const UserProfileFE = () => {
+const UserAvtar = () => {
   return (
     <>
       <HeaderFE/>
@@ -18,7 +19,9 @@ const UserProfileFE = () => {
               <UserSidebarFE/>
             </div>
             <div className='col-md-9'>
-              <div className="dc-dashboard__layout--card-body p-25"></div>
+              <div className="dc-dashboard__layout--card-body p-25">
+                <UpdateAvtar/>
+              </div>
             </div>
           </div>
         </div>
@@ -27,4 +30,4 @@ const UserProfileFE = () => {
     </>
   )
 }
-export default UserProfileFE
+export default UserAvtar

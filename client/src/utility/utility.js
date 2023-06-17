@@ -1,9 +1,3 @@
-
-export const IMG = (imgName) => {
-    if(imgName){
-        return require(`${process.env.REACT_APP_API_LOGO_PATH}${imgName}`);
-    }
-}
 export const validEmail = (text) => {
     const regex = RegExp(
         /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -27,7 +21,6 @@ export const slugCreater = (text, id) =>{
     return slug;
 }
 export default {
-    IMG,
     validEmail,
     validateConfirmPassword,
     passwordComplexity,
