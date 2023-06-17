@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import PasswordChangeImg from '../../../resources/images/password-change.jpeg';
 import ErrorMessage from '../../common/error-message/ErrorMessage';
-import {validateConfirmPassword, passwordComplexity} from 'utilities/utilities';
+import {validateConfirmPassword, passwordComplexity} from 'utility/utility';
 import api from 'api/api';
 import './index.scss';
 

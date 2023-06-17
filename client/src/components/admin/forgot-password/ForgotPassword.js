@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
 import ForgotPasswordImg from 'resources/images/forgot-password.png';
-import {validEmail} from 'utilities/utilities';
+import {validEmail} from 'utility/utility';
 import api from 'api/api';
 import './index.scss';
 

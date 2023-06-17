@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import { logout } from '../../../store/auth/actions';
 import ErrorMessage from '../../common/error-message/ErrorMessage';
 import api from 'api/api';
-import {validateConfirmPassword, passwordComplexity} from 'utilities/utilities';
+import {validateConfirmPassword, passwordComplexity} from 'utility/utility';
 import './index.scss';
 
 const PasswordChange = () => {

@@ -5,7 +5,7 @@ import { login } from "store/auth/actions";
 import { useNavigate } from 'react-router-dom';
 import AdminLoginImg from 'resources/images/admin-login.png';
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
-import {validEmail} from 'utilities/utilities';
+import {validEmail} from 'utility/utility';
 import api from 'api/api';
 import './index.scss';
 
