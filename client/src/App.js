@@ -11,7 +11,7 @@ import AdminForgotPassword from './pages/admin/AdminForgotPassword'
 import AdminResetPassword from './pages/admin/AdminResetPassword'
 import ChangeAdminLogo from './pages/admin/ChangeAdminLogo'
 import UpdateAdminName from './pages/admin/UpdateAdminName'
-import {PrivateRoutes, LoggedIn} from './AuthRoutes';
+import {PrivateRoutes, LoggedIn, UserPrivateRoutes} from './AuthRoutes';
 
 function App() {
   return (
@@ -19,7 +19,9 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<HomeFE/>}/>
-        <Route path='/profile' element={<UserProfileFE/>}/>
+        <Route exact path='/' element={<UserPrivateRoutes />}>
+          <Route path='/account/:id' element={<UserProfileFE/>}/>
+        </Route>
         <Route exact path='/' element={<PrivateRoutes />}>
           <Route path='/dashboard' element={<AdminDashboard/>}/>
           <Route path='/dashboard/admin/admin-change-password' element={<AdminChangePassword/>}/>

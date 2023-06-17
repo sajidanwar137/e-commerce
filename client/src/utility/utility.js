@@ -20,10 +20,16 @@ export const passwordComplexity = (text) =>{
     const regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]+$/;
     return !regex.test(text)
 }
-
+export const slugCreater = (text, id) =>{
+    let slug = null
+    if(id) slug = `${text.replace(/\s+/g, '-').toLowerCase()}-${id}`;
+    else slug =  text.replace(/\s+/g, '-').toLowerCase();
+    return slug;
+}
 export default {
     IMG,
     validEmail,
     validateConfirmPassword,
-    passwordComplexity
+    passwordComplexity,
+    slugCreater
 };

@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import UserLogin from '../login/UserLogin'
 import UserSignup from '../signup/UserSignup'
 import UserForgotPassword from '../userforgotpassword/UserForgotPassword'
-import { userLogout } from '../../../store/userauth/actions';
+import { userLogout } from 'store/userauth/actions';
+import { slugCreater } from 'utility/utility';
 import api from 'api/api';
 import Avtar from 'resources/images/avtar.jpeg';
 import './index.scss';
@@ -118,7 +119,12 @@ const HeaderTopbarFE = () => {
                       </div>
                       <div className={`pt-8 dc-header-top__dropdown-content ${isOpen ? 'dc-header-top__dropdown-content--open' : ''}`}>
                         <ul>
-                          <li className='px-5'><Link className='py-2 d-flex justify-content-start align-items-center'><span className='dc-icon-setting'></span><span>Profile</span></Link></li>
+                          <li className='px-5'>
+                            <Link to={`/account/${slugCreater(userData?.name, userData?._id)}`} className='py-2 d-flex justify-content-start align-items-center'>
+                              <span className='dc-icon-setting'></span>
+                              <span>Profile</span>
+                            </Link>
+                          </li>
                           <li className='px-5'><Link className='py-2 d-flex justify-content-start align-items-center' onClick={userLogoutHandler}><span className='dc-icon-logout'></span><span>Logout</span></Link></li>
                         </ul>
                       </div>

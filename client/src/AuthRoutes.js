@@ -11,9 +11,14 @@ export const LoggedIn = (props) => {
     const token = useSelector((state) => state.auth.isAuthenticated);
     return token ? <Navigate to="/dashboard" /> : <Outlet /> ;
 }
+export const UserPrivateRoutes = (props) => {
+    const auth = useSelector((state) => state.userauth.isAuthenticated);
+    return auth ? <Outlet /> : <Navigate to="/" />;
+}
 
 export default {
     PrivateRoutes,
-    LoggedIn
+    LoggedIn,
+    UserPrivateRoutes
 };
 
