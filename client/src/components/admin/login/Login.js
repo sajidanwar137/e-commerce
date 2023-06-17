@@ -5,6 +5,7 @@ import { login } from "store/auth/actions";
 import { useNavigate } from 'react-router-dom';
 import AdminLoginImg from 'resources/images/admin-login.png';
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
+import {validEmail} from 'utilities/utilities';
 import api from 'api/api';
 import './index.scss';
 
@@ -28,9 +29,7 @@ const Login = () => {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email.match(emailRegex)) {
+    if (validEmail(email)) {
       setError("Please enter a valid email address");
       setShowError(true);
       setTimeout(() => {
@@ -84,7 +83,7 @@ const Login = () => {
           
           <form className='dc-admin-layout__layout-body' onSubmit={handleSubmit}>
               <div className='dc-admin-layout__layout-row mb-8'>
-                  <input className='dc-form-control py-5 px-6' type="email" value={email} onChange={handleEmailChange} placeholder='Email'/>
+                  <input className='dc-form-control py-5 px-6' type="text" value={email} onChange={handleEmailChange} placeholder='Email'/>
               </div>
               <div className='dc-admin-layout__layout-row mb-8'>
                   <input className='dc-form-control py-5 px-6' type="password" value={password} onChange={handlePasswordChange} placeholder='Password'/>

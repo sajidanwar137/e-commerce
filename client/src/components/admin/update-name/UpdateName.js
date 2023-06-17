@@ -8,13 +8,12 @@ import Swal from 'sweetalert2';
 import './index.scss';
 
 const UpdateName = () => {
-  const dispatch = useDispatch()
-  const navigate = useNavigate();
-  const adminData = useSelector((state) => state.admin);
   const [showError, setShowError] = useState(false);
   const [error, setError] = useState("");
   const [name, setName] = useState('');
-
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const adminData = useSelector((state) => state.admin);
   const handleName = (event) => {
     setName(event.target.value);
   };

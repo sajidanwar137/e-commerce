@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { logout } from '../../../store/auth/actions';
 import ErrorMessage from '../../common/error-message/ErrorMessage';
 import api from 'api/api';
+import {validateConfirmPassword, passwordComplexity} from 'utilities/utilities';
 import './index.scss';
 
 const PasswordChange = () => {
@@ -61,8 +62,7 @@ const PasswordChange = () => {
     }
 
     // Password complexity validation
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]+$/;
-    if (!passwordRegex.test(newPassword)) {
+    if (passwordComplexity(newPassword)) {
       setError("Password must contain at least one capital letter, one special character, and one number");
       setShowError(true);
       setTimeout(() => {
@@ -71,7 +71,7 @@ const PasswordChange = () => {
       return;
     }
     // Confirm password validation
-    if (newPassword !== confirmPassword) {
+    if (validateConfirmPassword(newPassword,confirmPassword)) {
       setError("New password and confirm password do not match");
       setShowError(true);
       setTimeout(() => {

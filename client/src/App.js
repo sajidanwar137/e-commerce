@@ -11,8 +11,7 @@ import AdminForgotPassword from './pages/admin/AdminForgotPassword'
 import AdminResetPassword from './pages/admin/AdminResetPassword'
 import ChangeAdminLogo from './pages/admin/ChangeAdminLogo'
 import UpdateAdminName from './pages/admin/UpdateAdminName'
-import PrivateRoutes from './PrivateRoutes';
-import LoggedIn from './utilities/utilities';
+import {PrivateRoutes, LoggedIn} from './AuthRoutes';
 
 function App() {
   return (

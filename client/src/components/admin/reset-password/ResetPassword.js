@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import PasswordChangeImg from '../../../resources/images/password-change.jpeg';
 import ErrorMessage from '../../common/error-message/ErrorMessage';
+import {validateConfirmPassword, passwordComplexity} from 'utilities/utilities';
 import api from 'api/api';
 import './index.scss';
 
@@ -49,8 +50,7 @@ const ResetPassword = () => {
       return;
     }
     // Password complexity validation
-    const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()])[A-Za-z\d!@#$%^&*()]+$/;
-    if (!passwordRegex.test(newPassword)) {
+    if (passwordComplexity(newPassword)) {
       setError("Password must contain at least one capital letter, one special character, and one number");
       setShowError(true);
       setTimeout(() => {
@@ -59,7 +59,7 @@ const ResetPassword = () => {
       return;
     }
     // Confirm password validation
-    if (newPassword !== confirmPassword) {
+    if (validateConfirmPassword(newPassword,confirmPassword)) {
       setError("New password and confirm password do not match");
       setShowError(true);
       setTimeout(() => {

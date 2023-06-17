@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
 import ForgotPasswordImg from 'resources/images/forgot-password.png';
+import {validEmail} from 'utilities/utilities';
 import api from 'api/api';
 import './index.scss';
 
@@ -19,8 +20,7 @@ function ForgotPassword() {
   
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!email.match(emailRegex)) {
+    if (validEmail(email)) {
       setError("Please enter a valid email address");
       setShowError(true);
       setTimeout(() => {
