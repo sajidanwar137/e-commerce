@@ -63,8 +63,9 @@ exports.multerFileStorage =  folderName => {
         return cb(null, `${process.env.IMG_PATH}/${folderName}`);
       },
       filename: function (req, file, cb) {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-        return cb(null,  uniqueSuffix + '-' + file.originalname)
+        let extArray = file.mimetype.split("/");
+        const extension = extArray[extArray.length - 1];
+        return cb(null, `${Date.now()}-${Math.round(Math.random() * 1E9)}-${file.fieldname}.${extension}`)
       }
     })
     return multer({ storage: storage });
