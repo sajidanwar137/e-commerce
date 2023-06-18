@@ -18,56 +18,13 @@
             text-transform: uppercase;
             font-weight: 600;
         }
-        &-nav{
-            &--heading{
-                cursor: pointer;
-                column-gap: rem(10);
-                font-weight: 600;
-                color: $link-text-gray-800;
-                .dc-icon-arrow-down,
-                .dc-icon-arrow-right{
-                    font-size: rem(13);
-                }
-                .dc-icon-arrow-down{
-                    display: none;
-                }
-                &[aria-expanded="true"]{
-                    color: $link-text-color-primary;
-                    .dc-icon-arrow-right{
-                        display: none;
-                    }
-                    .dc-icon-arrow-down{
-                        display: block;
-                    } 
-                }
-                &:hover{
-                    color: $link-text-color-primary;
-                }
-            }
-            &--text{
-                column-gap: rem(10);
-            }
-            &--content{
-                ul{
-                    li{
-                        a{
-                            display: block;
-                            font-weight: 500;
-                            color: $link-text-gray-800;
-                            &::before{
-                                content: '-';
-                                margin-right: rem(5);
-                            }
-                            &:hover{
-                                color: $link-text-color-primary;
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
     &__logo{
+        img{
+            width: 100%;
+            max-width: rem(130);
+            max-height: rem(25);
+        }
         .dc-h3{
             color: $link-text-color-primary ;
         }

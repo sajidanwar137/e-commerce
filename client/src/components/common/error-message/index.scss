@@ -1,0 +1,22 @@
+@import "../../../scss/abstracts/_abstracts-dir";
+
+.ds-error-message{
+    column-gap: rem(7);
+    border-radius: rem(5);
+    &.error{
+        color: $text-color-white;
+        background: $text-color-error;
+    }
+    &.success{
+        color: $text-color-success;
+    }
+    &.info{
+        color: $text-color-info;
+    }
+    &.warning{
+        color: $text-color-warning;
+    }
+    &__text{
+        font-size: rem(13);
+    }
+}

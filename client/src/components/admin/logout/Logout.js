@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../../../store/auth/actions';
 import { useNavigate } from 'react-router-dom';
-import {postData } from '../../../api/api';
+import api from 'api/api';
 import './index.scss';
 
 function Logout() {
@@ -13,7 +13,9 @@ function Logout() {
     const payload = {admin_id: adminData.data._id};
     const token = adminData.data.token;
     try {
-      const result = await postData(payload, token);
+      const result = await api.post('/logout', payload, {headers: {
+          Authorization: `Bearer ${token}`,
+        }});
       if (result && result.success === true) {
         dispatch(logout({ admin: result }));
         navigate('/dashboard/login');

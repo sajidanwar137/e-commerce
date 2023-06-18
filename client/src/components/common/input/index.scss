@@ -1,0 +1,75 @@
+@import "../../../scss/abstracts/_abstracts-dir";
+
+.dc-input{
+    position: relative;
+    &__input{
+        &[type="password"],
+        &[type="email"],
+        &[type="text"]{
+            border-radius: 0;
+            border: none; 
+            border-bottom: rem(1) solid $border-color-gray-300;
+            &:focus + .dc-input__bottom-line{
+                &::before,
+                &::after{
+                    transform: scale(1)
+                }
+            }
+            &:focus{
+                ~.dc-input__label {
+                    transform: translateY(-10px) scale(.8);
+                  }
+            }
+        }
+        &-active{
+            ~.dc-input__label {
+                transform: translateY(-10px) scale(.8);
+            }
+            + .dc-input__bottom-line{
+                &::before,
+                &::after{
+                    transform: scale(1)
+                }
+            }
+        }
+    }
+    &__bottom-line{
+        position: relative;
+        width: 100%;
+        display: block;
+        &::before,
+        &::after{
+            content: "";
+            height: rem(1);
+            width: 50%;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+            bottom: rem(0);
+            position: absolute;
+            will-change: transform;
+            background: $bg-color-success;
+            transition: transform .2s ease;
+        }
+        &::after{
+            right: 50%;
+            transform-origin: right;
+        }
+        &::before{
+            left: 50%;
+            transform-origin: left;
+        }
+    }
+    &__label{
+        color: $text-color-gray-700;
+        position: absolute;
+        pointer-events: none;
+        left: 0;
+        top: 0;
+        transform: translateY(10px);
+        transition: -webkit-transform .2s ease;
+        transition: transform .2s ease;
+        transition: transform .2s ease,-webkit-transform .2s ease;
+        will-change: transform;
+        transform-origin: left;
+    }
+}

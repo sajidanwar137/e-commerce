@@ -1,0 +1,30 @@
+@import "../../../scss/abstracts/_abstracts-dir";
+
+.dc-guest-user-login-modal{
+    max-width: rem(800);
+    &__layout{
+        &-col{
+            flex: 0 0 50%;
+            max-width: 50%;
+            width: 50%;
+        }
+        &-title{
+            column-gap: rem(10);
+            &-icon{
+                width: rem(32);
+                height: rem(32);
+                border-radius: 50%;
+                background: $bg-color-primary;
+                color: $text-color-white;
+                font-size: rem(16);
+            }
+        }
+    }
+    &__left-img{
+        img{
+            max-width: 60%;
+            width: 100%;
+            display: block;
+        }
+    }
+}
