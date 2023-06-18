@@ -10,7 +10,8 @@ const {
   loginUser,
   logoutUser,
   updateUserAvtar,
-  updateUserProfile
+  updateUserProfile,
+  updateUserPassword
 } = require("../controllers/guestUser");
 
 router.route("/createuser").post(createUser);
@@ -18,5 +19,6 @@ router.route("/userlogin").post(loginUser);
 router.route("/userlogout").post(auth, logoutUser);
 router.route("/upload-user-avtar").post(auth, upload.single('useravtar'), updateUserAvtar);
 router.route("/update-user-profile").post(auth, updateUserProfile);
+router.route("/update-user-password").post(auth, updateUserPassword);
 
 module.exports = router;

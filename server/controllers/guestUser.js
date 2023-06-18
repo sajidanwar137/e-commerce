@@ -164,3 +164,35 @@ exports.updateUserProfile = async(req, res) =>{
         return res.status(400).json({success: false, error: error.message})
     }
 };
+
+exports.updateUserPassword = async(req, res) =>{
+    try {
+        const user_id = req.body.user_id;
+        const password = req.body.password;
+        const data = await User.findOne({_id: user_id});
+        let userData = null;
+        if(data){
+            const newPassword = await securePassword(password);
+            userData = await User.findByIdAndUpdate({_id: user_id}, {$set : {
+                password: newPassword
+            }})
+        }
+        else{
+            return res.status(200).send({
+                success: false, 
+                message: "User ID not found!"
+            });
+        }
+        if(userData){
+            return res.status(200).send({
+                success: true, 
+                message: "Your password has been updated!"
+            })
+        }
+    } catch (error) {
+        return res.status(400).json({
+            success: false, 
+            error: error.message
+        })
+    }
+};

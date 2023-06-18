@@ -5,6 +5,7 @@ import UserLogin from '../login/UserLogin'
 import UserSignup from '../signup/UserSignup'
 import UserForgotPassword from '../userforgotpassword/UserForgotPassword'
 import { userLogout } from 'store/userauth/actions';
+import { userRemove } from 'store/user/actions';
 import { slugCreater } from 'utility/utility';
 import api from 'api/api';
 import Avtar from 'resources/images/avtar.jpeg';
@@ -76,7 +77,8 @@ const HeaderTopbarFE = () => {
           Authorization: `Bearer ${token}`,
         }});
       if (result && result.success === true) {
-        dispatch(userLogout({ userauth: result }));
+        dispatch(userLogout({ userauth: null }));
+        dispatch(userRemove({ user: null }));
       }
     } catch (error) {
       console.error('Error fetching data:', error.message);
