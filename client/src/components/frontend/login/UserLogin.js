@@ -32,7 +32,6 @@ const UserLogin = ({isOpen, onClose, userforgot, usersignup}) => {
     };
     try {
       const result = await api.post('/guest/userlogin', payload);
-      console.log("result::::", result)
       dispatch(userLogin({ user: result }));
       handleLoginModal();
     } catch (error) {

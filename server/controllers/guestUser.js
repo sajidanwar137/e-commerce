@@ -134,3 +134,33 @@ exports.updateUserAvtar = async(req, res) =>{
         return res.status(400).json({success: false, error: error.message})
     }
 };
+
+exports.updateUserProfile = async(req, res) =>{
+    try {
+        const user_id = req.body.user_id;
+        const name = req.body.name;
+        const email = req.body.email;
+        const phone = req.body.phone;
+        const data = await User.findOne({_id: user_id});
+        let userData = null;
+        if(data){
+            userData = await User.findByIdAndUpdate({_id: user_id}, {
+                $set : {
+                    name: name,
+                    email: email,
+                    phone: phone,
+                }
+            }, {new: true})
+        }
+        if(userData){
+            const userResponse = {
+                success : true,
+                data : userData,
+                message: "Profile updated successfully!"
+            }
+            return res.status(200).json(userResponse);
+        }
+    } catch (error) {
+        return res.status(400).json({success: false, error: error.message})
+    }
+};

@@ -20,9 +20,14 @@ export const slugCreater = (text, id) =>{
     else slug =  text.replace(/\s+/g, '-').toLowerCase();
     return slug;
 }
+export const isValidPhoneNumber = (text) =>{
+    const regex = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
+    return !regex.test(text)
+}
 export default {
     validEmail,
     validateConfirmPassword,
     passwordComplexity,
-    slugCreater
+    slugCreater,
+    isValidPhoneNumber
 };

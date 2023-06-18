@@ -35,7 +35,6 @@ const UserSignup = ({isOpen, onClose, userlogin}) => {
     };
     try {
       const result = await api.post('/guest/createuser', payload);
-      console.log("result::::", result)
       handleSignupModal();
     } catch (error) {
       console.log(error)
