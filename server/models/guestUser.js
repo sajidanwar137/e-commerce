@@ -1,6 +1,18 @@
 const mongoose = require("mongoose");
 
 const userAddressSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  addressPrimary: {
+    type: String,
+    required: true,
+  },
+  addressSecondary: {
+    type: String,
+    required: true,
+  },
   street: {
     type: String,
     required: true,
@@ -21,7 +33,7 @@ const userAddressSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  defaultAddress: {
+  isDefault: {
     type: Boolean,
     required: true,
   },
