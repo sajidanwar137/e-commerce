@@ -1,7 +1,9 @@
 const jwt = require('jsonwebtoken');
 const bcryptjs = require('bcryptjs');
 const nodemailer = require('nodemailer');
+const multer  = require('multer');
 
+// Token creater
 exports.createToken = async(id) =>{
     try {
         return await jwt.sign({_id: id}, process.env.SECRET_JWT);
@@ -9,6 +11,7 @@ exports.createToken = async(id) =>{
         return res.status(400).send(error.message)
     }
 };
+// Password secure bcrypt
 exports.securePassword = async (password) => {
     try {
         return await bcryptjs.hash(password, 10);
@@ -16,11 +19,11 @@ exports.securePassword = async (password) => {
         return res.status(400).json({success: false, error: error.message})
     }
 };
-
+// Password compare by bcrypt
 exports.comparePassword = async (password, comparePassword) => {
     return bcryptjs.compare(password, comparePassword)
 };
-
+// Reset password mail handler
 exports.sendResetPasswordMail = async (name, email, token) => {
     try {
         const transporter = nodemailer.createTransport({
@@ -53,3 +56,15 @@ exports.sendResetPasswordMail = async (name, email, token) => {
         return res.status(400).send({success: false, message: error.message})
     }
 };
+//Multer file upload handler
+exports.multerFileStorage =  folderName => {
+    const storage = multer.diskStorage({
+      destination: function (req, file, cb) {
+        return cb(null, `${process.env.IMG_PATH}/${folderName}`);
+      },
+      filename: function (req, file, cb) {
+        return cb(null, `${file.originalname}`);
+      }
+    })
+    return multer({ storage: storage });
+}

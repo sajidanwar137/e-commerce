@@ -1,6 +1,16 @@
-import { USER_SAVE, USER_REMOVE } from './types';
+import { 
+    USER_SAVE, 
+    USER_REMOVE,
+    GET_USER_AVTAR_BEGIN,
+    GET_USER_AVTAR_SUCCESS,
+    GET_USER_AVTAR_FAIL 
+} from './types';
 
-const INITIAL_STATE = {};
+const INITIAL_STATE = {
+    data: [],
+    loading: false,
+    error: null,
+};
 
 export default function (state = INITIAL_STATE, { type, payload }) {
     switch (type) {
@@ -9,9 +19,9 @@ export default function (state = INITIAL_STATE, { type, payload }) {
                 data: {
                     email: payload.user.data.email,
                     name: payload.user.data.name,
-                    profileImageName: payload.user.data.profileImageName,
-                    profileImagePath: payload.user.data.profileImagePath,
-                    profileImageOriginalurl: payload.user.data.profileImageOriginalurl,
+                    avtarName: payload.user.data.avtarName,
+                    avtarPath: payload.user.data.avtarPath,
+                    avtarOriginalurl: payload.user.data.avtarOriginalurl,
                     token: payload.user.data.token,
                     _id: payload.user.data._id
                 },
@@ -29,6 +39,24 @@ export default function (state = INITIAL_STATE, { type, payload }) {
                 ...INITIAL_STATE,
             };
         }
+        case GET_USER_AVTAR_BEGIN:
+            return {
+                ...state,
+                loading: true,
+                error: null
+            }
+        case GET_USER_AVTAR_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                ...payload,
+            }
+        case GET_USER_AVTAR_FAIL:
+            return {
+                ...state,
+                loading: false,
+                error: payload
+            }
         default:
             return state;
     }

@@ -48,9 +48,9 @@ exports.loginUser = async(req, res) => {
                 name : userData.name,
                 email : userData.email,
                 password : userData.password,
-                profileImageName : userData.profileImageName,
-                profileImagePath : userData.profileImagePath,
-                profileImageOriginalurl: userData.profileImageOriginalurl,
+                avtarName : userData.avtarName,
+                avtarPath : userData.avtarPath,
+                avtarOriginalurl: userData.avtarOriginalurl,
                 token : tokenData
             }
             const userResponse = {
@@ -111,5 +111,43 @@ exports.getUserById = async(req, res) => {
     } catch (error) {
         console.error('Error getting user by ID:', error);
         return res.status(500).json({ error: 'Internal server error' });
+    }
+};
+
+exports.updateUserAvtar = async(req, res) =>{
+    try {
+        const user_id = req.body.user_id;
+        const avtarName = req.file.originalname;
+        const avtarPath = req.file.destination;
+        const data = await User.findOne({_id: user_id});
+        let userData = null;
+        if(data){
+            userData = await User.findByIdAndUpdate({_id: user_id}, {
+                $set : {
+                    avtarName: avtarName,
+                    avtarPath: avtarPath,
+                    avtarOriginalurl: `${process.env.CLIENT_IMG_PATH}user/${avtarName}`
+                }
+            }, {new: true})
+        }
+        if(userData){
+            const userResult = {
+                _id : userData._id,
+                name : userData.name,
+                email : userData.email,
+                avtarName : userData.avtarName,
+                avtarPath : userData.avtarPath,
+                avtarOriginalurl: userData.avtarOriginalurl,
+                token : userData.token
+            }
+            const userResponse = {
+                success : true,
+                data : userResult,
+                message: "Avtar updated successfully!"
+            }
+            return res.status(200).json(userResponse);
+        }
+    } catch (error) {
+        return res.status(400).json({success: false, error: error.message})
     }
 };
