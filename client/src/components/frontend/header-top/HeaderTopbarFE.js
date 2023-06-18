@@ -112,10 +112,11 @@ const HeaderTopbarFE = () => {
                     <div className='dc-header-top__dropdown d-flex align-items-center' ref={dropdownRef}>
                       <div className='d-flex align-items-center dc-header-top__dropdown-button' onClick={toggleDropdown}>
                         <div className='dc-header-top__dropdown--avtar d-flex align-items-center'>
-                        {userData?.avtarOriginalurl ? (
-                            <img src={userData?.avtarOriginalurl} alt="Avtar" />
-                          ) : <img src={Avtar} alt="Avtar" />
-                        }
+                          {userData?.avtarOriginalurl ? (
+                            <img src={userData?.avtarOriginalurl} alt="Avatar" onError={e => e.target.src = Avtar } />
+                          ) : (
+                            <img src={Avtar} alt="Avatar" />
+                          )}
                         </div>
                         <span>Hi! {userData?.name.split(' ')[0]}</span>
                         <span className='dc-icon-arrow-down'></span>

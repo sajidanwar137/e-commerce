@@ -109,7 +109,7 @@ exports.getUserById = async(req, res) => {
 exports.updateUserAvtar = async(req, res) =>{
     try {
         const user_id = req.body.user_id;
-        const avtarName = req.file.originalname;
+        const avtarName = req.file.filename;
         const avtarPath = req.file.destination;
         const data = await User.findOne({_id: user_id});
         let userData = null;

@@ -63,7 +63,8 @@ exports.multerFileStorage =  folderName => {
         return cb(null, `${process.env.IMG_PATH}/${folderName}`);
       },
       filename: function (req, file, cb) {
-        return cb(null, `${file.originalname}`);
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+        return cb(null,  uniqueSuffix + '-' + file.originalname)
       }
     })
     return multer({ storage: storage });

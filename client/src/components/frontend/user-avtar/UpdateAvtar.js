@@ -81,7 +81,7 @@ const UpdateAvtar = () => {
             </div>
           </div>
           <div className='dc-useravtar__preview-col'>
-            <img src={uploadFile} alt="" />
+            <img src={uploadFile} alt="" onError={e => e.target.src = Avtar }/>
           </div>
         </div>
       </form>
