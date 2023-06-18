@@ -46,19 +46,5 @@ export const updateUserProfile = (payload, option) => async (dispatch) => {
         dispatch({ type: GET_USER_AVTAR_FAIL, payload: err.message });
     }
 }
-// export const updateUserPassword = (payload, option) => async (dispatch) => {
-//     try {
-//         dispatch({ type: GET_USER_AVTAR_BEGIN });
-//         let user = null
-//         if(payload && option){
-//             user = await api.post('guest/update-user-password', payload,{headers: {
-//                 Authorization: `Bearer ${option}`,
-//             }});
-//         }
-//         dispatch({ type: GET_USER_AVTAR_SUCCESS, payload: user })
-//         return user;
-//     } catch (err) {
-//         dispatch({ type: GET_USER_AVTAR_FAIL, payload: err.message });
-//     }
-// }
+
 
