@@ -11,7 +11,9 @@ const UserSidebarFE = () => {
     <div className='dc-user-sidebar'>
       <div className='dc-user-sidebar__avtar-col mb-15 d-flex justify-content-center py-30'>
         <div className='dc-user-sidebar__avtar'>
-          <img src={Avtar} alt="" />
+          {userData?.avtarOriginalurl ? (
+            <img src={userData?.avtarOriginalurl} alt="Avtar" />
+          ) : <img src={Avtar} alt="Avtar" />}
         </div>
       </div>
       <div className='dc-user-sidebar__user-name mb-15 px-7'>

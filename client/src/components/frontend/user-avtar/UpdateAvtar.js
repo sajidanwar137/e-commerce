@@ -8,14 +8,15 @@ import './index.scss';
 
 const UpdateAvtar = () => {
   const dispatch = useDispatch();
-
-  const [uploadFile, setUploadFile] = useState(Avtar);
   const [selectedFile, setSelectedFile] = useState(null);
   const [showError, setShowError] = useState(false);
   const [error, setError] = useState("");
-
   const userData = useSelector((state) => state?.user?.data);
   const token = useSelector((state) => state?.userauth?.token);
+
+  const [uploadFile, setUploadFile] = useState(
+    userData ? (userData?.avtarOriginalurl ? userData?.avtarOriginalurl : Avtar) : Avtar
+  );
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
