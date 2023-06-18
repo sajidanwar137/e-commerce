@@ -21,7 +21,7 @@ const UserSidebarFE = () => {
       </div>
       <ul className='dc-user-sidebar__link-list'>
         <li><NavLink to={`/account/${slugCreater(userData?.name, userData?._id)}`} className='d-flex justify-content-start align-items-center py-4 px-7'><span className='dc-icon-admin'></span><span>My Account</span></NavLink></li>
-        <li><NavLink to={`/account/update/account/${slugCreater(userData?.name, userData?._id)}`} className='d-flex justify-content-start align-items-center py-4 px-7'><span className='dc-icon-account-edit'></span><span>Edit Account</span></NavLink></li>
+        <li><NavLink to={`/account/update/profile/${slugCreater(userData?.name, userData?._id)}`} className='d-flex justify-content-start align-items-center py-4 px-7'><span className='dc-icon-account-edit'></span><span>Edit Account</span></NavLink></li>
         <li><NavLink to={`/account/update/password/${slugCreater(userData?.name, userData?._id)}`} className='d-flex justify-content-start align-items-center py-4 px-7'><span className='dc-icon-reset-password'></span><span>Password</span></NavLink></li>
         <li><NavLink to={`/account/update/avtar/${slugCreater(userData?.name, userData?._id)}`} className='d-flex justify-content-start align-items-center py-4 px-7'><span className='dc-icon-camera'></span><span>Edit Avtar</span></NavLink></li>
         <li><NavLink to={`/account/update/address/${slugCreater(userData?.name, userData?._id)}`} className='d-flex justify-content-start align-items-center py-4 px-7'><span className='dc-icon-address-book'></span><span>Address Book</span></NavLink></li>

@@ -15,22 +15,15 @@ const INITIAL_STATE = {
 export default function (state = INITIAL_STATE, { type, payload }) {
     switch (type) {
         case USER_SAVE: {
-            const obj = {
-                data: {
-                    email: payload.user.data.email,
-                    name: payload.user.data.name,
-                    avtarName: payload.user.data.avtarName,
-                    avtarPath: payload.user.data.avtarPath,
-                    avtarOriginalurl: payload.user.data.avtarOriginalurl,
-                    token: payload.user.data.token,
-                    _id: payload.user.data._id
-                },
+            const { token, password, ...updatedData } = payload.user.data;
+            const updatedPayload = {
                 message: payload.user.message,
-                success: payload.user.success
-            }
+                success: payload.user.success,
+                data: updatedData
+            };
             return {
                 ...state,
-                ...obj,
+                ...updatedPayload,
             };
         }
         case USER_REMOVE: {
@@ -46,10 +39,16 @@ export default function (state = INITIAL_STATE, { type, payload }) {
                 error: null
             }
         case GET_USER_AVTAR_SUCCESS:
+            const { token, password, ...updatedData } = payload.data;
+            const updatedPayload = {
+                message: payload.message,
+                success: payload.success,
+                data: updatedData
+            };
             return {
                 ...state,
                 loading: false,
-                ...payload,
+                ...updatedPayload,
             }
         case GET_USER_AVTAR_FAIL:
             return {

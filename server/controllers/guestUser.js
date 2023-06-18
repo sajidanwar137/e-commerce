@@ -43,19 +43,11 @@ exports.loginUser = async(req, res) => {
         }
         if(userData && passwordMatch){
             const tokenData = await createToken(userData._id);
-            const userResult = {
-                _id : userData._id,
-                name : userData.name,
-                email : userData.email,
-                password : userData.password,
-                avtarName : userData.avtarName,
-                avtarPath : userData.avtarPath,
-                avtarOriginalurl: userData.avtarOriginalurl,
-                token : tokenData
-            }
+            userData.token = tokenData;
             const userResponse = {
                 success : true,
-                data : userResult
+                data : userData,
+                message : 'Login Successfully!'
             }
             return res.status(200).json(userResponse);
         }
@@ -131,18 +123,9 @@ exports.updateUserAvtar = async(req, res) =>{
             }, {new: true})
         }
         if(userData){
-            const userResult = {
-                _id : userData._id,
-                name : userData.name,
-                email : userData.email,
-                avtarName : userData.avtarName,
-                avtarPath : userData.avtarPath,
-                avtarOriginalurl: userData.avtarOriginalurl,
-                token : userData.token
-            }
             const userResponse = {
                 success : true,
-                data : userResult,
+                data : userData,
                 message: "Avtar updated successfully!"
             }
             return res.status(200).json(userResponse);
