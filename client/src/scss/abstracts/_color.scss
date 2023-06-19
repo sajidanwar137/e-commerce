@@ -1,11 +1,57 @@
 // ===============Color variable===============
-$white:         #fff    !default;
-$black:         #000    !default;
-$primary:       #009ef7 !default;
-$warning:       #ffc700 !default;
-$info:          #7239ea !default;
-$danger:        #f1416c !default;
-$success:       #50cd89 !default;
+$white:         #ffffff !default;
+$black:         #000000 !default;//will remove later
+
+$dark-100:      #333333 !default;
+$dark-200:      #292929 !default;
+$dark-300:      #141414 !default;
+$dark-400:      #101010 !default;
+$dark-500:      #070707 !default;
+
+$primary:       #009ef7 !default;//will remove later
+
+$primary-100:   #fbf6f4 !default;
+$primary-200:   #f5ece6 !default;
+$primary-300:   #efe1d8 !default;
+$primary-400:   #ead6ca !default;
+$primary-500:   #e4cbbc !default;
+$primary-600:   #dfc0ae !default;
+$primary-700:   #d9b5a0 !default;
+$primary-800:   #d3aa92 !default;
+$primary-900:   #ce9f84 !default;
+
+$secondary-100: #d59696 !default;
+$secondary-200: #d08888 !default;
+$secondary-300: #ca7a7a !default;
+$secondary-400: #c56c6c !default;
+$secondary-500: #bf5e5e !default;
+$secondary-600: #b95050 !default;
+$secondary-700: #b04646 !default;
+$secondary-800: #a24040 !default;
+$secondary-900: #943b3b !default;
+
+$info:          #7239ea !default;//will remove later
+
+$warning:       #ffc700 !default;//will remove later
+$warning-100:   #fd8927 !default;
+$warning-200:   #fd7e14 !default;
+$warning-300:   #fb7302 !default;
+
+$danger:        #f1416c !default;//will remove later
+$danger-100:    #f02f5e !default;
+$danger-200:    #ee1c50 !default;
+$danger-300:    #e61145 !default;
+
+
+$success:       #50cd89 !default;//will remove later
+$success-100:   #5fd193 !default;
+$success-200:   #50cd89 !default;
+$success-300:   #41c97f !default;
+
+$light-100:     #fcfcfc !default;// name will be change in later
+$light-200:     #f9f9f9 !default;
+$light-300:     #f9f9f9 !default;
+
 $gray-100:      #f9f9f9 !default;
 $gray-200:      #F4F4F4 !default;
 $gray-300:      #E1E3EA !default;
@@ -15,3 +61,4 @@ $gray-600:      #7E8299 !default;
 $gray-700:      #5E6278 !default;
 $gray-800:      #3F4254 !default;
 $gray-900:      #181C32 !default;
+////////////////////////////////////////////////////////
