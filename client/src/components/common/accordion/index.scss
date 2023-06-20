@@ -2,28 +2,12 @@
 
 .dc-dashboard{
     &__sidebar{
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 101;
-        overflow: hidden;
-        width: rem(265);
-        display: flex;
-        flex-direction: column;
-        background: $bg-color-white;
-        box-shadow: 0 0 rem(28) 0 rgba(82, 63, 105, 0.025);
-        &--menu-text{
-            color: $text-color-muted;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
         &-nav{
             &--heading{
                 cursor: pointer;
                 column-gap: rem(10);
                 font-weight: 600;
-                color: $link-text-gray-800;
+                color: var(--text-color-white);
                 .dc-icon-arrow-down,
                 .dc-icon-arrow-right{
                     font-size: rem(13);
@@ -31,11 +15,12 @@
                 .dc-icon-arrow-down{
                     display: none;
                 }
+                &.active,
                 &:hover{
-                    color: $link-text-color-primary;
+                    color: var(--text-color-light-yellow-500);
+                    opacity: 0.9;
                 }
                 &.active{
-                    color: $link-text-color-primary;
                     .dc-icon-arrow-right{
                         display: none;
                     }
@@ -48,9 +33,8 @@
                 column-gap: rem(10);
             }
             &--content{
-
                 ul{
-                    border-left: rem(1) solid $border-color-gray-400;
+                    border-left: rem(2) solid var(--border-color-primary-200);
                     max-height: 0;
                     overflow: hidden;
                     transition: max-height .8s ease;
@@ -58,28 +42,23 @@
                         a{
                             display: block;
                             font-weight: 500;
-                            color: $link-text-gray-800;
+                            color: var(--text-color-white);
                             position: relative;
                             &::before{
                                 content: '';
                                 width: rem(12);
-                                height: rem(1);
-                                background:$border-color-gray-400;
+                                height: rem(2);
+                                background:var(--bg-color-primary-200);
                                 margin-right: rem(5);
                                 position: absolute;
                                 left: 0;
                                 top: rem(18);
                             }
+                            &.active,
                             &:hover{
-                                color: $link-text-color-primary;
+                                color: var(--text-color-light-yellow-500);
                                 &::before{
-                                    background:$link-text-color-primary;
-                                }
-                            }
-                            &.active{
-                                color: $link-text-color-primary;
-                                &::before{
-                                    background:$link-text-color-primary;
+                                    background:var(--bg-color-primary-200);
                                 }
                             }
                         }

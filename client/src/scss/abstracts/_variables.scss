@@ -45,8 +45,8 @@ $button-text-color-white    : $white;
     --bg-color-black             : #{$black};
 
     
-    --bg-color-primary-200       : #{$primary-200};
-    --bg-color-primary-300       : #{$primary-300};
+    
+    
 
     --bg-color-secondary-100     : #{$secondary-100};
     --bg-color-secondary-200     : #{$secondary-200};
@@ -97,7 +97,7 @@ $button-text-color-white    : $white;
     --bg-color-light-yellow-200  : #{$light-yellow-200};
     --bg-color-light-yellow-300  : #{$light-yellow-300};
     --bg-color-light-yellow-400  : #{$light-yellow-400};
-    --bg-color-light-yellow-500  : #{$light-yellow-500};
+    
 
     --bg-color-dark-100          : #{$dark-100};
     --bg-color-dark-200          : #{$dark-200};
@@ -122,11 +122,15 @@ $button-text-color-white    : $white;
     //common bg color, using in backend and frontend
     --bg-color-white             : #{$white};
     --bg-color-primary-100       : #{$primary-100};
+    --bg-color-primary-200       : #{$primary-200};
+    --bg-color-primary-300       : #{$primary-300};
     --bg-color-light-yellow-100  : #{$light-yellow-100};
     --bg-color-light-orange-100  : #{$light-orange-100};
+    --bg-color-light-yellow-500  : #{$light-yellow-500};
     //common text color, using in backend and frontend
     --text-color-default         : #{$dark-100};
     --text-color-white           : #{$white};
+    --text-color-light-yellow-500: #{$light-yellow-500};
     --text-color-dark-900        : #{$dark-900};
     --text-color-secondary-300   : #{$secondary-300};
     --text-color-primary-300     : #{$primary-300};
@@ -140,6 +144,7 @@ $button-text-color-white    : $white;
     --link-color-hover-default   : #{$primary-200};
     //common border color, using in backend and frontend
     --border-color-default       : #{$light-yellow-400};
+    --border-color-primary-200   : #{$primary-200};
     //common input color, using in backend and frontend
     --input-bg-default           : #{$white};
     --input-bg-focus             : #{$white};

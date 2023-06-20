@@ -15,7 +15,7 @@ export default function Sidebar() {
 
   return (
     <div className='dc-dashboard__sidebar'>
-      <div className='dc-dashboard__logo py-9 px-8'>
+      <div className='dc-dashboard__logo py-13 px-8'>
         {data && <Link to="/dashboard"><img src={`${data.originalurl}?${data.updatedAt}`} alt='' /></Link>}
       </div>
       <div className='dc-dashboard__sidebar--menu-text pb-10 px-8 pt-25'>GETTING STARTED</div>
