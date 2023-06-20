@@ -9,19 +9,19 @@ html {
   font-weight: 400;
 }
 body {
-  color           : $text-color-gray-700;
-  background      : $bg-color-white;
+  color           : var(--text-color-default);
+  background      : var(--bg-color-white);
   font-weight     : 400;
 }
 strong {
    font-weight: 600;
 }
 a{
-    color: $link-text-color-primary;
+    color: var(--link-color-default);
     text-decoration: none;
     transition: all .3s ease-in;
     &:hover{
-      color: shade-color($link-text-color-primary, 10%);
+      color: var(--link-color-hover-default);
     }
 }
 
