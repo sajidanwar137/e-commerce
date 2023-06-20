@@ -38,6 +38,94 @@ $button-bg-color-primary    : $primary;
 $button-bg-color-secondary  : $success;
 // ===============Admin button text color======
 $button-text-color-white    : $white;
+// ============== Common color ==============
+:root{
+    //common bg color, using in backend and frontend
+    --bg-color-white             : #{$white};
+    --bg-color-black             : #{$black};
+
+    --bg-color-primary-100       : #{$primary-100};
+    --bg-color-primary-200       : #{$primary-200};
+    --bg-color-primary-300       : #{$primary-300};
+
+    --bg-color-secondary-100     : #{$secondary-100};
+    --bg-color-secondary-200     : #{$secondary-200};
+    --bg-color-secondary-300     : #{$secondary-300};
+
+    --bg-color-success-100       : #{$success-100};
+    --bg-color-success-200       : #{$success-200};
+    --bg-color-success-300       : #{$success-300};
+
+    --bg-color-danger-100        : #{$danger-100};
+    --bg-color-danger-200        : #{$danger-200};
+    --bg-color-danger-300        : #{$danger-300};
+
+    --bg-color-warning-100       : #{$warning-100};
+    --bg-color-warning-200       : #{$warning-200};
+    --bg-color-warning-300       : #{$warning-300};
+
+    --bg-color-light-orange-100  : #{$light-orange-100};
+    --bg-color-light-orange-200  : #{$light-orange-200};
+    --bg-color-light-orange-300  : #{$light-orange-300};
+    --bg-color-light-orange-400  : #{$light-orange-400};
+    --bg-color-light-orange-500  : #{$light-orange-500};
+    --bg-color-light-orange-600  : #{$light-orange-600};
+    --bg-color-light-orange-700  : #{$light-orange-700};
+    --bg-color-light-orange-800  : #{$light-orange-800};
+    --bg-color-light-orange-900  : #{$light-orange-900};
+
+    --bg-color-moderate-red-100  : #{$moderate-red-100};
+    --bg-color-moderate-red-200  : #{$moderate-red-200};
+    --bg-color-moderate-red-300  : #{$moderate-red-300};
+    --bg-color-moderate-red-400  : #{$moderate-red-400};
+    --bg-color-moderate-red-500  : #{$moderate-red-500};
+    --bg-color-moderate-red-600  : #{$moderate-red-600};
+    --bg-color-moderate-red-700  : #{$moderate-red-700};
+    --bg-color-moderate-red-800  : #{$moderate-red-800};
+    --bg-color-moderate-red-900  : #{$moderate-red-900};
+
+    --bg-color-light-100         : #{$light-100};
+    --bg-color-light-200         : #{$light-200};
+    --bg-color-light-300         : #{$light-300};
+    --bg-color-light-400         : #{$light-400};
+    --bg-color-light-500         : #{$light-500};
+
+    --bg-color-light-yellow-100  : #{$light-yellow-100};
+    --bg-color-light-yellow-200  : #{$light-yellow-200};
+    --bg-color-light-yellow-300  : #{$light-yellow-300};
+    --bg-color-light-yellow-400  : #{$light-yellow-400};
+    --bg-color-light-yellow-500  : #{$light-yellow-500};
+
+    --bg-color-dark-100          : #{$dark-100};
+    --bg-color-dark-200          : #{$dark-200};
+    --bg-color-dark-300          : #{$dark-300};
+    --bg-color-dark-400          : #{$dark-400};
+    --bg-color-dark-500          : #{$dark-500};
+    --bg-color-dark-600          : #{$dark-600};
+    --bg-color-dark-700          : #{$dark-700};
+    --bg-color-dark-800          : #{$dark-800};
+    --bg-color-dark-900          : #{$dark-900};
+
+    --bg-color-gray-100          : #{$gray-100};
+    --bg-color-gray-200          : #{$gray-200};
+    --bg-color-gray-300          : #{$gray-300};
+    --bg-color-gray-400          : #{$gray-400};
+    --bg-color-gray-500          : #{$gray-500};
+    --bg-color-gray-600          : #{$gray-600};
+    --bg-color-gray-700          : #{$gray-700};
+    --bg-color-gray-800          : #{$gray-800};
+    --bg-color-gray-900          : #{$gray-900};
+
+    //common text color, using in backend and frontend
+    --text-color-white           : #{$white};
+    --text-color-success-300     : #{$success-300};
+    --text-color-danger-300      : #{$danger-300};
+    --text-color-warning-300     : #{$warning-300};
+    --text-color-secondary-300   : #{$secondary-300};
+    --text-color-primary-300     : #{$primary-300};
+}
+
+
 // ==============Media Breakpoint==============
 $screen-sm    : 576px;
 $screen-md    : 768px;
