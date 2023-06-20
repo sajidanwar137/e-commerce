@@ -41,10 +41,10 @@ $button-text-color-white    : $white;
 //=========================== Common color ===========================
 :root{
     //common bg color, using in backend and frontend
-    --bg-color-white             : #{$white};
+    
     --bg-color-black             : #{$black};
 
-    --bg-color-primary-100       : #{$primary-100};
+    
     --bg-color-primary-200       : #{$primary-200};
     --bg-color-primary-300       : #{$primary-300};
 
@@ -67,7 +67,7 @@ $button-text-color-white    : $white;
     --bg-color-warning-200       : #{$warning-200};
     --bg-color-warning-300       : #{$warning-300};
 
-    --bg-color-light-orange-100  : #{$light-orange-100};
+    
     --bg-color-light-orange-200  : #{$light-orange-200};
     --bg-color-light-orange-300  : #{$light-orange-300};
     --bg-color-light-orange-400  : #{$light-orange-400};
@@ -93,7 +93,7 @@ $button-text-color-white    : $white;
     --bg-color-light-400         : #{$light-400};
     --bg-color-light-500         : #{$light-500};
 
-    --bg-color-light-yellow-100  : #{$light-yellow-100};
+    
     --bg-color-light-yellow-200  : #{$light-yellow-200};
     --bg-color-light-yellow-300  : #{$light-yellow-300};
     --bg-color-light-yellow-400  : #{$light-yellow-400};
@@ -119,6 +119,11 @@ $button-text-color-white    : $white;
     --bg-color-gray-800          : #{$gray-800};
     --bg-color-gray-900          : #{$gray-900};
 
+    //common bg color, using in backend and frontend
+    --bg-color-white             : #{$white};
+    --bg-color-primary-100       : #{$primary-100};
+    --bg-color-light-yellow-100  : #{$light-yellow-100};
+    --bg-color-light-orange-100  : #{$light-orange-100};
     //common text color, using in backend and frontend
     --text-color-default         : #{$dark-100};
     --text-color-white           : #{$white};

@@ -55,11 +55,11 @@ function ForgotPassword() {
   };
 
   return (
-    <div className='dc-admin-layout p-7 d-flex justify-content-center align-items-center'>
-      <div className='dc-admin-layout__layout p-25 d-flex align-items-center'>
-        <div className='dc-admin-layout__layout--col pe-12'>
-          <div className='dc-admin-layout__title mb-15 d-flex align-items-center justify-content-start'>
-              <div className='dc-admin-layout__admin-icon--icon d-flex justify-content-center align-items-center'>
+    <div className='dc-admin-forgot-password p-7 d-flex justify-content-center align-items-center'>
+      <div className='dc-admin-forgot-password__layout p-25 d-flex align-items-center'>
+        <div className='dc-admin-forgot-password__layout--col pe-12'>
+          <div className='dc-admin-forgot-password__title mb-15 d-flex align-items-center justify-content-start'>
+              <div className='dc-admin-forgot-password__admin-icon--icon d-flex justify-content-center align-items-center'>
                 <span className="dc-icon-administrator"></span>
               </div>
               <h4 className='dc-h4'>Forgot Password?</h4>
@@ -67,20 +67,20 @@ function ForgotPassword() {
           <div className='mb-10'>
             <p>To reset your password, enter the registered e-mail adddress and we will send you password reset instructions on your e-mail!</p>
           </div>
-          <form className='dc-admin-layout__layout-body' onSubmit={handleSubmit}>
+          <form className='dc-admin-forgot-password__layout-body' onSubmit={handleSubmit}>
               {showError && <ErrorMessage type="error" message={error} />}
-              <div className='dc-admin-layout__layout-row mb-8'>
+              <div className='dc-admin-forgot-password__layout-row mb-8'>
                   <input className='dc-form-control py-5 px-6' type="email" value={email} onChange={handleEmailChange} placeholder='Enter your registered E-mail'/>
               </div>
-              <div className='dc-admin-layout__layout-row mb-8 d-flex justify-content-center'>
+              <div className='dc-admin-forgot-password__layout-row mb-8 d-flex justify-content-center'>
                   <Link to="/dashboard/login" className='px-12 py-4'>Wait, I remember my password</Link>
               </div>
-              <div className='dc-admin-layout__layout-row'>
-                  <button type="submit" className='dc-btn dc-btn-secondary dc-btn-fluid px-20 py-5'>Reset password</button>
+              <div className='dc-admin-forgot-password__layout-row'>
+                  <button type="submit" className='dc-btn dc-btn-primary dc-btn-fluid px-20 py-4'>Reset</button>
               </div>
           </form>
         </div>
-        <div className='dc-admin-layout__layout--col ps-12'>
+        <div className='dc-admin-forgot-password__layout--col ps-12'>
           <img src={ForgotPasswordImg} alt="" />
         </div>
       </div>

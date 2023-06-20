@@ -92,7 +92,7 @@ const Login = () => {
                   <Link to="/dashboard/admin-forgot-password" className='px-12 py-4'>Forgot Password?</Link>
               </div>
               <div className='dc-admin-login__layout-row'>
-                  <button type="submit" className='dc-btn dc-btn-primary dc-btn-fluid px-20 py-5'>Login</button>
+                  <button type="submit" className='dc-btn dc-btn-primary dc-btn-fluid px-20 py-4'>Login</button>
               </div>
           </form>
         </div>
