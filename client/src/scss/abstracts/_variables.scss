@@ -120,38 +120,35 @@ $button-text-color-white    : $white;
     --bg-color-gray-900          : #{$gray-900};
 
     //common bg color, using in backend and frontend
-    --bg-color-white             : #{$white};
-    --bg-color-primary-100       : #{$primary-100};
-    --bg-color-primary-200       : #{$primary-200};
-    --bg-color-primary-300       : #{$primary-300};
-    --bg-color-secondary-100     : #{$secondary-100};
-    --bg-color-light-yellow-100  : #{$light-yellow-100};
-    --bg-color-light-orange-100  : #{$light-orange-100};
-    --bg-color-light-yellow-500  : #{$light-yellow-500};
-    //common text color, using in backend and frontend
-    --text-color-default         : #{$dark-100};
-    --text-color-white           : #{$white};
-    --text-color-light-yellow-500: #{$light-yellow-500};
-    --text-color-dark-900        : #{$dark-900};
-    --text-color-secondary-300   : #{$secondary-300};
-    --text-color-primary-300     : #{$primary-300};
-    --text-color-success-300     : #{$success-300};
-    --text-color-danger-300      : #{$danger-300};
-    --text-color-warning-300     : #{$warning-300};
     
-    //common link color, using in backend and frontend
-    --link-color-default         : #{$primary-100};
-    //common link hover color, using in backend and frontend
-    --link-color-hover-default   : #{$primary-200};
-    //common border color, using in backend and frontend
-    --border-color-default       : #{$light-yellow-400};
-    --border-color-primary-200   : #{$primary-200};
     //common input color, using in backend and frontend
-    --input-bg-default           : #{$white};
-    --input-bg-focus             : #{$white};
-    --input-text-color           : #{$dark-100};
-    --input-placeholder-color    : #{$dark-100};
-    --input-border-color-focus   : #{$light-orange-500};
+
+    // new variable start here
+    --bg-white                   : #{$white};
+    --bg-primary-100             : #{$primary-100};
+    --bg-primary-200             : #{$primary-200};
+    --bg-primary-300             : #{$primary-300};
+    --bg-secondary-100           : #{$secondary-100};
+    --bg-secondary-300           : #{$secondary-300};
+    --bg-yellow-100              : #{$light-yellow-100};
+    --bg-yellow-500              : #{$light-yellow-500};
+    --bg-orange-100              : #{$light-orange-100};
+
+
+    --text-white                 : #{$white};
+    --text-gray                  : #{$gray};
+    --text-dark-900              : #{$dark-900};
+    --text-yellow-500            : #{$light-yellow-500};
+    --text-color-link            : #{$primary-100};
+    --text-color-hover           : #{$primary-200};
+    --text-color-placeholder     : #{$gray-900};
+    --text-success               : #{$success-300};
+    --text-danger                : #{$danger-300};
+    --text-warning               : #{$warning-300};
+
+    --border-default             : #{$light-yellow-400};
+    --border-orange-500          : #{$light-orange-500};
+    --border-primary-200         : #{$primary-200};
 }
 
 

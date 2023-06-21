@@ -11,16 +11,16 @@
         width: rem(320);
         display: flex;
         flex-direction: column;
-        background: var(--bg-color-primary-300);
+        background: var(--bg-primary-300);
         box-shadow: 0 0 rem(28) 0 rgba(82, 63, 105, 0.025);
         &--menu-text{
-            color: var(--text-color-white);
+            color: var(--text-white);
             text-transform: uppercase;
             font-weight: 600;
         }
     }
     &__logo{
-        background: var(--bg-color-light-yellow-500);
+        background: var(--bg-yellow-500);
         img{
             width: 100%;
             max-width: rem(130);

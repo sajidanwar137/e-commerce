@@ -7,7 +7,7 @@
                 cursor: pointer;
                 column-gap: rem(10);
                 font-weight: 600;
-                color: var(--text-color-white);
+                color: var(--text-white);
                 .dc-icon-arrow-down,
                 .dc-icon-arrow-right{
                     font-size: rem(13);
@@ -17,7 +17,7 @@
                 }
                 &.active,
                 &:hover{
-                    color: var(--text-color-light-yellow-500);
+                    color: var(--text-yellow-500);
                     opacity: 0.9;
                 }
                 &.active{
@@ -34,7 +34,7 @@
             }
             &--content{
                 ul{
-                    border-left: rem(2) solid var(--border-color-primary-200);
+                    border-left: rem(2) solid var(--border-primary-200);
                     max-height: 0;
                     overflow: hidden;
                     transition: max-height .8s ease;
@@ -42,13 +42,13 @@
                         a{
                             display: block;
                             font-weight: 500;
-                            color: var(--text-color-white);
+                            color: var(--text-white);
                             position: relative;
                             &::before{
                                 content: '';
                                 width: rem(12);
                                 height: rem(2);
-                                background:var(--bg-color-primary-200);
+                                background:var(--bg-primary-200);
                                 margin-right: rem(5);
                                 position: absolute;
                                 left: 0;
@@ -56,9 +56,9 @@
                             }
                             &.active,
                             &:hover{
-                                color: var(--text-color-light-yellow-500);
+                                color: var(--text-yellow-500);
                                 &::before{
-                                    background:var(--bg-color-primary-200);
+                                    background:var(--bg-primary-200);
                                 }
                             }
                         }
