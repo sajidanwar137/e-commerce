@@ -3,6 +3,7 @@ import { Link} from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "store/auth/actions";
 import { useNavigate } from 'react-router-dom';
+import InputDC from '../../common/input/InputDC'
 import AdminLoginImg from 'resources/images/admin-login.png';
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
 import {validEmail} from 'utility/utility';
@@ -83,10 +84,10 @@ const Login = () => {
           
           <form className='dc-admin-login__layout-body' onSubmit={handleSubmit}>
               <div className='dc-admin-login__layout-row mb-8'>
-                  <input className='dc-form-control py-5 px-6' type="text" value={email} onChange={handleEmailChange} placeholder='Email'/>
+                <InputDC type={'text'} labelid={'admin-user-email'} label={'Email'} update={handleEmailChange}/>
               </div>
               <div className='dc-admin-login__layout-row mb-8'>
-                  <input className='dc-form-control py-5 px-6' type="password" value={password} onChange={handlePasswordChange} placeholder='Password'/>
+                <InputDC type={'password'} labelid={'admin-password-email'} label={'Password'} update={handlePasswordChange}/>
               </div>
               <div className='dc-admin-login__layout-row mb-8 d-flex justify-content-center'>
                   <Link to="/dashboard/admin-forgot-password" className='px-12 py-4'>Forgot Password?</Link>

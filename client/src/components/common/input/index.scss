@@ -8,7 +8,7 @@
         &[type="text"]{
             border-radius: 0;
             border: none; 
-            border-bottom: rem(1) solid $border-color-gray-300;
+            border-bottom: rem(1) solid var(--border-default);
             &:focus + .dc-input__bottom-line{
                 &::before,
                 &::after{
@@ -47,7 +47,7 @@
             bottom: rem(0);
             position: absolute;
             will-change: transform;
-            background: $bg-color-success;
+            background: var(--bg-success-300);
             transition: transform .2s ease;
         }
         &::after{
@@ -60,7 +60,7 @@
         }
     }
     &__label{
-        color: $text-color-gray-700;
+        color: var(--text-gray);
         position: absolute;
         pointer-events: none;
         left: 0;
