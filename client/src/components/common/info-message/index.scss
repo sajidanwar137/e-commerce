@@ -3,16 +3,16 @@
 .ds-info-message{
     column-gap: rem(7);
     &.error{
-        color: $text-color-error;
+        //color: $text-color-error;
     }
     &.success{
-        color: $text-color-success;
+        //color: $text-color-success;
     }
     &.info{
-        color: $text-color-info;
+        //color: $text-color-info;
     }
     &.warning{
-        color: $text-color-warning;
+        //color: $text-color-warning;
     }
     &__text{
         font-size: rem(13);

@@ -4,17 +4,17 @@
     column-gap: rem(7);
     border-radius: rem(5);
     &.error{
-        color: $text-color-white;
-        background: $text-color-error;
+        //color: $text-color-white;
+        //background: $text-color-error;
     }
     &.success{
-        color: $text-color-success;
+        //color: $text-color-success;
     }
     &.info{
-        color: $text-color-info;
+        //color: $text-color-info;
     }
     &.warning{
-        color: $text-color-warning;
+        //color: $text-color-warning;
     }
     &__text{
         font-size: rem(13);

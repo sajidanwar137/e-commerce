@@ -11,18 +11,18 @@
     &.dc-btn{
         &-primary{
             background: var(--bg-primary-100);
-            color: $button-text-color-white;
+            //color: $button-text-color-white;
             &:hover{
-                color: $button-text-color-white;
+                //color: $button-text-color-white;
                 background: var(--bg-primary-200);
                 transition: background-color 0.5s ease;
             }
         }
         &-secondary{
             background: var(--bg-secondary-100);
-            color: $button-text-color-white;
+            //color: $button-text-color-white;
             &:hover{
-                color: $button-text-color-white;
+                //color: $button-text-color-white;
                 background: var(--bg-secondary-300);
                 transition: background-color 0.5s ease;
             }

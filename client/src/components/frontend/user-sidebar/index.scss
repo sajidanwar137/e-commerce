@@ -7,10 +7,10 @@
             
             a{
                 column-gap: rem(10);
-                color: $link-text-gray-800;
+                //color: $link-text-gray-800;
                 &.active,
                 &:hover{
-                    color: $link-text-hover-color-primary; 
+                    //color: $link-text-hover-color-primary; 
                 }
             }
         }
