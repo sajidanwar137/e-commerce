@@ -34,7 +34,7 @@
             }
             &--content{
                 ul{
-                    border-left: rem(2) solid var(--border-primary-200);
+                    border-left: rem(2) solid var(--border-primary);
                     max-height: 0;
                     overflow: hidden;
                     transition: max-height .8s ease;

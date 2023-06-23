@@ -1,7 +1,7 @@
 @import "../../../scss/abstracts/_abstracts-dir";
 .dc-user-sidebar{
     background: var(--bg-white);
-    border: rem(1) solid #eaeaea;
+    border: rem(1) solid var(--border-default);
     &__link-list{
         li{
             

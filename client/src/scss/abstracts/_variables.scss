@@ -19,30 +19,32 @@ $iconmoon-family            : 'icomoon';
     --bg-secondary-300           : #{$secondary-300};
 
     --bg-light-100               : #{$light-100};
+    --bg-light-200               : #{$light-200};
+    --bg-light-500               : #{$light-500};
 
     --bg-gray-100                : #{$gray-100};
 
-    --bg-success-300             : #{$success-300};
-    --bg-danger-300              : #{$danger-300};
-    --bg-warning-300             : #{$warning-300};
+    --bg-success                 : #{$success-300};
+    --bg-danger                  : #{$danger-300};
+    --bg-warning                 : #{$warning-300};
 
     --text-white                 : #{$white};
-
     --text-gray                  : #{$gray-200};//
-
-    --text-dark-900              : #{$dark-900};
-    --text-yellow-500            : #{$light-200};//
+    --text-placeholder           : #{$gray-300};//
+    --text-dark-900              : #{$primary-100};
     --text-color-link            : #{$primary-100};
-    --text-color-hover           : #{$primary-200};
-    //--text-color-placeholder     : #{$gray-900};
+    --text-color-hover           : #{$secondary-100};
     --text-success               : #{$success-300};
     --text-danger                : #{$danger-300};
     --text-warning               : #{$warning-300};
-
-    //--border-default             : #{$light-yellow-400};
-    //--border-orange-500          : #{$light-orange-500};
-    --border-primary-200         : #{$primary-200};
-    --border-secondary-300       : #{$secondary-300};
+    --text-yellow-500            : #{$light-200};//will remove later on
+    
+    --border-default             : #{$light-300};
+    --border-primary             : #{$primary-200};
+    --border-secondary           : #{$secondary-300};
+    --border-success             : #{$success-300};
+    --border-danger              : #{$danger-300};
+    --border-warning             : #{$warning-300};
 }
 
 //=========================== Breakpoint ===========================

@@ -75,7 +75,7 @@ input[type="file"],
 input[type="password"],
 input[type="email"]{
   width: 100%;
-  //border: rem(1) solid var(--border-default);
+  border: rem(1) solid var(--border-default);
   border-radius: rem(6);
   background: var(--bg-white);
   color: var(--text-gray);
@@ -92,7 +92,7 @@ input[type="file"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus{
   color: var(--text-gray);
-  //border-color: var(--border-orange-500);
+  border-color: var(--border-default);
   outline: 0;
   background-color:var(--bg-white);
   transition: border-color 0.5s ease;
