@@ -12,14 +12,14 @@ const UserUpdateAddress = () => {
       <HeaderFE/>
       <NavbarFE/>
       <BreadcrumbFE/>
-      <div className='dc-body-container py-25'>
+      <div className='dc-body-container pb-25 pt-30'>
         <div className='dc-container'>
-          <div className='row g-25'>
+          <div className='row'>
             <div className='col-md-3'>
               <UserSidebarFE/>
             </div>
             <div className='col-md-9'>
-              <div className="dc-dashboard__layout--card-body p-25">
+              <div className="dc-dashboard__layout--card-body px-25">
                 <UpdateUserAddress/>
               </div>
             </div>

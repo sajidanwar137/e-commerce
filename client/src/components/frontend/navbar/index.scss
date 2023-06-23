@@ -1,0 +1,8 @@
+@import "../../../scss/abstracts/_abstracts-dir";
+.dc-main-menu{
+    background: var(--bg-white);
+    border-bottom: rem(1) solid #e1e3e4;
+    &__list{
+        column-gap: rem(50);
+    }
+}

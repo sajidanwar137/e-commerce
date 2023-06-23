@@ -1,0 +1,7 @@
+@import "../../../scss/abstracts/_abstracts-dir";
+.dc-breadcrumb{
+    background: var(--bg-white);
+    &__list{
+        column-gap: rem(50);
+    }
+}

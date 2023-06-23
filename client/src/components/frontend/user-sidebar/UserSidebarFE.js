@@ -9,7 +9,7 @@ const UserSidebarFE = () => {
   const userData = useSelector((state) => state?.user?.data);
   return (
     <div className='dc-user-sidebar'>
-      <div className='dc-user-sidebar__avtar-col mb-15 d-flex justify-content-center py-30'>
+      <div className='dc-user-sidebar__avtar-col mb-15 d-flex justify-content-center'>
         <div className='dc-user-sidebar__avtar'>
         {userData?.avtarOriginalurl ? (
           <img src={userData?.avtarOriginalurl} alt="Avatar" onError={e => e.target.src = Avtar } />

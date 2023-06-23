@@ -32,4 +32,37 @@
         }
     }
 }
+.btn{
+    transition: all 0.3s ease-in-out;
+    display:inline-block;
+    width:100px;
+    height:40px;
+    line-height:40px;
+    border:1px solid #000;
+    text-transform: capitalize;
+    border-radius:2px;
+    margin:5px;
+    position:relative;
+    overflow:hidden;
+    &::before{
+        transition: all 0.1s linear;  
+        content: attr(value);
+        display:block; 
+    }
+    &::after {
+        transition: all 0.3s ease-in-out;  
+        content: "";
+        display: block;
+        background-color:#000;
+        margin-top:0px;
+        height: 40px;
+    }
+      
+    &:hover:after{
+          margin-top:-40px;
+      }
+    &:hover{
+          color:#e22575;
+      }
+}
 

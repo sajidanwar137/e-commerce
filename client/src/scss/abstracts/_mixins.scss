@@ -19,6 +19,29 @@
 @function shade-color($color, $weight) {
   @return mix(black, $color, $weight);
 }
+
+@mixin font-face-iconmoon($font-family, $font-path, $font-weight: normal, $font-style: normal) {
+  @font-face {
+    font-family: '#{$font-family}';
+    src: url('#{$font-path}.eot');
+    src: url('#{$font-path}.eot?#iefix') format('embedded-opentype'),
+         url('#{$font-path}.woff') format('woff'),
+         url('#{$font-path}.ttf') format('truetype'),
+         url('#{$font-path}.svg##{$font-family}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-display: swap;
+  }
+}
+@mixin font-face($family, $path, $font-weight: normal, $font-style: normal) {
+  @font-face {
+    font-family: #{$family};
+    src: url('#{$path}.ttf') format('truetype');
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-display: swap;
+  }
+}
 // this mixin will work for single value property
 //@include cssStyle('margin', rem(50), rem(30), rem(50), rem(65));
 //@include cssStyle('margin-left', rem(50), rem(30), rem(50), rem(65));
