@@ -1,28 +1,29 @@
 .dc-btn{
     display: inline-flex;
     margin: 0;
-    font-size: rem(18);
+    font-size: rem(14);
+    text-transform: uppercase;
     letter-spacing: rem(.5);
-    font-weight: 600;
+    font-weight: 300;
     transition: background-color 0.5s ease;
     border: none;
-    border-radius: rem(6);
+    border-radius: rem(3);
     justify-content: center;
     &.dc-btn{
         &-primary{
             background: var(--bg-primary-100);
-            //color: $button-text-color-white;
+            color: var(--text-white);
             &:hover{
-                //color: $button-text-color-white;
-                background: var(--bg-primary-200);
+                color: var(--text-white);
+                background: var(--bg-primary-300);
                 transition: background-color 0.5s ease;
             }
         }
         &-secondary{
-            background: var(--bg-secondary-100);
-            //color: $button-text-color-white;
+            background: var(--bg-secondary-200);
+            color: var(--text-white);
             &:hover{
-                //color: $button-text-color-white;
+                color: var(--text-white);
                 background: var(--bg-secondary-300);
                 transition: background-color 0.5s ease;
             }
@@ -31,38 +32,5 @@
             width: 100%;
         }
     }
-}
-.btn{
-    transition: all 0.3s ease-in-out;
-    display:inline-block;
-    width:100px;
-    height:40px;
-    line-height:40px;
-    border:1px solid #000;
-    text-transform: capitalize;
-    border-radius:2px;
-    margin:5px;
-    position:relative;
-    overflow:hidden;
-    &::before{
-        transition: all 0.1s linear;  
-        content: attr(value);
-        display:block; 
-    }
-    &::after {
-        transition: all 0.3s ease-in-out;  
-        content: "";
-        display: block;
-        background-color:#000;
-        margin-top:0px;
-        height: 40px;
-    }
-      
-    &:hover:after{
-          margin-top:-40px;
-      }
-    &:hover{
-          color:#e22575;
-      }
 }
 

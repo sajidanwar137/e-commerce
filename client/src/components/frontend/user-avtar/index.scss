@@ -1,16 +1,14 @@
 @import "../../../scss/abstracts/_abstracts-dir";
 .dc-useravtar{
     &__preview-col{
-        width: rem(80);
-        height: rem(80);
-        border-radius: 50%;
+        width:100%;
+        height: rem(250);
         overflow: hidden;
         position: relative;
         img{
             max-width: 100%;
             width: 100%;
             height: 100%;
-            border-radius: 50%;
             object-fit: cover;
             object-position: 50% 50%;
         }

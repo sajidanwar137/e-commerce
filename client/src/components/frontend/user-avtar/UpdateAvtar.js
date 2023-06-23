@@ -77,7 +77,7 @@ const UpdateAvtar = () => {
               <div className='flex-grow-1'>
                 <input className='dc-form-control pe-6' onChange={handleFileChange} type="file" name="useravtar" accept=".jpeg,.jpg,.gif,.png,.svg"/>
               </div>
-              <div><button type="submit" className='dc-btn dc-btn-secondary px-20 py-5'>Upload</button></div>
+              <div><button type="submit" className='dc-btn dc-btn-primary px-20 py-5'>Upload</button></div>
             </div>
           </div>
           <div className='dc-useravtar__preview-col'>

@@ -138,7 +138,7 @@ const UpdateUserAddress = () => {
         </div>
         <div className='row d-flex justify-content-start'>
           <div className="col-2 d-flex justify-content-start">
-            <button type="submit" className='dc-btn dc-btn-secondary dc-btn-fluid px-20 py-5'>Update</button>
+            <button type="submit" className='dc-btn dc-btn-primary dc-btn-fluid px-20 py-5'>Update</button>
           </div>
         </div>
       </form>

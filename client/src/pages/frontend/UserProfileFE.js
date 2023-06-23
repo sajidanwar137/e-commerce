@@ -19,7 +19,6 @@ const UserProfileFE = () => {
             </div>
             <div className='col-md-9'>
               <div className="dc-dashboard__layout--card-body px-25">
-                <a className='btn' href="">Discover</a>
               </div>
             </div>
           </div>
