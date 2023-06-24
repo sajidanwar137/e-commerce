@@ -5,19 +5,15 @@ const INITIAL_STATE = {};
 export default function (state = INITIAL_STATE, { type, payload }) {
     switch (type) {
         case SAVE: {
-            const obj = {
-                data: {
-                    email: payload.admin.data.email,
-                    name: payload.admin.data.name,
-                    token: payload.admin.data.token,
-                    _id: payload.admin.data._id
-                },
+            const { token, password, ...updatedData } = payload.admin.data;
+            const updatedPayload = {
                 message: payload.admin.message,
-                success: payload.admin.success
-            }
+                success: payload.admin.success,
+                data: updatedData
+            };
             return {
                 ...state,
-                ...obj,
+                ...updatedPayload,
             };
         }
         case REMOVE: {

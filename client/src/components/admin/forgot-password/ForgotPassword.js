@@ -3,7 +3,7 @@ import { Link} from "react-router-dom";
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
-import InputDC from '../../common/input/InputDC'
+import InputDC from 'components/common/input/InputDC'
 import ForgotPasswordImg from 'resources/images/forgot-password.png';
 import {validEmail} from 'utility/utility';
 import api from 'api/api';

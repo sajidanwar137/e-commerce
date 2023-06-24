@@ -19,7 +19,7 @@ const {
 router.route("/adminlogin").post(adminLogin);
 router.route("/admin-password-forget").post(forgetAdminPassword);
 router.route("/admin-password-reset").get(resetAdminPassword);
-router.route("/admin").post(auth, createAdmin);
+router.route("/admin").post(createAdmin);
 router.route("/update-admin-password").post(auth, updateAdminPassword);
 router.route("/update-admin-name").post(auth, updateAdminName);
 router.route("/logout").post(auth, logoutAdmin);

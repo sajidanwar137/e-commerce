@@ -52,18 +52,13 @@ exports.adminLogin = async(req, res) => {
         }
         if(adminData && passwordMatch){
             const tokenData = await createToken(adminData._id);
+            adminData.token = tokenData;
             const adminResult = {
-                _id : adminData._id,
-                name : adminData.name,
-                email : adminData.email,
-                password : adminData.password,
-                token : tokenData
-            }
-            const adminResponse = {
                 success : true,
-                data : adminResult
+                data : adminData,
+                message : 'Login Successfully!'
             }
-            return res.status(200).json(adminResponse);
+            return res.status(200).json(adminResult);
         }
         else{
             return res.status(200).json({ success: false, message: "Login details are incorrect!"});

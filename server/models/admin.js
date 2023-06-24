@@ -1,5 +1,32 @@
 const mongoose = require("mongoose");
-
+const adminAvtarSchema = new mongoose.Schema({
+    avtarName: {
+        type: String,
+        default: ''
+    },
+    avtarPath: {
+        type: String,
+        default: ''
+    },
+    avtarOriginalurl: {
+        type: String,
+        default: ''
+    },
+});
+const adminLogoSchema = new mongoose.Schema({
+    logoName: {
+        type: String,
+        default: ''
+    },
+    logoPath: {
+        type: String,
+        default: ''
+    },
+    logoOriginalurl: {
+        type: String,
+        default: ''
+    },
+});
 const adminSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -17,7 +44,9 @@ const adminSchema = new mongoose.Schema({
     token : {
         type: String,
         default: ''
-    }
+    },
+    adminAvtar: [adminAvtarSchema],
+    adminLogo: [adminLogoSchema],
 }, {
     timestamps: true
 });
