@@ -16,7 +16,6 @@ const Dashboard = ({children}) => {
       <div className='dc-dashboard__layout d-flex flex-column pt-30'>
           <div className='dc-dashboard__layout-content d-flex flex-column p-15'>
             {children}
-              {/* <div className='dc-dashboard__layout--card-body border'></div> */}
           </div>
           <div className='dc-dashboard__footer px-15'>
             <Footer/>

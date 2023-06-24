@@ -7,11 +7,25 @@ import './index.scss';
 
 export default function Sidebar() {
   const data = useSelector((state) => state?.adminlogo?.data[0]);
+  const [activeTab, setActiveTab] = useState(-1);
+
   const dispatch = useDispatch();
+  
   useEffect(() => {
     dispatch(getAdminLogo());
   }, [dispatch]);
-  const [activeTab, setActiveTab] = useState(-1);
+
+
+  useEffect(() => {
+    const savedActiveTab = localStorage.getItem('activeTab');
+    if (savedActiveTab) {
+      setActiveTab(parseInt(savedActiveTab));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('activeTab', activeTab.toString());
+  }, [activeTab]);
 
   const toggleTab = (index) => {
     setActiveTab((prevActiveTab) => (prevActiveTab === index ? -1 : index));

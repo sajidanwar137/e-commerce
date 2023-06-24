@@ -58,25 +58,27 @@ const UpdateName = () => {
   };
 
   return (
-    <div className='row dc-admin-change-password d-flex align-items-center'>
-      <div className='col-lg-12'>
-        <h4 className='mb-25'>Change Admin Name</h4>
-        <form onSubmit={handleSubmit}>
-          {showError && <ErrorMessage type="error" message={error} />}
-          <div className='mb-8'>
-            <label className='dc-admin-change-password__label mb-2'>Type your update name:</label>
-            <input
-              className='dc-form-control py-5 px-6'
-              type="text"
-              value={name}
-              onChange={handleName}
-              placeholder= {adminData.data.name}
-            />
-          </div>
-          <div className='d-flex'>
-            <button type="submit" className='dc-btn dc-btn-secondary px-20 py-5'>Update</button>
-          </div>
-        </form>
+    <div className='dc-admin-pwd-change border box-shadow p-15'>
+      <div className='row d-flex align-items-center'>
+        <div className='col-lg-12'>
+          <h4 className='mb-25'>Change Admin Name</h4>
+          <form onSubmit={handleSubmit}>
+            {showError && <ErrorMessage type="error" message={error} />}
+            <div className='mb-8'>
+              <label className='dc-admin-pwd-change__label mb-2'>Type your update name:</label>
+              <input
+                className='dc-form-control py-5 px-6'
+                type="text"
+                value={name}
+                onChange={handleName}
+                placeholder= {adminData.data.name}
+              />
+            </div>
+            <div className='d-flex'>
+              <button type="submit" className='dc-btn dc-btn-primary px-20 py-5'>Update</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
