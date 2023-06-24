@@ -4,58 +4,49 @@ $font-size                  : 14px;
 $font-height                : 1.6;
 $font-family                : 'Poppins', sans-serif;
 $iconmoon-family            : 'icomoon';
-
-//=========================== Admin bg color ===========================
+//CSS color variable name
 :root{
     --bg-black                   : #{$black};
     --bg-white                   : #{$white};
     --bg-primary-100             : #{$primary-100};
-    --bg-primary-200             : #{$primary-200};
     --bg-primary-300             : #{$primary-300};
     --bg-secondary-100           : #{$secondary-100};
-    --bg-secondary-200           : #{$secondary-200};
     --bg-secondary-300           : #{$secondary-300};
-    --bg-light-100               : #{$light-100};
-    --bg-light-200               : #{$light-200};
-    --bg-light-500               : #{$light-500};
-
-    --bg-light-600               : #{$light-600};
-
+    --bg-khaki                   : #{$khaki};
     --bg-gray-100                : #{$gray-100};
-    --bg-success                 : #{$success-300};
-    --bg-danger                  : #{$danger-300};
-    --bg-warning                 : #{$warning-300};
+    --bg-gray-200                : #{$gray-200};
+    --bg-gray-400                : #{$gray-400};
+    --bg-success                 : #{$success};
+    --bg-danger                  : #{$danger};
+    --bg-warning                 : #{$warning};
 
     --text-white                 : #{$white};
-    --text-gray                  : #{$gray-200};//
-    --text-placeholder           : #{$gray-300};//
+    --text-gray-500              : #{$gray-500};
+    --text-gray-600              : #{$gray-600};
     --text-dark-900              : #{$primary-100};
     --text-color-link            : #{$primary-100};
     --text-color-hover           : #{$secondary-100};
-    --text-success               : #{$success-300};
-    --text-danger                : #{$danger-300};
-    --text-warning               : #{$warning-300};
-    --text-yellow-500            : #{$light-200};//will remove later on
+    --text-success               : #{$success};
+    --text-danger                : #{$danger};
+    --text-warning               : #{$warning};
     
-    --border-default             : #{$light-300};
-    --border-primary             : #{$primary-200};
+    --border-default             : #{$gray-300};
+    --border-primary             : #{$primary-300};
     --border-secondary           : #{$secondary-300};
-    --border-success             : #{$success-300};
-    --border-danger              : #{$danger-300};
-    --border-warning             : #{$warning-300};
+    --border-success             : #{$success};
+    --border-danger              : #{$danger};
+    --border-warning             : #{$warning};
 }
-
-//=========================== Breakpoint ===========================
+//Media Breakpoint
 $screen-sm                       : 576px;
 $screen-md                       : 768px;
 $screen-lg                       : 992px;
 $screen-xl                       : 1200px;
 $screen-xxl                      : 1400px;
-//=========================== Container width ======================
+//Container
 $container-xxl                   :  1320px;
 $container-xl                    :  1170px;
 $container-lg                    :  1024px;
-//=========================== Resource path ========================
+//Resource path
 $font-path                       : "../../resources/fonts";
 $image-path                      : "../../resources/images";
-

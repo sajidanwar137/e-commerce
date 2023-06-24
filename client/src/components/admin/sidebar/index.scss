@@ -3,7 +3,7 @@
 
 .admin-aside{
     &__logo{
-        background: var(--bg-light-600);
+        background: var(--bg-gray-100);
         height: rem(60);
         img{
             width: 100%;
@@ -65,7 +65,7 @@
                         display: block;
                         position: relative;
                         font-size: rem(13);
-                        color: var(--text-gray);
+                        color: var(--text-gray-600);
                         &::before {
                             content: "";
                             width: rem(12);

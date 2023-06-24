@@ -78,7 +78,7 @@ input[type="email"]{
   border: rem(1) solid var(--border-default);
   border-radius: rem(6);
   background: var(--bg-white);
-  color: var(--text-gray);
+  color: var(--text-gray-600);
 }
 input[type="text"]:-ms-input-placeholder,
 input[type="text"]:-moz-placeholder,
@@ -91,7 +91,7 @@ input[type="text"]:focus,
 input[type="file"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus{
-  color: var(--text-gray);
+  color: var(--text-gray-600);
   border-color: var(--border-default);
   outline: 0;
   background-color:var(--bg-white);
