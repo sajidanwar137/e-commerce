@@ -1,10 +1,5 @@
 @import "../../../scss/abstracts/_abstracts-dir";
-.dc-dashboard{
-    &__header{
-        background: var(--bg-primary-100);
-        h5{
-            color: var(--text-white);
-        }
-        
-    }
+
+.admin{
+    &__header{}
 }

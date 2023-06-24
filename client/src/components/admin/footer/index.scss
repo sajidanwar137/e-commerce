@@ -1,16 +1,14 @@
 @import "../../../scss/abstracts/_abstracts-dir";
 
-.dc-dashboard{
-    &__footer{
-        p{
-            font-size: 12px;
-            span{
-                //color: $primary;
-            }
-            .fa-heart{
-                //color: $primary;
-                margin-left: 5px;
-            }
+.admin-footer{
+    p{
+        font-size: 12px;
+        span{
+            //color: $primary;
+        }
+        .fa-heart{
+            //color: $primary;
+            margin-left: 5px;
         }
     }
 }

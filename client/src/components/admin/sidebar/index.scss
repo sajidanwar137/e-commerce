@@ -1,30 +1,19 @@
 @import "../../../scss/abstracts/_abstracts-dir";
 
-.dc-dashboard{
-    &__sidebar{
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 101;
-        overflow: hidden;
-        width: rem(320);
-        display: flex;
-        flex-direction: column;
-        background: var(--bg-secondary-300);//
-        box-shadow: 0 0 rem(28) 0 rgba(82, 63, 105, 0.025);
-        &--menu-text{
-            color: var(--text-white);
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-    }
+
+.admin-aside{
     &__logo{
-        background: var(--bg-yellow-500);
+        background: var(--bg-light-600);
+        height: rem(60);
         img{
             width: 100%;
             max-width: rem(130);
             max-height: rem(25);
         }
+    }
+    &__menu-text{
+        color: var(--text-white);
+        text-transform: uppercase;
+        font-weight: 600;
     }
 }

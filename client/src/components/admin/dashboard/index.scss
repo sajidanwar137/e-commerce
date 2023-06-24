@@ -1,0 +1,46 @@
+@import "../../../scss/abstracts/_abstracts-dir";
+
+.dc-dashboard{
+    background: var(--bg-gray-100);
+    min-height: 100vh;
+    &__header{
+        background: var(--bg-light-600);
+        height: rem(60);
+        z-index: 10;
+        transition: all .2s;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        padding-left: rem(320);
+    }
+    &__sidebar{
+        display: flex;
+        z-index: 20;
+        overflow: hidden;
+        width: rem(320);
+        position: fixed;
+        height: 100vh;
+        flex-direction: column;
+        transition: all .3s ease;
+        background: var(--bg-white);
+    }
+    &__layout{
+        flex: 1 auto;
+        min-width: 0;
+        padding-left: rem(320);
+        // &--card-body{
+        //     background: var(--bg-white);
+        //     box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+        //     border-width: 0;
+        //     transition: all .2s;
+        //     border-radius: rem(2);
+        // }
+    }
+    &__layout-content{
+        flex: 1 0 auto;
+    }
+    &__footer{
+        background: var(--bg-light-600);
+    }
+}
