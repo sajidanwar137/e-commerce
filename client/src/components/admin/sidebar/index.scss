@@ -12,8 +12,77 @@
         }
     }
     &__menu-text{
-        color: var(--text-white);
+        color: var(--text-dark-900);
         text-transform: uppercase;
-        font-weight: 600;
+        font-weight: 500;
+    }
+    &__menu{
+        &--tab-button{
+            column-gap: rem(10);
+            cursor: pointer;
+            .dc-icon-arrow-down{
+                font-size: rem(11);
+            }
+            &--active{
+                font-weight: 500;
+                color: var(--text-dark-900);
+                .admin-aside__menu--icon{
+                    span{
+                        color: var(--text-color-hover);
+                    }
+                }
+                .dc-icon-arrow-down{
+                    &::before{
+                        content: '\e911';
+                    }
+                }
+            }
+        }
+        &--icon-col{
+            column-gap: rem(10);
+        }
+        &--icon{
+            width: rem(22);
+            height: rem(22);
+            span{
+                font-size: rem(11);
+            }
+        }
+        &--tab-pane{
+            transition: all .26s ease;
+            transform: scaleY(0);
+            transform-origin: top;
+            height: auto;
+            max-height: 0;
+            display: block;
+            &--active{
+                transform: scaleY(1);
+                max-height: 600px;
+            }
+            ul{
+                li{
+                    a{
+                        display: block;
+                        position: relative;
+                        font-size: rem(13);
+                        color: var(--text-gray);
+                        &::before {
+                            content: "";
+                            width: rem(12);
+                            height: rem(1);
+                            background: var(--border-default);
+                            margin-right: rem(5);
+                            position: absolute;
+                            left: 0;
+                            top: rem(18);
+                          }
+                        &.active{
+                            font-weight: 500;
+                            color: var(--text-dark-900);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,6 +1,5 @@
 import React from 'react'
-import Header from '../../components/admin/header/Header'
-import Footer from '../../components/admin/footer/Footer'
+import Footer from 'components/admin/footer/Footer'
 
 function PageOne() {
   return (

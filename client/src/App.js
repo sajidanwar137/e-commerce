@@ -11,12 +11,8 @@ import UserAvtar from './pages/frontend/UserAvtar'
 import UserUpdateProfile from './pages/frontend/UserUpdateProfile'
 import UserUpdatePassword from './pages/frontend/UserUpdatePassword'
 import UserUpdateAddress from './pages/frontend/UserUpdateAddress'
-
-import AdminChangePassword from './pages/admin/AdminChangePassword'
 import AdminForgotPassword from './pages/admin/AdminForgotPassword'
 import AdminResetPassword from './pages/admin/AdminResetPassword'
-import ChangeAdminLogo from './pages/admin/ChangeAdminLogo'
-import UpdateAdminName from './pages/admin/UpdateAdminName'
 import {PrivateRoutes, LoggedIn, UserPrivateRoutes} from './AuthRoutes';
 
 function App() {
@@ -33,14 +29,7 @@ function App() {
           <Route path='/account/update/address/:id' element={<UserUpdateAddress/>}/>
         </Route>
         <Route exact path='/' element={<PrivateRoutes />}>
-          <Route path='/dashboard' element={<AdminDashboard/>}/>
-          <Route path='/dashboard/admin/admin-change-password' element={<AdminChangePassword/>}/>
-          <Route path='/dashboard/admin/update-admin-name' element={<UpdateAdminName/>}/>
-          <Route path='/dashboard/admin/update-admin-logo' element={<ChangeAdminLogo/>}/>
-
-          <Route path='/dashboard/logo/admin-change-password' element={<AdminChangePassword/>}/>
-          <Route path='/dashboard/logo/update-admin-name' element={<UpdateAdminName/>}/>
-          <Route path='/dashboard/logo/update-admin-logo' element={<ChangeAdminLogo/>}/>
+          <Route path="/dashboard/*" element={<AdminDashboard />} />
         </Route>
         <Route exact path='/' element={<LoggedIn />}>
           <Route path='/dashboard/login' element={<AdminLogin/>}/>
