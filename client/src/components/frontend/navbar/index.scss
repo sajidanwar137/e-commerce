@@ -1,9 +1,14 @@
 @import "../../../scss/abstracts/_abstracts-dir";
 .dc-main-menu{
     background: var(--bg-white);
-    border-bottom: rem(1) solid var(--border-default);
-    border-top: rem(1) solid var(--border-default);
     &__list{
         column-gap: rem(50);
+        li{
+            a{
+                font-weight: 600;
+                text-transform: uppercase;
+                font-size: rem(13);
+            }
+        }
     }
 }

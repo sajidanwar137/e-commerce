@@ -3,7 +3,7 @@ import './index.scss';
 
 const NavbarFE = () => {
   return (
-    <div className='dc-main-menu'>
+    <div className='dc-main-menu border-b border-t'>
       <div className='dc-container'>
         <div className='row'>
             <div className='col-lg-12'>

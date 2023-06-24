@@ -2,6 +2,19 @@
 .dc-breadcrumb{
     background: var(--bg-white);
     &__list{
-        column-gap: rem(50);
+        column-gap: rem(10);
+        li{
+            column-gap: rem(10);
+            font-size: rem(12);
+            .dc-icon-arrow-right{
+                font-size: rem(10);
+                color: var(--text-dark-900);
+            }
+            &:last-child{
+                .dc-icon-arrow-right{
+                    display: none;
+                }
+            }
+        }
     }
 }
