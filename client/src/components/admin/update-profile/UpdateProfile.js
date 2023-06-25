@@ -78,10 +78,13 @@ const UpdateProfile = () => {
   return (
     <>
       <AdminPageTitle icon='dc-icon-role-setting' title='Profile Setting' subheading='This is an example dashboard created using build-in elements and components.'/>
-      <div className='dc-admin-pwd-change border box-shadow'>
-        <div className='border-b p-15'>
-          <h5 className='mb-8 fw-400'>Current Profile Status</h5>
-          <div className='dc-admin-pwd-change__status-col d-flex align-items-center justify-content-start'>
+      <div className='dc-admin-update-profile border box-shadow mb-15'>
+        <div className='border-b px-10 py-7 d-flex justify-content-start align-items-center'>
+          <span className='dc-icon-address-book me-5'></span>
+          <h5 className='fw-400'>Current Profile Status</h5>
+        </div>
+        <div className='px-10 py-15'>
+          <div className='dc-admin-update-profile__status-col d-flex align-items-center justify-content-start'>
             <div>
               <strong>Name:</strong> {adminData.data.name}
             </div>
@@ -90,13 +93,14 @@ const UpdateProfile = () => {
             </div>
           </div>
         </div>
-        <div className='p-15'>
+      </div>
+      <div className='dc-admin-update-profile border box-shadow'>
+        <div className='border-b px-10 py-7 d-flex justify-content-start align-items-center'>
+          <span className='dc-icon-address-book me-5'></span>
+          <h5 className='fw-400'>Update Profile</h5>
+        </div>
+        <div className='px-10 py-15'>
           <form onSubmit={handleSubmit}>
-            <div className='row'>
-              <div className='col-lg-12'>
-                <h5 className='mb-8 fw-400'>Update Profile</h5>
-              </div>
-            </div>
             <div className='row'>
               <div className='col-lg-12'>{showError && <ErrorMessage type="error" message={error} />}</div>
             </div>

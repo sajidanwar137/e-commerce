@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { updateAdminLogo } from "store/adminLogo/actions";
-import ErrorMessage from '../../common/error-message/ErrorMessage';
+import AdminPageTitle from 'components/admin/page-title/AdminPageTitle';
+import ErrorMessage from 'components/common/error-message/ErrorMessage';
 import Swal from 'sweetalert2';
 import './index.scss';
 
@@ -59,26 +60,37 @@ const UpdateLogo = () => {
   };
 
   return (
-    <div className='row dc-admin-change-password d-flex align-items-center'>
-      <div className='col-lg-9'>
-        <h4 className='mb-25'>Change Admin Logo</h4>
+    <>
+    <AdminPageTitle icon='dc-icon-setting' title='Logo' subheading='This is an example dashboard created using build-in elements and components.'/>
+    <div className='dc-update-logo border box-shadow'>
+      <div className='border-b px-10 py-7 d-flex justify-content-start align-items-center'>
+        <span className='dc-icon-setting me-5'></span>
+        <h5 className='fw-400'>Change Logo</h5>
+      </div>
+      <div className='px-10 py-15'>
         <form onSubmit={handleSubmit} encType="multipart/form-data">
-          {showError && <ErrorMessage type="error" message={error} />}
-          <div className='mb-8'>
-            <label className='dc-admin-change-password__label mb-2'>File:</label>
-            <input className='dc-form-control pe-6' type="file" onChange={handleFileChange} name="adminlogo" accept=".jpeg,.jpg,.gif,.png,.svg"/>
+          <div className='row'>
+            <div className='col-lg-12'>
+              {showError && <ErrorMessage type="error" message={error} />}
+            </div>
           </div>
-          <div className='d-flex'>
-            <button type="submit" className='dc-btn dc-btn-secondary px-20 py-5'>Upload</button>
+          <div className='row d-flex justify-content-start align-items-center'>
+            <div className='col-lg-4'>
+              <input className='dc-form-control pe-6' type="file" onChange={handleFileChange} name="adminlogo" accept=".jpeg,.jpg,.gif,.png,.svg"/>
+            </div>
+            <div className='col-lg-2'>
+              <button type="submit" className='dc-btn dc-btn-primary px-20 py-5'>Upload</button>
+            </div>
+            <div className='col-lg-2'>
+              <div className='dc-update-logo__img'>
+                <img src={uploadFile} alt="" />
+              </div>
+            </div>
           </div>
         </form>
       </div>
-      <div className='col-lg-3'>
-        <div className='dc-admin-change-password__img'>
-          <img src={uploadFile} alt="" />
-        </div>
-      </div>
     </div>
+    </>
   );
 };
 
