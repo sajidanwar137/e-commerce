@@ -1,7 +1,7 @@
 import React, {useState } from 'react';
 import { Link} from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { login } from "store/auth/actions";
+import { adminLogin } from "store/auth/actions";
 import { useNavigate } from 'react-router-dom';
 import Input from 'components/common/input/Input'
 import AdminLoginImg from 'resources/images/admin-login.png';
@@ -62,7 +62,7 @@ const Login = () => {
         }, 5000);
         return;
       }
-      dispatch(login({ admin: result }));
+      dispatch(adminLogin({ admin: result }));
       navigate('/dashboard');
     }
     catch (error) {

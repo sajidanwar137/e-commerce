@@ -1,6 +1,3 @@
-export const SAVE = 'SAVE';
-export const REMOVE = 'REMOVE';
-
 export const ADMIN_SAVE = 'ADMIN_SAVE';
 export const ADMIN_REMOVE = 'ADMIN_REMOVE';
 

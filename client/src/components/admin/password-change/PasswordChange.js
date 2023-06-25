@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { logout } from '../../../store/auth/actions';
+import { adminLogout } from '../../../store/auth/actions';
 import ErrorMessage from '../../common/error-message/ErrorMessage';
 import api from 'api/api';
 import {validateConfirmPassword, passwordComplexity} from 'utility/utility';
@@ -101,7 +101,7 @@ const PasswordChange = () => {
         text: result.message,
       }).then(() => {
         navigate('/dashboard/login');
-        dispatch(logout({ admin: null }));
+        dispatch(adminLogout({ admin: null }));
       });
     } catch (error) {
       console.error('Error fetching data:', error.message);

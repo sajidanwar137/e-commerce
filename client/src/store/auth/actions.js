@@ -1,12 +1,12 @@
-import { LOGIN, LOGOUT } from './types';
-import { SAVE, REMOVE } from '../admin/types';
+import { ADMIN_LOGIN, ADMIN_LOGOUT } from './types';
+import { ADMIN_SAVE, ADMIN_REMOVE } from '../admin/types';
 
-export const login = (payload) => (dispatch) => {
-    dispatch({ type: LOGIN, payload });
-    dispatch({ type: SAVE, payload });
+export const adminLogin = (payload) => (dispatch) => {
+    dispatch({ type: ADMIN_LOGIN, payload });
+    dispatch({ type: ADMIN_SAVE, payload });
 };
 
-export const logout = () => (dispatch) => {
-    dispatch({ type: LOGOUT });
-    dispatch({ type: REMOVE });
+export const adminLogout = () => (dispatch) => {
+    dispatch({ type: ADMIN_LOGOUT });
+    dispatch({ type: ADMIN_REMOVE });
 };
