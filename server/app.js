@@ -6,7 +6,7 @@ const linkDataBase = require('./db/config');
 
 const users = require('./routes/guestUser');
 const admin = require('./routes/admin');
-const adminLogo = require('./routes/adminLogo');
+const logo = require('./routes/logo');
 
 const app = express();
 
@@ -30,7 +30,7 @@ next();
 
 app.use('/api/v1/guest', users);
 app.use('/api/v1', admin);
-app.use('/api/v1', adminLogo);
+app.use('/api/v1', logo);
 
 app.use(express.static('public'));
 

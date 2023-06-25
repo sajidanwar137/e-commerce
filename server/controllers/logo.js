@@ -1,25 +1,25 @@
-const AdminLogo = require('../models/adminLogo');
+const Logo = require('../models/logo');
 
 
-exports.uploadAdminLogo = async(req, res) => {
+exports.uploadLogo = async(req, res) => {
     try {
-        const adminLogo = new AdminLogo({
-            image: req.file.originalname,
+        const logo = new Logo({
+            image: req.file.filename,
             path: req.file.destination,
-            originalurl: `${process.env.CLIENT_IMG_PATH}adminlogo/${req.file.originalname}`
+            originalurl: `${process.env.CLIENT_IMG_PATH}logo/${req.file.filename}`
         });
-        const adminLogoData = await adminLogo.save();
-        return res.status(200).json({ success: true, data: adminLogoData });
+        const logoData = await logo.save();
+        return res.status(200).json({ success: true, data: logoData });
     } catch (error) {
         return console.log(error)
     }
 };
-exports.getAdminLogo = async (req, res) => {
+exports.getLogo = async (req, res) => {
     try {
-        const adminLogo = await AdminLogo.find();
+        const logo = await Logo.find();
         res.status(200).json({
             success: true,
-            data: adminLogo
+            data: logo
         })
     }
     catch (error ) {
@@ -29,17 +29,17 @@ exports.getAdminLogo = async (req, res) => {
         })
     }
 }
-exports.updateAdminLogo = async(req, res) =>{
+exports.updateLogo = async(req, res) =>{
     try {
         const image_id = req.body.image_id;
-        const image = req.file.originalname;
-        const data = await AdminLogo.findOne({_id: image_id});
+        const image = req.file.filename;
+        const data = await Logo.findOne({_id: image_id});
         let imageData = null;
         if(data){
-            imageData = await AdminLogo.findByIdAndUpdate({_id: image_id}, {
+            imageData = await Logo.findByIdAndUpdate({_id: image_id}, {
                 $set : {
                     image: image,
-                    originalurl: `${process.env.CLIENT_IMG_PATH}adminlogo/${req.file.originalname}`
+                    originalurl: `${process.env.CLIENT_IMG_PATH}logo/${req.file.filename}`
                 }
             }, {new: true})
         }

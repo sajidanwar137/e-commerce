@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { slugCreater } from "utility/utility";
 import Avtar from "resources/images/avtar.jpeg";
 import "./index.scss";

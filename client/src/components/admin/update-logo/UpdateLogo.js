@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { updateAdminLogo } from "store/adminLogo/actions";
+import { updateLogo } from "store/logo/actions";
 import AdminPageTitle from 'components/admin/page-title/AdminPageTitle';
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
 import Swal from 'sweetalert2';
@@ -8,7 +8,7 @@ import './index.scss';
 
 const UpdateLogo = () => {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state?.adminlogo?.data[0]);
+  const data = useSelector((state) => state?.logo?.data[0]);
   const token = useSelector((state) => state?.auth?.token);
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadFile, setUploadFile] = useState(data.originalurl);
@@ -30,7 +30,7 @@ const UpdateLogo = () => {
   const handleSubmit = async event => {
     event.preventDefault();
     const formData = new FormData();
-    formData.append('adminlogo', selectedFile);
+    formData.append('logo', selectedFile);
     formData.append('image_id', data._id);
     if (!selectedFile) {
       setError("Invalid file format. Please select a JPEG, JPG, GIF, PNG, or SVG file!");
@@ -41,7 +41,7 @@ const UpdateLogo = () => {
       return;
     }
     try {
-      const result = await dispatch(updateAdminLogo(formData, token));
+      const result = await dispatch(updateLogo(formData, token));
       if (result && result.success !== true) {
         setError(result.message);
         setShowError(true);

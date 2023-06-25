@@ -1,18 +1,19 @@
 import React, {useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
-import { getAdminLogo } from "store/adminLogo/actions";
+import { getLogo } from "store/logo/actions";
+import Logo from "resources/images/logo.png";
 import './index.scss';
 
 
 export default function Sidebar() {
-  const data = useSelector((state) => state?.adminlogo?.data[0]);
+  const data = useSelector((state) => state?.logo?.data[0]);
   const [activeTab, setActiveTab] = useState(-1);
 
   const dispatch = useDispatch();
   
   useEffect(() => {
-    dispatch(getAdminLogo());
+    dispatch(getLogo());
   }, [dispatch]);
 
 
@@ -34,7 +35,17 @@ export default function Sidebar() {
   return (
     <div className='admin-aside'>
       <div className='admin-aside__logo px-12 d-flex justify-content-start align-items-center'>
-        {data && <Link to="/dashboard"><img src={`${data.originalurl}?${data.updatedAt}`} alt='' /></Link>}
+        {data && <Link to="/dashboard">
+          {data?.originalurl ? (
+            <img
+              src={data?.originalurl}
+              alt="Logo"
+              onError={(e) => (e.target.src = Logo)}
+            />
+          ) : (
+            <img src={Logo} alt="Logo" />
+          )}
+        </Link>}
       </div>
       <div className='admin-aside__menu-text px-12 py-15'>GETTING STARTED</div>
       <div className="admin-aside__menu px-12">
