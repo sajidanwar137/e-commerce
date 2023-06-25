@@ -17,11 +17,11 @@ strong {
    font-weight: 600;
 }
 a{
-    color: var(--text-color-link);
+    color: var(--text-primary);
     text-decoration: none;
     transition: all .3s ease-in;
     &:hover{
-      color: var(--text-color-hover);
+      color: var(--text-secondary);
     }
 }
 

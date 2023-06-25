@@ -12,7 +12,7 @@
         }
     }
     &__menu-text{
-        color: var(--text-dark-900);
+        color: var(--text-primary);
         text-transform: uppercase;
         font-weight: 500;
     }
@@ -25,10 +25,10 @@
             }
             &--active{
                 font-weight: 500;
-                color: var(--text-dark-900);
+                color: var(--text-primary);
                 .admin-aside__menu--icon{
                     span{
-                        color: var(--text-color-hover);
+                        color: var(--text-secondary);
                     }
                 }
                 .dc-icon-arrow-down{
@@ -78,7 +78,7 @@
                           }
                         &.active{
                             font-weight: 500;
-                            color: var(--text-dark-900);
+                            color: var(--text-primary);
                         }
                     }
                 }

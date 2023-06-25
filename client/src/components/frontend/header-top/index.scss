@@ -1,7 +1,6 @@
 @import "../../../scss/abstracts/_abstracts-dir";
 .dc-header-top{
-    background: var(--bg-secondary-100);
-    border-bottom: rem(1) solid var(--border-secondary);
+    background: var(--bg-primary);
     ul{
         column-gap: rem(25);
         li{

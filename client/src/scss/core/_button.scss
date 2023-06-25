@@ -11,20 +11,20 @@
     justify-content: center;
     &.dc-btn{
         &-primary{
-            background: var(--bg-primary-100);
+            background: var(--bg-primary);
             color: var(--text-white);
             &:hover{
                 color: var(--text-white);
-                background: var(--bg-secondary-100);
+                background: var(--bg-secondary);
                 transition: background-color 0.5s ease;
             }
         }
         &-secondary{
-            background: var(--bg-secondary-100);
+            background: var(--bg-secondary);
             color: var(--text-white);
             &:hover{
                 color: var(--text-white);
-                background: var(--bg-secondary-300);
+                background: var(--bg-secondary-100);
                 transition: background-color 0.5s ease;
             }
         }

@@ -8,10 +8,10 @@ $iconmoon-family            : 'icomoon';
 :root{
     --bg-black                   : #{$black};
     --bg-white                   : #{$white};
-    --bg-primary-100             : #{$primary-100};
-    --bg-primary-300             : #{$primary-300};
+    --bg-primary                 : #{$primary};
+    --bg-primary-100             : #{$primary-100};//
+    --bg-secondary               : #{$secondary};
     --bg-secondary-100           : #{$secondary-100};
-    --bg-secondary-300           : #{$secondary-300};
     --bg-khaki                   : #{$khaki};
     --bg-gray-100                : #{$gray-100};
     --bg-gray-200                : #{$gray-200};
@@ -23,16 +23,13 @@ $iconmoon-family            : 'icomoon';
     --text-white                 : #{$white};
     --text-gray-500              : #{$gray-500};
     --text-gray-600              : #{$gray-600};
-    --text-dark-900              : #{$primary-100};
-    --text-color-link            : #{$primary-100};
-    --text-color-hover           : #{$secondary-100};
+    --text-primary               : #{$primary};
+    --text-secondary             : #{$secondary};
     --text-success               : #{$success};
     --text-danger                : #{$danger};
     --text-warning               : #{$warning};
     
     --border-default             : #{$gray-300};
-    --border-primary             : #{$primary-300};
-    --border-secondary           : #{$secondary-300};
     --border-success             : #{$success};
     --border-danger              : #{$danger};
     --border-warning             : #{$warning};
