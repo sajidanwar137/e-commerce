@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { login } from "store/auth/actions";
-import ErrorMessage from '../../common/error-message/ErrorMessage';
+import ErrorMessage from 'components/common/error-message/ErrorMessage';
+import AdminPageTitle from 'components/admin/page-title/AdminPageTitle';
 import api from 'api/api';
 import Swal from 'sweetalert2';
 import './index.scss';
@@ -58,29 +59,32 @@ const UpdateName = () => {
   };
 
   return (
-    <div className='dc-admin-pwd-change border box-shadow p-15'>
-      <div className='row d-flex align-items-center'>
-        <div className='col-lg-12'>
-          <h4 className='mb-25'>Change Admin Name</h4>
-          <form onSubmit={handleSubmit}>
-            {showError && <ErrorMessage type="error" message={error} />}
-            <div className='mb-8'>
-              <label className='dc-admin-pwd-change__label mb-2'>Type your update name:</label>
-              <input
-                className='dc-form-control py-5 px-6'
-                type="text"
-                value={name}
-                onChange={handleName}
-                placeholder= {adminData.data.name}
-              />
-            </div>
-            <div className='d-flex'>
-              <button type="submit" className='dc-btn dc-btn-primary px-20 py-5'>Update</button>
-            </div>
-          </form>
+    <>
+      <AdminPageTitle icon='dc-icon-role-setting' title='Profile Setting' subheading='This is an example dashboard created using build-in elements and components.'/>
+      <div className='dc-admin-pwd-change border box-shadow p-15'>
+        <div className='row d-flex align-items-center'>
+          <div className='col-lg-12'>
+            <h4 className='mb-25'>Change Admin Name</h4>
+            <form onSubmit={handleSubmit}>
+              {showError && <ErrorMessage type="error" message={error} />}
+              <div className='mb-8'>
+                <label className='dc-admin-pwd-change__label mb-2'>Type your update name:</label>
+                <input
+                  className='dc-form-control py-5 px-6'
+                  type="text"
+                  value={name}
+                  onChange={handleName}
+                  placeholder= {adminData.data.name}
+                />
+              </div>
+              <div className='d-flex'>
+                <button type="submit" className='dc-btn dc-btn-primary px-20 py-5'>Update</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

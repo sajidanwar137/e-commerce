@@ -1,0 +1,14 @@
+@import "../../../scss/abstracts/_abstracts-dir";
+
+.admin-page-title{
+    column-gap: rem(30);
+    &__icon{
+        width: rem(60);
+        height: rem(60);
+        background: var(--bg-white);
+        span{
+            font-size: rem(24);
+            color: var(--text-secondary);
+        }
+    }
+}
