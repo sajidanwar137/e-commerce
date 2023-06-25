@@ -166,3 +166,31 @@ exports.updateAdminProfile = async(req, res) =>{
         return res.status(400).json({success: false, error: error.message})
     }
 };
+exports.updateAdminAvtar = async(req, res) =>{
+    try {
+        const admin_id = req.body.admin_id;
+        const avtarName = req.file.filename;
+        const avtarPath = req.file.destination;
+        const data = await Admin.findOne({_id: admin_id});
+        let adminData = null;
+        if(data){
+            adminData = await Admin.findByIdAndUpdate({_id: admin_id}, {
+                $set : {
+                    avtarName: avtarName,
+                    avtarPath: avtarPath,
+                    avtarOriginalurl: `${process.env.CLIENT_IMG_PATH}admin/${avtarName}`
+                }
+            }, {new: true})
+        }
+        if(adminData){
+            const response = {
+                success : true,
+                data : adminData,
+                message: "Avtar updated successfully!"
+            }
+            return res.status(200).json(response);
+        }
+    } catch (error) {
+        return res.status(400).json({success: false, error: error.message})
+    }
+};
