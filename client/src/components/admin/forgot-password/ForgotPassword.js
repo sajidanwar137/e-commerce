@@ -3,7 +3,7 @@ import { Link} from "react-router-dom";
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
-import InputDC from 'components/common/input/InputDC'
+import Input from 'components/common/input/Input'
 import ForgotPasswordImg from 'resources/images/forgot-password.png';
 import {validEmail} from 'utility/utility';
 import api from 'api/api';
@@ -71,7 +71,7 @@ function ForgotPassword() {
           <form className='dc-admin-forgot-password__layout-body' onSubmit={handleSubmit}>
               {showError && <ErrorMessage type="error" message={error} />}
               <div className='dc-admin-forgot-password__layout-row mb-8'>
-                <InputDC type={'text'} labelid={'admin-forgot-password'} label={'Enter your registered email'} update={handleEmailChange}/>
+                <Input type={'text'} labelid={'admin-forgot-password'} label={'Enter your registered email'} update={handleEmailChange}/>
               </div>
               <div className='dc-admin-forgot-password__layout-row mb-8 d-flex justify-content-center'>
                   <Link to="/dashboard/login" className='px-12 py-4'>Wait, I remember my password</Link>

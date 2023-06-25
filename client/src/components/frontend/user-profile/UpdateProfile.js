@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
-import InputDC from '../../common/input/InputDC'
+import Input from 'components/common/input/Input'
 import {validEmail, isValidPhoneNumber} from 'utility/utility';
 import { updateUserProfile } from "store/user/actions";
 import Swal from 'sweetalert2';
@@ -103,7 +103,7 @@ const UpdateProfile = () => {
             <label className='d-flex mt-3' htmlFor="update-user-name">Name:</label>
           </div>
           <div className="col-8">
-            <InputDC type={'text'} labelid={'update-user-name'} placeholder={userData?.name} update={nameHandler}/>
+            <Input type={'text'} labelid={'update-user-name'} placeholder={userData?.name} update={nameHandler}/>
           </div>
         </div>
         <div className='row mb-7'>
@@ -111,7 +111,7 @@ const UpdateProfile = () => {
             <label className='d-flex mt-3' htmlFor="update-user-email">Email:</label>
           </div>
           <div className="col-8">
-            <InputDC type={'text'} labelid={'update-user-email'} placeholder={userData?.email} update={emailHandler}/>
+            <Input type={'text'} labelid={'update-user-email'} placeholder={userData?.email} update={emailHandler}/>
           </div>
         </div>
         <div className='row mb-7'>
@@ -119,7 +119,7 @@ const UpdateProfile = () => {
             <label className='d-flex mt-3' htmlFor="update-user-phone">Phone:</label>
           </div>
           <div className="col-8">
-            <InputDC type={'text'} labelid={'update-user-phone'} placeholder={userData?.phone} update={phoneHandler}/>
+            <Input type={'text'} labelid={'update-user-phone'} placeholder={userData?.phone} update={phoneHandler}/>
           </div>
         </div>
         <div className='row d-flex justify-content-end'>

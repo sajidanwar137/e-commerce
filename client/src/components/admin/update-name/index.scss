@@ -2,4 +2,7 @@
 .dc-admin-pwd-change{
     background: var(--bg-white);
     border-radius: rem(3);
+    &__status-col{
+        column-gap: rem(50);
+    }
 }

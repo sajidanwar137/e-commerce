@@ -61,26 +61,42 @@ const UpdateName = () => {
   return (
     <>
       <AdminPageTitle icon='dc-icon-role-setting' title='Profile Setting' subheading='This is an example dashboard created using build-in elements and components.'/>
-      <div className='dc-admin-pwd-change border box-shadow p-15'>
-        <div className='row d-flex align-items-center'>
-          <div className='col-lg-12'>
-            <h4 className='mb-25'>Change Admin Name</h4>
-            <form onSubmit={handleSubmit}>
-              {showError && <ErrorMessage type="error" message={error} />}
-              <div className='mb-8'>
-                <label className='dc-admin-pwd-change__label mb-2'>Type your update name:</label>
-                <input
-                  className='dc-form-control py-5 px-6'
-                  type="text"
-                  value={name}
-                  onChange={handleName}
-                  placeholder= {adminData.data.name}
-                />
-              </div>
-              <div className='d-flex'>
-                <button type="submit" className='dc-btn dc-btn-primary px-20 py-5'>Update</button>
-              </div>
-            </form>
+      <div className='dc-admin-pwd-change border box-shadow'>
+        <div className='border-b p-15 mb-10'>
+          <h4 className='mb-8 fw-400'>Current Profile Status</h4>
+          <div className='dc-admin-pwd-change__status-col d-flex align-items-center justify-content-start'>
+            <div>
+              <strong>Name:</strong> {adminData.data.name}
+            </div>
+            <div>
+              <strong>Email:</strong> {adminData.data.email}
+            </div>
+          </div>
+        </div>
+        <div className='p-15'>
+          <div className='row'>
+            <div className='col-lg-12'>
+              <h4 className='mb-8 fw-400'>Update Profile</h4>
+            </div>
+          </div>
+          <div className='row d-flex align-items-center'>
+            <div className='col-lg-12'>
+              <form onSubmit={handleSubmit}>
+                {showError && <ErrorMessage type="error" message={error} />}
+                <div className='mb-8'>
+                  <label className='dc-admin-pwd-change__label mb-2'>Type your update name:</label>
+                  <input
+                    className='dc-form-control py-5 px-6'
+                    type="text"
+                    value={name}
+                    onChange={handleName}
+                  />
+                </div>
+                <div className='d-flex'>
+                  <button type="submit" className='dc-btn dc-btn-primary px-20 py-5'>Update</button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>

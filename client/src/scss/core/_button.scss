@@ -28,6 +28,33 @@
                 transition: background-color 0.5s ease;
             }
         }
+        &-success{
+            background: var(--bg-success);
+            color: var(--text-white);
+            &:hover{
+                color: var(--text-white);
+                background: var(--bg-success);
+                transition: background-color 0.5s ease;
+            }
+        }
+        &-danger{
+            background: var(--bg-danger);
+            color: var(--text-white);
+            &:hover{
+                color: var(--text-white);
+                background: var(--bg-danger);
+                transition: background-color 0.5s ease;
+            }
+        }
+        &-warning{
+            background: var(--bg-warning);
+            color: var(--text-white);
+            &:hover{
+                color: var(--text-white);
+                background: var(--bg-warning);
+                transition: background-color 0.5s ease;
+            }
+        }
         &-fluid{
             width: 100%;
         }
