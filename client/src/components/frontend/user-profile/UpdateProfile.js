@@ -71,7 +71,6 @@ const UpdateProfile = () => {
     }
     try {
       const result = await dispatch(updateUserProfile(obj, token));
-      console.log(":::::", result)
       if (result && result.success !== true) {
         setError(result.message);
         setShowError(true);
