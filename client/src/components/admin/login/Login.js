@@ -3,7 +3,7 @@ import { Link} from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "store/auth/actions";
 import { useNavigate } from 'react-router-dom';
-import Input from '../../common/input/Input'
+import Input from 'components/common/input/Input'
 import AdminLoginImg from 'resources/images/admin-login.png';
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
 import {validEmail} from 'utility/utility';
