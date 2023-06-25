@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { adminLogout } from '../../../store/auth/actions';
-import ErrorMessage from '../../common/error-message/ErrorMessage';
+import { adminLogout } from 'store/auth/actions';
+import ErrorMessage from 'components/common/error-message/ErrorMessage';
+import AdminPageTitle from 'components/admin/page-title/AdminPageTitle';
+import Input from 'components/common/input/Input'
 import api from 'api/api';
 import {validateConfirmPassword, passwordComplexity} from 'utility/utility';
 import './index.scss';
@@ -112,44 +114,38 @@ const PasswordChange = () => {
   };
 
   return (
-    <div className='row dc-admin-change-password d-flex align-items-center'>
-      <div className='col-lg-12'>
-        <h4 className='mb-25'>Change your password</h4>
-        <form onSubmit={handleSubmit}>
-          {showError && <ErrorMessage type="error" message={error} />}
-          <div className='mb-8'>
-            <label className='dc-admin-change-password__label mb-2'>Current Password:</label>
-            <input
-              className='dc-form-control py-5 px-6'
-              type="password"
-              value={currentPassword}
-              onChange={handleCurrentPasswordChange}
-            />
-          </div>
-          <div className='mb-8'>
-            <label className='dc-admin-change-password__label mb-2'>New Password:</label>
-            <input
-              className='dc-form-control py-5 px-6'
-              type="password"
-              value={newPassword}
-              onChange={handleNewPasswordChange}
-            />
-          </div>
-          <div className='mb-8'>
-            <label className='dc-admin-change-password__label mb-2'>Confirm Password:</label>
-            <input
-              className='dc-form-control py-5 px-6'
-              type="password"
-              value={confirmPassword}
-              onChange={handleConfirmPasswordChange}
-            />
-          </div>
-          <div className='d-flex justify-content-center'>
-            <button type="submit" className='dc-btn dc-btn-secondary px-20 py-5'>Update</button>
-          </div>
-        </form>
+    <>
+      <AdminPageTitle icon='dc-icon-reset-password' title='Password' subheading='This is an example dashboard created using build-in elements and components.'/>
+      <div className='dc-admin-update-password border box-shadow'>
+        <div className='border-b px-10 py-7 d-flex justify-content-start align-items-center'>
+          <span className='dc-icon-reset-password me-5'></span>
+          <h5 className='fw-400'>Change your password</h5>
+        </div>
+        <div className='px-10 py-15'>
+          <form onSubmit={handleSubmit}>
+            <div className='row'>
+              <div className='col-lg-12'>
+                {showError && <ErrorMessage type="error" message={error} />}
+              </div>
+            </div>
+            <div className='row d-flex align-items-center'>
+              <div className='col-lg-3'>
+                <Input type={'password'} labelid={'currentpassword'} name={'currentpassword'} label={'Type Current Password...'} update={handleCurrentPasswordChange}/>
+              </div>
+              <div className='col-lg-3'>
+                <Input type={'password'} labelid={'newpassword'} name={'newpassword'} label={'Type New Password...'} update={handleNewPasswordChange}/>
+              </div>
+              <div className='col-lg-3'>
+                <Input type={'password'} labelid={'confirmpassword'} name={'confirmpassword'} label={'Type Confirm Password...'} update={handleConfirmPasswordChange}/>
+              </div>
+              <div className='col-lg-3'>
+                <button type="submit" className='dc-btn dc-btn-primary px-20 py-5'>Update</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
