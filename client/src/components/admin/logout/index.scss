@@ -1,7 +1,7 @@
 @import "../../../scss/abstracts/_abstracts-dir";
-.dc-logout{
+.dc-admin-logout{
     column-gap: rem(7);
     cursor: pointer;
-    color: $link-text-color-danger;
-    font-weight: 600;
+    color: var(--text-primary);
+    font-weight: 500;
 }

@@ -1,8 +1,9 @@
 import React, {useState } from 'react';
 import { Link} from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { login } from "store/auth/actions";
+import { adminLogin } from "store/auth/actions";
 import { useNavigate } from 'react-router-dom';
+import Input from 'components/common/input/Input'
 import AdminLoginImg from 'resources/images/admin-login.png';
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
 import {validEmail} from 'utility/utility';
@@ -61,7 +62,7 @@ const Login = () => {
         }, 5000);
         return;
       }
-      dispatch(login({ admin: result }));
+      dispatch(adminLogin({ admin: result }));
       navigate('/dashboard');
     }
     catch (error) {
@@ -70,33 +71,33 @@ const Login = () => {
   };
 
   return (
-    <div className='dc-admin-layout p-7 d-flex justify-content-center align-items-center'>
-      <div className='dc-admin-layout__layout p-25 d-flex align-items-center'>
-        <div className='dc-admin-layout__layout--col pe-12'>
-          <div className='dc-admin-layout__title mb-15 d-flex align-items-center justify-content-start'>
-              <div className='dc-admin-layout__admin-icon--icon d-flex justify-content-center align-items-center'>
+    <div className='dc-admin-login p-7 d-flex justify-content-center align-items-center'>
+      <div className='dc-admin-login__layout p-25 d-flex align-items-center'>
+        <div className='dc-admin-login__layout--col pe-12'>
+          <div className='dc-admin-login__title mb-15 d-flex align-items-center justify-content-start'>
+              <div className='dc-admin-login__admin-icon--icon d-flex justify-content-center align-items-center'>
                 <span className="dc-icon-administrator"></span>
               </div>
               <h4 className='dc-h4'>Admin login</h4>
           </div>
           {showError && <ErrorMessage type="error" message={error} />}
           
-          <form className='dc-admin-layout__layout-body' onSubmit={handleSubmit}>
-              <div className='dc-admin-layout__layout-row mb-8'>
-                  <input className='dc-form-control py-5 px-6' type="text" value={email} onChange={handleEmailChange} placeholder='Email'/>
+          <form className='dc-admin-login__layout-body' onSubmit={handleSubmit}>
+              <div className='dc-admin-login__layout-row mb-8'>
+                <Input type={'text'} labelid={'admin-user-email'} label={'Email'} update={handleEmailChange}/>
               </div>
-              <div className='dc-admin-layout__layout-row mb-8'>
-                  <input className='dc-form-control py-5 px-6' type="password" value={password} onChange={handlePasswordChange} placeholder='Password'/>
+              <div className='dc-admin-login__layout-row mb-8'>
+                <Input type={'password'} labelid={'admin-password-email'} label={'Password'} update={handlePasswordChange}/>
               </div>
-              <div className='dc-admin-layout__layout-row mb-8 d-flex justify-content-center'>
+              <div className='dc-admin-login__layout-row mb-8 d-flex justify-content-center'>
                   <Link to="/dashboard/admin-forgot-password" className='px-12 py-4'>Forgot Password?</Link>
               </div>
-              <div className='dc-admin-layout__layout-row'>
-                  <button type="submit" className='dc-btn dc-btn-secondary dc-btn-fluid px-20 py-5'>Login</button>
+              <div className='dc-admin-login__layout-row'>
+                  <button type="submit" className='dc-btn dc-btn-primary dc-btn-fluid px-20 py-4'>Login</button>
               </div>
           </form>
         </div>
-        <div className='dc-admin-layout__layout--col ps-12'>
+        <div className='dc-admin-login__layout--col ps-12'>
           <img src={AdminLoginImg} alt="" />
         </div>
       </div>

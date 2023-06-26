@@ -1,24 +1,22 @@
 import React from 'react'
-import Sidebar from '../../components/admin/sidebar/Sidebar'
-import Header from '../../components/admin/header/Header'
-import Footer from '../../components/admin/footer/Footer'
-import './index.scss';
-function AdminDashboard() {
+import { Routes ,Route} from 'react-router-dom';
+import DashboardTemplate from 'template/admin/DashboardTemplate'
+import UpdateProfile from 'components/admin/update-profile/UpdateProfile'
+import UpdateLogo from 'components/admin/update-logo/UpdateLogo'
+import PasswordChange from 'components/admin/password-change/PasswordChange'
+import UpdateAdminAvtar from 'components/admin/update-avtar/UpdateAdminAvtar'
+
+const AdminDashboard = () => {
   return (
-    <div className='dc-dashboard d-flex flex-row'>
-        <Sidebar/>
-        <div className='dc-dashboard__layout d-flex flex-column'>
-            <Header/>
-            <div className='dc-dashboard__layout-content d-flex flex-column flex-column-fluid'>
-                <div className='container'>
-                  <div className='px-15'>
-                    <div className='dc-dashboard__layout--card-body p-25'></div>
-                  </div>
-                </div>
-            </div>
-            <Footer/>
-        </div>
-    </div>
+    <DashboardTemplate>
+      <Routes>
+        {/* <Route path="/" element={<UpdateProfile/>}/> */}
+        <Route path="admin/update-admin-name" element={<UpdateProfile/>}/>
+        <Route path="admin/update-admin-logo" element={<UpdateLogo/>}/>
+        <Route path="admin/admin-change-password" element={<PasswordChange/>}/>
+        <Route path="admin/admin-update-avtar" element={<UpdateAdminAvtar/>}/>
+      </Routes>
+    </DashboardTemplate>
   )
 }
 

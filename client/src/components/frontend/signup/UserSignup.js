@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom';
-import InputDC from '../../common/input/InputDC'
+import Input from 'components/common/input/Input'
 import Modal from '../../common/modal/Modal'
 import UserSignupImage from 'resources/images/signup.jpeg';
 import api from 'api/api';
@@ -61,16 +61,16 @@ const UserSignup = ({isOpen, onClose, userlogin}) => {
         <div className='dc-guest-user-signup-modal__layout-col ps-10'>
           <form className='m-0' onSubmit={guestUserSignupSubmit}>
             <div className='mb-6'>
-              <InputDC type={'text'} labelid={'guest-user-name'} label={'Name'} update={nameHandler}/>
+              <Input type={'text'} labelid={'guest-user-name'} label={'Name'} update={nameHandler}/>
             </div>
             <div className='mb-10'>
-              <InputDC type={'email'} labelid={'guest-user-email'} label={'Email'} update={emailHandler}/>
+              <Input type={'email'} labelid={'guest-user-email'} label={'Email'} update={emailHandler}/>
             </div>
             <div className='mb-10'>
-              <InputDC type={'password'} labelid={'guest-user-password'} label={'Password'} update={passwordHandler}/>
+              <Input type={'password'} labelid={'guest-user-password'} label={'Password'} update={passwordHandler}/>
             </div>
             <div className='mb-10'>
-              <InputDC type={'password'} labelid={'guest-user-confirm-password'} label={'Confirm password'} update={confirmPasswordHandler}/>
+              <Input type={'password'} labelid={'guest-user-confirm-password'} label={'Confirm password'} update={confirmPasswordHandler}/>
             </div>
             <div className='col-lg-12 mb-10'>
               <button type="submit" className='dc-btn dc-btn-secondary dc-btn-fluid px-20 py-5'>Sign up</button>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
-import InputDC from '../../common/input/InputDC'
+import Input from 'components/common/input/Input'
 import {validateConfirmPassword, passwordComplexity} from 'utility/utility';
 import { userLogout } from 'store/userauth/actions';
 import { userRemove } from 'store/user/actions';
@@ -123,17 +123,17 @@ const UpdateUserPassword = () => {
         {showError && <ErrorMessage type="error" message={error} />}
         <div className='row mb-10'>
           <div className="col-12">
-            <InputDC type={'password'} labelid={'current-password'} update={currentPasswordHandler} label={'Current Password'}/>
+            <Input type={'password'} labelid={'current-password'} update={currentPasswordHandler} label={'Current Password'}/>
           </div>
         </div>
         <div className='row mb-10'>
           <div className="col-12">
-            <InputDC type={'password'} labelid={'new-password'} update={newPasswordHandler} label={'New Password'}/>
+            <Input type={'password'} labelid={'new-password'} update={newPasswordHandler} label={'New Password'}/>
           </div>
         </div>
         <div className='row mb-15'>
           <div className="col-12">
-            <InputDC type={'password'} labelid={'confirm-password'} update={confirmPasswordHandler} label={'Confirm Password'}/>
+            <Input type={'password'} labelid={'confirm-password'} update={confirmPasswordHandler} label={'Confirm Password'}/>
           </div>
         </div>
         <div className='row d-flex justify-content-start'>

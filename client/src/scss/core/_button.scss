@@ -1,29 +1,57 @@
 .dc-btn{
     display: inline-flex;
     margin: 0;
-    font-size: rem(18);
+    font-size: rem(14);
+    text-transform: uppercase;
     letter-spacing: rem(.5);
-    font-weight: 600;
+    font-weight: 300;
     transition: background-color 0.5s ease;
     border: none;
-    border-radius: rem(6);
+    border-radius: rem(3);
     justify-content: center;
     &.dc-btn{
         &-primary{
-            background: $button-bg-color-primary;
-            color: $button-text-color-white;
+            background: var(--bg-primary);
+            color: var(--text-white);
             &:hover{
-                color: $button-text-color-white;
-                background-color: shade-color($button-bg-color-primary, 10%);
+                color: var(--text-white);
+                background: var(--bg-secondary);
                 transition: background-color 0.5s ease;
             }
         }
         &-secondary{
-            background: $button-bg-color-secondary;
-            color: $button-text-color-white;
+            background: var(--bg-secondary);
+            color: var(--text-white);
             &:hover{
-                color: $button-text-color-white;
-                background-color: shade-color($button-bg-color-secondary, 10%);
+                color: var(--text-white);
+                background: var(--bg-secondary-100);
+                transition: background-color 0.5s ease;
+            }
+        }
+        &-success{
+            background: var(--bg-success);
+            color: var(--text-white);
+            &:hover{
+                color: var(--text-white);
+                background: var(--bg-success);
+                transition: background-color 0.5s ease;
+            }
+        }
+        &-danger{
+            background: var(--bg-danger);
+            color: var(--text-white);
+            &:hover{
+                color: var(--text-white);
+                background: var(--bg-danger);
+                transition: background-color 0.5s ease;
+            }
+        }
+        &-warning{
+            background: var(--bg-warning);
+            color: var(--text-white);
+            &:hover{
+                color: var(--text-white);
+                background: var(--bg-warning);
                 transition: background-color 0.5s ease;
             }
         }

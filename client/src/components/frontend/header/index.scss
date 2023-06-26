@@ -1,5 +1,6 @@
 @import "../../../scss/abstracts/_abstracts-dir";
 .dc-header{
+    background: var(--bg-white);
     &__logo{
         img{
             max-width: rem(200);

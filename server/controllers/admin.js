@@ -52,18 +52,13 @@ exports.adminLogin = async(req, res) => {
         }
         if(adminData && passwordMatch){
             const tokenData = await createToken(adminData._id);
+            adminData.token = tokenData;
             const adminResult = {
-                _id : adminData._id,
-                name : adminData.name,
-                email : adminData.email,
-                password : adminData.password,
-                token : tokenData
-            }
-            const adminResponse = {
                 success : true,
-                data : adminResult
+                data : adminData,
+                message : 'Login Successfully!'
             }
-            return res.status(200).json(adminResponse);
+            return res.status(200).json(adminResult);
         }
         else{
             return res.status(200).json({ success: false, message: "Login details are incorrect!"});
@@ -144,34 +139,56 @@ exports.resetAdminPassword = async (req, res) =>{
     }
 };
 
-exports.updateAdminName = async(req, res) =>{
+exports.updateAdminProfile = async(req, res) =>{
     try {
         const admin_id = req.body.admin_id;
         const name = req.body.name;
+        const email = req.body.email;
         const data = await Admin.findOne({_id: admin_id});
         let adminData = null;
         if(data){
             adminData = await Admin.findByIdAndUpdate({_id: admin_id}, {
                 $set : {
-                    name: name
+                    name: name,
+                    email: email
                 }
             }, {new: true})
         }
         if(adminData){
-            const tokenData = await createToken(adminData._id);
             const adminResult = {
-                _id : adminData._id,
-                name : adminData.name,
-                email : adminData.email,
-                password : adminData.password,
-                token : tokenData
-            }
-            const adminResponse = {
                 success : true,
-                message: "Your name has been updated!",
-                data : adminResult
+                data : adminData,
+                message : 'Profile updated successfully!'
             }
-            return res.status(200).send(adminResponse)
+            return res.status(200).json(adminResult);
+        }
+    } catch (error) {
+        return res.status(400).json({success: false, error: error.message})
+    }
+};
+exports.updateAdminAvtar = async(req, res) =>{
+    try {
+        const admin_id = req.body.admin_id;
+        const avtarName = req.file.filename;
+        const avtarPath = req.file.destination;
+        const data = await Admin.findOne({_id: admin_id});
+        let adminData = null;
+        if(data){
+            adminData = await Admin.findByIdAndUpdate({_id: admin_id}, {
+                $set : {
+                    avtarName: avtarName,
+                    avtarPath: avtarPath,
+                    avtarOriginalurl: `${process.env.CLIENT_IMG_PATH}admin/${avtarName}`
+                }
+            }, {new: true})
+        }
+        if(adminData){
+            const response = {
+                success : true,
+                data : adminData,
+                message: "Avtar updated successfully!"
+            }
+            return res.status(200).json(response);
         }
     } catch (error) {
         return res.status(400).json({success: false, error: error.message})

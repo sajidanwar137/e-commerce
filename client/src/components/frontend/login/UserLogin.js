@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useDispatch } from "react-redux";
 import { Link } from 'react-router-dom';
-import InputDC from '../../common/input/InputDC'
+import Input from 'components/common/input/Input'
 import Modal from '../../common/modal/Modal'
 import UserLoginImg from 'resources/images/admin-login.png';
 import { userLogin } from "store/userauth/actions";
@@ -58,10 +58,10 @@ const UserLogin = ({isOpen, onClose, userforgot, usersignup}) => {
         <div className='dc-guest-user-login-modal__layout-col ps-10'>
           <form className='m-0' onSubmit={guestUserLoginSubmit}>
             <div className='mb-6'>
-              <InputDC type={'text'} labelid={'guest-user-email'} label={'Enter email'} update={emailHandler}/>
+              <Input type={'text'} labelid={'guest-user-email'} label={'Enter email'} update={emailHandler}/>
             </div>
             <div className='mb-10'>
-              <InputDC type={'password'} labelid={'guest-user-password'} label={'Enter password'} update={passwordHandler}/>
+              <Input type={'password'} labelid={'guest-user-password'} label={'Enter password'} update={passwordHandler}/>
             </div>
             <div className='mb-10 d-flex justify-content-center'>
               <p><Link onClick={userforgot}>Forgot Password?</Link></p>

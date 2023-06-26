@@ -75,24 +75,34 @@ input[type="file"],
 input[type="password"],
 input[type="email"]{
   width: 100%;
-  border: rem(1) solid $border-color-gray-300;
+  border: rem(1) solid var(--border-default);
   border-radius: rem(6);
+  background: var(--bg-white);
+  color: var(--text-gray-600);
 }
+input[type="text"]:-ms-input-placeholder,
+input[type="text"]:-moz-placeholder,
+input[type="text"]::-moz-placeholder,
+input[type="text"]::-webkit-input-placeholder {
+  //color: var(--text-color-placeholder);
+}
+
 input[type="text"]:focus,
 input[type="file"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus{
-  color:$text-color-gray-700;
-  border-color: $border-color-gray-400;
+  color: var(--text-gray-600);
+  border-color: var(--border-default);
   outline: 0;
-  background-color: $bg-color-white;
+  background-color:var(--bg-white);
+  transition: border-color 0.5s ease;
 }
 input[type=file]::file-selector-button {
   margin-right: rem(20);
   border: none;
-  background:$bg-color-gray-300;
+  //background:$bg-color-gray-300;
   padding:rem(12);
   border-radius:rem(6) 0 0 rem(6);
-  color:$text-color-gray-700;
+  //color:$text-color-gray-700;
   cursor: pointer;
 }

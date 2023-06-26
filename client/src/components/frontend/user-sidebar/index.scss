@@ -1,36 +1,29 @@
 @import "../../../scss/abstracts/_abstracts-dir";
 .dc-user-sidebar{
-    background: $bg-color-gray-100;
-    border: rem(1) solid $border-color-gray-300;
+    background: var(--bg-white);
     &__link-list{
         li{
-            border-bottom: rem(1) solid $border-color-gray-300;
+            
             a{
                 column-gap: rem(10);
-                color: $link-text-gray-800;
-                &.active,
-                &:hover{
-                    color: $link-text-hover-color-primary; 
-                }
             }
-            &:last-child{
-                border: none;
-            }
+        }
+        &--icon{
+            width: rem(18);
+            height: rem(18);
+            border-radius: 50%;
+            font-size: rem(10);
+            color: var(--text-secondary);
         }
     }
     &__avtar-col{
-        background: $gray-300;
-    }
-    &__avtar-edit{
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
+        background: var(--bg-gray-200);
     }
     &__avtar{
-        width: rem(120);
-        height: rem(120);
+        width: rem(230);
+        height: rem(230);
         border-radius: 50%;
+        background: var(--bg-white);
         overflow: hidden;
         position: relative;
         img{
@@ -45,5 +38,5 @@
 }
 //later will update this
 .dc-body-container{
-    background: $bg-color-gray-100;
+    background: var(--bg-white);
 }

@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 const adminSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -14,10 +13,22 @@ const adminSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Password is required'],
     },
+    avtarName: {
+        type: String,
+        default: ''
+    },
+    avtarPath: {
+        type: String,
+        default: ''
+    },
+    avtarOriginalurl: {
+        type: String,
+        default: ''
+    },
     token : {
         type: String,
         default: ''
-    }
+    },
 }, {
     timestamps: true
 });

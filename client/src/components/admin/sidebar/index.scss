@@ -1,32 +1,88 @@
 @import "../../../scss/abstracts/_abstracts-dir";
 
-.dc-dashboard{
-    &__sidebar{
-        position: fixed;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 101;
-        overflow: hidden;
-        width: rem(265);
-        display: flex;
-        flex-direction: column;
-        background: $bg-color-white;
-        box-shadow: 0 0 rem(28) 0 rgba(82, 63, 105, 0.025);
-        &--menu-text{
-            color: $text-color-muted;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-    }
+
+.admin-aside{
     &__logo{
+        background: var(--bg-gray-100);
+        height: rem(60);
         img{
             width: 100%;
             max-width: rem(130);
             max-height: rem(25);
         }
-        .dc-h3{
-            color: $link-text-color-primary ;
+    }
+    &__menu-text{
+        color: var(--text-primary);
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+    &__menu{
+        &--tab-button{
+            column-gap: rem(10);
+            cursor: pointer;
+            .dc-icon-arrow-down{
+                font-size: rem(11);
+            }
+            &--active{
+                font-weight: 500;
+                color: var(--text-primary);
+                .admin-aside__menu--icon{
+                    span{
+                        color: var(--text-secondary);
+                    }
+                }
+                .dc-icon-arrow-down{
+                    &::before{
+                        content: '\e911';
+                    }
+                }
+            }
+        }
+        &--icon-col{
+            column-gap: rem(10);
+        }
+        &--icon{
+            width: rem(22);
+            height: rem(22);
+            span{
+                font-size: rem(11);
+            }
+        }
+        &--tab-pane{
+            transition: all .26s ease;
+            transform: scaleY(0);
+            transform-origin: top;
+            height: auto;
+            max-height: 0;
+            display: block;
+            &--active{
+                transform: scaleY(1);
+                max-height: 600px;
+            }
+            ul{
+                li{
+                    a{
+                        display: block;
+                        position: relative;
+                        font-size: rem(13);
+                        color: var(--text-gray-600);
+                        &::before {
+                            content: "";
+                            width: rem(12);
+                            height: rem(1);
+                            background: var(--border-default);
+                            margin-right: rem(5);
+                            position: absolute;
+                            left: 0;
+                            top: rem(18);
+                          }
+                        &.active{
+                            font-weight: 500;
+                            color: var(--text-primary);
+                        }
+                    }
+                }
+            }
         }
     }
 }

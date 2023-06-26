@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT } from './types';
+import { ADMIN_LOGIN, ADMIN_LOGOUT } from './types';
 
 const INITIAL_STATE = {
     isAuthenticated: false,
@@ -7,14 +7,14 @@ const INITIAL_STATE = {
 
 export default function (state = INITIAL_STATE, { type, payload }) {
     switch (type) {
-        case LOGIN: {
+        case ADMIN_LOGIN: {
             return {
                 ...state,
                 isAuthenticated: true,
                 token: payload.admin.data.token,
             };
         }
-        case LOGOUT: {
+        case ADMIN_LOGOUT: {
             return {
                 ...state,
                 ...INITIAL_STATE,

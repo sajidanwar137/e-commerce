@@ -1,58 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-@font-face {
-    font-family: '#{$iconmoon-family}';
-    src:  url('#{$font-path}/#{$iconmoon-family}.eot?rki5jf');
-    src:  url('#{$font-path}/#{$iconmoon-family}.eot?rki5jf#iefix') format('embedded-opentype'),
-        url('#{$font-path}/#{$iconmoon-family}.ttf?rki5jf') format('truetype'),
-        url('#{$font-path}/#{$iconmoon-family}.woff?rki5jf') format('woff'),
-        url('#{$font-path}/#{$iconmoon-family}.svg?rki5jf#{$iconmoon-family}') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: block;
-}
-$dc-icon-admin          : "\e900";
-$dc-icon-delete         : "\e901";
-$dc-icon-edit           : "\e903";
-$dc-icon-email          : "\e904";
-$dc-icon-home           : "\e905";
-$dc-icon-idea           : "\e906";
-$dc-icon-key            : "\e907";
-$dc-icon-arrow-up       : "\e911";
-$dc-icon-arrow-right    : "\e90d";
-$dc-icon-arrow-down     : "\e902";
-$dc-icon-arrow-left     : "\e908";
-$dc-icon-logout         : "\e909";
-$dc-icon-password       : "\e90a";
-$dc-icon-pencil         : "\e90b";
-$dc-icon-reset-password : "\e90c";
-$dc-icon-role-setting   : "\e90e";
-$dc-icon-search         : "\e90f";
-$dc-icon-setting        : "\e910";
-$dc-icon-user           : "\e912";
-$dc-icon-administrator  : "\e913";
-$dc-icon-error          : "\e915";
-$dc-icon-info           : "\e916";
-$dc-icon-success        : "\e917";
-$dc-icon-warning        : "\e918";
-$dc-icon-forgot-password: "\e914";
-$dc-icon-heart          : "\e919";
-$dc-icon-cart           : "\e93a";
-$dc-icon-share          : "\e968";
-$dc-icon-truck          : "\e9b0";
-$dc-icon-cloud-upload   : "\e9c3";
-$dc-icon-compare        : "\e91a";
-$dc-icon-eye            : "\e91b";
-$dc-icon-close          : "\e91c";
-$dc-icon-newsletter     : "\e91d";
-$dc-icon-address-book   : "\e91e";
-$dc-icon-account-edit   : "\e91f";
-$dc-icon-returns        : "\e920";
-$dc-icon-rewards        : "\e921";
-$dc-icon-transactions   : "\e922";
-$dc-icon-download       : "\e923";
-$dc-icon-orders         : "\e924";
-$dc-icon-camera         : "\e925";
+@include font-face('Poppins', '#{$font-path}/Poppins-Thin', 100, normal);
+@include font-face('Poppins', '#{$font-path}/Poppins-Thin-Italic', 100, italic);
+@include font-face('Poppins', '#{$font-path}/Poppins-Extra-Light', 200, normal);
+@include font-face('Poppins', '#{$font-path}/Poppins-Extra-Light-Italic', 200, italic);
+@include font-face('Poppins', '#{$font-path}/Poppins-Light', 300, normal);
+@include font-face('Poppins', '#{$font-path}/Poppins-Light-Italic', 300, italic);
+@include font-face('Poppins', '#{$font-path}/Poppins-Regular', 400, normal);
+@include font-face('Poppins', '#{$font-path}/Poppins-Regular', 400, italic);
+@include font-face('Poppins', '#{$font-path}/Poppins-Medium', 500, normal);
+@include font-face('Poppins', '#{$font-path}/Poppins-Medium-Italic', 500, italic);
+@include font-face('Poppins', '#{$font-path}/Poppins-Semi-Bold', 600, normal);
+@include font-face('Poppins', '#{$font-path}/Poppins-Semi-Bold-Italic', 600, italic);
+@include font-face('Poppins', '#{$font-path}/Poppins-Bold', 700, normal);
+@include font-face('Poppins', '#{$font-path}/Poppins-Bold-Italic', 700, italic);
+@include font-face-iconmoon('icomoon', '#{$font-path}/icomoon', normal, normal);
 
 
 

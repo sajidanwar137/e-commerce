@@ -19,6 +19,72 @@
 @function shade-color($color, $weight) {
   @return mix(black, $color, $weight);
 }
+
+@mixin font-face-iconmoon($font-family, $font-path, $font-weight: normal, $font-style: normal) {
+  @font-face {
+    font-family: '#{$font-family}';
+    src: url('#{$font-path}.eot');
+    src: url('#{$font-path}.eot?#iefix') format('embedded-opentype'),
+         url('#{$font-path}.woff') format('woff'),
+         url('#{$font-path}.ttf') format('truetype'),
+         url('#{$font-path}.svg##{$font-family}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-display: swap;
+  }
+}
+@mixin font-face($family, $path, $font-weight: normal, $font-style: normal) {
+  @font-face {
+    font-family: #{$family};
+    src: url('#{$path}.ttf') format('truetype');
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-display: swap;
+  }
+}
+//Border mixin
+@mixin border($position) {
+  &-#{$position} {
+    @if $position == s {
+        border-left: rem(1) solid var(--border-default);
+    }
+    @else if $position == e {
+        border-right: rem(1) solid var(--border-default);
+    }
+    @else if $position == t {
+        border-top: rem(1) solid var(--border-default);
+    }
+    @else if $position == b {
+        border-bottom: rem(1) solid var(--border-default);
+    }
+  }
+}
+//Font weight mixin
+@mixin fb($wieght) {
+  &-#{$wieght} {
+    @if $wieght == 100 {
+      font-weight: 100;
+    }
+    @else if $wieght == 200 {
+      font-weight: 200;
+    }
+    @else if $wieght == 300 {
+      font-weight: 300;
+    }
+    @else if $wieght == 400 {
+      font-weight: 400;
+    }
+    @else if $wieght == 500 {
+      font-weight: 500;
+    }
+    @else if $wieght == 600 {
+      font-weight: 600;
+    }
+    @else if $wieght == 700 {
+      font-weight: 700;
+    }
+  }
+}
 // this mixin will work for single value property
 //@include cssStyle('margin', rem(50), rem(30), rem(50), rem(65));
 //@include cssStyle('margin-left', rem(50), rem(30), rem(50), rem(65));
