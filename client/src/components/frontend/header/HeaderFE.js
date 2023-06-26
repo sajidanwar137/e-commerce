@@ -1,9 +1,12 @@
 import React from 'react'
-import './index.scss';
+import { useSelector } from "react-redux";
 import SplashMessage from '../splash-message/SplashMessage'
 import HeaderTopbarFE from '../header-top/HeaderTopbarFE'
+import Logo from "resources/images/logo.png";
+import './index.scss';
 
 const HeaderFE = () => {
+  const data = useSelector((state) => state?.logo?.data[0]);
   return (
     <>
     <SplashMessage/>
@@ -13,7 +16,15 @@ const HeaderFE = () => {
         <div className='row'>
             <div className='col-lg-3'>
               <div className='dc-header__logo'>
-                <img src="http://localhost:5000/upload/adminlogo/logo.png?2023-06-11T17:25:12.349Z" alt='' />
+              {data?.originalurl ? (
+                  <img
+                    src={data?.originalurl}
+                    alt="Logo"
+                    onError={(e) => (e.target.src = Logo)}
+                  />
+                ) : (
+                  <img src={Logo} alt="Logo" />
+                )}
               </div>
             </div>
             <div className='col-lg-3'>

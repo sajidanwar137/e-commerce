@@ -7,7 +7,7 @@ import Logo from "resources/images/logo.png";
 import Swal from 'sweetalert2';
 import './index.scss';
 
-const UpdateLogo = () => {
+const UpdateAdminAvtar = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state?.logo?.data[0]);
   const token = useSelector((state) => state?.auth?.token);
@@ -64,11 +64,11 @@ const UpdateLogo = () => {
 
   return (
     <>
-    <AdminPageTitle icon='dc-icon-setting' title='Logo' subheading='This is an example dashboard created using build-in elements and components.'/>
+    <AdminPageTitle icon='dc-icon-setting' title='Admin Avtar' subheading='This is an example dashboard created using build-in elements and components.'/>
     <div className='dc-update-logo border box-shadow'>
       <div className='border-b px-10 py-7 d-flex justify-content-start align-items-center'>
         <span className='dc-icon-setting me-5'></span>
-        <h5 className='fw-400'>Change Logo</h5>
+        <h5 className='fw-400'>Change Avtar</h5>
       </div>
       <div className='px-10 py-15'>
         <form onSubmit={handleSubmit} encType="multipart/form-data">
@@ -97,4 +97,4 @@ const UpdateLogo = () => {
   );
 };
 
-export default UpdateLogo;
+export default UpdateAdminAvtar;

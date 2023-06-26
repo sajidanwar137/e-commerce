@@ -1,0 +1,12 @@
+@import "../../../scss/abstracts/_abstracts-dir";
+.dc-update-logo{
+    background: var(--bg-white);
+    border-radius: rem(3);
+    &__img{
+        img{
+            max-width: 100%;
+            width: 100%;
+            display: block;
+        }
+    }
+}

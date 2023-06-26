@@ -73,7 +73,7 @@ export default function Sidebar() {
                     <NavLink to="/dashboard/admin/admin-change-password" className='px-10 py-4'>Password</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/dashboard/admin/admin-avtar" className='px-10 py-4'>Admin Avtar</NavLink>
+                    <NavLink to="/dashboard/admin/admin-update-avtar" className='px-10 py-4'>Admin Avtar</NavLink>
                 </li>
               </ul>
             </div>
