@@ -4,7 +4,7 @@ import Header from 'components/admin/header/Header'
 import Footer from 'components/admin/footer/Footer'
 import './index.scss';
 
-const Dashboard = ({children}) => {
+const DashboardTemplate = ({children}) => {
   return (
     <div className='dc-dashboard d-flex flex-column'>
       <div className='dc-dashboard__header box-shadow'>
@@ -24,4 +24,4 @@ const Dashboard = ({children}) => {
     </div>
   )
 }
-export default Dashboard
+export default DashboardTemplate
