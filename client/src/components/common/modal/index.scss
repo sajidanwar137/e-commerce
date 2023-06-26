@@ -18,17 +18,16 @@
         right: 0;
         bottom: 0;
         z-index: 9;
-        //background: $bg-color-black;
+        background: var(--bg-black);
         z-index: 10;
         opacity: 0.5;
     }
     &__content{
         position: relative;
         z-index: 11;
-        //background: $bg-color-white;
+        background: var(--bg-white);
         width: 100%;
         border-radius: rem(5);
-        box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
     }
     &__modal-close{
         position: absolute;
@@ -36,7 +35,6 @@
         top: rem(7);
         width: rem(25);
         height: rem(25);
-        //border: rem(1) solid $border-color-gray-300 ;
         border-radius: 50%;
         cursor: pointer;
         span{
