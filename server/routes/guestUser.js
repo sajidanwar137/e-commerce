@@ -11,9 +11,11 @@ const {
   logoutUser,
   updateUserAvtar,
   updateUserProfile,
-  updateUserPassword
+  updateUserPassword,
+  getAllGuestUser
 } = require("../controllers/guestUser");
 
+router.route("/getallguestuser").get(getAllGuestUser);
 router.route("/createuser").post(createUser);
 router.route("/userlogin").post(loginUser);
 router.route("/userlogout").post(auth, logoutUser);

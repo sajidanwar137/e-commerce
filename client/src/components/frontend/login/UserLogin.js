@@ -5,6 +5,8 @@ import Input from 'components/common/input/Input'
 import Modal from '../../common/modal/Modal'
 import UserLoginImg from 'resources/images/admin-login.png';
 import { userLogin } from "store/userauth/actions";
+import ErrorMessage from 'components/common/error-message/ErrorMessage';
+import {validEmail} from 'utility/utility';
 import api from 'api/api';
 import './index.scss';
 
@@ -13,6 +15,8 @@ const UserLogin = ({isOpen, onClose, userforgot, usersignup}) => {
 
   const [email, setEmail] = useState(false);
   const [password, setPassword] = useState(false);
+  const [error, setError] = useState("");
+  const [showError, setShowError] = useState(false);
 
   const emailHandler = (e) => {
     setEmail(e.target.value)
@@ -26,12 +30,36 @@ const UserLogin = ({isOpen, onClose, userforgot, usersignup}) => {
   }
   const guestUserLoginSubmit = async (e) => {
     e.preventDefault();
+    if (validEmail(email)) {
+      setError("Please enter a valid email address");
+      setShowError(true);
+      setTimeout(() => {
+        setShowError(false);
+      }, 5000);
+      return;
+    }
+    if (password.trim() === "") {
+      setError("Please enter your password");
+      setShowError(true);
+      setTimeout(() => {
+        setShowError(false);
+      }, 5000);
+      return;
+    }
     const payload = {
       email: email,
       password: password,
     };
     try {
       const result = await api.post('/guest/userlogin', payload);
+      if (result && result.success !== true) {
+        setError(result.message);
+        setShowError(true);
+        setTimeout(() => {
+          setShowError(false);
+        }, 5000);
+        return;
+      }
       dispatch(userLogin({ user: result }));
       handleLoginModal();
     } catch (error) {
@@ -57,6 +85,7 @@ const UserLogin = ({isOpen, onClose, userforgot, usersignup}) => {
         </div>
         <div className='dc-guest-user-login-modal__layout-col ps-10'>
           <form className='m-0' onSubmit={guestUserLoginSubmit}>
+            <div className='mb-3'>{showError && <ErrorMessage type="error" message={error} />}</div>
             <div className='mb-6'>
               <Input type={'text'} labelid={'guest-user-email'} label={'Enter email'} update={emailHandler}/>
             </div>

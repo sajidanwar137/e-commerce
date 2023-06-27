@@ -42,18 +42,29 @@ exports.loginUser = async(req, res) => {
             passwordMatch = await comparePassword(password,userData.password);
         }
         if(userData && passwordMatch){
-            const tokenData = await createToken(userData._id);
-            userData.token = tokenData;
-            const userResponse = {
-                success : true,
-                data : userData,
-                message : 'Login Successfully!'
+            if(userData?.isActive){
+                const tokenData = await createToken(userData._id);
+                userData.token = tokenData;
+                const userResponse = {
+                    success : true,
+                    data : userData,
+                    message : 'Login Successfully!'
+                }
+                return res.status(200).json(userResponse);
             }
-            return res.status(200).json(userResponse);
+            else{
+                return res.status(200).json({ 
+                    success: false, 
+                    data: null,
+                    message: "Your account is suspended. please contact your administrator!"
+                });
+            }
+            
         }
         else{
             return res.status(200).json({ 
                 success: false, 
+                data: null,
                 message: "Login details are incorrect!"
             });
         }
@@ -105,6 +116,21 @@ exports.getUserById = async(req, res) => {
         return res.status(500).json({ error: 'Internal server error' });
     }
 };
+exports.getAllGuestUser = async (req, res) => {
+    try {
+        const user = await User.find();
+        res.status(200).json({
+            success: true,
+            data: user
+        })
+    }
+    catch (error ) {
+        res.status(400).json({
+            success: false,
+            error: error.message
+        })
+    }
+}
 
 exports.updateUserAvtar = async(req, res) =>{
     try {

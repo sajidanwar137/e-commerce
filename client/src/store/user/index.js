@@ -15,10 +15,10 @@ const INITIAL_STATE = {
 export default function (state = INITIAL_STATE, { type, payload }) {
     switch (type) {
         case USER_SAVE: {
-            const { token, password, ...updatedData } = payload.user.data;
+            const { token, password, ...updatedData } = payload?.user?.data;
             const updatedPayload = {
-                message: payload.user.message,
-                success: payload.user.success,
+                message: payload?.user?.message,
+                success: payload?.user?.success,
                 data: updatedData
             };
             return {
@@ -39,10 +39,10 @@ export default function (state = INITIAL_STATE, { type, payload }) {
                 error: null
             }
         case GET_USER_AVTAR_SUCCESS:
-            const { token, password, ...updatedData } = payload.data;
+            const { token, password, ...updatedData } = payload?.data;
             const updatedPayload = {
-                message: payload.message,
-                success: payload.success,
+                message: payload?.message,
+                success: payload?.success,
                 data: updatedData
             };
             return {

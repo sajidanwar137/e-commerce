@@ -74,6 +74,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: ''
     },
+    isActive: {
+      type: Boolean,
+      default: true,
+    },
     addresses: [userAddressSchema],
     wishlists: [],
     orders: [],
