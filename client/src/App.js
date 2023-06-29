@@ -9,6 +9,7 @@ import HomeFE from './pages/frontend/Home'
 import GuestUser from './pages/frontend/GuestUser'
 import AdminForgotPassword from './pages/admin/AdminForgotPassword'
 import AdminResetPassword from './pages/admin/AdminResetPassword'
+import Guideline from './pages/Guideline'
 import {PrivateRoutes, LoggedIn, UserPrivateRoutes} from './AuthRoutes';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<HomeFE/>}/>
+        <Route path='/guideline' element={<Guideline/>}/>
         <Route exact path='/' element={<UserPrivateRoutes />}>
           <Route path="/account/*" element={<GuestUser />} />
         </Route>

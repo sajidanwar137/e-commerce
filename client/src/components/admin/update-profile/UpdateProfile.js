@@ -4,6 +4,7 @@ import ErrorMessage from 'components/common/error-message/ErrorMessage';
 import AdminPageTitle from 'components/admin/page-title/AdminPageTitle';
 import {validEmail} from 'utility/utility';
 import Input from 'components/common/input/Input'
+import Button from 'components/common/button/Button'
 import { updateAdminProfile } from "store/admin/actions";
 import Swal from 'sweetalert2';
 import './index.scss';
@@ -112,7 +113,7 @@ const UpdateProfile = () => {
                 <Input type={'text'} labelid={'email'} name={'email'} label={'Type Email...'} update={handleEmail}/>
               </div>
               <div className='col-lg-4'>
-                <button type="submit" className='dc-btn dc-btn-primary px-20 py-5'>Update</button>
+                <Button type='primary' buttonLabel='Update'/>
               </div>
             </div>
           </form>

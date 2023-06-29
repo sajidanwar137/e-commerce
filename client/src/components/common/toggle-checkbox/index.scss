@@ -1,0 +1,61 @@
+@import "../../../scss/abstracts/_abstracts-dir";
+
+.checkbox-switch{
+    column-gap: rem(7);
+    &__label{
+        position: relative;
+        width: rem(50);
+        height: rem(24);
+        border-radius: rem(12);
+        overflow: hidden;
+    }
+    &__checkbox{
+        display: none;
+        &:checked + .checkbox-switch__slider {
+            background-color: var(--bg-success);
+        }
+        &:focus + .checkbox-switch__slider {
+            box-shadow: 0 0 rem(1) var(--border-success);
+        }
+        &:checked + .checkbox-switch__slider {
+            &::before{
+                content: attr(data-on);
+                -webkit-transform: translateX(rem(26));
+                -ms-transform: translateX(rem(26));
+                transform: translateX(rem(26));
+                background-color: var(--bg-gray-400);
+                color: var(--text-gray-600);
+            }
+        }
+    }
+    &__slider{
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--bg-danger);
+        -webkit-transition: .4s;
+        transition: .4s;
+        &::before{
+            position: absolute;
+            content: attr(data-off);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: rem(20);
+            height: rem(20);
+            border-radius: 50%;
+            left: rem(2);
+            bottom: rem(2);
+            background-color: var(--bg-gray-400);
+            color: var(--text-gray-600);
+            -webkit-transition: .4s;
+            transition: .4s;
+            font-size: rem(7);
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+    }
+}
