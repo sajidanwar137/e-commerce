@@ -3,6 +3,9 @@ import Radio from 'components/common/radio/Radio';
 import Checkbox from 'components/common/checkbox/Checkbox';
 import ToggleCheckbox from 'components/common/toggle-checkbox/ToggleCheckbox';
 import Button from 'components/common/button/Button'
+import ReactSelect from 'components/common/reactselect/ReactSelect'
+import Datepicker from 'components/common/datepicker/Datepicker'
+import IconButton from 'components/common/icon-button/IconButton'
 
 export default function Guideline() {
   return (
@@ -189,6 +192,22 @@ export default function Guideline() {
           <h3>Form Elements</h3>
       </div>
       <div className='d-flex justify-content-start mb-10'>
+            <h4>React Select</h4>
+        </div>
+        <div className='row mb-10'>
+            <div className='col-lg-4'>
+                <ReactSelect/>
+            </div>
+        </div>
+        <div className='d-flex justify-content-start mb-10'>
+            <h4>Datepicker</h4>
+        </div>
+        <div className='row mb-10'>
+            <div className='col-lg-4'>
+                <Datepicker/>
+            </div>
+        </div>
+      <div className='d-flex justify-content-start mb-10'>
           <h4>Toggle checkbox</h4>
       </div>
       <div className='d-flex justify-content-start flex-wrap mb-10'>
@@ -235,21 +254,29 @@ export default function Guideline() {
       </div>
       <div className='d-flex justify-content-start flex-wrap mb-10'>
         <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <Button type='primary' buttonLabel='Button primary'/>
+            <Button type='primary' buttonLabel='Primary'/>
         </div>
         <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <Button type='secondary' buttonLabel='Button secondary'/>
+            <Button type='secondary' buttonLabel='Secondary'/>
         </div>
         <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <Button type='success' buttonLabel='Button success'/>
+            <Button type='success' buttonLabel='Success'/>
         </div>
         <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <Button type='danger' buttonLabel='Button danger'/>
+            <Button type='danger' buttonLabel='Danger'/>
         </div>
         <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <Button type='warning' buttonLabel='Button warning'/>
+            <Button type='warning' buttonLabel='Warning'/>
         </div>
       </div>
+      <div className='d-flex justify-content-start mb-10'>
+          <h4>Icon Tooltip Button</h4>
+      </div>
+      <div className='d-flex justify-content-start flex-wrap mb-10'>
+        <div className='me-3 mb-3 p-2 d-inline-flex'>
+            <IconButton type="pencil" theme='gray' tooltip="Edit"/>
+        </div>
+        </div>
     </div>
   )
 }

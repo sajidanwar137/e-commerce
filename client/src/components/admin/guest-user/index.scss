@@ -1,0 +1,14 @@
+@import "scss/abstracts/_abstracts-dir";
+.guest-user{
+    background: var(--bg-white);
+    border-radius: rem(3);
+    &__table{
+        width: 100%;
+        vertical-align: top;
+        caption-side: bottom;
+        border-collapse: collapse;
+        thead{
+            
+        }
+    }
+}

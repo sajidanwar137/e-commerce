@@ -226,4 +226,24 @@
             content:$dc-icon-camera
         }
     }
+    &-filter{
+        &::before{
+            content:$dc-icon-filter
+        }
+    }
+    &-save{
+        &::before{
+            content:$dc-icon-save
+        }
+    }
+    &-refresh{
+        &::before{
+            content:$dc-icon-refresh
+        }
+    }
+    &-print{
+        &::before{
+            content:$dc-icon-print
+        }
+    }
 }

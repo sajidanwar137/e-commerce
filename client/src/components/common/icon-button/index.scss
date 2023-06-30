@@ -1,0 +1,87 @@
+@import "scss/abstracts/_abstracts-dir";
+
+.icon-button{
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: rem(3);
+    &.icon-button{
+        &-primary{
+            background: var(--bg-primary);
+            color: var(--text-white);
+        }
+        &-secondary{
+            background: var(--bg-secondary);
+            color: var(--text-white);
+        }
+        &-success{
+            background: var(--bg-success);
+            color: var(--text-white);
+        }
+        &-danger{
+            background: var(--bg-danger);
+            color: var(--text-white);
+        }
+        &-warning{
+            background: var(--bg-warning);
+            color: var(--text-white);
+        }
+        &-white{
+            background: var(--bg-white);
+            color: var(--text-primary);
+            border: rem(1) solid var(--border-default);
+        }
+        &-gray{
+            background: var(--border-default);
+            color: var(--text-primary);
+        }
+    }
+    &[data-tooltip] {
+        position: relative;
+        z-index: 2;
+        cursor: pointer;
+        &::after,
+        &::before{
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        &::before{
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            margin-bottom:rem(5);
+            transform: translate(-50%, 0%);
+            padding:rem(3) rem(7);
+            width: auto;
+            border-radius:rem(3);
+            background-color: hsla(0, 0%, 20%, 0.9);
+            color:var(--text-white);
+            content: attr(data-tooltip);
+            text-align: center;
+            font-size: rem(12);
+        }
+        &::after{
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            width: 0;
+            border-top: rem(5) solid hsla(0, 0%, 20%, 0.9);
+            border-right: rem(5) solid transparent;
+            border-left: rem(5) solid transparent;
+            content: " ";
+            font-size: 0;
+            line-height: 0;
+        }
+        &:hover{
+            &::after,
+            &::before{
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+    }
+}

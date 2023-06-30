@@ -64,7 +64,7 @@ export default function Sidebar() {
             <div className={`ps-5 admin-aside__menu--tab-pane ${activeTab === 0 ? 'admin-aside__menu--tab-pane--active' : ''}`}>
               <ul className='border-s'>
                 <li>
-                    <NavLink to="/dashboard/admin/update-admin-name" className='px-10 py-4'>Users</NavLink>
+                    <NavLink to="/dashboard/admin/manage/guest/user" className='px-10 py-4'>Users</NavLink>
                 </li>
               </ul>
             </div>
@@ -83,16 +83,16 @@ export default function Sidebar() {
             <div className={`ps-5 admin-aside__menu--tab-pane ${activeTab === 1 ? 'admin-aside__menu--tab-pane--active' : ''}`}>
               <ul className='border-s'>
                 <li>
-                    <NavLink to="/dashboard/admin/update-admin-name" className='px-10 py-4'>Profile</NavLink>
+                    <NavLink to="/dashboard/admin/manage/profile" className='px-10 py-4'>Profile</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/dashboard/admin/update-admin-logo" className='px-10 py-4'>Logo</NavLink>
+                    <NavLink to="/dashboard/admin/manage/logo" className='px-10 py-4'>Logo</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/dashboard/admin/admin-change-password" className='px-10 py-4'>Password</NavLink>
+                    <NavLink to="/dashboard/admin/manage/password" className='px-10 py-4'>Password</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/dashboard/admin/admin-update-avtar" className='px-10 py-4'>Admin Avtar</NavLink>
+                    <NavLink to="/dashboard/admin/manage/avtar" className='px-10 py-4'>Admin Avtar</NavLink>
                 </li>
               </ul>
             </div>
