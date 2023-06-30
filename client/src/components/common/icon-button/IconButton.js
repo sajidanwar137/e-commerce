@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React  from 'react';
 import './index.scss';
 
 const IconButton = ({ type, theme, tooltip,  buttonHandler}) => {

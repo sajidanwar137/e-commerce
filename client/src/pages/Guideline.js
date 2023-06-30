@@ -1,282 +1,301 @@
-import React from 'react'
-import Radio from 'components/common/radio/Radio';
-import Checkbox from 'components/common/checkbox/Checkbox';
-import ToggleCheckbox from 'components/common/toggle-checkbox/ToggleCheckbox';
-import Button from 'components/common/button/Button'
-import ReactSelect from 'components/common/reactselect/ReactSelect'
-import Datepicker from 'components/common/datepicker/Datepicker'
-import IconButton from 'components/common/icon-button/IconButton'
+import React from "react";
+import Radio from "components/common/radio/Radio";
+import Checkbox from "components/common/checkbox/Checkbox";
+import ToggleCheckbox from "components/common/toggle-checkbox/ToggleCheckbox";
+import Button from "components/common/button/Button";
+import ReactSelect from "components/common/reactselect/ReactSelect";
+import Datepicker from "components/common/datepicker/Datepicker";
+import IconButton from "components/common/icon-button/IconButton";
 
 export default function Guideline() {
   return (
-    <div className='dc-container'>
-      <div className='row pt-30 mb-15'>
-        <div className='col-lg-12'>
-            <h1>Guideline</h1>
+    <div className="dc-container">
+      <div className="row pt-30 mb-15">
+        <div className="col-lg-12">
+          <h1>Guideline</h1>
         </div>
       </div>
-      <div className='d-flex justify-content-start mb-10'>
-          <h3>Icon and class Name</h3>
+      <div className="d-flex justify-content-start mb-10">
+        <h3>Color</h3>
       </div>
-      <div className='d-flex justify-content-start flex-wrap mb-10'>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-admin me-3'></span>
-            <div>dc-icon-admin</div>
+      <div className="d-flex justify-content-start flex-wrap mb-10 guideline-color">
+        <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
+      </div>
+      <div className="d-flex justify-content-start mb-10">
+        <h3>Icon List</h3>
+      </div>
+      <div className="d-flex justify-content-start flex-wrap mb-10 guideline-icon">
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-admin"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-delete me-3'></span>
-            <div>dc-icon-delete</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-delete"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-edit me-3'></span>
-            <div>dc-icon-edit</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-edit"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-email me-3'></span>
-            <div>dc-icon-email</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-email"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-home me-3'></span>
-            <div>dc-icon-home</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-home"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-idea me-3'></span>
-            <div>dc-icon-idea</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-idea"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-key me-3'></span>
-            <div>dc-icon-key</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-key"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-arrow-up me-3'></span>
-            <div>dc-icon-arrow-up</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-arrow-up"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-arrow-right me-3'></span>
-            <div>dc-icon-arrow-right</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-arrow-right"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-arrow-down me-3'></span>
-            <div>dc-icon-arrow-down</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-arrow-down"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-arrow-left me-3'></span>
-            <div>dc-icon-arrow-left</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-arrow-left"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-logout me-3'></span>
-            <div>dc-icon-logout</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-logout"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-password me-3'></span>
-            <div>dc-icon-password</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-password"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-pencil me-3'></span>
-            <div>dc-icon-pencil</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-pencil"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-reset-password me-3'></span>
-            <div>dc-icon-reset-password</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-reset-password"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-role-setting me-3'></span>
-            <div>dc-icon-role-setting</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-role-setting"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-search me-3'></span>
-            <div>dc-icon-search</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-search"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-setting me-3'></span>
-            <div>dc-icon-setting</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-setting"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-user me-3'></span>
-            <div>dc-icon-user</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-user"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-administrator me-3'></span>
-            <div>dc-icon-administrator</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-administrator"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-error me-3'></span>
-            <div>dc-icon-error</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-error"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-info me-3'></span>
-            <div>dc-icon-info</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-info"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-success me-3'></span>
-            <div>dc-icon-success</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-success"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-warning me-3'></span>
-            <div>dc-icon-warning</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-warning"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-forgot-password me-3'></span>
-            <div>dc-icon-forgot-password</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-forgot-password"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-heart me-3'></span>
-            <div>dc-icon-heart</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-heart"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-cart me-3'></span>
-            <div>dc-icon-cart</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-cart"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-share me-3'></span>
-            <div>dc-icon-share</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-share"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-truck me-3'></span>
-            <div>dc-icon-truck</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-truck"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-cloud-upload me-3'></span>
-            <div>dc-icon-cloud-upload</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-cloud-upload"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-compare me-3'></span>
-            <div>dc-icon-compare</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-compare"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-eye me-3'></span>
-            <div>dc-icon-eye</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-eye"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-close me-3'></span>
-            <div>dc-icon-close</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-close"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-newsletter me-3'></span>
-            <div>dc-icon-newsletter</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-newsletter"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-address-book me-3'></span>
-            <div>dc-icon-address-book</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-address-book"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-account-edit me-3'></span>
-            <div>dc-icon-account-edit</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-account-edit"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-returns me-3'></span>
-            <div>dc-icon-returns</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-returns"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-rewards me-3'></span>
-            <div>dc-icon-rewards</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-rewards"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-transactions me-3'></span>
-            <div>dc-icon-transactions</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-transactions"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-download me-3'></span>
-            <div>dc-icon-download</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-download"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-orders me-3'></span>
-            <div>dc-icon-orders</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-orders"></span>
         </div>
-        <div className='me-3 mb-3 p-2 border d-inline-flex'>
-            <span className='dc-icon-camera me-3'></span>
-            <div>dc-icon-camera</div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-camera"></span>
+        </div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-filter"></span>
+        </div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-save"></span>
+        </div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-refresh"></span>
+        </div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-print"></span>
         </div>
       </div>
-      <div className='d-flex justify-content-start mb-10'>
-          <h3>Form Elements</h3>
+      <div className="d-flex justify-content-start mb-10">
+        <h4>Button</h4>
       </div>
-      <div className='d-flex justify-content-start mb-10'>
+      <div className="d-flex justify-content-start flex-wrap mb-10">
+        <div className="me-3 mb-3 p-2 d-inline-flex">
+          <Button type="primary" buttonLabel="Primary" />
+        </div>
+        <div className="me-3 mb-3 p-2 d-inline-flex">
+          <Button type="secondary" buttonLabel="Secondary" />
+        </div>
+        <div className="me-3 mb-3 p-2 d-inline-flex">
+          <Button type="success" buttonLabel="Success" />
+        </div>
+        <div className="me-3 mb-3 p-2 d-inline-flex">
+          <Button type="danger" buttonLabel="Danger" />
+        </div>
+        <div className="me-3 mb-3 p-2 d-inline-flex">
+          <Button type="warning" buttonLabel="Warning" />
+        </div>
+      </div>
+      <div className="d-flex justify-content-start mb-10">
+        <h4>Icon Tooltip Button</h4>
+      </div>
+      <div className="d-flex justify-content-start flex-wrap mb-10">
+        <div className="me-3 mb-3 p-2 d-inline-flex">
+          <IconButton type="delete" theme="primary" tooltip="Edit" />
+        </div>
+        <div className="me-3 mb-3 p-2 d-inline-flex">
+          <IconButton type="delete" theme="secondary" tooltip="Edit" />
+        </div>
+        <div className="me-3 mb-3 p-2 d-inline-flex">
+          <IconButton type="delete" theme="success" tooltip="Edit" />
+        </div>
+        <div className="me-3 mb-3 p-2 d-inline-flex">
+          <IconButton type="delete" theme="danger" tooltip="Edit" />
+        </div>
+        <div className="me-3 mb-3 p-2 d-inline-flex">
+          <IconButton type="delete" theme="warning" tooltip="Edit" />
+        </div>
+        <div className="me-3 mb-3 p-2 d-inline-flex">
+          <IconButton type="delete" theme="white" tooltip="Edit" />
+        </div>
+        <div className="me-3 mb-3 p-2 d-inline-flex">
+          <IconButton type="delete" theme="gray" tooltip="Edit" />
+        </div>
+      </div>
+      <div className="d-flex justify-content-start mb-10">
+        <h3>Form Elements</h3>
+      </div>
+      <div className="row mb-15">
+        <div className="col-lg-4">
+          <div className="mb-10">
             <h4>React Select</h4>
+          </div>
+          <div>
+            <ReactSelect />
+          </div>
         </div>
-        <div className='row mb-10'>
-            <div className='col-lg-4'>
-                <ReactSelect/>
-            </div>
-        </div>
-        <div className='d-flex justify-content-start mb-10'>
+        <div className="col-lg-4">
+          <div className="mb-10">
             <h4>Datepicker</h4>
+          </div>
+          <div>
+            <Datepicker />
+          </div>
         </div>
-        <div className='row mb-10'>
-            <div className='col-lg-4'>
-                <Datepicker/>
+      </div>
+      <div className="row mb-15">
+        <div className="col-lg-4">
+          <div className="mb-10">
+            <h4>Toggle checkbox</h4>
+          </div>
+          <div>
+            <div className="me-3 mb-3 p-2 d-inline-flex">
+              <ToggleCheckbox />
             </div>
+            <div className="me-3 mb-3 p-2 d-inline-flex">
+              <ToggleCheckbox />
+            </div>
+            <div className="me-3 mb-3 p-2 d-inline-flex">
+              <ToggleCheckbox />
+            </div>
+          </div>
         </div>
-      <div className='d-flex justify-content-start mb-10'>
-          <h4>Toggle checkbox</h4>
-      </div>
-      <div className='d-flex justify-content-start flex-wrap mb-10'>
-        <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <ToggleCheckbox/>
+        <div className="col-lg-4">
+          <div className="mb-10">
+            <h4>Radio</h4>
+          </div>
+          <div>
+            <div className="me-3 mb-3 p-2 d-inline-flex">
+              <Radio label={"Label 1"} labelid={"radio1"} name={"radio"} />
+            </div>
+            <div className="me-3 mb-3 p-2 d-inline-flex">
+              <Radio label={"Label 2"} labelid={"radio2"} name={"radio"} />
+            </div>
+            <div className="me-3 mb-3 p-2 d-inline-flex">
+              <Radio label={"Label 3"} labelid={"radio3"} name={"radio"} />
+            </div>
+          </div>
         </div>
-        <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <ToggleCheckbox/>
-        </div>
-        <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <ToggleCheckbox/>
-        </div>
-      </div>
-      <div className='d-flex justify-content-start mb-10'>
-          <h4>Radio</h4>
-      </div>
-      <div className='d-flex justify-content-start flex-wrap mb-10'>
-        <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <Radio label={'Label 1'} labelid={'radio1'} name={'radio'}/>
-        </div>
-        <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <Radio label={'Label 2'} labelid={'radio2'} name={'radio'}/>
-        </div>
-        <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <Radio label={'Label 3'} labelid={'radio3'} name={'radio'}/>
-        </div>
-      </div>
-      <div className='d-flex justify-content-start mb-10'>
-          <h4>Checkbox</h4>
-      </div>
-      <div className='d-flex justify-content-start flex-wrap mb-10'>
-        <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <Checkbox label={'Label 1'} labelid={'checkbox1'}/>
-        </div>
-        <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <Checkbox label={'Label 2'} labelid={'checkbox2'}/>
-        </div>
-        <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <Checkbox label={'Label 3'} labelid={'checkbox3'}/>
+        <div className="col-lg-4">
+          <div className="mb-10">
+            <h4>Checkbox</h4>
+          </div>
+          <div>
+            <div className="me-3 mb-3 p-2 d-inline-flex">
+              <Checkbox label={"Label 1"} labelid={"checkbox1"} />
+            </div>
+            <div className="me-3 mb-3 p-2 d-inline-flex">
+              <Checkbox label={"Label 2"} labelid={"checkbox2"} />
+            </div>
+            <div className="me-3 mb-3 p-2 d-inline-flex">
+              <Checkbox label={"Label 3"} labelid={"checkbox3"} />
+            </div>
+          </div>
         </div>
       </div>
-      <div className='d-flex justify-content-start mb-10'>
-          <h4>Button</h4>
-      </div>
-      <div className='d-flex justify-content-start flex-wrap mb-10'>
-        <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <Button type='primary' buttonLabel='Primary'/>
-        </div>
-        <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <Button type='secondary' buttonLabel='Secondary'/>
-        </div>
-        <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <Button type='success' buttonLabel='Success'/>
-        </div>
-        <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <Button type='danger' buttonLabel='Danger'/>
-        </div>
-        <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <Button type='warning' buttonLabel='Warning'/>
-        </div>
-      </div>
-      <div className='d-flex justify-content-start mb-10'>
-          <h4>Icon Tooltip Button</h4>
-      </div>
-      <div className='d-flex justify-content-start flex-wrap mb-10'>
-        <div className='me-3 mb-3 p-2 d-inline-flex'>
-            <IconButton type="pencil" theme='gray' tooltip="Edit"/>
-        </div>
-        </div>
     </div>
-  )
+  );
 }

@@ -39,13 +39,13 @@
           position: relative;
           width: calc(100% /2);
           height: calc(100% /2);
-          background: var(--border-warning);
+          background: var(--border-success);
           top: var(--y, 100%);
           transition: top .5s cubic-bezier(0.48, 1.97, 0.5, 0.63);
         }
         &:checked {
-          --radio: var(--border-warning);
-          border: rem(2) solid var(--border-warning);
+          --radio: var(--border-success);
+          border: rem(2) solid var(--border-success);
           &::after {
             --y: 0%;
             animation: stretch-animate .3s ease-out .17s;
