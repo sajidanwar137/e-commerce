@@ -160,7 +160,29 @@ exports.updateUserAvtar = async(req, res) =>{
         return res.status(400).json({success: false, error: error.message})
     }
 };
-
+exports.userEnableDisable = async(req, res) =>{
+    try {
+        const user_id = req.body.user_id;
+        const isActive = req.body.isActive;
+        const data = await User.findOne({_id: user_id});
+        let userData = null;
+        if(data){
+            userData = await User.findByIdAndUpdate({_id: user_id}, {
+                $set : {
+                    isActive: isActive,
+                }
+            }, {new: true})
+        }
+        if(userData){
+            return res.status(200).json({
+                success: true,
+                message: "User status updated successfully!"
+            });
+        }
+    } catch (error) {
+        return res.status(400).json({success: false, error: error.message})
+    }
+}
 exports.updateUserProfile = async(req, res) =>{
     try {
         const user_id = req.body.user_id;

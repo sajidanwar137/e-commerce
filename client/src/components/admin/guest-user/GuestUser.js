@@ -1,8 +1,79 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSelector} from "react-redux";
 import AdminPageTitle from "components/admin/page-title/AdminPageTitle";
+import ToggleCheckbox from "components/common/toggle-checkbox/ToggleCheckbox";
+import IconButton from "components/common/icon-button/IconButton";
+import {headerBearer} from 'utility/utility';
+import Swal from 'sweetalert2';
+import api from 'api/api';
 import "./index.scss";
 
 const GuestUser = () => {
+  const [getUsers, setGetUsers] = useState();
+  const [getUserId, setGetUserId] = useState();
+  const [status, setStatus] = useState();
+  const token = useSelector((state) => state?.auth?.token);
+
+  const CheckboxHandler = (id, status) => {
+    setStatus(status?.target?.checked)
+    setGetUserId(id)
+  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await api.get('guest/getallguestuser', `token=${token}`);
+        if (response?.success === true) {
+          setGetUsers(response?.data);
+        }
+        
+      } catch (error) {
+        console.log("Error:", error);
+      }
+    };
+  
+    fetchData();
+  }, []);
+  const updateUserStatus = async (index) => {
+    const user = getUsers[index];
+    if(getUserId == user?._id){
+      const payload = {
+        user_id: user?._id,
+        isActive: status
+      }
+      Swal.fire({
+        icon: 'warning',
+        title: 'Are you sure?',
+        text: "Do you want to save the user changes?",
+        showDenyButton: true,
+        confirmButtonText: 'Save',
+        denyButtonText: `Cancel`,
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          const response = await api.post('guest/user-enable-disable', payload, headerBearer(token));
+          if(response?.success === true){
+            Swal.fire({
+              icon: 'success',
+              title: 'Saved!',
+              text: response?.message,
+            })
+          }
+        } else if (result.isDenied) {
+          Swal.fire('Cancelled',
+          'Your imaginary user is safe :)',
+          'error')
+        }
+      })
+    }
+    else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'You did not update anthing for current user!',
+      })
+    }
+  }
+  const deleteUser = () => {}
+
   return (
     <>
       <AdminPageTitle
@@ -20,35 +91,34 @@ const GuestUser = () => {
             <table className="guest-user__table border-s border-t">
               <thead>
                 <tr>
-                  <th scope="col" className="border-b border-e p-3">#</th>
-                  <th scope="col" className="border-b border-e p-3">Name</th>
-                  <th scope="col" className="border-b border-e p-3">Email</th>
-                  <th scope="col" className="border-b border-e p-3">Status</th>
-                  <th scope="col" className="border-b border-e p-3">Action</th>
+                  <th scope="col" className="border-b border-e p-3 text-center">#</th>
+                  <th scope="col" className="border-b border-e p-3 text-start">Name</th>
+                  <th scope="col" className="border-b border-e p-3 text-start">Email</th>
+                  <th scope="col" className="border-b border-e p-3 text-start">Phone</th>
+                  <th scope="col" className="border-b border-e p-3 text-end">Status</th>
+                  <th scope="col" className="border-b border-e p-3 text-end">Action</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row" className="border-b border-e p-3">1</th>
-                  <td className="border-b border-e p-3">Mark</td>
-                  <td className="border-b border-e p-3">Otto</td>
-                  <td className="border-b border-e p-3">@mdo</td>
-                  <td className="border-b border-e p-3">@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row" className="border-b border-e p-3">2</th>
-                  <td className="border-b border-e p-3">Mark</td>
-                  <td className="border-b border-e p-3">Otto</td>
-                  <td className="border-b border-e p-3">@mdo</td>
-                  <td className="border-b border-e p-3">@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row" className="border-b border-e p-3">3</th>
-                  <td className="border-b border-e p-3">Mark</td>
-                  <td className="border-b border-e p-3">Otto</td>
-                  <td className="border-b border-e p-3">@mdo</td>
-                  <td className="border-b border-e p-3">@mdo</td>
-                </tr>
+                {getUsers?.length > 0 && getUsers.map((item, index) => (
+                  <tr key={index}>
+                    <th scope="row" className="border-b border-e p-3 text-center">{index+1}</th>
+                    <td className="border-b border-e p-3 text-start">{item?.name}</td>
+                    <td className="border-b border-e p-3 text-start">{item?.email}</td>
+                    <td className="border-b border-e p-3 text-start">{item?.phone}</td>
+                    <td className="border-b border-e p-3 text-end"><ToggleCheckbox status={item?.isActive} ToggleHandler={(e) => CheckboxHandler(item?._id, e)}/></td>
+                    <td className="border-b border-e p-3 text-end">
+                      <div className="d-flex justify-content-end">
+                        <div className="me-2">
+                          <IconButton type="save" theme="success" tooltip="Save" buttonHandler={() => updateUserStatus(index)}/>
+                        </div>
+                        <div className="ms-2">
+                          <IconButton type="delete" theme="danger" tooltip="Delete" buttonHandler={() => deleteUser(index)}/>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

@@ -12,7 +12,8 @@ const {
   updateUserAvtar,
   updateUserProfile,
   updateUserPassword,
-  getAllGuestUser
+  getAllGuestUser,
+  userEnableDisable
 } = require("../controllers/guestUser");
 
 router.route("/getallguestuser").get(getAllGuestUser);
@@ -22,5 +23,6 @@ router.route("/userlogout").post(auth, logoutUser);
 router.route("/upload-user-avtar").post(auth, upload.single('useravtar'), updateUserAvtar);
 router.route("/update-user-profile").post(auth, updateUserProfile);
 router.route("/update-user-password").post(auth, updateUserPassword);
+router.route("/user-enable-disable").post(auth, userEnableDisable);
 
 module.exports = router;

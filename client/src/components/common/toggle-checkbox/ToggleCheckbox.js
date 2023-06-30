@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
 import './index.scss';
 
-const ToggleCheckbox = () => {
-  const [isChecked, setIsChecked] = useState(false);
-
-  const handleCheckboxChange = (e) => {
-    //console.log("object", e.target.checked)
-    setIsChecked(!isChecked);
-  };
+const ToggleCheckbox = ({status = false, ToggleHandler}) => {
 
   return (
     <div className='d-inline-flex justify-content-start align-items-center checkbox-switch'>
@@ -15,13 +9,12 @@ const ToggleCheckbox = () => {
             <input
                 type="checkbox"
                 name='checkbox'
-                checked={isChecked}
-                onChange={handleCheckboxChange}
+                defaultChecked={status}
+                onChange={ToggleHandler}
                 className='checkbox-switch__checkbox'
             />
             <span className="checkbox-switch__slider" data-off="Off" data-on="On"></span>
         </label>
-        <span className='checkbox-switch__checkbox-text'>{isChecked ? 'Enable' : 'Disable'}</span>
     </div>
   );
 };

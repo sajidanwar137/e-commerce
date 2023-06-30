@@ -59,6 +59,20 @@
     }
   }
 }
+//Text align mixin
+@mixin text($position) {
+  &-#{$position} {
+    @if $position == start {
+        text-align: left;
+    }
+    @else if $position == center {
+      text-align: center;
+    }
+    @else if $position == end {
+      text-align: right;
+    }
+  }
+}
 //Font weight mixin
 @mixin fb($wieght) {
   &-#{$wieght} {
