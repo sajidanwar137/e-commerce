@@ -43,11 +43,11 @@ const GuestUser = () => {
     };
     fetchData();
   }, []);
-
+  
   useEffect(() => {
     setData(getUsers);
-    console.log("Error:", data);
-  },[getUsers,status]);
+    //console.log("Error:", data);
+  },[data,getUsers,status]);
 
   const updateUserStatus = async (item) => {
     const user = item;
@@ -89,12 +89,43 @@ const GuestUser = () => {
         title: 'Oops...',
         text: 'You did not update anthing for current user!',
       }).then(async ()=>{
-        setStatus(statusPrev)
-        data[index].isActive = statusPrev;
+        if(statusPrev){
+          setStatus(statusPrev)
+          data[index].isActive = statusPrev;
+        }
       })
     }
   }
-  const deleteUser = () => {}
+  const deleteUser = (item, index) => {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Are you sure?',
+      text: "Do you want to delete this user?",
+      showDenyButton: true,
+      confirmButtonText: 'Yes',
+      denyButtonText: `Cancel`,
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const response = await api.delete(`guest/user-delete/${item?._id}`,{}, headerBearer(token));
+        if(response?.success === true){
+          Swal.fire({
+            icon: 'success',
+            title: 'Deleted!',
+            text: response?.message,
+          }).then(async ()=>{
+            const newData = [...getUsers];
+            newData.splice(index, 1);
+            setGetUsers(newData)
+            setData(newData);
+          })
+        }
+      } else if (result.isDenied) {
+        Swal.fire('Cancelled',
+        'Your imaginary user is safe :)',
+        'error')
+      }
+    })
+  }
 
   return (
     <>
@@ -137,7 +168,7 @@ const GuestUser = () => {
                           <IconButton type="save" theme="success" tooltip="Save" buttonHandler={() => updateUserStatus(item)}/>
                         </div>
                         <div className="ms-2">
-                          <IconButton type="delete" theme="danger" tooltip="Delete" buttonHandler={() => deleteUser(item)}/>
+                          <IconButton type="delete" theme="danger" tooltip="Delete" buttonHandler={() => deleteUser(item,index)}/>
                         </div>
                       </div>
                     </td>
