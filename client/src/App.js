@@ -20,7 +20,7 @@ function App() {
         <Route path='/' element={<HomeFE/>}/>
         <Route path='/guideline' element={<Guideline/>}/>
         <Route exact path='/' element={<UserPrivateRoutes />}>
-          <Route path="/account/*" element={<GuestUser />} />
+          <Route path="/users/*" element={<GuestUser />} />
         </Route>
         <Route exact path='/' element={<PrivateRoutes />}>
           <Route path="/dashboard/*" element={<AdminDashboard />} />

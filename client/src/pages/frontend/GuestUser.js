@@ -11,10 +11,10 @@ const GuestUser = () => {
     <GuestUserTemplate>
       <Routes>
         {/* <Route path=":id" element={<UpdateProfile/>}/> */}
-        <Route path="update/avtar/:id" element={<UpdateAvtar/>}/>
-        <Route path="update/profile/:id" element={<UpdateProfile/>}/>
-        <Route path="update/password/:id" element={<UpdateUserPassword/>}/>
-        <Route path="update/address/:id" element={<UpdateUserAddress/>}/>
+        <Route path=":id/avatar/update" element={<UpdateAvtar/>}/>
+        <Route path=":id/profile/update" element={<UpdateProfile/>}/>
+        <Route path=":id/password-reset" element={<UpdateUserPassword/>}/>
+        <Route path=":id/address" element={<UpdateUserAddress/>}/>
       </Routes>
     </GuestUserTemplate>
   )

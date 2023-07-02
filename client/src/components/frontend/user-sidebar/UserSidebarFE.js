@@ -28,7 +28,7 @@ const UserSidebarFE = () => {
       <ul className="dc-user-sidebar__link-list">
         <li>
           <NavLink
-            to={`/account/${slugCreater(userData?.name, userData?._id)}`}
+            to={`${slugCreater(userData?.name, userData?._id)}`}
             className="d-flex justify-content-start align-items-center py-4 px-7"
           >
             <span className="border dc-user-sidebar__link-list--icon d-flex justify-content-center align-items-center">
@@ -39,10 +39,10 @@ const UserSidebarFE = () => {
         </li>
         <li>
           <NavLink
-            to={`/account/update/profile/${slugCreater(
+            to={`${slugCreater(
               userData?.name,
               userData?._id
-            )}`}
+            )}/profile/update`}
             className="d-flex justify-content-start align-items-center py-4 px-7"
           >
             <span className="border dc-user-sidebar__link-list--icon d-flex justify-content-center align-items-center">
@@ -53,10 +53,10 @@ const UserSidebarFE = () => {
         </li>
         <li>
           <NavLink
-            to={`/account/update/password/${slugCreater(
+            to={`${slugCreater(
               userData?.name,
               userData?._id
-            )}`}
+            )}/password-reset`}
             className="d-flex justify-content-start align-items-center py-4 px-7"
           >
             <span className="border dc-user-sidebar__link-list--icon d-flex justify-content-center align-items-center">
@@ -67,10 +67,10 @@ const UserSidebarFE = () => {
         </li>
         <li>
           <NavLink
-            to={`/account/update/avtar/${slugCreater(
+            to={`${slugCreater(
               userData?.name,
               userData?._id
-            )}`}
+            )}/avatar/update`}
             className="d-flex justify-content-start align-items-center py-4 px-7"
           >
             <span className="border dc-user-sidebar__link-list--icon d-flex justify-content-center align-items-center">
@@ -81,10 +81,10 @@ const UserSidebarFE = () => {
         </li>
         <li>
           <NavLink
-            to={`/account/update/address/${slugCreater(
+            to={`${slugCreater(
               userData?.name,
               userData?._id
-            )}`}
+            )}/address`}
             className="d-flex justify-content-start align-items-center py-4 px-7"
           >
             <span className="border dc-user-sidebar__link-list--icon d-flex justify-content-center align-items-center">
