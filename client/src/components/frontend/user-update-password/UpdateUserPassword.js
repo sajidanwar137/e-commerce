@@ -6,6 +6,7 @@ import Input from 'components/common/input/Input'
 import {validateConfirmPassword, passwordComplexity} from 'utility/utility';
 import { userLogout } from 'store/userauth/actions';
 import { userRemove } from 'store/user/actions';
+import Button from 'components/common/button/Button'
 import api from 'api/api';
 import Swal from 'sweetalert2';
 import './index.scss';
@@ -113,36 +114,37 @@ const UpdateUserPassword = () => {
   }
 
   return (
-    <div className='dc-user-change-password'>
-      <div className='row mb-15'>
-        <div className="col-12">
-          <h4>Change Password</h4>
+    <>
+    <div className='dc-user-change-password border'>
+        <div className='border-b px-10 py-7 d-flex justify-content-start align-items-center'>
+          <span className='dc-icon-address-book me-5'></span>
+          <h5 className='fw-400'>Change Password</h5>
+        </div>
+        <div className='px-10 py-15'>
+          <form onSubmit={handleUpdatedPasswordSubmit}>
+            <div className='row'>
+              <div className='col-lg-12'>{showError && <ErrorMessage type="error" message={error} />}</div>
+            </div>
+            <div className='row mb-15'>
+              <div className='col-lg-4'>
+                <Input type={'password'} labelid={'current-password'} name={'current-password'} label={'Type current password...'} update={currentPasswordHandler}/>
+              </div>
+              <div className='col-lg-4'>
+                <Input type={'password'} labelid={'new-password'} name={'new-password'} label={'Type new password...'} update={newPasswordHandler}/>
+              </div>
+              <div className='col-lg-4'>
+                <Input type={'password'} labelid={'confirm-password'} name={'confirm-password'} label={'Type confirm password...'} update={confirmPasswordHandler}/>
+              </div>
+            </div>
+            <div className='row d-flex align-items-end'>
+              <div className='col-lg-12 d-flex justify-content-end'>
+                <Button type='secondary' buttonLabel='Update'/>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
-      <form onSubmit={handleUpdatedPasswordSubmit}>
-        {showError && <ErrorMessage type="error" message={error} />}
-        <div className='row mb-10'>
-          <div className="col-12">
-            <Input type={'password'} labelid={'current-password'} update={currentPasswordHandler} label={'Current Password'}/>
-          </div>
-        </div>
-        <div className='row mb-10'>
-          <div className="col-12">
-            <Input type={'password'} labelid={'new-password'} update={newPasswordHandler} label={'New Password'}/>
-          </div>
-        </div>
-        <div className='row mb-15'>
-          <div className="col-12">
-            <Input type={'password'} labelid={'confirm-password'} update={confirmPasswordHandler} label={'Confirm Password'}/>
-          </div>
-        </div>
-        <div className='row d-flex justify-content-start'>
-          <div className="col-2 d-flex justify-content-start">
-            <button type="submit" className='dc-btn dc-btn-secondary dc-btn-fluid px-20 py-5'>Update</button>
-          </div>
-        </div>
-      </form>
-    </div>
+    </>
   );
 };
 

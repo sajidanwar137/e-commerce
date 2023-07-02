@@ -15,9 +15,7 @@ const GuestUserTemplate = ({children}) => {
               <UserSidebarFE/>
             </div>
             <div className='col-md-9'>
-              <div className="dc-dashboard__layout--card-body px-25">
-                {children}
-              </div>
+              <div className='ps-10'>{children}</div>
             </div>
           </div>
         </div>

@@ -48,7 +48,7 @@ const UserSidebarFE = () => {
             <span className="border dc-user-sidebar__link-list--icon d-flex justify-content-center align-items-center">
               <span className="dc-icon-account-edit"></span>
             </span>
-            <span>Edit Account</span>
+            <span>Profile</span>
           </NavLink>
         </li>
         <li>
