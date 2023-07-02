@@ -178,6 +178,9 @@ export default function Guideline() {
         <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
           <span className="dc-icon-print"></span>
         </div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-location"></span>
+        </div>
       </div>
       <div className="d-flex justify-content-start mb-10">
         <h4>Button</h4>
