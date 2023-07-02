@@ -9,32 +9,48 @@ import api from 'api/api';
 import "./index.scss";
 
 const GuestUser = () => {
-  const [getUsers, setGetUsers] = useState();
+  const [index, setIndex] = useState([]);
+  const [data, setData] = useState([]);
+  const [getUsers, setGetUsers] = useState([]);
   const [getUserId, setGetUserId] = useState();
   const [status, setStatus] = useState();
+  const [statusPrev, setStatusPrev] = useState();
   const token = useSelector((state) => state?.auth?.token);
 
-  const CheckboxHandler = (id, status) => {
+  const CheckboxHandler = (id, status, index) => {
+    if(status?.target?.checked === true){
+      setStatusPrev(false)
+    }
+    if(status?.target?.checked === false){
+      setStatusPrev(true)
+    }
     setStatus(status?.target?.checked)
     setGetUserId(id)
+    setIndex(index)
+    data[index].isActive = status?.target?.checked;
   };
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await api.get('guest/getallguestuser', `token=${token}`);
         if (response?.success === true) {
-          setGetUsers(response?.data);
+          setGetUsers(response?.data || []);
         }
         
       } catch (error) {
         console.log("Error:", error);
       }
     };
-  
     fetchData();
   }, []);
-  const updateUserStatus = async (index) => {
-    const user = getUsers[index];
+
+  useEffect(() => {
+    setData(getUsers);
+    console.log("Error:", data);
+  },[getUsers,status]);
+
+  const updateUserStatus = async (item) => {
+    const user = item;
     if(getUserId == user?._id){
       const payload = {
         user_id: user?._id,
@@ -60,7 +76,10 @@ const GuestUser = () => {
         } else if (result.isDenied) {
           Swal.fire('Cancelled',
           'Your imaginary user is safe :)',
-          'error')
+          'error').then(async ()=>{
+            setStatus(statusPrev)
+            data[index].isActive = statusPrev;
+          })
         }
       })
     }
@@ -69,6 +88,9 @@ const GuestUser = () => {
         icon: 'error',
         title: 'Oops...',
         text: 'You did not update anthing for current user!',
+      }).then(async ()=>{
+        setStatus(statusPrev)
+        data[index].isActive = statusPrev;
       })
     }
   }
@@ -100,20 +122,22 @@ const GuestUser = () => {
                 </tr>
               </thead>
               <tbody>
-                {getUsers?.length > 0 && getUsers.map((item, index) => (
+                {data?.length > 0 && data.map((item, index) => (
                   <tr key={index}>
                     <th scope="row" className="border-b border-e p-3 text-center">{index+1}</th>
                     <td className="border-b border-e p-3 text-start">{item?.name}</td>
                     <td className="border-b border-e p-3 text-start">{item?.email}</td>
                     <td className="border-b border-e p-3 text-start">{item?.phone}</td>
-                    <td className="border-b border-e p-3 text-end"><ToggleCheckbox status={item?.isActive} ToggleHandler={(e) => CheckboxHandler(item?._id, e)}/></td>
+                    <td className="border-b border-e p-3 text-end">
+                      <ToggleCheckbox status={item?.isActive} ToggleHandler={(e) => CheckboxHandler(item?._id, e, index)}/>
+                    </td>
                     <td className="border-b border-e p-3 text-end">
                       <div className="d-flex justify-content-end">
                         <div className="me-2">
-                          <IconButton type="save" theme="success" tooltip="Save" buttonHandler={() => updateUserStatus(index)}/>
+                          <IconButton type="save" theme="success" tooltip="Save" buttonHandler={() => updateUserStatus(item)}/>
                         </div>
                         <div className="ms-2">
-                          <IconButton type="delete" theme="danger" tooltip="Delete" buttonHandler={() => deleteUser(index)}/>
+                          <IconButton type="delete" theme="danger" tooltip="Delete" buttonHandler={() => deleteUser(item)}/>
                         </div>
                       </div>
                     </td>

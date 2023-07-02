@@ -9,7 +9,7 @@ const ToggleCheckbox = ({status = false, ToggleHandler}) => {
             <input
                 type="checkbox"
                 name='checkbox'
-                defaultChecked={status}
+                checked={status}
                 onChange={ToggleHandler}
                 className='checkbox-switch__checkbox'
             />
