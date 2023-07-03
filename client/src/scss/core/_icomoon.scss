@@ -251,4 +251,14 @@
             content:$dc-icon-location
         }
     }
+    &-plus{
+        &::before{
+            content:$dc-icon-plus
+        }
+    }
+    &-minus{
+        &::before{
+            content:$dc-icon-minus
+        }
+    }
 }

@@ -1,7 +1,19 @@
 const mongoose = require("mongoose");
 
 const userAddressSchema = new mongoose.Schema({
+  country: {
+    type: String,
+    required: true,
+  },
   name: {
+    type: String,
+    required: true,
+  },
+  phone: {
+    type: String,
+    default: ''
+  },
+  pincode: {
     type: String,
     required: true,
   },
@@ -13,7 +25,7 @@ const userAddressSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  street: {
+  landmark: {
     type: String,
     required: true,
   },
@@ -22,14 +34,6 @@ const userAddressSchema = new mongoose.Schema({
     required: true,
   },
   state: {
-    type: String,
-    required: true,
-  },
-  country: {
-    type: String,
-    required: true,
-  },
-  zipcode: {
     type: String,
     required: true,
   },

@@ -4,7 +4,7 @@ import GuestUserTemplate from 'template/frontend/GuestUserTemplate'
 import UpdateAvatar from 'components/frontend/user-avatar/UpdateAvatar'
 import UpdateProfile from 'components/frontend/user-profile/UpdateProfile'
 import UpdateUserPassword from 'components/frontend/user-update-password/UpdateUserPassword'
-import UpdateUserAddress from 'components/frontend/user-update-address/UpdateUserAddress'
+import UserAddress from 'components/frontend/user-address/UserAddress'
 import UserHome from 'components/frontend/user-home/UserHome'
 
 const GuestUser = () => {
@@ -15,7 +15,7 @@ const GuestUser = () => {
         <Route path=":id/profile/update" element={<UpdateProfile/>}/>
         <Route path=":id/password-reset" element={<UpdateUserPassword/>}/>
         <Route path=":id/avatar/update" element={<UpdateAvatar/>}/>
-        <Route path=":id/address" element={<UpdateUserAddress/>}/>
+        <Route path=":id/address" element={<UserAddress/>}/>
       </Routes>
     </GuestUserTemplate>
   )

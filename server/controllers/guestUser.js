@@ -1,5 +1,5 @@
 const User = require('../models/guestUser');
-const { securePassword, comparePassword, createToken} = require("../middleware/utilities");
+const { securePassword, comparePassword, createToken, generateUniqueId} = require("../middleware/utilities");
 
 exports.createUser = async(req, res) => {
     try {
@@ -265,4 +265,35 @@ exports.deleteUser = async (req, res) => {
             error: error.message
         })
     }
-  };
+};
+exports.addUserAddress = async (req, res) => {
+    try {
+        const user_id = req.body.user_id;
+        const address = req.body.address;
+        const user = await User.findById(user_id);
+        if(!user){
+            return res.status(404).json({ 
+                success: true,
+                message: 'User not found' 
+            });
+        }
+        if (address.isDefault === true) {
+            user.addresses.forEach(address => {
+              address.isDefault = false;
+            });
+        }
+        address.updatedAt = new Date();
+        user.addresses.push(address);
+        const userAddress = await user.save();
+        return res.status(200).json({ 
+            success: true,
+            message: 'Address added successfully', 
+            data: userAddress 
+        });
+    } catch (error) {
+        return res.status(500).json({
+            success: false, 
+            error: error.message
+        })
+    }
+};

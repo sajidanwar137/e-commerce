@@ -1,0 +1,28 @@
+@import "../../../scss/abstracts/_abstracts-dir";
+.dc-user-address{
+    background: var(--bg-white);
+    border-radius: rem(3);
+    &__address,
+    &__add-card{
+        height: 100%;
+        border-radius: rem(3);
+        background: var(--bg-white);
+    }
+    &__add-card{
+      cursor: pointer;
+      span{
+          font-size: rem(50);
+          color: var(--text-gray-500);
+      }
+  }
+  &__address{
+      position: relative;
+  }
+  &__footer{
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      column-gap: rem(20);
+  }
+}
