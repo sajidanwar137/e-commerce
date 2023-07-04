@@ -1,2 +1,35 @@
 @import "scss/abstracts/_abstracts-dir";
 
+.react-select{
+  &-container{
+    background: var(--bg-white);
+    border-bottom: rem(1) solid var(--border-default);
+  }
+  &__menu{
+    background: var(--bg-white);
+    padding: rem(20);
+    border-top: rem(1) solid var(--border-default);
+    box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.015), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.015), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.025), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.015);
+  }
+  &__option,
+  &__control{
+    cursor: pointer!important;
+  }
+  &__dropdown-indicator{
+    color: var(--text-gray-500);
+  }
+  &__option{
+    border-bottom: rem(1) solid var(--border-default);
+    padding: rem(5) 0;
+    &:last-child{
+      border: none;
+    }
+    &--is-focused{
+      color: var(--text-primary);
+    }
+    &--is-selected{
+      color: var(--text-secondary);
+    }
+  }
+}
+

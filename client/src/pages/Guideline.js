@@ -8,6 +8,11 @@ import Datepicker from "components/common/datepicker/Datepicker";
 import IconButton from "components/common/icon-button/IconButton";
 
 export default function Guideline() {
+  const options = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' }
+  ]
   return (
     <div className="dc-container">
       <div className="row pt-30 mb-15">
@@ -243,7 +248,7 @@ export default function Guideline() {
             <h4>React Select</h4>
           </div>
           <div>
-            <ReactSelect />
+            <ReactSelect inputId='inputId' placeholder='Type...' data={options} classprefix='react-select' labelstatus={true} labeltext='React select'/>
           </div>
         </div>
         <div className="col-lg-4">

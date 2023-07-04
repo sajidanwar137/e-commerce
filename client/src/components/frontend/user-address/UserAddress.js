@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import UserAddressForm from 'components/frontend/user-address-form/UserAddressForm';
 import './index.scss';
 
 const UserAddress = () => {
   return (
     <>
+    <UserAddressForm/>
       <div className='dc-user-address border mb-15'>
         <div className='px-10 py-7 d-flex justify-content-start align-items-center'>
           <span className='dc-icon-address-book me-5'></span>
@@ -22,7 +24,7 @@ const UserAddress = () => {
             <div className='dc-user-address__default-header border-b px-10 py-5'>
               <div>Default: </div>
             </div>
-            <div className='dc-user-address__content px-10 py-15'>
+            <div className='dc-user-address__content px-10 py-10'>
               <ul>
                 <li>Mohammad Sajid Anwar</li>
                 <li>457, Chaknoor Road, Millat Colony</li>
@@ -41,7 +43,7 @@ const UserAddress = () => {
         </div>
         <div className='col-lg-4 mb-10'>
           <div className='dc-user-address__address border pb-25'>
-            <div className='dc-user-address__content px-10 py-15'>
+            <div className='dc-user-address__content px-10 py-10'>
               <ul>
                 <li>Mohammad Sajid Anwar</li>
                 <li>457, Chaknoor Road, Millat Colony</li>

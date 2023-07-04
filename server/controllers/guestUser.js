@@ -274,7 +274,7 @@ exports.addUserAddress = async (req, res) => {
         if(!user){
             return res.status(404).json({ 
                 success: true,
-                message: 'User not found' 
+                message: 'User not found!' 
             });
         }
         if (address.isDefault === true) {
@@ -287,9 +287,89 @@ exports.addUserAddress = async (req, res) => {
         const userAddress = await user.save();
         return res.status(200).json({ 
             success: true,
-            message: 'Address added successfully', 
+            message: 'Address added successfully!', 
             data: userAddress 
         });
+    } catch (error) {
+        return res.status(500).json({
+            success: false, 
+            error: error.message
+        })
+    }
+};
+
+exports.updateUserAddress = async (req, res) => {
+    try {
+        const user_id = req.body.user_id;
+        const address = req.body.address;
+        const address_id = req.body.address_id;
+
+        const user = await User.findById(user_id);
+
+        if(!user){
+            return res.status(404).json({ 
+                success: true,
+                message: 'User not found!' 
+            });
+        }
+        const addressIndex = user.addresses.findIndex(address => address._id.toString() === address_id.toString());
+        if (addressIndex !== -1) {
+            if (address.isDefault === true) {
+                user.addresses.forEach(address => {
+                  if (address._id !== address_id) {
+                    address.isDefault = false;
+                  }
+                });
+            }
+            user.addresses[addressIndex] = address;
+            user.updatedAt = new Date();
+            const userAddress = await user.save();
+            return res.status(200).json({ 
+                success: true,
+                message: 'Address updated successfully!', 
+                data: userAddress 
+            });
+        }
+        else{
+            return res.status(200).json({ 
+                success: true,
+                message: 'Address not found!',
+            }); 
+        }
+        
+    } catch (error) {
+        return res.status(500).json({
+            success: false, 
+            error: error.message
+        })
+    }
+};
+
+exports.deleteUserAddress = async (req, res) => {
+    try {
+        const { user_id, address_id } = req.params;
+        const user = await User.findById(user_id);
+        if(!user){
+            return res.status(404).json({ 
+                success: true,
+                message: 'User not found!' 
+            });
+        }
+        const addressIndex = user.addresses.findIndex(address => address._id.toString() === address_id.toString());
+        if (addressIndex === -1) {
+            return res.status(404).json({ 
+                success: true,
+                message: 'Address not found!' 
+            });
+        }
+        user.addresses.splice(addressIndex, 1);
+        const userAddress = await user.save();
+        return res.status(200).json({ 
+            success: true,
+            message: 'Address deleted successfully!', 
+            data: userAddress 
+        });
+        
     } catch (error) {
         return res.status(500).json({
             success: false, 

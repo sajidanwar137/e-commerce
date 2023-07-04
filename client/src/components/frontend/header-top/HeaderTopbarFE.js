@@ -126,7 +126,7 @@ const HeaderTopbarFE = () => {
                       <div className={`pt-8 dc-header-top__dropdown-content ${isOpen ? 'dc-header-top__dropdown-content--open' : ''}`}>
                         <ul>
                           <li className='px-5'>
-                            <Link to={`${slugCreater(userData?.name, userData?._id)}`} className='py-2 d-flex justify-content-start align-items-center'>
+                            <Link to={`/users/${slugCreater(userData?.name, userData?._id)}`} className='py-2 d-flex justify-content-start align-items-center'>
                               <span className='dc-icon-setting'></span>
                               <span>Profile</span>
                             </Link>

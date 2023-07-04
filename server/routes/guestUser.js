@@ -15,7 +15,9 @@ const {
   getAllGuestUser,
   userEnableDisable,
   deleteUser,
-  addUserAddress
+  addUserAddress,
+  updateUserAddress,
+  deleteUserAddress
 } = require("../controllers/guestUser");
 
 router.route("/getallguestuser").get(getAllGuestUser);
@@ -27,6 +29,8 @@ router.route("/update-user-profile").post(auth, updateUserProfile);
 router.route("/update-user-password").post(auth, updateUserPassword);
 router.route("/user-enable-disable").post(auth, userEnableDisable);
 router.route("/user-delete/:id").delete(auth, deleteUser);
-router.route("/user-addresses").post(auth, addUserAddress);
+router.route("/add-user-addresses").post(auth, addUserAddress);
+router.route("/update-user-addresses").post(auth, updateUserAddress);
+router.route("/delete-user-address/:user_id/:address_id").delete(auth, deleteUserAddress);
 
 module.exports = router;
