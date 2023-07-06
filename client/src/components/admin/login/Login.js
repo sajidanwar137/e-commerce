@@ -7,6 +7,7 @@ import Input from 'components/common/input/Input'
 import AdminLoginImg from 'resources/images/admin-login.png';
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
 import {validEmail} from 'utility/utility';
+import {setLocalStorage} from 'utility/helper';
 import api from 'api/api';
 import './index.scss';
 
@@ -62,7 +63,11 @@ const Login = () => {
         }, 5000);
         return;
       }
-      dispatch(adminLogin({ admin: result }));
+      setLocalStorage('__auth',{
+        isAuthenticated: true,
+        token:result?.data?.token
+      })
+      dispatch(adminLogin(result));
       navigate('/dashboard');
     }
     catch (error) {

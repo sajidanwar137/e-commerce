@@ -11,7 +11,7 @@ export default function (state = INITIAL_STATE, { type, payload }) {
             return {
                 ...state,
                 isAuthenticated: true,
-                token: payload.admin.data.token,
+                token: payload?.data?.token,
             };
         }
         case ADMIN_LOGOUT: {

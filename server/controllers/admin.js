@@ -43,20 +43,21 @@ exports.createAdmin = async(req, res) => {
 
 exports.adminLogin = async(req, res) => {
     try {
-        const email = req.body.email;
-        const password = req.body.password;
+        const email = req?.body?.email;
+        const password = req?.body?.password;
         let passwordMatch = null;
         const adminData = await Admin.findOne({email: email});
         if(adminData){
-            passwordMatch = await comparePassword(password,adminData.password);
+            passwordMatch = await comparePassword(password,adminData?.password);
         }
         if(adminData && passwordMatch){
-            const tokenData = await createToken(adminData._id);
+            const tokenData = await createToken(adminData?._id);
             adminData.token = tokenData;
             const adminResult = {
                 success : true,
-                data : adminData,
-                message : 'Login Successfully!'
+                data : {
+                    token: adminData?.token
+                },
             }
             return res.status(200).json(adminResult);
         }
