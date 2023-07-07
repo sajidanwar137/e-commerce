@@ -1,6 +1,4 @@
 import { 
-    ADMIN_SAVE, 
-    ADMIN_REMOVE,
     GET_ADMIN_BEGIN,
     GET_ADMIN_SUCCESS,
     GET_ADMIN_FAIL
@@ -15,24 +13,6 @@ const INITIAL_STATE = {
 
 export default function (state = INITIAL_STATE, { type, payload }) {
     switch (type) {
-        case ADMIN_SAVE: {
-            const { token, password, ...updatedData } = payload.admin.data;
-            const updatedPayload = {
-                message: payload.admin.message,
-                success: payload.admin.success,
-                data: updatedData
-            };
-            return {
-                ...state,
-                ...updatedPayload,
-            };
-        }
-        case ADMIN_REMOVE: {
-            return {
-                ...state,
-                ...INITIAL_STATE,
-            };
-        }
         case GET_ADMIN_BEGIN:
             return {
                 ...state,
@@ -40,16 +20,10 @@ export default function (state = INITIAL_STATE, { type, payload }) {
                 error: null
             }
         case GET_ADMIN_SUCCESS:
-            const { token, password, ...updatedData } = payload.data;
-            const updatedPayload = {
-                message: payload.message,
-                success: payload.success,
-                data: updatedData
-            };
             return {
                 ...state,
                 loading: false,
-                ...updatedPayload,
+                ...payload,
             }
         case GET_ADMIN_FAIL:
             return {
