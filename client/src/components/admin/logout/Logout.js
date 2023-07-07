@@ -1,7 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { adminLogout } from 'store/auth/actions';
-import { adminRemove } from 'store/admin/actions';
 import { useNavigate } from 'react-router-dom';
 import {headerBearer} from 'utility/utility';
 import {setLocalStorage,getLocalStorageByKey} from 'utility/helper';

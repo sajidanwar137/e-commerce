@@ -2,6 +2,7 @@ import React, {useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { getLogo } from "store/logo/actions";
+import {setLocalStorage, getLocalStorageByKey} from 'utility/helper';
 import Logo from "resources/images/logo.png";
 import './index.scss';
 
@@ -20,14 +21,16 @@ export default function Sidebar() {
 
 
   useEffect(() => {
-    const savedActiveTab = localStorage.getItem('activeTab');
-    if (savedActiveTab) {
-      setActiveTab(parseInt(savedActiveTab));
+    const tab = getLocalStorageByKey('__tab', ['tabStatus'])
+    if (tab?.tabStatus) {
+      setActiveTab(parseInt(tab?.tabStatus));
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('activeTab', activeTab.toString());
+    setLocalStorage('__tab',{
+      tabStatus: activeTab.toString()
+    })
   }, [activeTab]);
 
   const toggleTab = (index) => {
