@@ -7,14 +7,16 @@ import './index.scss';
 
 
 export default function Sidebar() {
-  const data = useSelector((state) => state?.logo?.data[0]);
+  const data = useSelector((state) => state?.logo?.data);
   const [activeTab, setActiveTab] = useState(-1);
 
   const dispatch = useDispatch();
   
   useEffect(() => {
-    dispatch(getLogo());
-  }, [dispatch]);
+    if(data && data?.length === 0){
+      dispatch(getLogo());
+    }
+  }, [dispatch,data]);
 
 
   useEffect(() => {
@@ -36,9 +38,9 @@ export default function Sidebar() {
     <div className='admin-aside'>
       <div className='admin-aside__logo px-12 d-flex justify-content-start align-items-center'>
         {data && <Link to="/dashboard">
-          {data?.originalurl ? (
+          {data[0]?.originalurl ? (
             <img
-              src={data?.originalurl}
+              src={data[0]?.originalurl}
               alt="Logo"
               onError={(e) => (e.target.src = Logo)}
             />
