@@ -3,24 +3,27 @@ import { useSelector, useDispatch } from 'react-redux';
 import { adminLogout } from 'store/auth/actions';
 import { adminRemove } from 'store/admin/actions';
 import { useNavigate } from 'react-router-dom';
+import {headerBearer} from 'utility/utility';
+import {setLocalStorage,getLocalStorageByKey} from 'utility/helper';
 import api from 'api/api';
 import './index.scss';
 
 function Logout() {
   const dispatch = useDispatch()
   const navigate = useNavigate();
-  const adminData = useSelector((state) => state?.admin);
-  const token = useSelector((state) => state?.auth?.token);
+  const adminData = useSelector((state) => state?.admin?.data);
+  const token = getLocalStorageByKey('__auth', ['token'])
   const handleLogout = async (e) => {
-    const payload = {admin_id: adminData?.data._id};
+    const payload = {admin_id: adminData[0]?._id};
     try {
-      const result = await api.post('/logout', payload, {headers: {
-          Authorization: `Bearer ${token}`,
-        }});
+      const result = await api.post('/logout', payload, headerBearer(token?.token));
       if (result && result.success === true) {
-        dispatch(adminLogout({ auth: null }));
-        dispatch(adminRemove({ admin: null }));
         navigate('/dashboard/login');
+        setLocalStorage('__auth',{
+          isAuthenticated: false,
+          token:null
+        })
+        dispatch(adminLogout(result));
       }
     } catch (error) {
       console.error('Error fetching data:', error.message);

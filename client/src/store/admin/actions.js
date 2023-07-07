@@ -18,26 +18,11 @@ export const getAdmin = (options) => async (dispatch) => {
     try {
         dispatch({ type: GET_ADMIN_BEGIN });
         const admin = await api.get('/admin',{}, options);
-        console.log("admin:::::",admin)
         dispatch({ type: GET_ADMIN_SUCCESS, payload: admin })
         return admin;
     } catch (err) {
         dispatch({ type: GET_ADMIN_FAIL, payload: err.message });
     }
-    // try {
-    //     dispatch({ type: GET_ADMIN_BEGIN });
-    //     let admin = null
-    //     if(payload && option){
-    //         admin = await api.post('/update-admin-profile', payload,{headers: {
-    //             Authorization: `Bearer ${option}`,
-    //         }});
-            
-    //     }
-    //     dispatch({ type: GET_ADMIN_SUCCESS, payload: admin })
-    //     return admin;
-    // } catch (err) {
-    //     dispatch({ type: GET_ADMIN_FAIL, payload: err.message });
-    // }
 }
 export const updateAdminProfile = (payload, option) => async (dispatch) => {
     try {

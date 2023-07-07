@@ -47,6 +47,7 @@ exports.getAdmin = async(req, res) => {
             success: true,
             data: [{
                 name: admin[0].name,
+                _id: admin[0]._id,
                 email: admin[0].email,
                 avtarName: admin[0].avtarName,
                 avtarPath: admin[0].avtarPath,
