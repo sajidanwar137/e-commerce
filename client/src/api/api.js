@@ -23,7 +23,7 @@ const api = createAxios();
 
 const service = {
     get(route, query = {}, options = {}) {
-        return api.get(`${route}?${stringify(query)}`, options);
+        return api.get(`${route}?${query}`, options);
     },
     post(route, payload = {}, options = {}) {
         return api.post(route, payload, options);

@@ -40,7 +40,29 @@ exports.createAdmin = async(req, res) => {
         res.status(400).json({success: false, error: error.message})
     }
 };
-
+exports.getAdmin = async(req, res) => {
+    try {
+        const admin = await Admin.find();
+        res.status(200).json({
+            success: true,
+            data: [{
+                name: admin[0].name,
+                email: admin[0].email,
+                avtarName: admin[0].avtarName,
+                avtarPath: admin[0].avtarPath,
+                avtarOriginalurl: admin[0].avtarOriginalurl,
+                createdAt: admin[0].createdAt,
+                updatedAt: admin[0].updatedAt
+            }]
+        })
+    }
+    catch (error ) {
+        res.status(400).json({
+            success: false,
+            error: error.message
+        })
+    }
+};
 exports.adminLogin = async(req, res) => {
     try {
         const email = req?.body?.email;

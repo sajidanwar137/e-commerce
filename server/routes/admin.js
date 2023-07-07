@@ -17,6 +17,7 @@ const {
   resetAdminPassword,
   updateAdminProfile,
   updateAdminAvtar,
+  getAdmin
 } = require("../controllers/admin");
 
 router.route("/adminlogin").post(adminLogin);
@@ -27,5 +28,6 @@ router.route("/update-admin-password").post(auth, updateAdminPassword);
 router.route("/update-admin-profile").post(auth, updateAdminProfile);
 router.route("/logout").post(auth, logoutAdmin);
 router.route("/update-admin-avtar").post(auth, upload.single('adminavtar'), updateAdminAvtar);
+router.route("/admin").get(auth,getAdmin);
 
 module.exports = router;
