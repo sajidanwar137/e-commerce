@@ -8,7 +8,7 @@ import AdminLoginImg from 'resources/images/admin-login.png';
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
 import {validEmail} from 'utility/utility';
 import {setLocalStorage} from 'utility/helper';
-import { errors } from 'utility/constant';
+import { constants } from 'utility/constants';
 import api from 'api/api';
 import './index.scss';
 
@@ -33,7 +33,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validEmail(email)) {
-      setError(errors?.validEmail);
+      setError(constants?.validEmail);
       setShowError(true);
       setTimeout(() => {
         setShowError(false);
@@ -42,7 +42,7 @@ const Login = () => {
     }
     // Check if password is empty
     if (password.trim() === "") {
-      setError(errors?.emptyPassword);
+      setError(constants?.emptyPassword);
       setShowError(true);
       setTimeout(() => {
         setShowError(false);

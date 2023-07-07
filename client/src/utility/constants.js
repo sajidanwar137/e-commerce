@@ -1,4 +1,4 @@
-export const errors = {
+export const constants = {
   validEmail: 'Please enter a valid email address',
   emptyPassword: 'Please enter your password',
   currentPassword: 'Please enter your current password',
@@ -9,5 +9,6 @@ export const errors = {
   invalidImage: 'Invalid file format. Please select a JPEG, JPG, GIF, PNG, or SVG file!',
   emptyField: 'You are not updating any field!',
   validPhone: 'Please enter a valid phone number',
-  validName: 'Please enter your name'
+  validName: 'Please enter your name',
+  fileAllowTypes: ['image/jpeg', 'image/jpg', 'image/gif', 'image/png', 'image/svg+xml']
 };

@@ -6,6 +6,7 @@ import {validEmail} from 'utility/utility';
 import Input from 'components/common/input/Input'
 import Button from 'components/common/button/Button'
 import { updateAdminProfile } from "store/admin/actions";
+import { constants } from 'utility/constants';
 import Swal from 'sweetalert2';
 import './index.scss';
 
@@ -33,7 +34,7 @@ const UpdateProfile = () => {
       email: adminEmail
     }
     if((adminName.trim() === "") && (adminEmail.trim() === "")){
-      setError("You are not updating any field!");
+      setError(constants?.emptyField);
       setShowError(true);
       setTimeout(() => {
         setShowError(false);
@@ -41,7 +42,7 @@ const UpdateProfile = () => {
       return;
     }
     if (validEmail(adminEmail) && adminEmail.trim() !== "") {
-      setError("Please enter a valid email address");
+      setError(constants?.validEmail);
       setShowError(true);
       setTimeout(() => {
         setShowError(false);

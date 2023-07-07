@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateLogo } from "store/logo/actions";
 import AdminPageTitle from 'components/admin/page-title/AdminPageTitle';
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
+import { constants } from 'utility/constants';
 import Logo from "resources/images/logo.png";
 import Swal from 'sweetalert2';
 import './index.scss';
@@ -22,7 +23,7 @@ const UpdateAdminAvtar = () => {
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     setUploadFile(URL.createObjectURL(event.target.files[0]));
-    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/gif', 'image/png', 'image/svg+xml'];
+    const allowedTypes = constants?.fileAllowTypes;
     if (file && allowedTypes.includes(file.type)) {
       setSelectedFile(file);
     } else {
@@ -36,7 +37,7 @@ const UpdateAdminAvtar = () => {
     formData.append('logo', selectedFile);
     formData.append('image_id', data._id);
     if (!selectedFile) {
-      setError("Invalid file format. Please select a JPEG, JPG, GIF, PNG, or SVG file!");
+      setError(constants?.invalidImage);
       setShowError(true);
       setTimeout(() => {
         setShowError(false);

@@ -8,6 +8,7 @@ import AdminPageTitle from 'components/admin/page-title/AdminPageTitle';
 import Input from 'components/common/input/Input'
 import api from 'api/api';
 import {validateConfirmPassword, passwordComplexity} from 'utility/utility';
+import { constants } from 'utility/constants';
 import './index.scss';
 
 const PasswordChange = () => {
@@ -38,7 +39,7 @@ const PasswordChange = () => {
     event.preventDefault();
     // Check if current password is empty
     if (currentPassword.trim() === "") {
-      setError("Please enter your current password");
+      setError(constants?.currentPassword);
       setShowError(true);
       setTimeout(() => {
         setShowError(false);
@@ -46,7 +47,7 @@ const PasswordChange = () => {
       return;
     }
     if (newPassword.trim() === "") {
-      setError("Please enter your new password");
+      setError(constants?.newPassword);
       setShowError(true);
       setTimeout(() => {
         setShowError(false);
@@ -55,7 +56,7 @@ const PasswordChange = () => {
     }
 
     if (newPassword.length < 8) {
-      setError("Password must be at least 8 characters long");
+      setError(constants?.passwordLength);
       setShowError(true);
       setTimeout(() => {
         setShowError(false);
@@ -65,7 +66,7 @@ const PasswordChange = () => {
 
     // Password complexity validation
     if (passwordComplexity(newPassword)) {
-      setError("Password must contain at least one capital letter, one special character, and one number");
+      setError(constants?.passwordComplexity);
       setShowError(true);
       setTimeout(() => {
         setShowError(false);
@@ -74,7 +75,7 @@ const PasswordChange = () => {
     }
     // Confirm password validation
     if (validateConfirmPassword(newPassword,confirmPassword)) {
-      setError("New password and confirm password do not match");
+      setError(constants?.confirmPassword);
       setShowError(true);
       setTimeout(() => {
         setShowError(false);

@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import PasswordChangeImg from '../../../resources/images/password-change.jpeg';
 import ErrorMessage from '../../common/error-message/ErrorMessage';
 import {validateConfirmPassword, passwordComplexity} from 'utility/utility';
+import { constants } from 'utility/constants';
 import api from 'api/api';
 import './index.scss';
 
@@ -33,7 +34,7 @@ const ResetPassword = () => {
     event.preventDefault();
     // Check if password is empty
     if (newPassword.trim() === "") {
-      setError("Please enter your password");
+      setError(constants?.emptyPassword);
       setShowError(true);
       setTimeout(() => {
         setShowError(false);
@@ -42,7 +43,7 @@ const ResetPassword = () => {
     }
     // Password length validation
     if (newPassword.length < 8) {
-      setError("Password must be at least 8 characters long");
+      setError(constants?.passwordLength);
       setShowError(true);
       setTimeout(() => {
         setShowError(false);
@@ -51,7 +52,7 @@ const ResetPassword = () => {
     }
     // Password complexity validation
     if (passwordComplexity(newPassword)) {
-      setError("Password must contain at least one capital letter, one special character, and one number");
+      setError(constants?.passwordComplexity);
       setShowError(true);
       setTimeout(() => {
         setShowError(false);
@@ -60,20 +61,16 @@ const ResetPassword = () => {
     }
     // Confirm password validation
     if (validateConfirmPassword(newPassword,confirmPassword)) {
-      setError("New password and confirm password do not match");
+      setError(constants?.confirmPassword);
       setShowError(true);
       setTimeout(() => {
         setShowError(false);
       }, 5000);
       return;
     }
-    // const payload = {
-    //   token: variableValue,
-    //   password: newPassword
-    // };
+    
     const query = `token=${variableValue}&password=${newPassword}`
     try {
-      //const result = await adminResetPassword(payload);
       const result = await api.get('/admin-password-reset', query);
       if (result && result.success !== true) {
         setError(result.message);

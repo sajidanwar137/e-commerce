@@ -6,6 +6,7 @@ import ErrorMessage from 'components/common/error-message/ErrorMessage';
 import Input from 'components/common/input/Input'
 import ForgotPasswordImg from 'resources/images/forgot-password.png';
 import {validEmail} from 'utility/utility';
+import { constants } from 'utility/constants';
 import api from 'api/api';
 import './index.scss';
 
@@ -22,7 +23,7 @@ function ForgotPassword() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (validEmail(email)) {
-      setError("Please enter a valid email address");
+      setError(constants?.validEmail);
       setShowError(true);
       setTimeout(() => {
         setShowError(false);
