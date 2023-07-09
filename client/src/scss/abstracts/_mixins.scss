@@ -13,11 +13,11 @@
 }
 // tint-color($secondary, 60%);
 @function tint-color($color, $weight) {
-  @return mix(white, $color, $weight);
+  @return mix($white, $color, $weight);
 }
 //shade-color($secondary, 20%); 
 @function shade-color($color, $weight) {
-  @return mix(black, $color, $weight);
+  @return mix($black, $color, $weight);
 }
 
 @mixin font-face-iconmoon($font-family, $font-path, $font-weight: normal, $font-style: normal) {

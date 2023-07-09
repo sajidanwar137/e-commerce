@@ -4,17 +4,22 @@
     column-gap: rem(7);
     border-radius: rem(5);
     &.error{
-        //color: $text-color-white;
-        //background: $text-color-error;
+        background: tint-color($danger, 80%);
+        color: var(--text-danger);
+        border: rem(1) solid tint-color($danger, 70%);
     }
     &.success{
-        //color: $text-color-success;
-    }
-    &.info{
-        //color: $text-color-info;
+        background: tint-color($success, 80%);
+        color: var(--text-success);
+        border: rem(1) solid tint-color($success, 70%);
     }
     &.warning{
-        //color: $text-color-warning;
+        background: tint-color($warning, 80%);
+        color: var(--text-warning);
+        border: rem(1) solid tint-color($warning, 70%);
+    }
+    span{
+        margin-top: rem(3);
     }
     &__text{
         font-size: rem(13);

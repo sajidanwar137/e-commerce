@@ -38,8 +38,6 @@ export default function Guideline() {
         <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
         <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
         <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
-        <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
-        <div className="me-3 mb-3 p-5 border d-inline-flex"></div>
       </div>
       <div className="d-flex justify-content-start mb-10">
         <h3>Icon List</h3>
