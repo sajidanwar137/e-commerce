@@ -6,11 +6,9 @@ import {setLocalStorage, getLocalStorageByKey} from 'utility/helper';
 import Logo from "resources/images/logo.png";
 import './index.scss';
 
-
 export default function Sidebar() {
   const data = useSelector((state) => state?.logo?.data);
   const [activeTab, setActiveTab] = useState(-1);
-
   const dispatch = useDispatch();
   
   useEffect(() => {
@@ -18,7 +16,6 @@ export default function Sidebar() {
       dispatch(getLogo());
     }
   }, [dispatch,data]);
-
 
   useEffect(() => {
     const tab = getLocalStorageByKey('__tab', ['tabStatus'])
@@ -81,17 +78,33 @@ export default function Sidebar() {
                 <span className='radius-50 border admin-aside__menu--icon d-flex justify-content-center align-items-center'>
                   <span className='dc-icon-administrator'></span>
                 </span>
-                <span>Admin Setting</span>
+                <span>Logo</span>
               </div>
               <span className="dc-icon-arrow-down"></span>
             </div>
             <div className={`ps-5 admin-aside__menu--tab-pane ${activeTab === 1 ? 'admin-aside__menu--tab-pane--active' : ''}`}>
               <ul className='border-s'>
                 <li>
-                    <NavLink to="/dashboard/admin/manage/profile" className='px-10 py-4'>Profile</NavLink>
+                  <NavLink to="/dashboard/admin/manage/logo" className='px-10 py-4'>Manage Logo</NavLink>
                 </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div className={`d-flex justify-content-between align-items-center py-8 admin-aside__menu--tab-button ${activeTab === 2 ? 'admin-aside__menu--tab-button--active' : ''}`}
+            onClick={() => toggleTab(2)}>
+              <div className='admin-aside__menu--icon-col d-flex align-items-center justify-content-start'>
+                <span className='radius-50 border admin-aside__menu--icon d-flex justify-content-center align-items-center'>
+                  <span className='dc-icon-administrator'></span>
+                </span>
+                <span>Admin Setting</span>
+              </div>
+              <span className="dc-icon-arrow-down"></span>
+            </div>
+            <div className={`ps-5 admin-aside__menu--tab-pane ${activeTab === 2 ? 'admin-aside__menu--tab-pane--active' : ''}`}>
+              <ul className='border-s'>
                 <li>
-                    <NavLink to="/dashboard/admin/manage/logo" className='px-10 py-4'>Logo</NavLink>
+                    <NavLink to="/dashboard/admin/manage/profile" className='px-10 py-4'>Profile</NavLink>
                 </li>
                 <li>
                     <NavLink to="/dashboard/admin/manage/password" className='px-10 py-4'>Password</NavLink>
