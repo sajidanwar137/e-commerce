@@ -100,9 +100,10 @@ input[type="email"]:focus{
 input[type=file]::file-selector-button {
   margin-right: rem(20);
   border: none;
-  //background:$bg-color-gray-300;
-  padding:rem(12);
+  background:var(--bg-primary);
+  padding:rem(10);
   border-radius:rem(6) 0 0 rem(6);
-  //color:$text-color-gray-700;
+  color:var(--text-white);
+  border: rem(1) solid var(--bg-primary);
   cursor: pointer;
 }

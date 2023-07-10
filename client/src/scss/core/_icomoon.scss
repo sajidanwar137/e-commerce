@@ -40,22 +40,25 @@
     &-arrow{
         &-up{
             &::before{
-                content:$dc-icon-arrow-up
+                content:$dc-icon-arrow-down;
+                transform: rotate(180deg);
             }
         }
         &-right{
             &::before{
-                content:$dc-icon-arrow-right
+                content:$dc-icon-arrow-down;
+                transform: rotate(-90deg);
             }
         }
         &-down{
             &::before{
-                content:$dc-icon-arrow-down
+                content:$dc-icon-arrow-down;
             }
         }
         &-left{
             &::before{
-                content:$dc-icon-arrow-left
+                content:$dc-icon-arrow-down;
+                transform: rotate(90deg);
             }
         }
     }
@@ -214,6 +217,12 @@
     &-download{
         &::before{
             content:$dc-icon-download
+        }
+    }
+    &-upload{
+        &::before{
+            content:$dc-icon-download;
+            transform: rotate(180deg);
         }
     }
     &-orders{

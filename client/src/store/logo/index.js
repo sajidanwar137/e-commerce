@@ -8,6 +8,7 @@ const INITIAL_STATE = {
     data: [],
     loading: false,
     error: null,
+    message: null
 };
 
 export default function (state = INITIAL_STATE, { type, payload }) {
@@ -23,6 +24,7 @@ export default function (state = INITIAL_STATE, { type, payload }) {
                 ...state,
                 loading: false,
                 ...payload,
+                message: payload?.message
             }
         case GET_LOGO_FAIL:
             return {

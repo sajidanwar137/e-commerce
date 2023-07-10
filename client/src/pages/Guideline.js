@@ -164,6 +164,9 @@ export default function Guideline() {
           <span className="dc-icon-download"></span>
         </div>
         <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
+          <span className="dc-icon-upload"></span>
+        </div>
+        <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">
           <span className="dc-icon-orders"></span>
         </div>
         <div className="me-3 mb-3 p-5 border d-inline-flex justify-content-center align-items-center">

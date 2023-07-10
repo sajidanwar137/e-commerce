@@ -43,17 +43,11 @@ exports.updateLogo = async(req, res) =>{
                 }
             }, {new: true})
         }
-        if(imageData){
-            const imageResult = [{
-                _id : imageData._id,
-                image : imageData.image,
-                path : imageData.path,
-                originalurl: imageData.originalurl
-            }]
+        if(imageData && data){
             return res.status(200).json({ 
                 success: true,
                 message: "Logo updated successfully!",
-                data: imageResult 
+                data: [imageData] 
             });
         }
     } catch (error) {

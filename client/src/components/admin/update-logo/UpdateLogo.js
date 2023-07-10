@@ -5,13 +5,15 @@ import AdminPageTitle from 'components/admin/page-title/AdminPageTitle';
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
 import Logo from "resources/images/logo.png";
 import { constants } from 'utility/constants';
+import IconButton from "components/common/icon-button/IconButton";
+import {getLocalStorageByKey} from 'utility/helper';
 import Swal from 'sweetalert2';
 import './index.scss';
 
 const UpdateLogo = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state?.logo?.data[0]);
-  const token = useSelector((state) => state?.auth?.token);
+  const token = getLocalStorageByKey('__auth', ['token'])
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadFile, setUploadFile] = useState(
     data ? (data?.originalurl ? data?.originalurl : Logo) : Logo
@@ -45,7 +47,7 @@ const UpdateLogo = () => {
       return;
     }
     try {
-      const result = await dispatch(updateLogo(formData, token));
+      const result = await dispatch(updateLogo(formData, token?.token));
       if (result && result.success !== true) {
         setError(result.message);
         setShowError(true);
@@ -68,22 +70,24 @@ const UpdateLogo = () => {
     <AdminPageTitle icon='dc-icon-setting' title='Logo' subheading='This is an example dashboard created using build-in elements and components.'/>
     <div className='dc-update-logo border box-shadow'>
       <div className='border-b px-10 py-7 d-flex justify-content-start align-items-center'>
-        <span className='dc-icon-setting me-5'></span>
+        <div className='dc-update-logo__title-icon border radius-50 d-flex justify-content-center align-items-center me-5'>
+          <span className='dc-icon-setting'></span>
+        </div>
         <h5 className='fw-400'>Change Logo</h5>
       </div>
       <div className='px-10 py-15'>
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           <div className='row'>
-            <div className='col-lg-12'>
+            <div className='col-lg-4'>
               {showError && <ErrorMessage type="error" message={error} />}
             </div>
           </div>
           <div className='row d-flex justify-content-start align-items-center'>
             <div className='col-lg-4'>
-              <input className='dc-form-control pe-6' type="file" onChange={handleFileChange} name="adminlogo" accept=".jpeg,.jpg,.gif,.png,.svg"/>
+              <input className='dc-form-control pe-6' type="file" onChange={handleFileChange} name="logo" accept=".jpeg,.jpg,.gif,.png,.svg"/>
             </div>
             <div className='col-lg-2'>
-              <button type="submit" className='dc-btn dc-btn-primary px-20 py-5'>Upload</button>
+              <IconButton type="upload" theme="secondary" tooltip="Upload" />
             </div>
             <div className='col-lg-2'>
               <div className='dc-update-logo__img'>

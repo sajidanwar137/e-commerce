@@ -9,4 +9,9 @@
             display: block;
         }
     }
+    &__title-icon{
+        width: rem(24);
+        height: rem(24);
+        color: var(--text-secondary);
+    }
 }
