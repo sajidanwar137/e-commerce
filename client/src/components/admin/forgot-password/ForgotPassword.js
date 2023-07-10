@@ -63,7 +63,7 @@ function ForgotPassword() {
           <span className="dc-icon-password"></span>
         </div>
         <div className='dc-admin-forgot-password__layout--col'>
-          <div className='dc-admin-forgot-password__title mb-15 d-flex align-items-center justify-content-center'>
+          <div className='dc-admin-forgot-password__title mb-8 d-flex align-items-center justify-content-center'>
               <h4 className='dc-h4'>Forgot Password?</h4>
           </div>
           <div className='mb-10'>
@@ -75,7 +75,7 @@ function ForgotPassword() {
                 <Input type={'text'} labelid={'admin-forgot-password'} label={'Enter your registered email'} update={handleEmailChange}/>
               </div>
               <div className='dc-admin-forgot-password__layout-row mb-8 d-flex justify-content-center'>
-                  <Link to="/dashboard/login" className='px-12 py-4'>Wait, I remember my password</Link>
+                  <Link to="/dashboard/login" className='px-12 py-4 body-sm'>Wait, I remember my password</Link>
               </div>
               <div className='dc-admin-forgot-password__layout-row d-flex justify-content-center'>
                   <button type="submit" className='dc-btn dc-btn-secondary dc-btn-fluid px-20 py-4'>Reset</button>

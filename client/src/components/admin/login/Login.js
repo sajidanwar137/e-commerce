@@ -81,7 +81,7 @@ const Login = () => {
           <span className="dc-icon-password"></span>
         </div>
         <div className='dc-admin-login__layout--col'>
-          <div className='dc-admin-login__title mb-15 d-flex align-items-center justify-content-center'>
+          <div className='dc-admin-login__title mb-8 d-flex align-items-center justify-content-center'>
               <h4 className='dc-h4'>Admin Login</h4>
           </div>
           {showError && <ErrorMessage type="error" message={error} />}
@@ -93,7 +93,7 @@ const Login = () => {
                 <Input type={'password'} labelid={'admin-password-email'} label={'Password'} update={handlePasswordChange}/>
               </div>
               <div className='dc-admin-login__layout-row mb-8 d-flex justify-content-center'>
-                  <Link to="/dashboard/admin-forgot-password" className='px-12 py-4'>Forgot Password?</Link>
+                  <Link to="/dashboard/admin-forgot-password" className='px-12 py-4 body-sm'>Forgot Password?</Link>
               </div>
               <div className='dc-admin-login__layout-row d-flex justify-content-center'>
                   <button type="submit" className='dc-btn dc-btn-secondary dc-btn-fluid px-20 py-4'>Login</button>
