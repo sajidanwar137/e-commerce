@@ -270,4 +270,9 @@
             content:$dc-icon-minus
         }
     }
+    &-update{
+        &::before{
+            content:$dc-icon-update
+        }
+    }
 }

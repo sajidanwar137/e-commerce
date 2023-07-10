@@ -23,7 +23,6 @@ export const updateAdminProfile = (payload, option) => async (dispatch) => {
             admin = await api.post('/update-admin-profile', payload,{headers: {
                 Authorization: `Bearer ${option}`,
             }});
-            
         }
         dispatch({ type: GET_ADMIN_SUCCESS, payload: admin })
         return admin;

@@ -5,4 +5,10 @@
     &__status-col{
         column-gap: rem(50);
     }
+    &__title-icon{
+        width: rem(24);
+        height: rem(24);
+        color: var(--text-secondary);
+        font-size: rem(12);
+    }
 }

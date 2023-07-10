@@ -24,9 +24,9 @@ export const isValidPhoneNumber = (text) =>{
     const regex = /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/;
     return !regex.test(text)
 }
-export const headerBearer = (option) =>{
+export const headerBearer = (token) =>{
     return { headers: {
-            Authorization: `Bearer ${option}`,
+            Authorization: `Bearer ${token}`,
         }
     }
 }

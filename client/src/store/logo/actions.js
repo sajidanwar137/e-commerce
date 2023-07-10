@@ -1,4 +1,5 @@
 import api from 'api/api';
+import {headerBearer} from 'utility/utility';
 import {
     GET_LOGO_BEGIN,
     GET_LOGO_SUCCESS,
@@ -21,9 +22,7 @@ export const updateLogo = (payload, option) => async (dispatch) => {
         dispatch({ type: GET_LOGO_BEGIN });
         let logo = null
         if(payload && option){
-            logo = await api.post('/update-logo', payload,{headers: {
-                Authorization: `Bearer ${option}`,
-            }});
+            logo = await api.post('/update-logo', payload, headerBearer(option));
         }
         dispatch({ type: GET_LOGO_SUCCESS, payload: logo })
         return logo;
