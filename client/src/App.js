@@ -15,23 +15,23 @@ import {PrivateRoutes, LoggedIn, UserPrivateRoutes} from './AuthRoutes';
 function App() {
   return (
     <Provider store={store}>
-    <Router>
-      <Routes>
-        <Route path='/' element={<HomeFE/>}/>
-        <Route path='/guideline' element={<Guideline/>}/>
-        <Route exact path='/' element={<UserPrivateRoutes />}>
-          <Route path="/users/*" element={<GuestUser />} />
-        </Route>
-        <Route exact path='/' element={<PrivateRoutes />}>
-          <Route path="/dashboard/*" element={<AdminDashboard />} />
-        </Route>
-        <Route exact path='/' element={<LoggedIn />}>
-          <Route path='/dashboard/login' element={<AdminLogin/>}/>
-          <Route path='/dashboard/admin-forgot-password' element={<AdminForgotPassword/>}/>
-          <Route path='/dashboard/admin-reset-password' element={<AdminResetPassword/>}/>
-        </Route>
-      </Routes>
-    </Router>
+      <Router>
+        <Routes>
+          <Route path='/' element={<HomeFE/>}/>
+          <Route path='/guideline' element={<Guideline/>}/>
+          <Route exact path='/' element={<UserPrivateRoutes />}>
+            <Route path="/users/*" element={<GuestUser />} />
+          </Route>
+          <Route exact path='/' element={<PrivateRoutes />}>
+            <Route path="/dashboard/*" element={<AdminDashboard />} />
+          </Route>
+          <Route exact path='/' element={<LoggedIn />}>
+            <Route path='/dashboard/login' element={<AdminLogin/>}/>
+            <Route path='/dashboard/admin-forgot-password' element={<AdminForgotPassword/>}/>
+            <Route path='/dashboard/admin-reset-password' element={<AdminResetPassword/>}/>
+          </Route>
+        </Routes>
+      </Router>
     </Provider>
   );
 }

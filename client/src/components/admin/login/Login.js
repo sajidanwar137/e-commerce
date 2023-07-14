@@ -8,6 +8,7 @@ import ErrorMessage from 'components/common/error-message/ErrorMessage';
 import {validEmail} from 'utility/utility';
 import {setLocalStorage} from 'utility/helper';
 import { constants } from 'utility/constants';
+import ErrorDisplay from 'components/hooks/ErrorDisplay';
 import api from 'api/api';
 import './index.scss';
 
@@ -18,7 +19,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const [showError, setShowError] = useState(false);
+  const [showError, setShowError] = ErrorDisplay();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -33,18 +34,12 @@ const Login = () => {
     if (validEmail(email)) {
       setError(constants?.validEmail);
       setShowError(true);
-      setTimeout(() => {
-        setShowError(false);
-      }, 5000);
       return;
     }
     // Check if password is empty
     if (password.trim() === "") {
       setError(constants?.emptyPassword);
       setShowError(true);
-      setTimeout(() => {
-        setShowError(false);
-      }, 5000);
       return;
     }
 
@@ -57,9 +52,6 @@ const Login = () => {
       if (result && result.success !== true) {
         setError(result.message);
         setShowError(true);
-        setTimeout(() => {
-          setShowError(false);
-        }, 5000);
         return;
       }
       setLocalStorage('__auth',{
@@ -84,7 +76,8 @@ const Login = () => {
           <div className='dc-admin-login__title mb-8 d-flex align-items-center justify-content-center'>
               <h4 className='dc-h4'>Admin Login</h4>
           </div>
-          {showError && <ErrorMessage type="error" message={error} />}
+          {showError && <ErrorMessage type="error" message={error}/>}
+          
           <form className='dc-admin-login__layout-body' onSubmit={handleSubmit}>
               <div className='dc-admin-login__layout-row mb-8'>
                 <Input type={'text'} labelid={'admin-user-email'} label={'Email'} update={handleEmailChange}/>
