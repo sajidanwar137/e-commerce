@@ -1,6 +1,6 @@
 import React, {useState } from 'react';
 import { Link} from "react-router-dom";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { saveAdminAuth } from "redux/slices/adminSlice";
 import { useNavigate } from 'react-router-dom';
 import Input from 'components/common/input/Input'

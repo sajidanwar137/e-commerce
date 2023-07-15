@@ -26,10 +26,12 @@ const adminSlice = createSlice({
       state.token = action?.payload?.data?.token;
       state.message = action?.payload?.message;
     },
-    removeAdminAuth : (state) => {
+    removeAdminAuth : (state, action) => {
       state.isAuthenticated = false;
       state.token = null;
-      state.message = null
+      state.message = null;
+      state.data = [];
+      state.success = false;
     },
   }
 });

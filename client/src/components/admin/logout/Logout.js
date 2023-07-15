@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { adminLogout } from 'store/auth/actions';
+import { removeAdminAuth } from "redux/slices/adminSlice";
 import { useNavigate } from 'react-router-dom';
 import {headerBearer} from 'utility/utility';
 import {setLocalStorage,getLocalStorageByKey} from 'utility/helper';
@@ -10,19 +10,20 @@ import './index.scss';
 function Logout() {
   const dispatch = useDispatch()
   const navigate = useNavigate();
-  const adminData = useSelector((state) => state?.admin?.data);
+  const data = useSelector((state) => state?.admin?.data);
   const token = getLocalStorageByKey('__auth', ['token'])
   const handleLogout = async (e) => {
-    const payload = {admin_id: adminData[0]?._id};
+    const payload = {admin_id: data[0]?._id};
     try {
       const result = await api.post('/logout', payload, headerBearer(token?.token));
       if (result && result.success === true) {
         navigate('/dashboard/login');
         setLocalStorage('__auth',{
           isAuthenticated: false,
-          token:null
+          token:null,
+          adminAuthTime: null
         })
-        dispatch(adminLogout(result));
+        dispatch(removeAdminAuth());
       }
     } catch (error) {
       console.error('Error fetching data:', error.message);
