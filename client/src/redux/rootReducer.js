@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import adminAuthSlice from 'redux/slices/adminAuthSlice'
+import adminSlice from 'redux/slices/adminSlice'
 
 const rootReducer = combineReducers({
-  adminAuth: adminAuthSlice
+  admin: adminSlice
 })
 
 export default rootReducer;

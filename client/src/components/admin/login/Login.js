@@ -1,7 +1,7 @@
 import React, {useState } from 'react';
 import { Link} from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { adminLogin } from "store/auth/actions";
+import { useDispatch,useSelector } from "react-redux";
+import { saveAdminAuth } from "redux/slices/adminSlice";
 import { useNavigate } from 'react-router-dom';
 import Input from 'components/common/input/Input'
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
@@ -36,33 +36,31 @@ const Login = () => {
       setShowError(true);
       return;
     }
-    // Check if password is empty
+    
     if (password.trim() === "") {
       setError(constants?.emptyPassword);
       setShowError(true);
       return;
     }
-
-    const payload = {
-      email: email,
-      password: password,
-    };
     try {
-      const result = await api.post('/adminlogin', payload);
+      const result = await api.post('/adminlogin', {email: email, password: password});
       if (result && result.success !== true) {
         setError(result.message);
         setShowError(true);
         return;
       }
+      const expirationTime = new Date().getTime() + 60 * 60 * 1000;
       setLocalStorage('__auth',{
-        isAuthenticated: true,
-        token:result?.data?.token
+        isAuthenticated: result?.success,
+        token:result?.data?.token,
+        adminAuthTime: expirationTime.toString()
       })
-      dispatch(adminLogin(result));
+      dispatch(saveAdminAuth(result));
       navigate('/dashboard');
     }
     catch (error) {
       console.error('Error fetching data:', error.message);
+      //dispatch(saveAdminAuth(error.message));
     }
   };
 
