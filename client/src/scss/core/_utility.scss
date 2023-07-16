@@ -26,7 +26,35 @@
 }
 .radius-50{
     border-radius: 50%;
+} 
+.radius-3{
+  border-radius: rem(3);
+  @include border-radius('top-left',3);
+  @include border-radius('top-right',3);
+  @include border-radius('bottom-left',3);
+  @include border-radius('bottom-right',3);
 }  
+.radius-5{
+  border-radius: rem(5);
+  @include border-radius('top-left',5);
+  @include border-radius('top-right',5);
+  @include border-radius('bottom-left',5);
+  @include border-radius('bottom-right',5);
+}
+.radius-7{
+  border-radius: rem(7);
+  @include border-radius('top-left',7);
+  @include border-radius('top-right',7);
+  @include border-radius('bottom-left',7);
+  @include border-radius('bottom-right',7);
+}
+.radius-10{
+  border-radius: rem(10);
+  @include border-radius('top-left',10);
+  @include border-radius('top-right',10);
+  @include border-radius('bottom-left',10);
+  @include border-radius('bottom-right',10);
+}
 
 .border {
     border: rem(1) solid var(--border-default);
@@ -43,6 +71,7 @@
 .box-shadow{
   box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.015), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.015), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.025), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.015);
 }
+//TODO
 // Guideline style below
 .guideline-icon{
   div{

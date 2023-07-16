@@ -59,6 +59,22 @@
     }
   }
 }
+@mixin border-radius($position, $radius) {
+  &-#{$position} {
+    @if $position == top-left {
+      border-top-left-radius: rem($radius);
+    }
+    @else if $position == top-right {
+      border-top-right-radius: rem($radius);
+    }
+    @else if $position == bottom-left {
+      border-bottom-left-radius: rem($radius);
+    }
+    @else if $position == bottom-right {
+      border-bottom-right-radius: rem($radius);
+    }
+  }
+}
 //Text align mixin
 @mixin text($position) {
   &-#{$position} {
