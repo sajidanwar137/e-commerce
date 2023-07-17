@@ -6,6 +6,7 @@ import Button from "components/common/button/Button";
 import ReactSelect from "components/common/reactselect/ReactSelect";
 import Datepicker from "components/common/datepicker/Datepicker";
 import IconButton from "components/common/icon-button/IconButton";
+import Input from "components/common/input/Input2";
 
 export default function Guideline() {
   const options = [
@@ -246,7 +247,7 @@ export default function Guideline() {
       <div className="d-flex justify-content-start mb-10">
         <h3>Form Elements</h3>
       </div>
-      <div className="row mb-15">
+      <div className="row mb-15 d-flex align-items-end">
         <div className="col-lg-4">
           <div className="mb-10">
             <h4>React Select</h4>
@@ -261,6 +262,28 @@ export default function Guideline() {
           </div>
           <div>
             <Datepicker />
+          </div>
+        </div>
+        <div className="col-lg-4">
+          <div>
+            <Input labelPosition='top' label='Input primary label top' labelid='id-1' placeHolder='Placeholder' theme='primary'/>
+          </div>
+        </div>
+      </div>
+      <div className="row mb-15 d-flex align-items-end">
+        <div className="col-lg-4">
+          <div>
+            <Input labelPosition='left' label='Input primary label left:' labelid='id-2' placeHolder='Placeholder' theme='primary'/>
+          </div>
+        </div>
+        <div className="col-lg-4">
+          <div>
+            <Input labelPosition='top' label='Input secondary label top' labelid='id-3' placeHolder='Placeholder' theme='secondary'/>
+          </div>
+        </div>
+        <div className="col-lg-4">
+          <div>
+            <Input labelPosition='left' label='Input secondary label left:' labelid='id-4' placeHolder='Placeholder' theme='secondary'/>
           </div>
         </div>
       </div>

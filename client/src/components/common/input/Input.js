@@ -1,7 +1,14 @@
 import React from 'react';
 import './index.scss';
 
-const Input = ({ type, labelid, label, update, placeholder, name }) => {
+const Input = ({ 
+  type, 
+  labelid, 
+  label, 
+  update, 
+  placeholder, 
+  name 
+}) => {
   const handleInputChange = (e) => {
     update(e);
     const input = e.target;
