@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { removeAdminAuth } from "redux/slices/adminSlice";
+import { removeAdminAuth } from "redux/slices/admin/adminSlice";
 import { useNavigate } from 'react-router-dom';
 import {headerBearer} from 'utility/utility';
 import {setLocalStorage,getLocalStorageByKey} from 'utility/helper';

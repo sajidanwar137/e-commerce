@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import api from 'api/api';
-import {fetchAdminSuccess, fetchAdminFailure} from 'redux/slices/adminSlice'
+import {fetchAdminSuccess, fetchAdminFailure} from 'redux/slices/admin/adminSlice'
 
 export const getAdmin = createAsyncThunk(
   'admin',

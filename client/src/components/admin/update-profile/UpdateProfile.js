@@ -7,18 +7,21 @@ import Input from 'components/common/input/Input'
 import IconButton from "components/common/icon-button/IconButton";
 import { updateAdminProfile } from "store/admin/actions";
 import { constants } from 'utility/constants';
+import {getLocalStorageByKey} from 'utility/helper';
+import ErrorDisplay from 'components/hooks/ErrorDisplay';
 import Swal from 'sweetalert2';
 import './index.scss';
 
 const UpdateProfile = () => {
   const dispatch = useDispatch()
-  const [showError, setShowError] = useState(false);
+  const [showError, setShowError] = ErrorDisplay();
   const [error, setError] = useState("");
   const [adminName, setAdminName] = useState('');
   const [adminEmail, setAdminEmail] = useState('');
   
   const data = useSelector((state) => state?.admin?.data[0]);
-  const token = useSelector((state) => state?.auth?.token);
+  const token = getLocalStorageByKey('__auth', ['token']);
+  console.log("token::::",token)
 
   const handleName = (event) => {
     setAdminName(event.target.value);
@@ -38,17 +41,11 @@ const UpdateProfile = () => {
     if((adminName.trim() === "") && (adminEmail.trim() === "")){
       setError(constants?.emptyField);
       setShowError(true);
-      setTimeout(() => {
-        setShowError(false);
-      }, 5000);
       return;
     }
     if (validEmail(adminEmail) && adminEmail.trim() !== "") {
       setError(constants?.validEmail);
       setShowError(true);
-      setTimeout(() => {
-        setShowError(false);
-      }, 5000);
       return;
     }
     if (adminEmail.trim() === "") {
@@ -59,13 +56,10 @@ const UpdateProfile = () => {
     }
 
     try {
-      const result = await dispatch(updateAdminProfile(obj, token));
+      const result = await dispatch(updateAdminProfile(obj, token?.token));
       if (result && result.success !== true) {
         setError(result.message);
         setShowError(true);
-        setTimeout(() => {
-          setShowError(false);
-        }, 5000);
         return;
       }
       Swal.fire({
@@ -110,7 +104,9 @@ const UpdateProfile = () => {
         <div className='px-10 py-15'>
           <form onSubmit={handleSubmit}>
             <div className='row'>
-              <div className='col-lg-4'>{showError && <ErrorMessage type="error" message={error} />}</div>
+              <div className='col-lg-4'>
+                {showError && <ErrorMessage type="error" message={error}/>}
+              </div>
             </div>
             <div className='row'>
               <div className='col-lg-4'>

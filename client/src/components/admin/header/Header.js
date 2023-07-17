@@ -1,7 +1,7 @@
 import React, {useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import Logout from '../logout/Logout';
-import { getAdmin } from "redux/thunks/adminThunk";
+import { getAdmin } from "redux/thunks/admin/adminThunk";
 import {getLocalStorageByKey} from 'utility/helper';
 import {headerBearer} from 'utility/utility';
 import './index.scss';

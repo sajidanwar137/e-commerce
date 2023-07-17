@@ -1,7 +1,7 @@
 import React, {useState } from 'react';
 import { Link} from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { saveAdminAuth } from "redux/slices/adminSlice";
+import { saveAdminAuth } from "redux/slices/admin/adminSlice";
 import { useNavigate } from 'react-router-dom';
 import Input from 'components/common/input/Input'
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
