@@ -1,7 +1,7 @@
 @import "../../../scss/abstracts/_abstracts-dir";
 
-.dc-input{
-    &__input{
+.dc-textarea{
+    &__textarea{
         &[type="password"],
         &[type="email"],
         &[type="text"]{
@@ -14,7 +14,7 @@
             &:focus{
                 ~.dc-input__label {
                     transform: translateY(-10px) scale(1);
-                    padding: 0 rem(3);
+                    padding: 0 rem(5);
                     &.label-0{
                         padding: 0; 
                     }
@@ -24,7 +24,7 @@
         &-active{
             ~.dc-input__label {
                 transform: translateY(-10px) scale(1);
-                padding: 0 rem(3);
+                padding: 0 rem(5);
                 &.label-0{
                     padding: 0; 
                 }
@@ -70,7 +70,7 @@
         pointer-events: none;
         left: rem(10);
         top: 0;
-        padding: 0 rem(3);
+        padding: 0 rem(5);
         transform: translateY(10px);
         transition: -webkit-transform .2s ease;
         transition: transform .2s ease;
@@ -83,10 +83,14 @@
         }
     }
 }
-.dc-input{
+.dc-textarea{
+    &__textarea{
+        width: 100%;
+        max-height: rem(120);
+    }
     &__col{
         position: relative;
-        &-input{
+        &-textarea{
             width: 100%;
         }
     }

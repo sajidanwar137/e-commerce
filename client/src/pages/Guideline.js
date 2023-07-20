@@ -6,7 +6,8 @@ import Button from "components/common/button/Button";
 import ReactSelect from "components/common/reactselect/ReactSelect";
 import Datepicker from "components/common/datepicker/Datepicker";
 import IconButton from "components/common/icon-button/IconButton";
-import Input from "components/common/input/Input2";
+import Input from "components/common/input/Input";
+import Textarea from "components/common/textarea/Textarea";
 
 export default function Guideline() {
   const options = [
@@ -14,6 +15,7 @@ export default function Guideline() {
     { value: 'strawberry', label: 'Strawberry' },
     { value: 'vanilla', label: 'Vanilla' }
   ]
+  const fn = () => {}
   return (
     <div className="dc-container">
       <div className="row pt-30 mb-15">
@@ -264,26 +266,33 @@ export default function Guideline() {
             <Datepicker />
           </div>
         </div>
-        <div className="col-lg-4">
+      </div>
+      <div className="row mb-15 d-flex align-items-end">
+        <div className="col-lg-3">
           <div>
-            <Input labelPosition='top' label='Input primary label top' labelid='id-1' placeHolder='Placeholder' theme='primary'/>
+            <Input name='name' type='text' labelid='id-1' placeHolder='Placeholder' theme='border'/>
+          </div>
+        </div>
+        <div className="col-lg-3">
+          <div>
+            <Input name='name' type='text' labelid='id-2' placeHolder='Placeholder'/>
+          </div>
+        </div>
+        <div className="col-lg-3">
+          <div>
+            <Input name='name' type='text' labelid='id-3' label='Name' theme='border' handler={fn}/>
+          </div>
+        </div>
+        <div className="col-lg-3">
+          <div>
+            <Input name='name' type='text' labelid='id-4' label='Name' handler={fn}/>
           </div>
         </div>
       </div>
       <div className="row mb-15 d-flex align-items-end">
-        <div className="col-lg-4">
+        <div className="col-lg-3">
           <div>
-            <Input labelPosition='left' label='Input primary label left:' labelid='id-2' placeHolder='Placeholder' theme='primary'/>
-          </div>
-        </div>
-        <div className="col-lg-4">
-          <div>
-            <Input labelPosition='top' label='Input secondary label top' labelid='id-3' placeHolder='Placeholder' theme='secondary'/>
-          </div>
-        </div>
-        <div className="col-lg-4">
-          <div>
-            <Input labelPosition='left' label='Input secondary label left:' labelid='id-4' placeHolder='Placeholder' theme='secondary'/>
+            <Textarea name='name' labelid='id-1' placeHolder='Placeholder' rows="4" cols="50"/>
           </div>
         </div>
       </div>

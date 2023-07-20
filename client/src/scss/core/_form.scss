@@ -70,29 +70,30 @@ fieldset {
   min-width: 0;
 }
 
+textarea,
 input[type="text"],
 input[type="file"],
 input[type="password"],
 input[type="email"]{
   width: 100%;
   border: rem(1) solid var(--border-default);
-  border-radius: rem(6);
+  border-radius: rem(3);
   background: var(--bg-white);
   color: var(--text-gray-600);
 }
-input[type="text"]:-ms-input-placeholder,
-input[type="text"]:-moz-placeholder,
-input[type="text"]::-moz-placeholder,
-input[type="text"]::-webkit-input-placeholder {
-  //color: var(--text-color-placeholder);
+textarea::placeholder,
+input[type="password"]::placeholder,
+input[type="email"]::placeholder,
+input[type="text"]::placeholder {
+  color: var(--text-gray-500);
 }
-
+textarea:focus,
 input[type="text"]:focus,
 input[type="file"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus{
   color: var(--text-gray-600);
-  border-color: var(--border-default);
+  border-color: var(--text-gray-600);
   outline: 0;
   background-color:var(--bg-white);
   transition: border-color 0.5s ease;
