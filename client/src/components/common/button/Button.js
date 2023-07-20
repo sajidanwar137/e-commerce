@@ -1,9 +1,37 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './index.scss';
 
-const Button = ({type, buttonLabel, buttonHandler, fullwidth=''}) => {
+const Button = ({
+  type, 
+  label, 
+  handler, 
+  display='', 
+  theme, 
+  tooltip, 
+  icon
+}) => {
+  const classHandler = () => {
+    if (display === 'block') return 'dc-btn-fluid';
+    else return '';
+  };
   return (
-    <button type="submit" className={`dc-btn ${fullwidth} px-20 py-4 dc-btn-${type}`} onClick={buttonHandler}>{buttonLabel}</button>
+    handler ? (
+      tooltip ? (
+        <button type={type} className={`icon-button p-5 icon-button-${theme}`} data-tooltip={tooltip} onClick={handler}>
+          <span className={`dc-icon-${icon}`}></span>
+        </button>
+      ) : (
+        <button type={type} className={`dc-btn ${classHandler()} px-20 py-4 dc-btn-${theme}`} onClick={handler}>{label}</button>
+      )
+    ) : (
+      tooltip ? (
+        <button type={type} className={`icon-button p-5 icon-button-${theme}`} data-tooltip={tooltip}>
+          <span className={`dc-icon-${icon}`}></span>
+        </button>
+      ) : (
+        <button type={type} className={`dc-btn ${classHandler()} px-20 py-4 dc-btn-${theme}`}>{label}</button>
+      )
+    )
   );
 };
 

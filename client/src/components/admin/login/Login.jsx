@@ -9,6 +9,7 @@ import {validEmail} from 'utility/utility';
 import {setLocalStorage} from 'utility/helper';
 import { constants } from 'utility/constants';
 import ErrorDisplay from 'components/hooks/ErrorDisplay';
+import Button from "components/common/button/Button";
 import api from 'api/api';
 import './index.scss';
 
@@ -21,11 +22,11 @@ const Login = () => {
   const [error, setError] = useState("");
   const [showError, setShowError] = ErrorDisplay();
 
-  const handleEmailChange = (e) => {
+  const emailHandler = (e) => {
     setEmail(e.target.value);
   };
 
-  const handlePasswordChange = (e) => {
+  const passwordHandler = (e) => {
     setPassword(e.target.value);
   };
 
@@ -75,19 +76,18 @@ const Login = () => {
               <h4 className='dc-h4'>Admin Login</h4>
           </div>
           {showError && <ErrorMessage type="error" message={error}/>}
-          
           <form className='dc-admin-login__layout-body' onSubmit={handleSubmit}>
               <div className='dc-admin-login__layout-row mb-8'>
-                <Input type={'text'} labelid={'admin-user-email'} label={'Email'} update={handleEmailChange}/>
+                <Input type='text' name='email' labelid='admin-email' label='Email' handler={emailHandler}/>
               </div>
               <div className='dc-admin-login__layout-row mb-8'>
-                <Input type={'password'} labelid={'admin-password-email'} label={'Password'} update={handlePasswordChange}/>
+                <Input type={'password'} name='password' labelid={'admin-password'} label={'Password'} handler={passwordHandler}/>
               </div>
               <div className='dc-admin-login__layout-row mb-8 d-flex justify-content-center'>
-                  <Link to="/dashboard/admin-forgot-password" className='px-12 py-4 body-sm'>Forgot Password?</Link>
+                  <Link to="/dashboard/admin-forgot-password" className='px-12 py-4'>Forgot Password?</Link>
               </div>
               <div className='dc-admin-login__layout-row d-flex justify-content-center'>
-                  <button type="submit" className='dc-btn dc-btn-secondary dc-btn-fluid px-20 py-4'>Login</button>
+                <Button type="submit" theme='secondary' label='Login' display='block'/>
               </div>
           </form>
         </div>

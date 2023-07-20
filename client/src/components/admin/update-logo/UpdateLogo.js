@@ -5,7 +5,7 @@ import AdminPageTitle from 'components/admin/page-title/AdminPageTitle';
 import ErrorMessage from 'components/common/error-message/ErrorMessage';
 import Logo from "resources/images/logo.png";
 import { constants } from 'utility/constants';
-import IconButton from "components/common/icon-button/IconButton";
+import Button from "components/common/button/Button";
 import {getLocalStorageByKey} from 'utility/helper';
 import Swal from 'sweetalert2';
 import './index.scss';
@@ -87,7 +87,7 @@ const UpdateLogo = () => {
               <input className='dc-form-control pe-6' type="file" onChange={handleFileChange} name="logo" accept=".jpeg,.jpg,.gif,.png,.svg"/>
             </div>
             <div className='col-lg-2'>
-              <IconButton type="upload" theme="secondary" tooltip="Upload" />
+              <Button type="button" icon='upload' theme="secondary" tooltip="Upload"/>
             </div>
             <div className='col-lg-2'>
               <div className='dc-update-logo__img'>

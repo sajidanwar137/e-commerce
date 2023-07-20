@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector} from "react-redux";
 import AdminPageTitle from "components/admin/page-title/AdminPageTitle";
 import ToggleCheckbox from "components/common/toggle-checkbox/ToggleCheckbox";
-import IconButton from "components/common/icon-button/IconButton";
+import Button from "components/common/button/Button";
 import {headerBearer} from 'utility/utility';
 import Swal from 'sweetalert2';
 import api from 'api/api';
@@ -165,10 +165,10 @@ const GuestUser = () => {
                     <td className="border-b border-e p-3 text-end">
                       <div className="d-flex justify-content-end">
                         <div className="me-2">
-                          <IconButton type="save" theme="success" tooltip="Save" buttonHandler={() => updateUserStatus(item)}/>
+                          <Button type="button" icon='save' theme="success" tooltip="Save" handler={() => updateUserStatus(item)}/>
                         </div>
                         <div className="ms-2">
-                          <IconButton type="delete" theme="danger" tooltip="Delete" buttonHandler={() => deleteUser(item,index)}/>
+                          <Button type="button" icon='delete' theme="danger" tooltip="Delete" handler={() => deleteUser(item,index)}/>
                         </div>
                       </div>
                     </td>

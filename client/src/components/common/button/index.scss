@@ -1,86 +1,149 @@
-@import "../../../scss/abstracts/_abstracts-dir";
+@import "scss/abstracts/_abstracts-dir";
 
-.checkbox-default{
-    column-gap: rem(7);
-    input[type="checkbox"] {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        position: relative;
-        height: rem(20);
-        width: rem(20);
-        outline: none;
-        margin: 0;
-        padding: 0;
-        cursor: pointer;
-        border: rem(2) solid var(--border-default);
-        background: transparent;
-        display: grid;
-        justify-self: end;
-        justify-items: center;
-        align-items: center;
-        overflow: hidden;
-        transition: border .5s ease;
-        &::before,
-        &::after {
-          content: "";
-          display: flex;
-          justify-self: center;
+.icon-button{
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: rem(3);
+    &.icon-button{
+        &-primary{
+            background: var(--bg-primary);
+            color: var(--text-white);
         }
-        &::before {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          background: var(--bg-white);
-          z-index: 1;
-          opacity: var(--opacity, 1);
+        &-secondary{
+            background: var(--bg-secondary);
+            color: var(--text-white);
         }
-        &::after {
-          position: relative;
-          width: calc(100% /2);
-          height: calc(100% /2);
-          background: var(--border-warning);
-          top: var(--y, 100%);
-          transition: top .5s cubic-bezier(0.48, 1.97, 0.5, 0.63);
+        &-success{
+            background: var(--bg-success);
+            color: var(--text-white);
         }
-        &:checked {
-          --checkbox: var(--border-warning);
-          border: rem(2) solid var(--border-warning);
-          &::after {
-            --y: 0%;
-            animation: stretch-animate .3s ease-out .17s;
-          }
-          &::before {
-            --opacity: 0;
-          }
-          ~ input[type="checkbox"] {
-            &::after {
-              --y: -100%;
-            }
-          }
+        &-danger{
+            background: var(--bg-danger);
+            color: var(--text-white);
         }
-        &:not(:checked) {
-          &::before {
-            --opacity: 1;
-            transition: opacity 0s linear .5s;
-          }
+        &-warning{
+            background: var(--bg-warning);
+            color: var(--text-white);
+        }
+        &-white{
+            background: var(--bg-white);
+            color: var(--text-primary);
+            border: rem(1) solid var(--border-default);
+        }
+        &-gray{
+            background: var(--border-default);
+            color: var(--text-primary);
         }
     }
-    label{
+    &[data-tooltip] {
+        position: relative;
+        z-index: 2;
         cursor: pointer;
+        &::after,
+        &::before{
+            visibility: hidden;
+            opacity: 0;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        &::before{
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            margin-bottom:rem(5);
+            transform: translate(-50%, 0%);
+            padding:rem(3) rem(7);
+            width: auto;
+            border-radius:rem(3);
+            background-color: hsla(0, 0%, 20%, 0.9);
+            color:var(--text-white);
+            content: attr(data-tooltip);
+            text-align: center;
+            font-size: rem(12);
+        }
+        &::after{
+            position: absolute;
+            bottom: 110%;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            width: 0;
+            border-top: rem(5) solid hsla(0, 0%, 20%, 0.9);
+            border-right: rem(5) solid transparent;
+            border-left: rem(5) solid transparent;
+            content: " ";
+            font-size: 0;
+            line-height: 0;
+        }
+        &:hover{
+            &::after,
+            &::before{
+                visibility: visible;
+                opacity: 1;
+            }
+        }
     }
 }
-
-@keyframes stretch-animate {
-    0% {
-      transform: scale(1,1)
-    }
-    28% {
-      transform: scale(1.15,.85)
-    }
-    50% {
-      transform: scale(.9,1.1)
-    }
-    100% {
-      transform: scale(1,1)
+.dc-btn{
+    display: inline-flex;
+    margin: 0;
+    font-size: rem(14);
+    text-transform: uppercase;
+    letter-spacing: rem(.5);
+    font-weight: 300;
+    transition: background-color 0.5s ease;
+    border: none;
+    border-radius: rem(3);
+    justify-content: center;
+    &.dc-btn{
+        &-primary{
+            background: var(--bg-primary);
+            color: var(--text-white);
+            &:hover{
+                color: var(--text-white);
+                background: var(--bg-secondary);
+                transition: background-color 0.5s ease;
+            }
+        }
+        &-secondary{
+            background: var(--bg-secondary);
+            color: var(--text-white);
+            &:hover{
+                color: var(--text-white);
+                background: var(--bg-secondary);
+                transition: background-color 0.5s ease;
+            }
+        }
+        &-success{
+            background: var(--bg-success);
+            color: var(--text-white);
+            &:hover{
+                color: var(--text-white);
+                background: var(--bg-success);
+                transition: background-color 0.5s ease;
+            }
+        }
+        &-danger{
+            background: var(--bg-danger);
+            color: var(--text-white);
+            &:hover{
+                color: var(--text-white);
+                background: var(--bg-danger);
+                transition: background-color 0.5s ease;
+            }
+        }
+        &-warning{
+            background: var(--bg-warning);
+            color: var(--text-white);
+            &:hover{
+                color: var(--text-white);
+                background: var(--bg-warning);
+                transition: background-color 0.5s ease;
+            }
+        }
+        &-fluid{
+            width: 100%;
+        }
     }
 }

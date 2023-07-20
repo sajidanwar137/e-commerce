@@ -4,7 +4,7 @@ import ErrorMessage from 'components/common/error-message/ErrorMessage';
 import AdminPageTitle from 'components/admin/page-title/AdminPageTitle';
 import {validEmail} from 'utility/utility';
 import Input from 'components/common/input/Input'
-import IconButton from "components/common/icon-button/IconButton";
+import Button from "components/common/button/Button";
 import { updateAdminProfile } from "store/admin/actions";
 import { constants } from 'utility/constants';
 import {getLocalStorageByKey} from 'utility/helper';
@@ -116,7 +116,7 @@ const UpdateProfile = () => {
                 <Input type={'text'} labelid={'email'} name={'email'} label={'Type Email...'} update={handleEmail}/>
               </div>
               <div className='col-lg-4 d-flex align-items-end'>
-                <IconButton type="update" theme="secondary" tooltip="Update" />
+                <Button type="button" icon='update' theme="secondary" tooltip="Update"/>
               </div>
             </div>
           </form>

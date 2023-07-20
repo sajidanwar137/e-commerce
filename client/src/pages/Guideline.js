@@ -5,7 +5,6 @@ import ToggleCheckbox from "components/common/toggle-checkbox/ToggleCheckbox";
 import Button from "components/common/button/Button";
 import ReactSelect from "components/common/reactselect/ReactSelect";
 import Datepicker from "components/common/datepicker/Datepicker";
-import IconButton from "components/common/icon-button/IconButton";
 import Input from "components/common/input/Input";
 import Textarea from "components/common/textarea/Textarea";
 
@@ -205,19 +204,19 @@ export default function Guideline() {
       </div>
       <div className="d-flex justify-content-start flex-wrap mb-10">
         <div className="me-3 mb-3 p-2 d-inline-flex">
-          <Button type="primary" buttonLabel="Primary" />
+          <Button type="button" theme="primary" label="Primary" handler={fn}/>
         </div>
         <div className="me-3 mb-3 p-2 d-inline-flex">
-          <Button type="secondary" buttonLabel="Secondary" />
+          <Button type="button" theme="secondary" label="Secondary" handler={fn}/>
         </div>
         <div className="me-3 mb-3 p-2 d-inline-flex">
-          <Button type="success" buttonLabel="Success" />
+          <Button type="button" theme="success" label="Success" handler={fn}/>
         </div>
         <div className="me-3 mb-3 p-2 d-inline-flex">
-          <Button type="danger" buttonLabel="Danger" />
+          <Button type="button" theme="danger" label="Danger" handler={fn}/>
         </div>
         <div className="me-3 mb-3 p-2 d-inline-flex">
-          <Button type="warning" buttonLabel="Warning" />
+          <Button type="button" theme="warning" label="Warning" handler={fn}/>
         </div>
       </div>
       <div className="d-flex justify-content-start mb-10">
@@ -225,25 +224,25 @@ export default function Guideline() {
       </div>
       <div className="d-flex justify-content-start flex-wrap mb-10">
         <div className="me-3 mb-3 p-2 d-inline-flex">
-          <IconButton type="delete" theme="primary" tooltip="Edit" />
+          <Button type="button" icon='delete' theme="primary" tooltip="Delete" handler={fn}/>
         </div>
         <div className="me-3 mb-3 p-2 d-inline-flex">
-          <IconButton type="delete" theme="secondary" tooltip="Edit" />
+          <Button type="button" icon='delete' theme="secondary" tooltip="Edit" handler={fn}/>
         </div>
         <div className="me-3 mb-3 p-2 d-inline-flex">
-          <IconButton type="delete" theme="success" tooltip="Edit" />
+          <Button type="button" icon='delete' theme="success" tooltip="Edit" handler={fn}/>
         </div>
         <div className="me-3 mb-3 p-2 d-inline-flex">
-          <IconButton type="delete" theme="danger" tooltip="Edit" />
+          <Button type="button" icon='delete' theme="danger" tooltip="Edit" handler={fn}/>
         </div>
         <div className="me-3 mb-3 p-2 d-inline-flex">
-          <IconButton type="delete" theme="warning" tooltip="Edit" />
+          <Button type="button" icon='delete' theme="warning" tooltip="Edit" handler={fn}/>
         </div>
         <div className="me-3 mb-3 p-2 d-inline-flex">
-          <IconButton type="delete" theme="white" tooltip="Edit" />
+          <Button type="button" icon='delete' theme="white" tooltip="Edit" handler={fn}/>
         </div>
         <div className="me-3 mb-3 p-2 d-inline-flex">
-          <IconButton type="delete" theme="gray" tooltip="Edit" />
+          <Button type="button" icon='delete' theme="gray" tooltip="Edit" handler={fn}/>
         </div>
       </div>
       <div className="d-flex justify-content-start mb-10">
