@@ -295,6 +295,11 @@ export default function Guideline() {
             <Textarea name='name' labelid='id-1' placeHolder='Placeholder' rows="4" cols="50"/>
           </div>
         </div>
+        <div className="col-lg-3">
+          <div>
+            <Textarea name='name' labelid='id-2' label='Placeholder' rows="4" cols="50" handler={fn}/>
+          </div>
+        </div>
       </div>
       <div className="row mb-15">
         <div className="col-lg-4">

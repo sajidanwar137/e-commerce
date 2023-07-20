@@ -7,15 +7,14 @@ const Textarea = ({
   handler, 
   placeHolder, 
   name,
-  theme,
   rows,
   cols 
 }) => {
   const handleInputChange = (e) => {
     handler(e);
     const input = e.target;
-    if (input.value.length > 0) input.classList.add('dc-input__input-active')
-    else  input.classList.remove('dc-input__input-active')
+    if (input.value.length > 0) input.classList.add('dc-textarea__textarea-active')
+    else  input.classList.remove('dc-textarea__textarea-active')
   };
 
   return (
@@ -41,9 +40,10 @@ const Textarea = ({
             className='dc-textarea__textarea px-5 py-5 border radius-3' 
             name={name}
             id={labelid}
+            onChange={handleInputChange} 
           >
-          {label && <label className='dc-input__label' htmlFor={labelid}>{label}</label>}
           </textarea>
+          {label && <label className='dc-input__label' htmlFor={labelid}>{label}</label>}
         </div>
       )}
     </div>
