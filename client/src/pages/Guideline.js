@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Radio from "components/common/radio/Radio";
 import Checkbox from "components/common/checkbox/Checkbox";
 import Button from "components/common/button/Button";
-import ReactSelect from "components/common/reactselect/ReactSelect";
+import AutoSelect from "components/common/autoselect/AutoSelect";
 import Datepicker from "components/common/datepicker/Datepicker";
 import Input from "components/common/input/Input";
 import Textarea from "components/common/textarea/Textarea";
@@ -256,7 +256,7 @@ export default function Guideline() {
             <h4>React Select</h4>
           </div>
           <div>
-            <ReactSelect inputId='inputId' placeholder='Type...' data={options} classprefix='react-select-default' labelstatus={true} labeltext='React select'/>
+            <AutoSelect inputId='inputId' placeholder='Type...' data={options} classprefix='react-select-default' labelstatus={true} labeltext='React select'/>
           </div>
         </div>
         <div className="col-lg-4">
@@ -264,7 +264,7 @@ export default function Guideline() {
             <h4>React Select</h4>
           </div>
           <div>
-            <ReactSelect inputId='inputId2' placeholder='Type...' data={options} classprefix='react-select-primary' labelstatus={true} labeltext='React select'/>
+            <AutoSelect inputId='inputId2' placeholder='Type...' data={options} classprefix='react-select-primary' labelstatus={true} labeltext='React select'/>
           </div>
         </div>
         <div className="col-lg-4">
