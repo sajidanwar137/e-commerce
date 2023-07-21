@@ -355,7 +355,7 @@ export default function Guideline() {
               <Checkbox name='name5' label="Label 2" labelid="checkbox5" handler={fn}/>
             </div>
             <div className="me-3 mb-3 p-2 d-inline-flex">
-              <Checkbox name='name6' label="Label 3" labelid="checkbox6" handler={fn}/>
+              <Checkbox name='name6' label="Label 3" labelid="checkbox6"/>
             </div>
           </div>
         </div>

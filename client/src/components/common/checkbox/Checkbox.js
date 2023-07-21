@@ -15,21 +15,35 @@ const Checkbox = ({
     toggleSwitch && toggleSwitch === 'true' ? (
       <div className='d-inline-flex justify-content-start align-items-center checkbox-switch'>
         <label className="checkbox-switch__label d-inline-flex">
+          {handler ? (
             <input
-                type="checkbox"
-                name={name}
-                checked={checked}
-                onChange={handler}
-                id={labelid}
-                className='checkbox-switch__checkbox'
+              type="checkbox"
+              name={name}
+              checked={checked}
+              onChange={handler}
+              id={labelid}
+              className='checkbox-switch__checkbox'
             />
-            <span className="checkbox-switch__slider" data-off={OFF} data-on={ON}></span>
+          ) : (
+            <input
+              type="checkbox"
+              name={name}
+              checked={checked}
+              id={labelid}
+              className='checkbox-switch__checkbox'
+            />
+          )}
+          <span className="checkbox-switch__slider" data-off={OFF} data-on={ON}></span>
         </label>
         {label && <label htmlFor={labelid}>{label}</label>}
       </div>
     ) : (
       <div className='d-inline-flex justify-content-start align-items-center checkbox-default'>
-        <input name={name} id={labelid} type="checkbox" onChange={handler}/>
+        {handler ? (
+          <input name={name} id={labelid} type="checkbox" onChange={handler}/>
+        ) : (
+          <input name={name} id={labelid} type="checkbox"/>
+        )}
         {label && <label htmlFor={labelid}>{label}</label>}
       </div>
     )
