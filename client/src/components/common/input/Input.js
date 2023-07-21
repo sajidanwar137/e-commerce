@@ -24,7 +24,7 @@ const Input = ({
           <div className='dc-input__col'>
             <input 
               autoComplete='off' 
-              className='dc-input__input px-5 py-5 border radius-3' 
+              className='dc-input__input px-5 py-4 border radius-3' 
               name={name} 
               type={type} 
               id={labelid} 
@@ -36,7 +36,7 @@ const Input = ({
           <div className='dc-input__col'>
             <input 
               autoComplete='off' 
-              className='dc-input__input pe-5 py-5 border-b border-t-0 border-s-0 border-e-0 radius-0' 
+              className='dc-input__input pe-5 py-4 border-b border-t-0 border-s-0 border-e-0 radius-0' 
               name={name} 
               type={type} 
               id={labelid} 
@@ -50,7 +50,7 @@ const Input = ({
           <div className='dc-input__col'>
             <input 
               autoComplete='off' 
-              className='dc-input__input px-5 py-5 border radius-3' 
+              className='dc-input__input px-5 py-4 border radius-3' 
               name={name} 
               type={type} 
               id={labelid}
@@ -62,7 +62,7 @@ const Input = ({
           <div className='dc-input__col'>
             <input 
               autoComplete='off' 
-              className='dc-input__input pe-5 py-5 border-b border-t-0 border-s-0 border-e-0 radius-0' 
+              className='dc-input__input pe-5 py-4 border-b border-t-0 border-s-0 border-e-0 radius-0' 
               name={name} 
               type={type} 
               id={labelid}

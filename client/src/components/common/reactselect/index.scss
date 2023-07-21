@@ -34,7 +34,7 @@
 }
 .react-select-primary{
   &__control{
-    padding: rem(11) 0;
+    padding: rem(8) 0;
   }
   &-container{
     border-bottom: rem(1) solid var(--border-default);
@@ -42,7 +42,7 @@
 }
 .react-select-default{
   &__control{
-    padding: rem(11) rem(10);
+    padding:rem(8) rem(10);
   }
   &-container{
     border: rem(1) solid var(--border-default);
