@@ -17,7 +17,7 @@ const Button = ({
   return (
     handler ? (
       tooltip ? (
-        <button type={type} className={`icon-button p-5 icon-button-${theme}`} data-tooltip={tooltip} onClick={handler}>
+        <button type={type} className={`icon-button p-6 icon-button-${theme}`} data-tooltip={tooltip} onClick={handler}>
           <span className={`dc-icon-${icon}`}></span>
         </button>
       ) : (
@@ -25,7 +25,7 @@ const Button = ({
       )
     ) : (
       tooltip ? (
-        <button type={type} className={`icon-button p-5 icon-button-${theme}`} data-tooltip={tooltip}>
+        <button type={type} className={`icon-button p-6 icon-button-${theme}`} data-tooltip={tooltip}>
           <span className={`dc-icon-${icon}`}></span>
         </button>
       ) : (

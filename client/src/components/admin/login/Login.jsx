@@ -61,7 +61,6 @@ const Login = () => {
     }
     catch (error) {
       console.error('Error fetching data:', error.message);
-      //dispatch(saveAdminAuth(error.message));
     }
   };
 
@@ -84,7 +83,7 @@ const Login = () => {
                 <Input type={'password'} name='password' labelid={'admin-password'} label={'Password'} handler={passwordHandler}/>
               </div>
               <div className='dc-admin-login__layout-row mb-8 d-flex justify-content-center'>
-                  <Link to="/dashboard/admin-forgot-password" className='px-12 py-4'>Forgot Password?</Link>
+                  <Link to="/dashboard/admin-forgot-password" className='px-12 py-4 dc-admin-login__layout-row--link'>Forgot Password?</Link>
               </div>
               <div className='dc-admin-login__layout-row d-flex justify-content-center'>
                 <Button type="submit" theme='secondary' label='Login' display='block'/>

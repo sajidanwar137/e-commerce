@@ -21,7 +21,6 @@ const UpdateProfile = () => {
   
   const data = useSelector((state) => state?.admin?.data[0]);
   const token = getLocalStorageByKey('__auth', ['token']);
-  console.log("token::::",token)
 
   const handleName = (event) => {
     setAdminName(event.target.value);
@@ -109,11 +108,11 @@ const UpdateProfile = () => {
               </div>
             </div>
             <div className='row'>
-              <div className='col-lg-4'>
-                <Input type={'text'} labelid={'name'} name={'name'} label={'Type Name...'} update={handleName}/>
+              <div className='col-lg-3'>
+                <Input name='name' type='text' labelid='name' label='Name' theme='border' handler={handleName}/>
               </div>
-              <div className='col-lg-4'>
-                <Input type={'text'} labelid={'email'} name={'email'} label={'Type Email...'} update={handleEmail}/>
+              <div className='col-lg-3'>
+                <Input name='email' type='text' labelid='email' label='Email' theme='border' handler={handleEmail}/>
               </div>
               <div className='col-lg-4 d-flex align-items-end'>
                 <Button type="button" icon='update' theme="secondary" tooltip="Update"/>

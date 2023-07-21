@@ -2,10 +2,14 @@
 
 .icon-button{
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
     margin: 0;
     padding: 0;
     border: none;
     border-radius: rem(3);
+    height: rem(40);
+    width: rem(40);
     &.icon-button{
         &-primary{
             background: var(--bg-primary);
