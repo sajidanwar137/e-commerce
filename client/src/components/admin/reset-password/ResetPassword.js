@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import PasswordChangeImg from '../../../resources/images/password-change.jpeg';
-import ErrorMessage from '../../common/error-message/ErrorMessage';
+import Message from '../../common/message/Message';
 import {validateConfirmPassword, passwordComplexity} from 'utility/utility';
 import { constants } from 'utility/constants';
 import api from 'api/api';
@@ -104,7 +104,7 @@ const ResetPassword = () => {
               <h4 className='dc-h4'>Reset password</h4>
           </div>
           <form className='dc-admin-layout__layout-body' onSubmit={handleSubmit}>
-            {showError && <ErrorMessage type="error" message={error} />}
+            {showError && <Message type="error" message={error} />}
             <div className='dc-admin-layout__layout-row mb-8'>
               <label className='dc-admin-change-password__label mb-2'>New Password:</label>
               <input

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { updateLogo } from "store/logo/actions";
 import AdminPageTitle from 'components/admin/page-title/AdminPageTitle';
-import ErrorMessage from 'components/common/error-message/ErrorMessage';
+import Message from 'components/common/message/Message';
 import Logo from "resources/images/logo.png";
 import { constants } from 'utility/constants';
 import Button from "components/common/button/Button";
@@ -79,7 +79,7 @@ const UpdateLogo = () => {
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           <div className='row'>
             <div className='col-lg-4'>
-              {showError && <ErrorMessage type="error" message={error} />}
+              {showError && <Message type="error" message={error} />}
             </div>
           </div>
           <div className='row d-flex justify-content-start align-items-center'>

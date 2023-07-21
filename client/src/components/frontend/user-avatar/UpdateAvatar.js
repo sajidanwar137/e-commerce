@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import ErrorMessage from 'components/common/error-message/ErrorMessage';
+import Message from 'components/common/message/Message';
 import { uplodUserAvtar } from "store/user/actions";
 import Swal from 'sweetalert2';
 import Avtar from 'resources/images/avtar.jpeg';
@@ -73,7 +73,7 @@ const UpdateAvatar = () => {
         <form onSubmit={handleAvtarSubmit} encType="multipart/form-data">
           <div className='row'>
             <div className='col-lg-12'>
-              {showError && <ErrorMessage type="error" message={error} />}
+              {showError && <Message type="error" message={error} />}
             </div>
           </div>
           <div className='row mb-10'>

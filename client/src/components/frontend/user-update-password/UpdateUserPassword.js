@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom';
-import ErrorMessage from 'components/common/error-message/ErrorMessage';
+import Message from 'components/common/message/Message';
 import Input from 'components/common/input/Input'
 import {validateConfirmPassword, passwordComplexity} from 'utility/utility';
 import { userLogout } from 'store/userauth/actions';
@@ -123,7 +123,7 @@ const UpdateUserPassword = () => {
         <div className='px-10 py-15'>
           <form onSubmit={handleUpdatedPasswordSubmit}>
             <div className='row'>
-              <div className='col-lg-12'>{showError && <ErrorMessage type="error" message={error} />}</div>
+              <div className='col-lg-12'>{showError && <Message type="error" message={error} />}</div>
             </div>
             <div className='row mb-15'>
               <div className='col-lg-4'>

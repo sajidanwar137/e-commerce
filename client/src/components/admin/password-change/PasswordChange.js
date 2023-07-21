@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { adminLogout } from 'store/auth/actions';
-import ErrorMessage from 'components/common/error-message/ErrorMessage';
+import Message from 'components/common/message/Message';
 import AdminPageTitle from 'components/admin/page-title/AdminPageTitle';
 import Input from 'components/common/input/Input'
 import api from 'api/api';
@@ -126,7 +126,7 @@ const PasswordChange = () => {
           <form onSubmit={handleSubmit}>
             <div className='row'>
               <div className='col-lg-12'>
-                {showError && <ErrorMessage type="error" message={error} />}
+                {showError && <Message type="error" message={error} />}
               </div>
             </div>
             <div className='row d-flex align-items-center'>

@@ -5,7 +5,7 @@ import Input from 'components/common/input/Input'
 import Modal from '../../common/modal/Modal'
 import UserLoginImg from 'resources/images/admin-login.png';
 import { userLogin } from "store/userauth/actions";
-import ErrorMessage from 'components/common/error-message/ErrorMessage';
+import Message from 'components/common/message/Message';
 import {validEmail} from 'utility/utility';
 import api from 'api/api';
 import './index.scss';
@@ -85,7 +85,7 @@ const UserLogin = ({isOpen, onClose, userforgot, usersignup}) => {
         </div>
         <div className='dc-guest-user-login-modal__layout-col ps-10'>
           <form className='m-0' onSubmit={guestUserLoginSubmit}>
-            <div className='mb-3'>{showError && <ErrorMessage type="error" message={error} />}</div>
+            <div className='mb-3'>{showError && <Message type="error" message={error} />}</div>
             <div className='mb-6'>
               <Input type={'text'} labelid={'guest-user-email'} label={'Enter email'} update={emailHandler}/>
             </div>

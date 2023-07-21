@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import ErrorMessage from 'components/common/error-message/ErrorMessage';
+import Message from 'components/common/message/Message';
 import AdminPageTitle from 'components/admin/page-title/AdminPageTitle';
 import {validEmail} from 'utility/utility';
 import Input from 'components/common/input/Input'
@@ -105,7 +105,7 @@ const UpdateProfile = () => {
           <form onSubmit={handleSubmit}>
             <div className='row'>
               <div className='col-lg-4'>
-                {showError && <ErrorMessage type="error" message={error}/>}
+                {showError && <Message type="error" message={error}/>}
               </div>
             </div>
             <div className='row'>

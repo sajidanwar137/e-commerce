@@ -1,9 +1,9 @@
 @import "scss/abstracts/_abstracts-dir";
 
-.react-select{
+.react-select-primary,
+.react-select-default{
   &-container{
     background: var(--bg-white);
-    border-bottom: rem(1) solid var(--border-default);
   }
   &__menu{
     background: var(--bg-white);
@@ -30,6 +30,23 @@
     &--is-selected{
       color: var(--text-secondary);
     }
+  }
+}
+.react-select-primary{
+  &__control{
+    padding: rem(11) 0;
+  }
+  &-container{
+    border-bottom: rem(1) solid var(--border-default);
+  }
+}
+.react-select-default{
+  &__control{
+    padding: rem(11) rem(10);
+  }
+  &-container{
+    border: rem(1) solid var(--border-default);
+    border-radius: rem(3);
   }
 }
 

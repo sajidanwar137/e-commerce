@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { saveAdminAuth } from "redux/slices/admin/adminSlice";
 import { useNavigate } from 'react-router-dom';
 import Input from 'components/common/input/Input'
-import ErrorMessage from 'components/common/error-message/ErrorMessage';
+import Message from 'components/common/message/Message';
 import {validEmail} from 'utility/utility';
 import {setLocalStorage} from 'utility/helper';
 import { constants } from 'utility/constants';
@@ -75,7 +75,7 @@ const Login = () => {
           <div className='dc-admin-login__title mb-8 d-flex align-items-center justify-content-center'>
               <h4 className='dc-h4'>Admin Login</h4>
           </div>
-          {showError && <ErrorMessage type="error" message={error}/>}
+          {showError && <Message type="error" message={error}/>}
           <form className='dc-admin-login__layout-body' onSubmit={handleSubmit}>
               <div className='dc-admin-login__layout-row mb-8'>
                 <Input type='text' name='email' labelid='admin-email' label='Email' handler={emailHandler}/>

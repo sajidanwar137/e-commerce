@@ -2,7 +2,7 @@ import React from 'react'
 
 import './index.scss';
 
-const ErrorMessage = ({ type, message}) => {
+const Message = ({ type, message}) => {
   return (
     <div className={`ds-error-message d-flex justify-content-start align-items-start mb-4 py-3 px-5 ${type}`}>
     <span className={`dc-icon-${type}`}></span>
@@ -11,4 +11,4 @@ const ErrorMessage = ({ type, message}) => {
   );
 };
 
-export default ErrorMessage;
+export default Message;

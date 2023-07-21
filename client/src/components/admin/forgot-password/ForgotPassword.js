@@ -2,7 +2,7 @@ import React, {useState } from 'react';
 import { Link} from "react-router-dom";
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
-import ErrorMessage from 'components/common/error-message/ErrorMessage';
+import Message from 'components/common/message/Message';
 import Input from 'components/common/input/Input'
 import ForgotPasswordImg from 'resources/images/forgot-password.png';
 import {validEmail} from 'utility/utility';
@@ -70,7 +70,7 @@ function ForgotPassword() {
             <p className='body-sm'>To reset your password, enter the registered e-mail adddress and we will send you password reset instructions on your e-mail!</p>
           </div>
           <form className='dc-admin-forgot-password__layout-body' onSubmit={handleSubmit}>
-              {showError && <ErrorMessage type="error" message={error} />}
+              {showError && <Message type="error" message={error} />}
               <div className='dc-admin-forgot-password__layout-row mb-8'>
                 <Input type={'text'} labelid={'admin-forgot-password'} label={'Enter your registered email'} update={handleEmailChange}/>
               </div>

@@ -256,7 +256,15 @@ export default function Guideline() {
             <h4>React Select</h4>
           </div>
           <div>
-            <ReactSelect inputId='inputId' placeholder='Type...' data={options} classprefix='react-select' labelstatus={true} labeltext='React select'/>
+            <ReactSelect inputId='inputId' placeholder='Type...' data={options} classprefix='react-select-default' labelstatus={true} labeltext='React select'/>
+          </div>
+        </div>
+        <div className="col-lg-4">
+          <div className="mb-10">
+            <h4>React Select</h4>
+          </div>
+          <div>
+            <ReactSelect inputId='inputId2' placeholder='Type...' data={options} classprefix='react-select-primary' labelstatus={true} labeltext='React select'/>
           </div>
         </div>
         <div className="col-lg-4">
