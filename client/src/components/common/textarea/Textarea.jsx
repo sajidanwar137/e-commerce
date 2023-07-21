@@ -43,7 +43,7 @@ const Textarea = ({
             onChange={handleInputChange} 
           >
           </textarea>
-          {label && <label className='dc-input__label' htmlFor={labelid}>{label}</label>}
+          {label && <label className='dc-textarea__label' htmlFor={labelid}>{label}</label>}
         </div>
       )}
     </div>

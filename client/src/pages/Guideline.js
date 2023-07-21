@@ -1,7 +1,6 @@
-import React from "react";
+import React, {useState} from "react";
 import Radio from "components/common/radio/Radio";
 import Checkbox from "components/common/checkbox/Checkbox";
-import ToggleCheckbox from "components/common/toggle-checkbox/ToggleCheckbox";
 import Button from "components/common/button/Button";
 import ReactSelect from "components/common/reactselect/ReactSelect";
 import Datepicker from "components/common/datepicker/Datepicker";
@@ -9,12 +8,15 @@ import Input from "components/common/input/Input";
 import Textarea from "components/common/textarea/Textarea";
 
 export default function Guideline() {
+  const [status, setStatus] = useState(true);
   const options = [
     { value: 'chocolate', label: 'Chocolate' },
     { value: 'strawberry', label: 'Strawberry' },
     { value: 'vanilla', label: 'Vanilla' }
   ]
-  const fn = () => {}
+  const fn = (e) => {
+    console.log("first", e.target.value)
+  }
   return (
     <div className="dc-container">
       <div className="row pt-30 mb-15">
@@ -307,13 +309,13 @@ export default function Guideline() {
           </div>
           <div>
             <div className="me-3 mb-3 p-2 d-inline-flex">
-              <ToggleCheckbox />
+              <Checkbox toggleSwitch='true' checked={status} name='name1' ON='On' OFF='Off' label={"Label 1"} labelid={"checkbox1"} handler={fn}/>
             </div>
             <div className="me-3 mb-3 p-2 d-inline-flex">
-              <ToggleCheckbox />
+              <Checkbox toggleSwitch='true' name='name2' ON='On' OFF='Off' label={"Label 1"} labelid={"checkbox2"} handler={fn}/>
             </div>
             <div className="me-3 mb-3 p-2 d-inline-flex">
-              <ToggleCheckbox />
+              <Checkbox toggleSwitch='true' name='name3' ON='On' OFF='Off' label={"Label 1"} labelid={"checkbox3"} handler={fn}/>
             </div>
           </div>
         </div>
@@ -339,13 +341,13 @@ export default function Guideline() {
           </div>
           <div>
             <div className="me-3 mb-3 p-2 d-inline-flex">
-              <Checkbox label={"Label 1"} labelid={"checkbox1"} />
+              <Checkbox name='name4' label="Label 1" labelid="checkbox4" handler={fn}/>
             </div>
             <div className="me-3 mb-3 p-2 d-inline-flex">
-              <Checkbox label={"Label 2"} labelid={"checkbox2"} />
+              <Checkbox name='name5' label="Label 2" labelid="checkbox5" handler={fn}/>
             </div>
             <div className="me-3 mb-3 p-2 d-inline-flex">
-              <Checkbox label={"Label 3"} labelid={"checkbox3"} />
+              <Checkbox name='name6' label="Label 3" labelid="checkbox6" handler={fn}/>
             </div>
           </div>
         </div>

@@ -58,6 +58,7 @@ button::-moz-focus-inner,
   border-style: none;
 }
 input[type="radio"],
+textarea,
 input[type="checkbox"] {
   box-sizing: border-box;
   padding: 0;

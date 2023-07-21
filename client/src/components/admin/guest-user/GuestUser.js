@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector} from "react-redux";
 import AdminPageTitle from "components/admin/page-title/AdminPageTitle";
-import ToggleCheckbox from "components/common/toggle-checkbox/ToggleCheckbox";
+import Checkbox from "components/common/checkbox/Checkbox"
 import Button from "components/common/button/Button";
 import {headerBearer} from 'utility/utility';
 import Swal from 'sweetalert2';
@@ -160,7 +160,7 @@ const GuestUser = () => {
                     <td className="border-b border-e p-3 text-start">{item?.email}</td>
                     <td className="border-b border-e p-3 text-start">{item?.phone}</td>
                     <td className="border-b border-e p-3 text-end">
-                      <ToggleCheckbox status={item?.isActive} ToggleHandler={(e) => CheckboxHandler(item?._id, e, index)}/>
+                      <Checkbox toggleSwitch='true' name={item?._id} labelid={item?._id} checked={item?.isActive} handler={(e) => CheckboxHandler(item?._id, e, index)}/>
                     </td>
                     <td className="border-b border-e p-3 text-end">
                       <div className="d-flex justify-content-end">

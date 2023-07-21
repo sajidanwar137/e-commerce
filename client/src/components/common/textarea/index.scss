@@ -2,34 +2,16 @@
 
 .dc-textarea{
     &__textarea{
-        &:focus + .dc-input__bottom-line{
-            &::before,
-            &::after{
-                transform: scale(1)
-            }
-        }
         &:focus{
-            ~.dc-input__label {
+            ~.dc-textarea__label {
                 transform: translateY(-10px) scale(1);
                 padding: 0 rem(5);
-                &.label-0{
-                    padding: 0; 
-                }
               }
         }
         &-active{
-            ~.dc-input__label {
+            ~.dc-textarea__label {
                 transform: translateY(-10px) scale(1);
                 padding: 0 rem(5);
-                &.label-0{
-                    padding: 0; 
-                }
-            }
-            + .dc-input__bottom-line{
-                &::before,
-                &::after{
-                    transform: scale(1)
-                }
             }
         }
     }
@@ -47,10 +29,6 @@
         transition: transform .2s ease,-webkit-transform .2s ease;
         will-change: transform;
         transform-origin: left;
-        &.label-0{
-            left: 0;
-            padding:0;
-        }
     }
 }
 .dc-textarea{
