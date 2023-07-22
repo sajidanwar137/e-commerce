@@ -11,25 +11,27 @@
     height: rem(40);
     width: rem(40);
     &.icon-button{
+        &-secondary,
+        &-danger,
+        &-success,
+        &-warning,
+        &-primary{
+            color: var(--text-white);
+        }
         &-primary{
             background: var(--bg-primary);
-            color: var(--text-white);
         }
         &-secondary{
             background: var(--bg-secondary);
-            color: var(--text-white);
         }
         &-success{
             background: var(--bg-success);
-            color: var(--text-white);
         }
         &-danger{
             background: var(--bg-danger);
-            color: var(--text-white);
         }
         &-warning{
             background: var(--bg-warning);
-            color: var(--text-white);
         }
         &-white{
             background: var(--bg-white);

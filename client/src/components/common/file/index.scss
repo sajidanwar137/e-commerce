@@ -1,0 +1,76 @@
+@import "../../../scss/abstracts/_abstracts-dir";
+
+.dc-file{
+    position: relative;
+    &__label{
+    }
+    &__input{
+        height: rem(40);
+        padding-left: rem(50);
+        cursor: pointer;
+        &::file-selector-button{
+            display: none;
+        }
+    }
+    &::before{
+        content: "\e923";
+        transform: rotate(180deg);
+        width: rem(40);
+        height: rem(40);
+        left: 0;
+        bottom: 0;
+        position: absolute;
+        border-radius:0 rem(3) rem(3) 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: $iconmoon-family;
+    }
+    &-secondary,
+    &-danger,
+    &-success,
+    &-warning,
+    &-primary{
+        &::before{
+            color: var(--text-white);
+        }
+    }
+    &-primary{
+        &::before{
+            background: var(--bg-primary);
+        }
+    }
+    &-secondary{
+        &::before{
+            background: var(--bg-secondary);
+        }
+    }
+    &-success{
+        &::before{
+            background: var(--bg-success);
+        }
+    }
+    &-danger{
+        &::before{
+            background: var(--bg-danger);
+        }
+    }
+    &-warning{
+        &::before{
+            background: var(--bg-warning);
+        }
+    }
+    &-white{
+        &::before{
+            background: var(--bg-white);
+            color: var(--text-primary);
+            border-right: rem(1) solid var(--border-default);
+        }
+    }
+    &-gray{
+        &::before{
+            background: var(--border-default);
+            color: var(--text-primary);
+        }
+    }
+}

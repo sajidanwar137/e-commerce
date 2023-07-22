@@ -2,6 +2,7 @@
 
 .dc-input{
     &__input{
+        height: rem(40);
         &[type="password"],
         &[type="email"],
         &[type="text"]{
@@ -88,6 +89,7 @@
         position: relative;
         &-input{
             width: 100%;
+            height: rem(40);
         }
     }
 }

@@ -99,13 +99,3 @@ input[type="email"]:focus{
   background-color:var(--bg-white);
   transition: border-color 0.5s ease;
 }
-input[type=file]::file-selector-button {
-  margin-right: rem(20);
-  border: none;
-  background:var(--bg-primary);
-  padding:rem(10);
-  border-radius:rem(6) 0 0 rem(6);
-  color:var(--text-white);
-  border: rem(1) solid var(--bg-primary);
-  cursor: pointer;
-}

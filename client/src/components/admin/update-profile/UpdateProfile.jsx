@@ -47,12 +47,8 @@ const UpdateProfile = () => {
       setShowError(true);
       return;
     }
-    if (adminEmail.trim() === "") {
-      obj.email = data?.email
-    }
-    if (adminName.trim() === "") {
-      obj.name = data?.name
-    }
+    if (adminEmail.trim() === "") obj.email = data?.email
+    if (adminName.trim() === "") obj.name = data?.name
 
     try {
       const result = await dispatch(updateAdminProfile(obj, token?.token));
@@ -96,7 +92,7 @@ const UpdateProfile = () => {
       <div className='dc-admin-update-profile border box-shadow'>
         <div className='border-b px-10 py-7 d-flex justify-content-start align-items-center'>
           <div className='dc-admin-update-profile__title-icon border radius-50 d-flex justify-content-center align-items-center me-5'>
-            <span className='dc-icon-address-book'></span>
+            <span className='dc-icon-update'></span>
           </div>
           <h5 className='fw-400'>Update Profile</h5>
         </div>

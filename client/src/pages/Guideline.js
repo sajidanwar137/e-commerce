@@ -5,6 +5,7 @@ import Button from "components/common/button/Button";
 import AutoSelect from "components/common/autoselect/AutoSelect";
 import Datepicker from "components/common/datepicker/Datepicker";
 import Input from "components/common/input/Input";
+import File from "components/common/file/File";
 import Textarea from "components/common/textarea/Textarea";
 
 export default function Guideline() {
@@ -251,7 +252,15 @@ export default function Guideline() {
         <h3>Form Elements</h3>
       </div>
       <div className="row mb-15 d-flex align-items-end">
-        <div className="col-lg-4">
+      <div className="col-lg-3">
+          <div className="mb-10">
+            <h4>File input</h4>
+          </div>
+          <div>
+            <File theme='secondary' id='id-3' name='logo' label='Placeholder' handler={fn}/>
+          </div>
+        </div>
+        <div className="col-lg-3">
           <div className="mb-10">
             <h4>React Select</h4>
           </div>
@@ -259,7 +268,7 @@ export default function Guideline() {
             <AutoSelect inputId='inputId' placeholder='Type...' data={options} classprefix='react-select-default' labelstatus={true} labeltext='React select'/>
           </div>
         </div>
-        <div className="col-lg-4">
+        <div className="col-lg-3">
           <div className="mb-10">
             <h4>React Select</h4>
           </div>
@@ -267,7 +276,7 @@ export default function Guideline() {
             <AutoSelect inputId='inputId2' placeholder='Type...' data={options} classprefix='react-select-primary' labelstatus={true} labeltext='React select'/>
           </div>
         </div>
-        <div className="col-lg-4">
+        <div className="col-lg-3">
           <div className="mb-10">
             <h4>Datepicker</h4>
           </div>
